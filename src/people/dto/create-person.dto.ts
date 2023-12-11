@@ -2,7 +2,6 @@ import {
     IsArray,
     IsDateString,
     IsNotEmpty,
-    IsNumberString,
 } from 'class-validator';
 import {Transform} from 'class-transformer';
 
@@ -13,11 +12,11 @@ export class CreatePersonDto {
 
     @Transform(({value}) => isNaN(parseInt(value)) ? 'unknown' : parseInt(value))
     @IsNotEmpty()
-    height: number | string;
+    height: string;
 
     @Transform(({value}) => isNaN(parseInt(value)) ? 'unknown' : parseInt(value))
     @IsNotEmpty()
-    mass: number | string;
+    mass: string;
 
     @Transform(({value}) => (value.trim() ? value.trim() : 'n/a'))
     @IsNotEmpty()
@@ -55,13 +54,12 @@ export class CreatePersonDto {
     @IsArray()
     starships: string[];
 
-    @Transform(({value}) => value.trim())
+    @Transform(({value}) => value.trim() ? value.trim() : new Date().toISOString())
     @IsDateString()
     created: string;
 
-    @IsDateString()
-    @Transform(({value}) => value.trim())
-    edited: string;
+    @Transform(({value}) => value.trim() ? value.trim() : null)
+    edited: string | null;
 
     @Transform(({value}) => value.trim())
     @IsNotEmpty()

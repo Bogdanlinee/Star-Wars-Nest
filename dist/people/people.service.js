@@ -5,61 +5,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PeopleService = void 0;
 const common_1 = require("@nestjs/common");
+const typeorm_1 = require("@nestjs/typeorm");
+const person_entity_1 = require("./entities/person.entity");
+const typeorm_2 = require("typeorm");
+const common_2 = require("@nestjs/common");
 let PeopleService = class PeopleService {
-    constructor() {
+    constructor(personRepository) {
+        this.personRepository = personRepository;
         this.people = [];
     }
-    create(createPersonDto) {
-        const newPerson = {
-            ...createPersonDto,
-            id: parseInt(Date.now().toString()),
-        };
-        this.people.push(newPerson);
-        return newPerson;
+    async create(createPersonDto) {
+        return this.personRepository.save(createPersonDto);
     }
-    findAll() {
-        if (this.people.length > 10) {
-            return this.people.slice(this.people.length - 10);
-        }
-        else {
-            return this.people;
-        }
-    }
-    findOne(id) {
-        const person = this.people.find(item => item.id === id);
-        if (!person) {
-            throw new Error('No person with such id');
-        }
-        return person;
-    }
-    update(id, updatePersonDto) {
-        const person = this.findOne(id);
-        const updatedPerson = {
-            ...person,
-            ...updatePersonDto,
-        };
-        this.people = this.people.map((item) => {
-            if (item.id === id) {
-                item = {
-                    ...person,
-                    ...updatedPerson,
-                };
-            }
-            return item;
-        });
-        return updatedPerson;
-    }
-    remove(id) {
-        const person = this.findOne(id);
-        this.people = this.people.filter((item) => item.id !== id);
+    async findOne(id) {
+        const person = await this.personRepository.findOneBy({ id });
+        if (!person)
+            throw new common_2.NotFoundException('No such user!');
         return person;
     }
 };
 exports.PeopleService = PeopleService;
 exports.PeopleService = PeopleService = __decorate([
-    (0, common_1.Injectable)()
+    (0, common_1.Injectable)(),
+    __param(0, (0, typeorm_1.InjectRepository)(person_entity_1.Person)),
+    __metadata("design:paramtypes", [typeorm_2.Repository])
 ], PeopleService);
 //# sourceMappingURL=people.service.js.map

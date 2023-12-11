@@ -23,12 +23,12 @@ __decorate([
 __decorate([
     (0, class_transformer_1.Transform)(({ value }) => isNaN(parseInt(value)) ? 'unknown' : parseInt(value)),
     (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", Object)
+    __metadata("design:type", String)
 ], CreatePersonDto.prototype, "height", void 0);
 __decorate([
     (0, class_transformer_1.Transform)(({ value }) => isNaN(parseInt(value)) ? 'unknown' : parseInt(value)),
     (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", Object)
+    __metadata("design:type", String)
 ], CreatePersonDto.prototype, "mass", void 0);
 __decorate([
     (0, class_transformer_1.Transform)(({ value }) => (value.trim() ? value.trim() : 'n/a')),
@@ -77,14 +77,13 @@ __decorate([
     __metadata("design:type", Array)
 ], CreatePersonDto.prototype, "starships", void 0);
 __decorate([
-    (0, class_transformer_1.Transform)(({ value }) => value.trim()),
+    (0, class_transformer_1.Transform)(({ value }) => value.trim() ? value.trim() : new Date().toISOString()),
     (0, class_validator_1.IsDateString)(),
     __metadata("design:type", String)
 ], CreatePersonDto.prototype, "created", void 0);
 __decorate([
-    (0, class_validator_1.IsDateString)(),
-    (0, class_transformer_1.Transform)(({ value }) => value.trim()),
-    __metadata("design:type", String)
+    (0, class_transformer_1.Transform)(({ value }) => value.trim() ? value.trim() : null),
+    __metadata("design:type", Object)
 ], CreatePersonDto.prototype, "edited", void 0);
 __decorate([
     (0, class_transformer_1.Transform)(({ value }) => value.trim()),

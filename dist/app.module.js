@@ -9,12 +9,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const people_module_1 = require("./people/people.module");
+const typeorm_1 = require("@nestjs/typeorm");
+const person_entity_1 = require("./people/entities/person.entity");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [people_module_1.PeopleModule],
+        imports: [
+            people_module_1.PeopleModule,
+            typeorm_1.TypeOrmModule.forRoot({
+                type: 'mysql',
+                host: 'localhost',
+                port: 3306,
+                username: 'root',
+                password: 'root',
+                database: 'Test1',
+                entities: [person_entity_1.Person],
+                synchronize: true,
+            }),
+        ],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
