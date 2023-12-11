@@ -1,7 +1,7 @@
 export declare class CreatePersonDto {
     name: string;
-    height: number | string;
-    mass: number | string;
+    height: string;
+    mass: string;
     hair_color: string;
     skin_color: string;
     eye_color: string;
@@ -13,6 +13,6 @@ export declare class CreatePersonDto {
     vehicles: string[];
     starships: string[];
     created: string;
-    edited: string;
+    edited: string | null;
     url: string;
 }

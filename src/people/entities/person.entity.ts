@@ -1,54 +1,56 @@
-import {Column, PrimaryGeneratedColumn} from 'typeorm';
+import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm';
 
+@Entity()
 export class Person {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({type: 'varchar', nullable: false})
     name: string;
 
-    @Column()
-    height: string | number;
+    @Column({type: 'varchar', nullable: false})
+    height: string;
 
-    @Column()
-    mass: string | number;
+    @Column({type: 'varchar', nullable: false})
+    mass: string;
 
-    @Column()
+    @Column({type: 'varchar', nullable: false})
     hair_color: string;
 
-    @Column()
+    @Column({type: 'varchar', nullable: false})
     skin_color: string;
 
-    @Column()
+    @Column({type: 'varchar', nullable: false})
     eye_color: string;
 
-    @Column()
+    @Column({type: 'varchar', nullable: false})
     birth_year: string;
 
-    @Column()
+    @Column({type: 'varchar', nullable: false})
     gender: string;
 
-    @Column()
+    @Column({type: 'varchar', nullable: false})
     homeworld: string;
 
-    @Column()
+    @Column({type: 'json', nullable: false})
     films: string[];
 
-    @Column()
+    @Column({type: 'json', nullable: false})
     species: string[];
 
-    @Column()
+    @Column({type: 'json', nullable: false})
     vehicles: string[];
 
     @Column()
+    @Column({type: 'json', nullable: false})
     starships: string[];
 
-    @Column()
+    @Column({type: 'timestamp', nullable: false})
     created: string;
 
-    @Column()
-    edited: string; //2014-12-20T21:17:50.367000Z
+    @Column({type: 'timestamp', nullable: true, default: null})
+    edited: string | null;
 
-    @Column()
+    @Column({type: 'varchar', nullable: false})
     url: string;
 }

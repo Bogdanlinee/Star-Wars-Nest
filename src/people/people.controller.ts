@@ -25,24 +25,25 @@ export class PeopleController {
         return this.peopleService.create(createPersonDto);
     }
 
-    @Get()
-    findAll() {
-        return this.peopleService.findAll();
-    }
-
     @Get(':id')
     findOne(@Param('id', ParseIntPipe) id: number) {
         return this.peopleService.findOne(id);
     }
 
-    @Patch(':id')
-    @UsePipes(new ValidationPipe({transform: true, whitelist: true}))
-    update(@Param('id', ParseIntPipe) id: number, @Body() updatePersonDto: UpdatePersonDto) {
-        return this.peopleService.update(id, updatePersonDto);
-    }
-
-    @Delete(':id')
-    remove(@Param('id', ParseIntPipe) id: number) {
-        return this.peopleService.remove(id);
-    }
+    // @Get()
+    // findAll() {
+    //     return this.peopleService.findAll();
+    // }
+    //
+    //
+    // @Patch(':id')
+    // @UsePipes(new ValidationPipe({transform: true, whitelist: true}))
+    // update(@Param('id', ParseIntPipe) id: number, @Body() updatePersonDto: UpdatePersonDto) {
+    //     return this.peopleService.update(id, updatePersonDto);
+    // }
+    //
+    // @Delete(':id')
+    // remove(@Param('id', ParseIntPipe) id: number) {
+    //     return this.peopleService.remove(id);
+    // }
 }

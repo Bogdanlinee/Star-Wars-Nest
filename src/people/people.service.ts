@@ -1,69 +1,69 @@
 import {Injectable} from '@nestjs/common';
 import {CreatePersonDto} from './dto/create-person.dto';
 import {UpdatePersonDto} from './dto/update-person.dto';
+import {InjectRepository} from '@nestjs/typeorm';
 import {Person} from './entities/person.entity';
+import {Repository} from 'typeorm';
+import {NotFoundException} from '@nestjs/common';
 
 @Injectable()
 export class PeopleService {
     // people: CreatePersonDto[] = bufferArray;
     people: Person[] = [];
 
-    create(createPersonDto: CreatePersonDto) {
-        const newPerson = {
-            ...createPersonDto,
-            id: parseInt(Date.now().toString()),
-        };
-
-        this.people.push(newPerson);
-
-        return newPerson;
+    constructor(
+        @InjectRepository(Person)
+        private personRepository: Repository<Person>
+    ) {
     }
 
-    findAll() {
-        if (this.people.length > 10) {
-            return this.people.slice(this.people.length - 10);
-        } else {
-            return this.people;
-        }
+    async create(createPersonDto: CreatePersonDto) {
+        return this.personRepository.save(createPersonDto);
     }
 
-    findOne(id: number) {
-        const person = this.people.find(item => item.id === id);
+    // findAll() {
+    //     if (this.people.length > 10) {
+    //         return this.people.slice(this.people.length - 10);
+    //     } else {
+    //         return this.people;
+    //     }
+    // }
 
-        if (!person) {
-            throw new Error('No person with such id');
-        }
+    async findOne(id: number) {
+        const person = await this.personRepository.findOneBy({id});
+
+        if (!person) throw new NotFoundException('No such user!');
 
         return person;
     }
 
-    update(id: number, updatePersonDto: UpdatePersonDto) {
-        const person = this.findOne(id);
-        const updatedPerson = {
-            ...person,
-            ...updatePersonDto,
-        };
+    // update(id: number, updatePersonDto: UpdatePersonDto) {
+    //     const person = this.findOne(id);
+    //     const updatedPerson = {
+    //         ...person,
+    //         ...updatePersonDto,
+    //     };
+    //
+    //     this.people = this.people.map((item) => {
+    //         if (item.id === id) {
+    //             item = {
+    //                 ...person,
+    //                 ...updatedPerson,
+    //             };
+    //         }
+    //         return item;
+    //     });
+    //
+    //     return updatedPerson;
+    // }
 
-        this.people = this.people.map((item) => {
-            if (item.id === id) {
-                item = {
-                    ...person,
-                    ...updatedPerson,
-                };
-            }
-            return item;
-        });
-
-        return updatedPerson;
-    }
-
-    remove(id: number) {
-        const person = this.findOne(id);
-
-        this.people = this.people.filter((item) => item.id !== id);
-
-        return person;
-    }
+    // remove(id: number) {
+    //     const person = this.findOne(id);
+    //
+    //     this.people = this.people.filter((item) => item.id !== id);
+    //
+    //     return person;
+    // }
 }
 
 // const bufferArray: CreatePersonDto[] = [
