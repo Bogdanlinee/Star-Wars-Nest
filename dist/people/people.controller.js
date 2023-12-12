@@ -16,6 +16,7 @@ exports.PeopleController = void 0;
 const common_1 = require("@nestjs/common");
 const people_service_1 = require("./people.service");
 const create_person_dto_1 = require("./dto/create-person.dto");
+const update_person_dto_1 = require("./dto/update-person.dto");
 let PeopleController = class PeopleController {
     constructor(peopleService) {
         this.peopleService = peopleService;
@@ -25,6 +26,15 @@ let PeopleController = class PeopleController {
     }
     findOne(id) {
         return this.peopleService.findOne(id);
+    }
+    findAll() {
+        return this.peopleService.findAll();
+    }
+    update(id, updatePersonDto) {
+        return this.peopleService.update(id, updatePersonDto);
+    }
+    remove(id) {
+        return this.peopleService.remove(id);
     }
 };
 exports.PeopleController = PeopleController;
@@ -43,6 +53,28 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], PeopleController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Get)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], PeopleController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Patch)(':id'),
+    (0, common_1.UsePipes)(new common_1.ValidationPipe({ transform: true, whitelist: true })),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, update_person_dto_1.UpdatePersonDto]),
+    __metadata("design:returntype", void 0)
+], PeopleController.prototype, "update", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", void 0)
+], PeopleController.prototype, "remove", null);
 exports.PeopleController = PeopleController = __decorate([
     (0, common_1.Controller)('people'),
     __metadata("design:paramtypes", [people_service_1.PeopleService])

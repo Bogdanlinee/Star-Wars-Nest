@@ -21,16 +21,27 @@ const common_2 = require("@nestjs/common");
 let PeopleService = class PeopleService {
     constructor(personRepository) {
         this.personRepository = personRepository;
-        this.people = [];
     }
     async create(createPersonDto) {
         return this.personRepository.save(createPersonDto);
+    }
+    async findAll() {
+        return this.personRepository.find();
     }
     async findOne(id) {
         const person = await this.personRepository.findOneBy({ id });
         if (!person)
             throw new common_2.NotFoundException('No such user!');
         return person;
+    }
+    async update(id, updatePersonDto) {
+        const person = await this.findOne(id);
+        const updatedPerson = { ...person, ...updatePersonDto };
+        return await this.personRepository.save(updatedPerson);
+    }
+    async remove(id) {
+        const person = await this.findOne(id);
+        return await this.personRepository.remove(person);
     }
 };
 exports.PeopleService = PeopleService;
