@@ -1,5 +1,6 @@
-./node_modules
-./dist
-./.idea
+node_modules/
+
+# IDE
+/.idea
 
 migrationCommands.txt
