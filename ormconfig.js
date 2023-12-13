@@ -7,9 +7,9 @@ const dbConfig = {
     username: 'root',
     password: 'root',
     database: 'Test1',
-    entities: ['**/*.entity.js'],
+    entities: ['**/*.entity.ts'],
     synchronize: false,
-    migrations: ['migrations/*.js'],
+    migrations: ['migrations/*.ts'],
     migrationsTableName: 'migrations'
 }
 

@@ -8,9 +8,6 @@ import {NotFoundException} from '@nestjs/common';
 
 @Injectable()
 export class PeopleService {
-    // people: CreatePersonDto[] = bufferArray;
-    // people: Person[] = [];
-
     constructor(
         @InjectRepository(Person)
         private personRepository: Repository<Person>
