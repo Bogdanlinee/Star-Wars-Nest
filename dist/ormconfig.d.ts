@@ -11,5 +11,6 @@ export namespace dbConfig {
     let synchronize: boolean;
     let migrations: string[];
     let migrationsTableName: string;
+    let seeds: string[];
 }
 import { DataSource } from "typeorm";

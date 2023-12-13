@@ -12,7 +12,8 @@ const dbConfig = {
     entities: ['**/*.entity.js'],
     synchronize: false,
     migrations: ['migrations/*.js'],
-    migrationsTableName: 'migrations'
+    migrationsTableName: 'migrations',
+    seeds: ['dist/db/seeds/**/*.js'],
 };
 exports.dbConfig = dbConfig;
 exports.default = new DataSource(dbConfig);
