@@ -9,7 +9,7 @@ import {NotFoundException} from '@nestjs/common';
 @Injectable()
 export class PeopleService {
     // people: CreatePersonDto[] = bufferArray;
-    people: Person[] = [];
+    // people: Person[] = [];
 
     constructor(
         @InjectRepository(Person)
@@ -21,13 +21,9 @@ export class PeopleService {
         return this.personRepository.save(createPersonDto);
     }
 
-    // findAll() {
-    //     if (this.people.length > 10) {
-    //         return this.people.slice(this.people.length - 10);
-    //     } else {
-    //         return this.people;
-    //     }
-    // }
+    async findAll() {
+        return this.personRepository.find();
+    }
 
     async findOne(id: number) {
         const person = await this.personRepository.findOneBy({id});
@@ -37,33 +33,16 @@ export class PeopleService {
         return person;
     }
 
-    // update(id: number, updatePersonDto: UpdatePersonDto) {
-    //     const person = this.findOne(id);
-    //     const updatedPerson = {
-    //         ...person,
-    //         ...updatePersonDto,
-    //     };
-    //
-    //     this.people = this.people.map((item) => {
-    //         if (item.id === id) {
-    //             item = {
-    //                 ...person,
-    //                 ...updatedPerson,
-    //             };
-    //         }
-    //         return item;
-    //     });
-    //
-    //     return updatedPerson;
-    // }
+    async update(id: number, updatePersonDto: UpdatePersonDto) {
+        const person = await this.findOne(id);
+        const updatedPerson = {...person, ...updatePersonDto};
+        return await this.personRepository.save(updatedPerson);
+    }
 
-    // remove(id: number) {
-    //     const person = this.findOne(id);
-    //
-    //     this.people = this.people.filter((item) => item.id !== id);
-    //
-    //     return person;
-    // }
+    async remove(id: number) {
+        const person = await this.findOne(id);
+        return await this.personRepository.remove(person);
+    }
 }
 
 // const bufferArray: CreatePersonDto[] = [

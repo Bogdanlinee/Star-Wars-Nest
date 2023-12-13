@@ -1,21 +1,12 @@
 import {Module} from '@nestjs/common';
 import {PeopleModule} from './people/people.module';
-import {TypeOrmModule} from '@nestjs/typeorm';
-import {Person} from './people/entities/person.entity';
+import {TypeOrmModule, TypeOrmModuleOptions} from '@nestjs/typeorm';
+import {dbConfig} from '../ormconfig.js';
 
 @Module({
     imports: [
         PeopleModule,
-        TypeOrmModule.forRoot({
-            type: 'mysql',
-            host: 'localhost',
-            port: 3306,
-            username: 'root',
-            password: 'root',
-            database: 'Test1',
-            entities: [Person],
-            synchronize: true,
-        }),
+        TypeOrmModule.forRoot(dbConfig as TypeOrmModuleOptions),
     ],
 })
 export class AppModule {
