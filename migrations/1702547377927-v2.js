@@ -1,14 +1,12 @@
-import {MigrationInterface, QueryRunner} from "typeorm";
-import {Person} from '../src/people/entities/person.entity';
+const {MigrationInterface, QueryRunner} = require('typeorm');
+module.exports = class V21702547377927 {
 
-export class V21702448852052 implements MigrationInterface {
-
-    public async up(queryRunner: QueryRunner): Promise<void> {
-        let people: Person[] = [];
+    async up(queryRunner) {
+        let people = [];
 
         await getPeopleRequest('https://swapi.dev/api/people/')
 
-        async function getPeopleRequest(url: string) {
+        async function getPeopleRequest(url) {
             try {
                 const request = await fetch(url);
 
@@ -34,13 +32,12 @@ export class V21702448852052 implements MigrationInterface {
         await queryRunner.manager
             .createQueryBuilder()
             .insert()
-            .into(Person)
+            .into('Person')
             .values(people)
             .execute()
     }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query("DELETE FROM person");
+    async down(queryRunner) {
+        await queryRunner.query('DELETE from person')
     }
-
 }
