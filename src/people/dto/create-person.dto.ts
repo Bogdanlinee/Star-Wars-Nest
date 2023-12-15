@@ -64,4 +64,7 @@ export class CreatePersonDto {
     @Transform(({value}) => value.trim())
     @IsNotEmpty()
     url: string;
+
+    @IsArray()
+    images: string[];
 }

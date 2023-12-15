@@ -32,18 +32,22 @@ export class Person {
     @Column({type: 'varchar', nullable: false})
     homeworld: string;
 
-    @Column({type: 'json', nullable: false})
+
+    @Column({type: 'json', default: null})
     films: string[];
 
-    @Column({type: 'json', nullable: false})
+    @Column({type: 'json', default: null})
     species: string[];
 
-    @Column({type: 'json', nullable: false})
+    @Column({type: 'json', default: null})
     vehicles: string[];
 
-    @Column()
-    @Column({type: 'json', nullable: false})
+    @Column({type: 'json', default: null})
     starships: string[];
+
+    @Column({type: 'json', default: null})
+    images: string[];
+
 
     @Column({type: 'timestamp', nullable: false})
     created: string;
