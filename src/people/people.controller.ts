@@ -10,13 +10,13 @@ import {
     ValidationPipe,
     UsePipes,
     UseInterceptors,
-    UploadedFile, BadRequestException,
+    UploadedFile, BadRequestException, NotFoundException,
 } from '@nestjs/common';
 import {PeopleService} from './people.service';
 import {CreatePersonDto} from './dto/create-person.dto';
 import {UpdatePersonDto} from './dto/update-person.dto';
 import {FileInterceptor} from '@nestjs/platform-express';
-import * as multerSetting from '../multerTest';
+import * as multerSetting from '../utils/multerFileUpload';
 
 @Controller('people')
 export class PeopleController {
@@ -29,14 +29,17 @@ export class PeopleController {
         @UploadedFile() file: Express.Multer.File,
         @Param('id', ParseIntPipe) id: number
     ) {
-        await this.peopleService.addImage(file, id);
-        return 'Going To Add Image Here';
+        return this.peopleService.addImage(file, id);
     }
 
 
-    @Delete('/:id/image/:imageUrl')
-    deleteImage() {
-        return 'Going To Delete Image Here';
+    @Delete('/:id/image/')
+    deleteImage(
+        @Param('id', ParseIntPipe) id: number,
+        @Body() body: any
+    ) {
+        const {imageUrl} = body;
+        return this.peopleService.deleteImage(id, imageUrl);
     }
 
     @Post()
@@ -46,8 +49,12 @@ export class PeopleController {
     }
 
     @Get('/:id')
-    findOne(@Param('id', ParseIntPipe) id: number) {
-        return this.peopleService.findOne(id);
+    async findOne(@Param('id', ParseIntPipe) id: number) {
+        const person = await this.peopleService.findOne(id)
+
+        if (!person) throw new NotFoundException('No such user!');
+
+        return person;
     }
 
     @Get()
