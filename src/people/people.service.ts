@@ -5,15 +5,10 @@ import {InjectRepository} from '@nestjs/typeorm';
 import {Person} from './entities/person.entity';
 import {Repository} from 'typeorm';
 import {NotFoundException} from '@nestjs/common';
-import {v2 as cloudinary} from 'cloudinary';
 import * as path from 'path';
 import {unlink} from 'fs/promises';
-
-cloudinary.config({
-    cloud_name: 'dkvxlz5k1',
-    api_key: '428367672613777',
-    api_secret: 'FWszyKa_aUYifjbY5ZrTkhLk9fU'
-});
+import {UploadApiResponse} from 'cloudinary';
+import {uploadFileCloudinary} from '../utils/cloudinaryFileUpload';
 
 @Injectable()
 export class PeopleService {
@@ -32,8 +27,7 @@ export class PeopleService {
     }
 
     async findOne(id: number) {
-        const person = await this.personRepository.findOneBy({id});
-        return person;
+        return await this.personRepository.findOneBy({id});
     }
 
     async update(id: number, updatePersonDto: UpdatePersonDto) {
@@ -41,7 +35,7 @@ export class PeopleService {
 
         if (!person) throw new NotFoundException('No such user!');
 
-        const updatedPerson = {...person, ...updatePersonDto};
+        const updatedPerson = {...person, ...updatePersonDto, edited: new Date().toISOString()};
 
         return await this.personRepository.save(updatedPerson);
     }
@@ -56,30 +50,37 @@ export class PeopleService {
 
     async addImage(file: Express.Multer.File, id: number) {
         const person = await this.findOne(id);
+
+        if (!person) throw new NotFoundException('No such user!');
+
         const filePath = path.join(process.cwd(), file.path);
         const fileName = file.filename;
+        const uploadedFile = await uploadFileCloudinary(filePath, fileName) as UploadApiResponse | null;
 
-        if (!person) {
-            try {
-                await unlink(filePath);
-            } catch (err) {
-                console.log(err);
-            }
-            throw new NotFoundException('No such user!');
+        if (!uploadedFile) throw new BadRequestException('Something went wrong, please upload file again!');
+
+        const uploadedFileUrl = uploadedFile.url;
+
+        try {
+            await unlink(filePath);
+        } catch (err) {
         }
 
-        await cloudinary.uploader.upload(filePath,
-            {public_id: fileName, folder: 'star-wars'},
-            async function (err, result) {
-                if (err) {
-                    throw new BadRequestException('Something went wrong, please upload file again.');
-                }
+        person.images ? person.images.push(uploadedFileUrl) : person.images = [uploadedFileUrl];
 
-                try {
-                    await unlink(filePath);
-                } catch (err) {
-                    console.log(err);
-                }
-            });
+        return await this.update(id, person);
+    }
+
+    async deleteImage(id: number, imageUrl: string) {
+        const person = await this.findOne(id);
+
+        if (!person) throw new NotFoundException('No such user!');
+
+        if (!person.images) return person;
+
+        // need to fix this not filter but just delete one item.
+        person.images = person.images.filter(item => item !== imageUrl);
+
+        return await this.update(id, person);
     }
 }

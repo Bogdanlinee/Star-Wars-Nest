@@ -48,7 +48,6 @@ export class Person {
     @Column({type: 'json', default: null})
     images: string[];
 
-
     @Column({type: 'timestamp', nullable: false})
     created: string;
 
