@@ -6,6 +6,12 @@ export class ImagePerson {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(() => Person, (person) => person.image)
+    @ManyToOne(() => Person, (person) => person.images)
     person: Person
+
+    @Column()
+    image: string;
+
+    @Column()
+    publicId: string;
 }
