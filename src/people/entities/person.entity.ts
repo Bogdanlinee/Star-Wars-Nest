@@ -1,4 +1,13 @@
-import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm';
+import {
+    Entity,
+    Column,
+    PrimaryGeneratedColumn,
+    OneToMany,
+    DeleteDateColumn,
+    UpdateDateColumn,
+    CreateDateColumn
+} from 'typeorm';
+import {ImagePerson} from '../../images/entities/image.person.entity';
 
 @Entity()
 export class Person {
@@ -45,15 +54,18 @@ export class Person {
     @Column({type: 'json', default: null})
     starships: string[];
 
-    @Column({type: 'json', default: null})
-    images: string[];
+    @CreateDateColumn()
+    created: Date
 
-    @Column({type: 'timestamp', nullable: false})
-    created: string;
-
-    @Column({type: 'timestamp', nullable: true, default: null})
-    edited: string | null;
+    @UpdateDateColumn()
+    edited: Date
 
     @Column({type: 'varchar', nullable: false})
     url: string;
+
+    @OneToMany(() => ImagePerson, (imagePerson) => imagePerson.person)
+    images: ImagePerson[];
+
+    @DeleteDateColumn({name: 'deleted_at', type: 'timestamp', default: null})
+    deletedAt: Date;
 }

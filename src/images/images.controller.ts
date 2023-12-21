@@ -44,10 +44,10 @@ export class ImagesController {
         @Body() body: ImageDto
     ) {
         const {image} = body;
-        const person = await this.peopleService.findOne(1);
+        const person = await this.peopleService.findOne(id);
 
         if (!person) throw new NotFoundException('No such user!');
 
-        return await this.imagesService.deleteImage(image);
+        return await this.imagesService.deleteImage(id, image);
     }
 }

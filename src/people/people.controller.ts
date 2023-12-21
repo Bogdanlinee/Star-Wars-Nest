@@ -9,37 +9,15 @@ import {
     ParseIntPipe,
     ValidationPipe,
     UsePipes,
-    UseInterceptors,
-    UploadedFile, BadRequestException, NotFoundException,
+    NotFoundException,
 } from '@nestjs/common';
 import {PeopleService} from './people.service';
 import {CreatePersonDto} from './dto/create-person.dto';
 import {UpdatePersonDto} from './dto/update-person.dto';
-import {FileInterceptor} from '@nestjs/platform-express';
-import * as multerSetting from '../utils/multerFileUpload';
 
 @Controller('people')
 export class PeopleController {
     constructor(private readonly peopleService: PeopleService) {
-    }
-
-    @Post('/:id/image')
-    @UseInterceptors(FileInterceptor('file', multerSetting))
-    async addImage(
-        @UploadedFile() file: Express.Multer.File,
-        @Param('id', ParseIntPipe) id: number
-    ) {
-        return this.peopleService.addImage(file, id);
-    }
-
-
-    @Delete('/:id/image/')
-    deleteImage(
-        @Param('id', ParseIntPipe) id: number,
-        @Body() body: any
-    ) {
-        const {imageUrl} = body;
-        return this.peopleService.deleteImage(id, imageUrl);
     }
 
     @Post()

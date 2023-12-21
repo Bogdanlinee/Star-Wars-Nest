@@ -1,4 +1,4 @@
-import {Entity, Column, PrimaryGeneratedColumn, ManyToOne} from 'typeorm';
+import {Entity, Column, PrimaryGeneratedColumn, ManyToOne, DeleteDateColumn, CreateDateColumn} from 'typeorm';
 import {Person} from '../../people/entities/person.entity';
 
 @Entity()
@@ -14,4 +14,10 @@ export class ImagePerson {
 
     @Column()
     publicId: string;
+
+    @DeleteDateColumn({name: 'deleted_at', type: 'timestamp', default: null})
+    deletedAt: Date;
+
+    @CreateDateColumn()
+    createdDate: Date
 }

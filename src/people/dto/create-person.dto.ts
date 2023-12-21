@@ -54,17 +54,7 @@ export class CreatePersonDto {
     @IsArray()
     starships: string[];
 
-    @Transform(({value}) => value.trim() ? value.trim() : new Date().toISOString())
-    @IsDateString()
-    created: string;
-
-    @Transform(({value}) => value.trim() ? value.trim() : null)
-    edited: string | null;
-
     @Transform(({value}) => value.trim())
     @IsNotEmpty()
     url: string;
-
-    @IsArray()
-    images: string[];
 }
