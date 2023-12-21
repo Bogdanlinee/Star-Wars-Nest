@@ -5,16 +5,15 @@ import {InjectRepository} from '@nestjs/typeorm';
 import {Person} from './entities/person.entity';
 import {Repository} from 'typeorm';
 import {NotFoundException} from '@nestjs/common';
-import * as path from 'path';
-import {unlink} from 'fs/promises';
-import {UploadApiResponse} from 'cloudinary';
-import {uploadFileCloudinary} from '../utils/cloudinaryFileUpload';
+import {ImagePerson} from '../images/entities/image.person.entity';
 
 @Injectable()
 export class PeopleService {
     constructor(
         @InjectRepository(Person)
-        private personRepository: Repository<Person>
+        private personRepository: Repository<Person>,
+        @InjectRepository(ImagePerson)
+        private imagePersonRepository: Repository<ImagePerson>
     ) {
     }
 
@@ -23,11 +22,14 @@ export class PeopleService {
     }
 
     async findAll() {
-        return this.personRepository.find();
+        return this.personRepository.find({relations: ['images']});
     }
 
     async findOne(id: number) {
-        return await this.personRepository.findOneBy({id});
+        return await this.personRepository.findOne({
+            where: {id},
+            relations: ['images']
+        });
     }
 
     async update(id: number, updatePersonDto: UpdatePersonDto) {
@@ -35,7 +37,7 @@ export class PeopleService {
 
         if (!person) throw new NotFoundException('No such user!');
 
-        const updatedPerson = {...person, ...updatePersonDto, edited: new Date().toISOString()};
+        const updatedPerson = {...person, ...updatePersonDto};
 
         return await this.personRepository.save(updatedPerson);
     }
@@ -45,42 +47,14 @@ export class PeopleService {
 
         if (!person) throw new NotFoundException('No such user!');
 
-        return await this.personRepository.remove(person);
-    }
+        person.deletedAt = new Date();
+        await this.personRepository.save(person);
 
-    async addImage(file: Express.Multer.File, id: number) {
-        const person = await this.findOne(id);
+        const personImages = person.images;
 
-        if (!person) throw new NotFoundException('No such user!');
-
-        const filePath = path.join(process.cwd(), file.path);
-        const fileName = file.filename;
-        const uploadedFile = await uploadFileCloudinary(filePath, fileName) as UploadApiResponse | null;
-
-        if (!uploadedFile) throw new BadRequestException('Something went wrong, please upload file again!');
-
-        const uploadedFileUrl = uploadedFile.url;
-
-        try {
-            await unlink(filePath);
-        } catch (err) {
+        for (const imageEntity of personImages) {
+            imageEntity.deletedAt = new Date();
+            await this.imagePersonRepository.save(imageEntity);
         }
-
-        person.images ? person.images.push(uploadedFileUrl) : person.images = [uploadedFileUrl];
-
-        return await this.update(id, person);
-    }
-
-    async deleteImage(id: number, imageUrl: string) {
-        const person = await this.findOne(id);
-
-        if (!person) throw new NotFoundException('No such user!');
-
-        if (!person.images) return person;
-
-        // need to fix this not filter but just delete one item.
-        person.images = person.images.filter(item => item !== imageUrl);
-
-        return await this.update(id, person);
     }
 }

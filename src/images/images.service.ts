@@ -23,7 +23,6 @@ export class ImagesService {
         if (!uploadedFile) throw new BadRequestException('Something went wrong, please upload file again!');
 
         const {url: imageUrl, public_id: imagePublicId} = uploadedFile;
-        console.log(imageUrl, imagePublicId)
 
         await unlink(filePath);
 
@@ -34,13 +33,22 @@ export class ImagesService {
         return await this.imagePersonRepository.save(image);
     }
 
-    async deleteImage(image: string) {
-        const searchedImage = await this.imagePersonRepository.findOneBy({image});
+    async deleteImage(id: number, image: string) {
+        const searchedImage = await this.imagePersonRepository.findOne({
+            where: {image},
+            relations: ['person']
+        });
+        const relatedPersonId = searchedImage?.person.id;
 
-        if (!searchedImage) throw new NotFoundException('No such image');
+        if (!searchedImage || relatedPersonId !== id) {
+            throw new NotFoundException('No such image');
+        }
 
-        await deleteFileCloudinary(searchedImage.publicId);
+        searchedImage.deletedAt = new Date();
 
-        return await this.imagePersonRepository.remove(searchedImage);
+        return await this.imagePersonRepository.save(searchedImage);
+
+        // delete it in corn
+        // await deleteFileCloudinary(searchedImage.publicId);
     }
 }

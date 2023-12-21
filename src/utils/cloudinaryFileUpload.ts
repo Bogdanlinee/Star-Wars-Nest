@@ -16,3 +16,15 @@ export const uploadFileCloudinary = (filePath: string, fileName: string) => new 
             resolve(result);
         });
 })
+
+export const deleteFileCloudinary = (fileId: string) => new Promise((resolve, reject) => {
+    cloudinary.uploader.destroy(
+        fileId,
+        {type: 'upload', resource_type: 'image'},
+        async function (err, result) {
+            if (err) {
+                reject(null);
+            }
+            resolve(result);
+        })
+})
