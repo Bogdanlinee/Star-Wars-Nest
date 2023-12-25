@@ -54,17 +54,17 @@ export class Person {
     @Column({type: 'json', default: null})
     starships: string[];
 
-    @CreateDateColumn()
-    created: Date
-
-    @UpdateDateColumn()
-    edited: Date
-
     @Column({type: 'varchar', nullable: false})
     url: string;
 
     @OneToMany(() => ImagePerson, (imagePerson) => imagePerson.person)
     images: ImagePerson[];
+
+    @CreateDateColumn()
+    created: Date;
+
+    @UpdateDateColumn({name: 'edited', type: 'timestamp', default: null})
+    edited: Date;
 
     @DeleteDateColumn({name: 'deleted_at', type: 'timestamp', default: null})
     deletedAt: Date;
