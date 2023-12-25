@@ -56,5 +56,7 @@ export class PeopleService {
             imageEntity.deletedAt = new Date();
             await this.imagePersonRepository.save(imageEntity);
         }
+
+        return person;
     }
 }
