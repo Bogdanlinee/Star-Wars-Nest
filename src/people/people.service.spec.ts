@@ -1,112 +1,121 @@
-import {Test, TestingModule} from '@nestjs/testing';
-import {PeopleService} from './people.service';
-import {Repository} from 'typeorm';
-import {Person} from './entities/person.entity';
-import {getRepositoryToken} from '@nestjs/typeorm';
-import {ImagePerson} from '../images/entities/image.person.entity';
-import {NotFoundException} from '@nestjs/common';
+import { Test, TestingModule } from '@nestjs/testing';
+import { PeopleService } from './people.service';
+import { Repository } from 'typeorm';
+import { Person } from './entities/person.entity';
+import { getRepositoryToken } from '@nestjs/typeorm';
+import { ImagePerson } from '../images/entities/image.person.entity';
+import { NotFoundException } from '@nestjs/common';
 
 describe('UserService', () => {
-    let peopleService: PeopleService;
-    let personRepository: Repository<Person>;
-    let imageRepository: Repository<ImagePerson>;
-    const people: Person[] = [];
+   let peopleService: PeopleService;
+   let personRepository: Repository<Person>;
+   let imageRepository: Repository<ImagePerson>;
+   const people: Person[] = [];
 
-    beforeEach(async () => {
+   beforeEach(async () => {
 
-        const module: TestingModule = await Test.createTestingModule({
-            providers: [
-                PeopleService,
-                {
-                    provide: getRepositoryToken(Person),
-                    useClass: Repository,
-                },
-                {
-                    provide: getRepositoryToken(ImagePerson),
-                    useValue: () => {
-                    },
-                },
-            ],
-        }).compile();
+      const module: TestingModule = await Test.createTestingModule({
+         providers: [
+            PeopleService,
+            {
+               provide: getRepositoryToken(Person),
+               useClass: Repository,
+            },
+            {
+               provide: getRepositoryToken(ImagePerson),
+               useValue: () => {
+               },
+            },
+         ],
+      }).compile();
 
-        peopleService = module.get<PeopleService>(PeopleService);
-        personRepository = module.get<Repository<Person>>(getRepositoryToken(Person));
-        imageRepository = module.get<Repository<ImagePerson>>(getRepositoryToken(ImagePerson));
-    });
+      peopleService = module.get<PeopleService>(PeopleService);
+      personRepository = module.get<Repository<Person>>(getRepositoryToken(Person));
+      imageRepository = module.get<Repository<ImagePerson>>(getRepositoryToken(ImagePerson));
+   });
 
-    it('Can add a new person to DB', async () => {
-        jest.spyOn(personRepository, 'save').mockResolvedValue(testPersonEntity);
-        const result = await peopleService.create(testPersonEntity);
-        people.push(result);
-        expect(result).toEqual(testPersonEntity);
-    });
+   it('Can add a new person to DB', async () => {
+      jest.spyOn(personRepository, 'save').mockResolvedValue(testPersonEntity);
 
-    it('Can find one person in DB', async () => {
-        const personId = 1;
-        jest.spyOn(personRepository, 'findOne').mockImplementation(async () => {
-            const person = people.find(item => item.id === personId)
-            return person ? person : null;
-        });
-        const result = await peopleService.findOne(personId);
-        expect(result).toEqual(people[0]);
-    });
+      const result = await peopleService.create(testPersonEntity);
 
-    it('Throws Error. Find person in DB to remove it', async () => {
-        const personId = 10;
-        jest.spyOn(personRepository, 'findOne').mockImplementation(async () => {
-            const person = people.find(item => item.id === personId)
-            return person ? person : null;
-        });
-        await expect(peopleService.remove(personId)).rejects.toThrow(NotFoundException);
-    });
+      people.push(result);
 
-    it('Can find person in DB to remove it', async () => {
-        const personId = 1;
-        const personToDelete = {
-            ...testPersonEntity,
-            deletedAt: new Date(),
-        };
+      expect(result).toEqual(testPersonEntity);
+   });
 
-        jest.spyOn(personRepository, 'save').mockResolvedValue(personToDelete);
-        jest.spyOn(personRepository, 'findOne').mockImplementation(async () => {
-            const person = people.find(item => item.id === personId)
-            return person ? person : null;
-        });
+   it('Can find one person in DB', async () => {
+      const personId = 1;
 
-        const result = await peopleService.remove(personId);
+      jest.spyOn(personRepository, 'findOne').mockImplementation(async () => {
+         const person = people.find(item => item.id === personId)
+         return person ? person : null;
+      });
 
-        expect(result).toBeDefined();
-    });
+      const result = await peopleService.findOne(personId);
 
-    const testPersonEntity = {
-        name: "Dan Test1",
-        height: "199",
-        mass: "85",
-        hair_color: "blond",
-        skin_color: "fair",
-        eye_color: "blue",
-        birth_year: "19BBY",
-        gender: "male",
-        homeworld: "https://swapi.dev/api/planets/1/",
-        films: [
-            "https://swapi.dev/api/films/2/"
-        ],
-        species: [
-            "https://swapi.dev/api/species/1/"
-        ],
-        vehicles: [
-            "https://swapi.dev/api/vehicles/14/",
-            "https://swapi.dev/api/vehicles/30/"
-        ],
-        starships: [
-            "https://swapi.dev/api/starships/12/",
-            "https://swapi.dev/api/starships/22/"
-        ],
-        created: new Date(),
-        edited: new Date(),
-        url: "https://swapi.dev/api/people/1/",
-        images: [],
-        id: 1,
-        deletedAt: new Date(),
-    };
+      expect(result).toEqual(people[0]);
+   });
+
+   it('Throws Error. Find person in DB to remove it', async () => {
+      const personId = 10;
+
+      jest.spyOn(personRepository, 'findOne').mockImplementation(async () => {
+         const person = people.find(item => item.id === personId)
+         return person ? person : null;
+      });
+      jest.spyOn(personRepository, 'save').mockResolvedValue(testPersonEntity);
+
+      await expect(peopleService.remove(personId)).rejects.toThrow(NotFoundException);
+   });
+
+   it('Can find person in DB to remove it', async () => {
+      const personId = 1;
+      const personToDelete = {
+         ...testPersonEntity,
+         deletedAt: new Date(),
+      };
+
+      jest.spyOn(personRepository, 'save').mockResolvedValue(personToDelete);
+      jest.spyOn(personRepository, 'findOne').mockImplementation(async () => {
+         const person = people.find(item => item.id === personId)
+         return person ? person : null;
+      });
+
+      const result = await peopleService.remove(personId);
+
+      expect(result).toBeDefined();
+   });
+
+   const testPersonEntity = {
+      name: "Dan Test1",
+      height: "199",
+      mass: "85",
+      hair_color: "blond",
+      skin_color: "fair",
+      eye_color: "blue",
+      birth_year: "19BBY",
+      gender: "male",
+      homeworld: "https://swapi.dev/api/planets/1/",
+      films: [
+         "https://swapi.dev/api/films/2/"
+      ],
+      species: [
+         "https://swapi.dev/api/species/1/"
+      ],
+      vehicles: [
+         "https://swapi.dev/api/vehicles/14/",
+         "https://swapi.dev/api/vehicles/30/"
+      ],
+      starships: [
+         "https://swapi.dev/api/starships/12/",
+         "https://swapi.dev/api/starships/22/"
+      ],
+      created: new Date(),
+      edited: new Date(),
+      url: "https://swapi.dev/api/people/1/",
+      images: [],
+      id: 1,
+      deletedAt: new Date(),
+   };
 });
