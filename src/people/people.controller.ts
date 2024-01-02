@@ -14,6 +14,7 @@ import {
 import {PeopleService} from './people.service';
 import {CreatePersonDto} from './dto/create-person.dto';
 import {UpdatePersonDto} from './dto/update-person.dto';
+import process from 'process';
 
 @Controller('people')
 export class PeopleController {
