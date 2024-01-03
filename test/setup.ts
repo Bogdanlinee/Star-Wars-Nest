@@ -1,9 +1,9 @@
-import {rm} from 'fs/promises';
-import {join} from 'path';
+const {execSync} = require('child_process');
 
 global.beforeEach(async () => {
-    try {
-        await rm(join(__dirname, '..', 'test.sqlite'));
-    } catch (err) {
-    }
-})
+    execSync('npm run typeorm migration:run -- -d ./ormconfig.js');
+});
+
+global.afterEach(async () => {
+    execSync('npm run typeorm schema:drop -- -d ./ormconfig.js');
+});

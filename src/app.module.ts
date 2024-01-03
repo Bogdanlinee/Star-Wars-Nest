@@ -5,8 +5,6 @@ import {dbConfig} from '../ormconfig.js';
 import {ImagesModule} from './images/images.module';
 import {ConfigModule, ConfigService} from '@nestjs/config';
 
-console.log(process.env.NODE_ENV)
-
 @Module({
     imports: [
         ConfigModule.forRoot({

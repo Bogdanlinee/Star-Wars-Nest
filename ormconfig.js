@@ -1,6 +1,6 @@
 const {DataSource} = require('typeorm')
 
-const dbConfig = {
+let dbConfig = {
     type: 'mysql',
     host: 'localhost',
     port: 3306,
@@ -13,13 +13,32 @@ const dbConfig = {
 
 switch (process.env.NODE_ENV) {
     case 'development':
-        dbConfig.database = 'Test1';
-        dbConfig.entities = ['**/*.entity.js'];
+        dbConfig = {
+            type: 'mysql',
+            database: 'Test1',
+            host: 'localhost',
+            entities: ['**/*.entity.js'],
+            port: 3306,
+            username: 'root',
+            password: 'root',
+            synchronize: false,
+            migrations: ['migrations/*.js'],
+            migrationsTableName: 'migrations'
+        }
         break;
     case 'test':
-        dbConfig.database = 'Test2';
-        dbConfig.entities = ['**/*.entity.ts'];
-        dbConfig.migrationsRun = true;
+        dbConfig = {
+            type: 'mysql',
+            database: 'Test2',
+            host: 'localhost',
+            entities: ['**/*.entity.ts'],
+            port: 3306,
+            username: 'root',
+            password: 'root',
+            synchronize: false,
+            migrations: ['migrations/*.js'],
+            migrationsTableName: 'migrations'
+        }
         break;
 }
 
