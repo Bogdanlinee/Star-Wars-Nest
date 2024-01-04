@@ -21,6 +21,8 @@ module.exports = class V1703497895991 {
 
                 people = [...people, ...personList];
 
+                return;
+
                 if (!data.next) return;
 
                 await getPeopleRequest(data.next);
