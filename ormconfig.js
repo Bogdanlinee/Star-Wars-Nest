@@ -13,33 +13,15 @@ let dbConfig = {
 
 switch (process.env.NODE_ENV) {
     case 'development':
-        dbConfig = {
-            type: 'mysql',
-            database: 'Test1',
-            host: 'localhost',
-            entities: ['**/*.entity.js'],
-            port: 3306,
-            username: 'root',
-            password: 'root',
-            synchronize: false,
-            migrations: ['migrations/*.js'],
-            migrationsTableName: 'migrations'
-        }
+        dbConfig.database = 'Test1';
+        dbConfig.entities = ['**/*.entity.js'];
         break;
     case 'test':
-        dbConfig = {
-            type: 'mysql',
-            database: 'Test2',
-            host: 'localhost',
-            entities: ['**/*.entity.ts'],
-            port: 3306,
-            username: 'root',
-            password: 'root',
-            synchronize: false,
-            migrations: ['migrations/*.js'],
-            migrationsTableName: 'migrations'
-        }
+        dbConfig.database = 'Test2';
+        dbConfig.entities = ['**/*.entity.ts'];
         break;
+    default :
+        throw new Error('Unknown Environment');
 }
 
 export {dbConfig};

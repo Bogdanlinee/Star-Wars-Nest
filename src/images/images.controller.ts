@@ -1,4 +1,5 @@
 import {
+    BadRequestException,
     Body,
     Controller, Delete,
     NotFoundException,
@@ -28,7 +29,7 @@ export class ImagesController {
         @Param('id', ParseIntPipe) id: number,
         @UploadedFile() file: Express.Multer.File
     ) {
-        if (!file) throw new NotFoundException('No file!');
+        if (!file) throw new BadRequestException('No file!');
 
         const person = await this.peopleService.findOne(1);
 
