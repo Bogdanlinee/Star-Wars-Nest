@@ -1,7 +1,7 @@
 import {Test, TestingModule} from '@nestjs/testing';
 import {INestApplication} from '@nestjs/common';
 import * as request from 'supertest';
-import {AppModule} from './../src/app.module';
+import {AppModule} from '../src/app.module';
 
 describe('AppController (e2e)', () => {
     let app: INestApplication;
@@ -53,6 +53,17 @@ describe('AppController (e2e)', () => {
             .then(res => {
                 const {name} = res.body;
                 expect(name).toEqual(personUpdatedInfo.name);
+            })
+    })
+
+    it('Can delete one person', () => {
+        const personId = 1;
+        return request(app.getHttpServer())
+            .delete(`/people/${personId}`)
+            .expect(200)
+            .then(res => {
+                const {deletedAt} = res.body;
+                expect(deletedAt).toBeTruthy();
             })
     })
 });

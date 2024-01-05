@@ -1,5 +1,4 @@
 import {diskStorage} from 'multer';
-import * as multer from 'multer';
 import {extname} from 'path';
 import {BadRequestException} from '@nestjs/common';
 
