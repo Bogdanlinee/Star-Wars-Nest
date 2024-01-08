@@ -22,7 +22,11 @@ export class PeopleService {
     }
 
     async findAll() {
-        return this.personRepository.find({relations: ['images']});
+        return this.personRepository.find({
+            relations: ['images'],
+            order: {id: 'DESC'},
+            take: 10,
+        });
     }
 
     async findOne(id: number) {
