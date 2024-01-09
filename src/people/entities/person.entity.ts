@@ -41,7 +41,6 @@ export class Person {
     @Column({type: 'varchar', nullable: false})
     homeworld: string;
 
-
     @Column({type: 'json', default: null})
     films: string[];
 
