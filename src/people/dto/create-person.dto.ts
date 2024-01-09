@@ -1,6 +1,5 @@
 import {
     IsArray,
-    IsDateString,
     IsNotEmpty,
 } from 'class-validator';
 import {Transform} from 'class-transformer';
