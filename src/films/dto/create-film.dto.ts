@@ -1,4 +1,4 @@
-import {IsDateString, IsNotEmpty} from 'class-validator';
+import {IsArray, IsDateString, IsNotEmpty} from 'class-validator';
 import {Transform} from 'class-transformer';
 
 export class CreateFilmDto {
@@ -30,4 +30,7 @@ export class CreateFilmDto {
     @Transform(({value}) => value.trim())
     @IsNotEmpty()
     url: string;
+
+    @IsArray()
+    personIds: number[];
 }

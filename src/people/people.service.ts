@@ -6,6 +6,7 @@ import {Person} from './entities/person.entity';
 import {Repository} from 'typeorm';
 import {NotFoundException} from '@nestjs/common';
 import {ImagePerson} from '../images/entities/image.person.entity';
+import {Film} from '../films/entities/film.entity';
 
 @Injectable()
 export class PeopleService {
@@ -18,12 +19,19 @@ export class PeopleService {
     }
 
     async create(createPersonDto: CreatePersonDto) {
-        return this.personRepository.save(createPersonDto);
+        const person = this.personRepository.create(createPersonDto);
+
+        person.films = createPersonDto.filmIds.map(id => ({...new Film(), id}));
+
+        return this.personRepository.save(person);
     }
 
     async findAll() {
         return this.personRepository.find({
-            relations: ['images'],
+            relations: {
+                images: true,
+                films: true,
+            },
             order: {id: 'DESC'},
             take: 10,
         });
@@ -32,7 +40,10 @@ export class PeopleService {
     async findOne(id: number) {
         return await this.personRepository.findOne({
             where: {id},
-            relations: ['images']
+            relations: {
+                images: true,
+                films: true,
+            }
         });
     }
 

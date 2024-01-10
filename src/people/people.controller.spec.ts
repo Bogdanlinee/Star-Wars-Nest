@@ -76,9 +76,8 @@ describe('PeopleController', () => {
         birth_year: "19BBY",
         gender: "male",
         homeworld: "https://swapi.dev/api/planets/1/",
-        films: [
-            "https://swapi.dev/api/films/2/"
-        ],
+        films: [],
+        filmIds: [],
         species: [
             "https://swapi.dev/api/species/1/"
         ],
