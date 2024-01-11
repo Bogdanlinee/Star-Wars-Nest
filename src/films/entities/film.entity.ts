@@ -17,7 +17,7 @@ export class Film {
     title: string;
 
     @Column({type: 'varchar', nullable: false})
-    episode_id: string;
+    episode_id: number;
 
     @Column({type: 'text', nullable: false})
     opening_crawl: string;
@@ -31,7 +31,10 @@ export class Film {
     @Column({type: 'varchar', nullable: false})
     release_date: string;
 
-    @ManyToMany(() => Person, (Person) => Person.films)
+    @ManyToMany(
+        () => Person,
+        (Person) => Person.films,
+    )
     characters: Person[];
 
     @CreateDateColumn()
