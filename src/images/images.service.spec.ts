@@ -95,9 +95,7 @@ describe('TestUploadImageService', () => {
         birth_year: "19BBY",
         gender: "male",
         homeworld: "https://swapi.dev/api/planets/1/",
-        films: [
-            "https://swapi.dev/api/films/2/"
-        ],
+        films: [],
         species: [
             "https://swapi.dev/api/species/1/"
         ],

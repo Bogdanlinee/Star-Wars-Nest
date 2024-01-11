@@ -6,7 +6,7 @@ let dbConfig = {
     port: 3306,
     username: 'root',
     password: 'root',
-    synchronize: false,
+    synchronize: true,
     migrations: ['migrations/*.js'],
     migrationsTableName: 'migrations'
 }
@@ -22,7 +22,7 @@ switch (process.env.NODE_ENV) {
         break;
     default :
         throw new Error('Unknown Environment');
-}
+};
 
 export {dbConfig};
 

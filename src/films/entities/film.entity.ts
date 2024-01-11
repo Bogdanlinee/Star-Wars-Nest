@@ -4,8 +4,9 @@ import {
     PrimaryGeneratedColumn,
     DeleteDateColumn,
     UpdateDateColumn,
-    CreateDateColumn
+    CreateDateColumn, ManyToMany
 } from 'typeorm';
+import {Person} from '../../people/entities/person.entity';
 
 @Entity()
 export class Film {
@@ -28,7 +29,10 @@ export class Film {
     producer: string;
 
     @Column({type: 'varchar', nullable: false})
-    release_date: string
+    release_date: string;
+
+    @ManyToMany(() => Person, (Person) => Person.films)
+    characters: Person[];
 
     @CreateDateColumn()
     created: Date;

@@ -42,9 +42,6 @@ export class CreatePersonDto {
     homeworld: string;
 
     @IsArray()
-    films: string[];
-
-    @IsArray()
     species: string[];
 
     @IsArray()
@@ -56,4 +53,7 @@ export class CreatePersonDto {
     @Transform(({value}) => value.trim())
     @IsNotEmpty()
     url: string;
+
+    @IsArray()
+    filmIds: number[];
 }

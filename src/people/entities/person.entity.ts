@@ -5,9 +5,10 @@ import {
     OneToMany,
     DeleteDateColumn,
     UpdateDateColumn,
-    CreateDateColumn
+    CreateDateColumn, ManyToMany, JoinTable
 } from 'typeorm';
 import {ImagePerson} from '../../images/entities/image.person.entity';
+import {Film} from '../../films/entities/film.entity';
 
 @Entity()
 export class Person {
@@ -41,8 +42,21 @@ export class Person {
     @Column({type: 'varchar', nullable: false})
     homeworld: string;
 
-    @Column({type: 'json', default: null})
-    films: string[];
+    @ManyToMany(() => Film, (Film) => Film.characters)
+    @JoinTable({
+        name: 'characters_film',
+        joinColumn: {
+            name: 'character_id',
+            referencedColumnName: 'id',
+            foreignKeyConstraintName: 'characters_film_character_id'
+        },
+        inverseJoinColumn: {
+            name: 'film_id',
+            referencedColumnName: 'id',
+            foreignKeyConstraintName: 'characters_film_film_id'
+        }
+    })
+    films: Film[];
 
     @Column({type: 'json', default: null})
     species: string[];
@@ -52,9 +66,6 @@ export class Person {
 
     @Column({type: 'json', default: null})
     starships: string[];
-
-    @Column({type: 'varchar', nullable: false})
-    url: string;
 
     @OneToMany(() => ImagePerson, (imagePerson) => imagePerson.person)
     images: ImagePerson[];
@@ -67,4 +78,7 @@ export class Person {
 
     @DeleteDateColumn({name: 'deleted_at', type: 'timestamp', default: null})
     deletedAt: Date;
+
+    @Column({type: 'varchar', nullable: false})
+    url: string;
 }
