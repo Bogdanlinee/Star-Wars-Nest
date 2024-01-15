@@ -42,18 +42,23 @@ export class Person {
     @Column({type: 'varchar', nullable: false})
     homeworld: string;
 
-    @ManyToMany(() => Film, (Film) => Film.characters)
+    @ManyToMany(
+        () => Film,
+        (Film) => Film.characters,
+        {
+            cascade: ['remove']
+        })
     @JoinTable({
-        name: 'characters_film',
+        name: 'person_film',
         joinColumn: {
-            name: 'character_id',
+            name: 'person_id',
             referencedColumnName: 'id',
-            foreignKeyConstraintName: 'characters_film_character_id'
+            foreignKeyConstraintName: 'person_film_character_id'
         },
         inverseJoinColumn: {
             name: 'film_id',
             referencedColumnName: 'id',
-            foreignKeyConstraintName: 'characters_film_film_id'
+            foreignKeyConstraintName: 'person_film_film_id'
         }
     })
     films: Film[];

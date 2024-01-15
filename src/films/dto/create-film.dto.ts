@@ -6,9 +6,8 @@ export class CreateFilmDto {
     @IsNotEmpty()
     title: string;
 
-    @Transform(({value}) => isNaN(parseInt(value)) ? 'unknown' : parseInt(value))
     @IsNotEmpty()
-    episode_id: string;
+    episode_id: number;
 
     @Transform(({value}) => value.trim())
     @IsNotEmpty()
