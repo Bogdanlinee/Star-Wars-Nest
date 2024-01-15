@@ -64,9 +64,6 @@ export class Person {
     films: Film[];
 
     @Column({type: 'json', default: null})
-    species: string[];
-
-    @Column({type: 'json', default: null})
     vehicles: string[];
 
     @Column({type: 'json', default: null})

@@ -5,5 +5,5 @@ global.beforeEach(async () => {
 });
 
 global.afterEach(async () => {
-    // execSync('NODE_ENV=test npm run typeorm schema:drop -- -d ./ormconfig.js');
+    execSync('NODE_ENV=test npm run typeorm schema:drop -- -d ./ormconfig.js');
 });
