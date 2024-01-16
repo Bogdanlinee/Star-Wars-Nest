@@ -4,8 +4,10 @@ import {
     PrimaryGeneratedColumn,
     DeleteDateColumn,
     UpdateDateColumn,
-    CreateDateColumn
+    CreateDateColumn, ManyToMany, JoinTable
 } from 'typeorm';
+import {Film} from '../../films/entities/film.entity';
+import {Person} from '../../people/entities/person.entity';
 
 @Entity()
 export class Species {
@@ -36,11 +38,53 @@ export class Species {
     @Column({type: 'varchar', nullable: false})
     average_lifespan: string;
 
-    @Column({type: 'varchar', nullable: false})
+    @Column({type: 'varchar'})
     homeworld: string;
 
     @Column({type: 'varchar', nullable: false})
     language: string;
+
+    @ManyToMany(
+        () => Film,
+        (Film) => Film.species,
+        {
+            cascade: ['remove']
+        })
+    @JoinTable({
+        name: 'species_film',
+        joinColumn: {
+            name: 'species_id',
+            referencedColumnName: 'id',
+            foreignKeyConstraintName: 'species_film_species_id'
+        },
+        inverseJoinColumn: {
+            name: 'film_id',
+            referencedColumnName: 'id',
+            foreignKeyConstraintName: 'species_film_film_id'
+        }
+    })
+    films: Film[];
+
+    @ManyToMany(
+        () => Person,
+        (Person) => Person.species,
+        {
+            cascade: ['remove']
+        })
+    @JoinTable({
+        name: 'species_person',
+        joinColumn: {
+            name: 'species_id',
+            referencedColumnName: 'id',
+            foreignKeyConstraintName: 'species_person_species_id'
+        },
+        inverseJoinColumn: {
+            name: 'person_id',
+            referencedColumnName: 'id',
+            foreignKeyConstraintName: 'species_person_person_id'
+        }
+    })
+    people: Person[];
 
     @CreateDateColumn()
     created: Date;

@@ -1,5 +1,7 @@
 .env.development
 .env.test
+originFetchedData
+testScripts
 
 # compiled output
 node_modules/

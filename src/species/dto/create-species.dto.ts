@@ -1,4 +1,4 @@
-import {IsNotEmpty} from 'class-validator';
+import {IsArray, IsNotEmpty} from 'class-validator';
 import {Transform} from 'class-transformer';
 
 export class CreateSpeciesDto {
@@ -45,4 +45,10 @@ export class CreateSpeciesDto {
     @Transform(({value}) => value.trim())
     @IsNotEmpty()
     url: string;
+
+    @IsArray()
+    filmIds: number[];
+
+    @IsArray()
+    peopleIds: number[];
 }

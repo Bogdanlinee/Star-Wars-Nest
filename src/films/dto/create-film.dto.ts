@@ -32,4 +32,7 @@ export class CreateFilmDto {
 
     @IsArray()
     personIds: number[];
+
+    @IsArray()
+    speciesIds: number[];
 }

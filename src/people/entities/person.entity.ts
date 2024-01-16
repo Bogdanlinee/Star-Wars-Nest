@@ -9,6 +9,7 @@ import {
 } from 'typeorm';
 import {ImagePerson} from '../../images/entities/image.person.entity';
 import {Film} from '../../films/entities/film.entity';
+import {Species} from '../../species/entities/species.entity';
 
 @Entity()
 export class Person {
@@ -62,6 +63,12 @@ export class Person {
         }
     })
     films: Film[];
+
+    @ManyToMany(
+        () => Species,
+        (Species) => Species.people,
+    )
+    species: Species[];
 
     @Column({type: 'json', default: null})
     vehicles: string[];

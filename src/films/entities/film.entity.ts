@@ -7,6 +7,7 @@ import {
     CreateDateColumn, ManyToMany
 } from 'typeorm';
 import {Person} from '../../people/entities/person.entity';
+import {Species} from '../../species/entities/species.entity';
 
 @Entity()
 export class Film {
@@ -36,6 +37,12 @@ export class Film {
         (Person) => Person.films,
     )
     characters: Person[];
+
+    @ManyToMany(
+        () => Species,
+        (Species) => Species.films,
+    )
+    species: Species[];
 
     @CreateDateColumn()
     created: Date;
