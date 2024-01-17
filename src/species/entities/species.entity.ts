@@ -38,7 +38,7 @@ export class Species {
     @Column({type: 'varchar', nullable: false})
     average_lifespan: string;
 
-    @Column({type: 'varchar'})
+    @Column({type: 'varchar', default: null})
     homeworld: string;
 
     @Column({type: 'varchar', nullable: false})

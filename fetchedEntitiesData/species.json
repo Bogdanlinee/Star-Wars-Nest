@@ -10,9 +10,24 @@
     "average_lifespan": "120",
     "homeworld": "https://swapi.dev/api/planets/9/",
     "language": "Galactic Basic",
+    "people": [
+      "https://swapi.dev/api/people/66/",
+      "https://swapi.dev/api/people/67/",
+      "https://swapi.dev/api/people/68/",
+      "https://swapi.dev/api/people/74/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/1/",
+      "https://swapi.dev/api/films/2/",
+      "https://swapi.dev/api/films/3/",
+      "https://swapi.dev/api/films/4/",
+      "https://swapi.dev/api/films/5/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-10T13:52:11.567000Z",
     "edited": "2014-12-20T21:36:42.136000Z",
-    "url": "https://swapi.dev/api/species/1/"
+    "url": "https://swapi.dev/api/species/1/",
+    "id": 1
   },
   {
     "name": "Droid",
@@ -25,9 +40,24 @@
     "average_lifespan": "indefinite",
     "homeworld": null,
     "language": "n/a",
+    "people": [
+      "https://swapi.dev/api/people/2/",
+      "https://swapi.dev/api/people/3/",
+      "https://swapi.dev/api/people/8/",
+      "https://swapi.dev/api/people/23/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/1/",
+      "https://swapi.dev/api/films/2/",
+      "https://swapi.dev/api/films/3/",
+      "https://swapi.dev/api/films/4/",
+      "https://swapi.dev/api/films/5/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-10T15:16:16.259000Z",
     "edited": "2014-12-20T21:36:42.139000Z",
-    "url": "https://swapi.dev/api/species/2/"
+    "url": "https://swapi.dev/api/species/2/",
+    "id": 2
   },
   {
     "name": "Wookie",
@@ -40,9 +70,20 @@
     "average_lifespan": "400",
     "homeworld": "https://swapi.dev/api/planets/14/",
     "language": "Shyriiwook",
+    "people": [
+      "https://swapi.dev/api/people/13/",
+      "https://swapi.dev/api/people/80/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/1/",
+      "https://swapi.dev/api/films/2/",
+      "https://swapi.dev/api/films/3/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-10T16:44:31.486000Z",
     "edited": "2014-12-20T21:36:42.142000Z",
-    "url": "https://swapi.dev/api/species/3/"
+    "url": "https://swapi.dev/api/species/3/",
+    "id": 3
   },
   {
     "name": "Rodian",
@@ -55,9 +96,16 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/23/",
     "language": "Galatic Basic",
+    "people": [
+      "https://swapi.dev/api/people/15/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/1/"
+    ],
     "created": "2014-12-10T17:05:26.471000Z",
     "edited": "2014-12-20T21:36:42.144000Z",
-    "url": "https://swapi.dev/api/species/4/"
+    "url": "https://swapi.dev/api/species/4/",
+    "id": 4
   },
   {
     "name": "Hutt",
@@ -70,9 +118,17 @@
     "average_lifespan": "1000",
     "homeworld": "https://swapi.dev/api/planets/24/",
     "language": "Huttese",
+    "people": [
+      "https://swapi.dev/api/people/16/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/1/",
+      "https://swapi.dev/api/films/3/"
+    ],
     "created": "2014-12-10T17:12:50.410000Z",
     "edited": "2014-12-20T21:36:42.146000Z",
-    "url": "https://swapi.dev/api/species/5/"
+    "url": "https://swapi.dev/api/species/5/",
+    "id": 5
   },
   {
     "name": "Yoda's species",
@@ -85,9 +141,20 @@
     "average_lifespan": "900",
     "homeworld": "https://swapi.dev/api/planets/28/",
     "language": "Galactic basic",
+    "people": [
+      "https://swapi.dev/api/people/20/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/2/",
+      "https://swapi.dev/api/films/3/",
+      "https://swapi.dev/api/films/4/",
+      "https://swapi.dev/api/films/5/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-15T12:27:22.877000Z",
     "edited": "2014-12-20T21:36:42.148000Z",
-    "url": "https://swapi.dev/api/species/6/"
+    "url": "https://swapi.dev/api/species/6/",
+    "id": 6
   },
   {
     "name": "Trandoshan",
@@ -100,9 +167,16 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/29/",
     "language": "Dosh",
+    "people": [
+      "https://swapi.dev/api/people/24/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/2/"
+    ],
     "created": "2014-12-15T13:07:47.704000Z",
     "edited": "2014-12-20T21:36:42.151000Z",
-    "url": "https://swapi.dev/api/species/7/"
+    "url": "https://swapi.dev/api/species/7/",
+    "id": 7
   },
   {
     "name": "Mon Calamari",
@@ -115,9 +189,16 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/31/",
     "language": "Mon Calamarian",
+    "people": [
+      "https://swapi.dev/api/people/27/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/3/"
+    ],
     "created": "2014-12-18T11:09:52.263000Z",
     "edited": "2014-12-20T21:36:42.153000Z",
-    "url": "https://swapi.dev/api/species/8/"
+    "url": "https://swapi.dev/api/species/8/",
+    "id": 8
   },
   {
     "name": "Ewok",
@@ -130,9 +211,16 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/7/",
     "language": "Ewokese",
+    "people": [
+      "https://swapi.dev/api/people/30/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/3/"
+    ],
     "created": "2014-12-18T11:22:00.285000Z",
     "edited": "2014-12-20T21:36:42.155000Z",
-    "url": "https://swapi.dev/api/species/9/"
+    "url": "https://swapi.dev/api/species/9/",
+    "id": 9
   },
   {
     "name": "Sullustan",
@@ -145,9 +233,16 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/33/",
     "language": "Sullutese",
+    "people": [
+      "https://swapi.dev/api/people/31/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/3/"
+    ],
     "created": "2014-12-18T11:26:20.103000Z",
     "edited": "2014-12-20T21:36:42.157000Z",
-    "url": "https://swapi.dev/api/species/10/"
+    "url": "https://swapi.dev/api/species/10/",
+    "id": 10
   },
   {
     "name": "Neimodian",
@@ -160,9 +255,16 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/18/",
     "language": "Neimoidia",
+    "people": [
+      "https://swapi.dev/api/people/33/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/4/"
+    ],
     "created": "2014-12-19T17:07:31.319000Z",
     "edited": "2014-12-20T21:36:42.160000Z",
-    "url": "https://swapi.dev/api/species/11/"
+    "url": "https://swapi.dev/api/species/11/",
+    "id": 11
   },
   {
     "name": "Gungan",
@@ -175,9 +277,19 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/8/",
     "language": "Gungan basic",
+    "people": [
+      "https://swapi.dev/api/people/36/",
+      "https://swapi.dev/api/people/37/",
+      "https://swapi.dev/api/people/38/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/4/",
+      "https://swapi.dev/api/films/5/"
+    ],
     "created": "2014-12-19T17:30:37.341000Z",
     "edited": "2014-12-20T21:36:42.163000Z",
-    "url": "https://swapi.dev/api/species/12/"
+    "url": "https://swapi.dev/api/species/12/",
+    "id": 12
   },
   {
     "name": "Toydarian",
@@ -190,9 +302,17 @@
     "average_lifespan": "91",
     "homeworld": "https://swapi.dev/api/planets/34/",
     "language": "Toydarian",
+    "people": [
+      "https://swapi.dev/api/people/40/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/4/",
+      "https://swapi.dev/api/films/5/"
+    ],
     "created": "2014-12-19T17:48:56.893000Z",
     "edited": "2014-12-20T21:36:42.165000Z",
-    "url": "https://swapi.dev/api/species/13/"
+    "url": "https://swapi.dev/api/species/13/",
+    "id": 13
   },
   {
     "name": "Dug",
@@ -205,9 +325,16 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/35/",
     "language": "Dugese",
+    "people": [
+      "https://swapi.dev/api/people/41/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/4/"
+    ],
     "created": "2014-12-19T17:53:11.214000Z",
     "edited": "2014-12-20T21:36:42.167000Z",
-    "url": "https://swapi.dev/api/species/14/"
+    "url": "https://swapi.dev/api/species/14/",
+    "id": 14
   },
   {
     "name": "Twi'lek",
@@ -220,9 +347,20 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/37/",
     "language": "Twi'leki",
+    "people": [
+      "https://swapi.dev/api/people/45/",
+      "https://swapi.dev/api/people/46/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/3/",
+      "https://swapi.dev/api/films/4/",
+      "https://swapi.dev/api/films/5/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-20T09:48:02.406000Z",
     "edited": "2014-12-20T21:36:42.169000Z",
-    "url": "https://swapi.dev/api/species/15/"
+    "url": "https://swapi.dev/api/species/15/",
+    "id": 15
   },
   {
     "name": "Aleena",
@@ -235,9 +373,16 @@
     "average_lifespan": "79",
     "homeworld": "https://swapi.dev/api/planets/38/",
     "language": "Aleena",
+    "people": [
+      "https://swapi.dev/api/people/47/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/4/"
+    ],
     "created": "2014-12-20T09:53:16.481000Z",
     "edited": "2014-12-20T21:36:42.171000Z",
-    "url": "https://swapi.dev/api/species/16/"
+    "url": "https://swapi.dev/api/species/16/",
+    "id": 16
   },
   {
     "name": "Vulptereen",
@@ -250,9 +395,16 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/39/",
     "language": "vulpterish",
+    "people": [
+      "https://swapi.dev/api/people/48/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/4/"
+    ],
     "created": "2014-12-20T09:57:33.128000Z",
     "edited": "2014-12-20T21:36:42.173000Z",
-    "url": "https://swapi.dev/api/species/17/"
+    "url": "https://swapi.dev/api/species/17/",
+    "id": 17
   },
   {
     "name": "Xexto",
@@ -265,9 +417,16 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/40/",
     "language": "Xextese",
+    "people": [
+      "https://swapi.dev/api/people/49/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/4/"
+    ],
     "created": "2014-12-20T10:02:13.915000Z",
     "edited": "2014-12-20T21:36:42.175000Z",
-    "url": "https://swapi.dev/api/species/18/"
+    "url": "https://swapi.dev/api/species/18/",
+    "id": 18
   },
   {
     "name": "Toong",
@@ -280,9 +439,17 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/41/",
     "language": "Tundan",
+    "people": [
+      "https://swapi.dev/api/people/50/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/4/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-20T10:08:36.795000Z",
     "edited": "2014-12-20T21:36:42.177000Z",
-    "url": "https://swapi.dev/api/species/19/"
+    "url": "https://swapi.dev/api/species/19/",
+    "id": 19
   },
   {
     "name": "Cerean",
@@ -295,9 +462,17 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/43/",
     "language": "Cerean",
+    "people": [
+      "https://swapi.dev/api/people/52/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/4/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-20T10:15:33.765000Z",
     "edited": "2014-12-20T21:36:42.179000Z",
-    "url": "https://swapi.dev/api/species/20/"
+    "url": "https://swapi.dev/api/species/20/",
+    "id": 20
   },
   {
     "name": "Nautolan",
@@ -310,9 +485,16 @@
     "average_lifespan": "70",
     "homeworld": "https://swapi.dev/api/planets/44/",
     "language": "Nautila",
+    "people": [
+      "https://swapi.dev/api/people/53/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/4/"
+    ],
     "created": "2014-12-20T10:18:58.610000Z",
     "edited": "2014-12-20T21:36:42.181000Z",
-    "url": "https://swapi.dev/api/species/21/"
+    "url": "https://swapi.dev/api/species/21/",
+    "id": 21
   },
   {
     "name": "Zabrak",
@@ -325,9 +507,17 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/45/",
     "language": "Zabraki",
+    "people": [
+      "https://swapi.dev/api/people/44/",
+      "https://swapi.dev/api/people/54/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/4/"
+    ],
     "created": "2014-12-20T10:26:59.894000Z",
     "edited": "2014-12-20T21:36:42.183000Z",
-    "url": "https://swapi.dev/api/species/22/"
+    "url": "https://swapi.dev/api/species/22/",
+    "id": 22
   },
   {
     "name": "Tholothian",
@@ -340,9 +530,17 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/46/",
     "language": "unknown",
+    "people": [
+      "https://swapi.dev/api/people/55/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/4/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-20T10:29:13.798000Z",
     "edited": "2014-12-20T21:36:42.186000Z",
-    "url": "https://swapi.dev/api/species/23/"
+    "url": "https://swapi.dev/api/species/23/",
+    "id": 23
   },
   {
     "name": "Iktotchi",
@@ -355,9 +553,17 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/47/",
     "language": "Iktotchese",
+    "people": [
+      "https://swapi.dev/api/people/56/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/4/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-20T10:32:13.046000Z",
     "edited": "2014-12-20T21:36:42.188000Z",
-    "url": "https://swapi.dev/api/species/24/"
+    "url": "https://swapi.dev/api/species/24/",
+    "id": 24
   },
   {
     "name": "Quermian",
@@ -370,9 +576,17 @@
     "average_lifespan": "86",
     "homeworld": "https://swapi.dev/api/planets/48/",
     "language": "Quermian",
+    "people": [
+      "https://swapi.dev/api/people/57/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/4/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-20T10:34:50.827000Z",
     "edited": "2014-12-20T21:36:42.189000Z",
-    "url": "https://swapi.dev/api/species/25/"
+    "url": "https://swapi.dev/api/species/25/",
+    "id": 25
   },
   {
     "name": "Kel Dor",
@@ -385,9 +599,17 @@
     "average_lifespan": "70",
     "homeworld": "https://swapi.dev/api/planets/49/",
     "language": "Kel Dor",
+    "people": [
+      "https://swapi.dev/api/people/58/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/4/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-20T10:49:21.692000Z",
     "edited": "2014-12-20T21:36:42.191000Z",
-    "url": "https://swapi.dev/api/species/26/"
+    "url": "https://swapi.dev/api/species/26/",
+    "id": 26
   },
   {
     "name": "Chagrian",
@@ -400,9 +622,17 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/50/",
     "language": "Chagria",
+    "people": [
+      "https://swapi.dev/api/people/59/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/4/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-20T10:53:28.795000Z",
     "edited": "2014-12-20T21:36:42.193000Z",
-    "url": "https://swapi.dev/api/species/27/"
+    "url": "https://swapi.dev/api/species/27/",
+    "id": 27
   },
   {
     "name": "Geonosian",
@@ -415,9 +645,17 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/11/",
     "language": "Geonosian",
+    "people": [
+      "https://swapi.dev/api/people/63/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/5/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-20T16:40:45.618000Z",
     "edited": "2014-12-20T21:36:42.195000Z",
-    "url": "https://swapi.dev/api/species/28/"
+    "url": "https://swapi.dev/api/species/28/",
+    "id": 28
   },
   {
     "name": "Mirialan",
@@ -430,9 +668,18 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/51/",
     "language": "Mirialan",
+    "people": [
+      "https://swapi.dev/api/people/64/",
+      "https://swapi.dev/api/people/65/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/5/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-20T16:46:48.290000Z",
     "edited": "2014-12-20T21:36:42.197000Z",
-    "url": "https://swapi.dev/api/species/29/"
+    "url": "https://swapi.dev/api/species/29/",
+    "id": 29
   },
   {
     "name": "Clawdite",
@@ -445,9 +692,17 @@
     "average_lifespan": "70",
     "homeworld": "https://swapi.dev/api/planets/54/",
     "language": "Clawdite",
+    "people": [
+      "https://swapi.dev/api/people/70/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/5/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-20T16:57:46.171000Z",
     "edited": "2014-12-20T21:36:42.199000Z",
-    "url": "https://swapi.dev/api/species/30/"
+    "url": "https://swapi.dev/api/species/30/",
+    "id": 30
   },
   {
     "name": "Besalisk",
@@ -460,9 +715,16 @@
     "average_lifespan": "75",
     "homeworld": "https://swapi.dev/api/planets/55/",
     "language": "besalisk",
+    "people": [
+      "https://swapi.dev/api/people/71/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/5/"
+    ],
     "created": "2014-12-20T17:28:28.821000Z",
     "edited": "2014-12-20T21:36:42.200000Z",
-    "url": "https://swapi.dev/api/species/31/"
+    "url": "https://swapi.dev/api/species/31/",
+    "id": 31
   },
   {
     "name": "Kaminoan",
@@ -475,9 +737,17 @@
     "average_lifespan": "80",
     "homeworld": "https://swapi.dev/api/planets/10/",
     "language": "Kaminoan",
+    "people": [
+      "https://swapi.dev/api/people/72/",
+      "https://swapi.dev/api/people/73/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/5/"
+    ],
     "created": "2014-12-20T17:31:24.838000Z",
     "edited": "2014-12-20T21:36:42.202000Z",
-    "url": "https://swapi.dev/api/species/32/"
+    "url": "https://swapi.dev/api/species/32/",
+    "id": 32
   },
   {
     "name": "Skakoan",
@@ -490,9 +760,17 @@
     "average_lifespan": "unknown",
     "homeworld": "https://swapi.dev/api/planets/56/",
     "language": "Skakoan",
+    "people": [
+      "https://swapi.dev/api/people/76/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/5/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-20T17:53:54.515000Z",
     "edited": "2014-12-20T21:36:42.204000Z",
-    "url": "https://swapi.dev/api/species/33/"
+    "url": "https://swapi.dev/api/species/33/",
+    "id": 33
   },
   {
     "name": "Muun",
@@ -505,9 +783,17 @@
     "average_lifespan": "100",
     "homeworld": "https://swapi.dev/api/planets/57/",
     "language": "Muun",
+    "people": [
+      "https://swapi.dev/api/people/77/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/5/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-20T17:58:19.088000Z",
     "edited": "2014-12-20T21:36:42.207000Z",
-    "url": "https://swapi.dev/api/species/34/"
+    "url": "https://swapi.dev/api/species/34/",
+    "id": 34
   },
   {
     "name": "Togruta",
@@ -520,9 +806,17 @@
     "average_lifespan": "94",
     "homeworld": "https://swapi.dev/api/planets/58/",
     "language": "Togruti",
+    "people": [
+      "https://swapi.dev/api/people/78/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/5/",
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-20T18:44:03.246000Z",
     "edited": "2014-12-20T21:36:42.209000Z",
-    "url": "https://swapi.dev/api/species/35/"
+    "url": "https://swapi.dev/api/species/35/",
+    "id": 35
   },
   {
     "name": "Kaleesh",
@@ -535,9 +829,16 @@
     "average_lifespan": "80",
     "homeworld": "https://swapi.dev/api/planets/59/",
     "language": "Kaleesh",
+    "people": [
+      "https://swapi.dev/api/people/79/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-20T19:45:42.537000Z",
     "edited": "2014-12-20T21:36:42.210000Z",
-    "url": "https://swapi.dev/api/species/36/"
+    "url": "https://swapi.dev/api/species/36/",
+    "id": 36
   },
   {
     "name": "Pau'an",
@@ -550,8 +851,15 @@
     "average_lifespan": "700",
     "homeworld": "https://swapi.dev/api/planets/12/",
     "language": "Utapese",
+    "people": [
+      "https://swapi.dev/api/people/83/"
+    ],
+    "films": [
+      "https://swapi.dev/api/films/6/"
+    ],
     "created": "2014-12-20T20:35:06.777000Z",
     "edited": "2014-12-20T21:36:42.212000Z",
-    "url": "https://swapi.dev/api/species/37/"
+    "url": "https://swapi.dev/api/species/37/",
+    "id": 37
   }
 ]
