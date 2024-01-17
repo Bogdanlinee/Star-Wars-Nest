@@ -9,7 +9,6 @@ import {FilmsService} from './films.service';
 
 describe('PeopleController', () => {
     let controller: FilmsController;
-    // let filmsService: FilmsService;
     let filmRepository: Repository<Film>;
     const films: Film[] = [];
 
@@ -69,6 +68,8 @@ describe('PeopleController', () => {
         release_date: "1999-05-19",
         characters: [],
         personIds: [],
+        species: [],
+        speciesIds: [],
         url: "https://swapi.dev/api/films/4/",
         created: new Date(),
         edited: new Date(),

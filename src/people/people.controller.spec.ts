@@ -78,9 +78,8 @@ describe('PeopleController', () => {
         homeworld: "https://swapi.dev/api/planets/1/",
         films: [],
         filmIds: [],
-        species: [
-            "https://swapi.dev/api/species/1/"
-        ],
+        species: [],
+        speciesIds: [],
         vehicles: [
             "https://swapi.dev/api/vehicles/14/",
             "https://swapi.dev/api/vehicles/30/"

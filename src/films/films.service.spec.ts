@@ -90,6 +90,8 @@ describe('FilmsService', () => {
         release_date: "1999-05-19",
         characters: [],
         personIds: [],
+        species: [],
+        speciesIds: [],
         url: "https://swapi.dev/api/films/4/",
         created: new Date(),
         edited: new Date(),
