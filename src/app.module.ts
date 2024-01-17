@@ -5,6 +5,7 @@ import {dbConfig} from '../ormconfig.js';
 import {ImagesModule} from './images/images.module';
 import {ConfigModule, ConfigService} from '@nestjs/config';
 import { FilmsModule } from './films/films.module';
+import { SpeciesModule } from './species/species.module';
 
 @Module({
     imports: [
@@ -16,6 +17,7 @@ import { FilmsModule } from './films/films.module';
         ImagesModule,
         TypeOrmModule.forRoot(dbConfig as TypeOrmModuleOptions),
         FilmsModule,
+        SpeciesModule,
     ],
 })
 export class AppModule {

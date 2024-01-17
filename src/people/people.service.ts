@@ -7,6 +7,7 @@ import {Repository} from 'typeorm';
 import {NotFoundException} from '@nestjs/common';
 import {ImagePerson} from '../images/entities/image.person.entity';
 import {Film} from '../films/entities/film.entity';
+import {Species} from '../species/entities/species.entity';
 
 @Injectable()
 export class PeopleService {
@@ -22,6 +23,7 @@ export class PeopleService {
         const person = this.personRepository.create(createPersonDto);
 
         person.films = createPersonDto.filmIds.map(id => ({...new Film(), id}));
+        person.species = createPersonDto.speciesIds.map(id => ({...new Species(), id}))
 
         return this.personRepository.save(person);
     }
@@ -31,6 +33,7 @@ export class PeopleService {
             relations: {
                 images: true,
                 films: true,
+                species: true,
             },
             order: {id: 'DESC'},
             take: 10,
@@ -43,6 +46,7 @@ export class PeopleService {
             relations: {
                 images: true,
                 films: true,
+                species: true,
             }
         });
     }

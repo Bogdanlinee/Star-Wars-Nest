@@ -26,6 +26,7 @@ export class FilmsService {
             where: {id},
             relations: {
                 characters: true,
+                species: true,
             }
         });
     }
@@ -34,6 +35,7 @@ export class FilmsService {
         return this.filmsRepository.find({
             relations: {
                 characters: true,
+                species: true,
             },
             take: 10
         });

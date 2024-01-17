@@ -1,0 +1,294 @@
+[
+  {
+    "film_id": 1,
+    "species_id": 1
+  },
+  {
+    "film_id": 1,
+    "species_id": 2
+  },
+  {
+    "film_id": 1,
+    "species_id": 3
+  },
+  {
+    "film_id": 1,
+    "species_id": 4
+  },
+  {
+    "film_id": 1,
+    "species_id": 5
+  },
+  {
+    "film_id": 2,
+    "species_id": 1
+  },
+  {
+    "film_id": 2,
+    "species_id": 2
+  },
+  {
+    "film_id": 2,
+    "species_id": 3
+  },
+  {
+    "film_id": 2,
+    "species_id": 6
+  },
+  {
+    "film_id": 2,
+    "species_id": 7
+  },
+  {
+    "film_id": 3,
+    "species_id": 1
+  },
+  {
+    "film_id": 3,
+    "species_id": 2
+  },
+  {
+    "film_id": 3,
+    "species_id": 3
+  },
+  {
+    "film_id": 3,
+    "species_id": 5
+  },
+  {
+    "film_id": 3,
+    "species_id": 6
+  },
+  {
+    "film_id": 3,
+    "species_id": 8
+  },
+  {
+    "film_id": 3,
+    "species_id": 9
+  },
+  {
+    "film_id": 3,
+    "species_id": 10
+  },
+  {
+    "film_id": 3,
+    "species_id": 15
+  },
+  {
+    "film_id": 4,
+    "species_id": 1
+  },
+  {
+    "film_id": 4,
+    "species_id": 2
+  },
+  {
+    "film_id": 4,
+    "species_id": 6
+  },
+  {
+    "film_id": 4,
+    "species_id": 11
+  },
+  {
+    "film_id": 4,
+    "species_id": 12
+  },
+  {
+    "film_id": 4,
+    "species_id": 13
+  },
+  {
+    "film_id": 4,
+    "species_id": 14
+  },
+  {
+    "film_id": 4,
+    "species_id": 15
+  },
+  {
+    "film_id": 4,
+    "species_id": 16
+  },
+  {
+    "film_id": 4,
+    "species_id": 17
+  },
+  {
+    "film_id": 4,
+    "species_id": 18
+  },
+  {
+    "film_id": 4,
+    "species_id": 19
+  },
+  {
+    "film_id": 4,
+    "species_id": 20
+  },
+  {
+    "film_id": 4,
+    "species_id": 21
+  },
+  {
+    "film_id": 4,
+    "species_id": 22
+  },
+  {
+    "film_id": 4,
+    "species_id": 23
+  },
+  {
+    "film_id": 4,
+    "species_id": 24
+  },
+  {
+    "film_id": 4,
+    "species_id": 25
+  },
+  {
+    "film_id": 4,
+    "species_id": 26
+  },
+  {
+    "film_id": 4,
+    "species_id": 27
+  },
+  {
+    "film_id": 5,
+    "species_id": 1
+  },
+  {
+    "film_id": 5,
+    "species_id": 2
+  },
+  {
+    "film_id": 5,
+    "species_id": 6
+  },
+  {
+    "film_id": 5,
+    "species_id": 12
+  },
+  {
+    "film_id": 5,
+    "species_id": 13
+  },
+  {
+    "film_id": 5,
+    "species_id": 15
+  },
+  {
+    "film_id": 5,
+    "species_id": 28
+  },
+  {
+    "film_id": 5,
+    "species_id": 29
+  },
+  {
+    "film_id": 5,
+    "species_id": 30
+  },
+  {
+    "film_id": 5,
+    "species_id": 31
+  },
+  {
+    "film_id": 5,
+    "species_id": 32
+  },
+  {
+    "film_id": 5,
+    "species_id": 33
+  },
+  {
+    "film_id": 5,
+    "species_id": 34
+  },
+  {
+    "film_id": 5,
+    "species_id": 35
+  },
+  {
+    "film_id": 6,
+    "species_id": 1
+  },
+  {
+    "film_id": 6,
+    "species_id": 2
+  },
+  {
+    "film_id": 6,
+    "species_id": 3
+  },
+  {
+    "film_id": 6,
+    "species_id": 6
+  },
+  {
+    "film_id": 6,
+    "species_id": 15
+  },
+  {
+    "film_id": 6,
+    "species_id": 19
+  },
+  {
+    "film_id": 6,
+    "species_id": 20
+  },
+  {
+    "film_id": 6,
+    "species_id": 23
+  },
+  {
+    "film_id": 6,
+    "species_id": 24
+  },
+  {
+    "film_id": 6,
+    "species_id": 25
+  },
+  {
+    "film_id": 6,
+    "species_id": 26
+  },
+  {
+    "film_id": 6,
+    "species_id": 27
+  },
+  {
+    "film_id": 6,
+    "species_id": 28
+  },
+  {
+    "film_id": 6,
+    "species_id": 29
+  },
+  {
+    "film_id": 6,
+    "species_id": 30
+  },
+  {
+    "film_id": 6,
+    "species_id": 33
+  },
+  {
+    "film_id": 6,
+    "species_id": 34
+  },
+  {
+    "film_id": 6,
+    "species_id": 35
+  },
+  {
+    "film_id": 6,
+    "species_id": 36
+  },
+  {
+    "film_id": 6,
+    "species_id": 37
+  }
+]

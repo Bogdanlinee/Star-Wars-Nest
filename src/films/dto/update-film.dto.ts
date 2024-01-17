@@ -1,4 +1,3 @@
-import {} from 'class-validator';
 import {PartialType} from '@nestjs/mapped-types';
 import {CreateFilmDto} from './create-film.dto';
 

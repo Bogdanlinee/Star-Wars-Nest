@@ -2,17 +2,15 @@ import {
     Entity,
     Column,
     PrimaryGeneratedColumn,
-    OneToMany,
     DeleteDateColumn,
     UpdateDateColumn,
     CreateDateColumn, ManyToMany, JoinTable
 } from 'typeorm';
-import {ImagePerson} from '../../images/entities/image.person.entity';
 import {Film} from '../../films/entities/film.entity';
-import {Species} from '../../species/entities/species.entity';
+import {Person} from '../../people/entities/person.entity';
 
 @Entity()
-export class Person {
+export class Species {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -20,64 +18,73 @@ export class Person {
     name: string;
 
     @Column({type: 'varchar', nullable: false})
-    height: string;
+    classification: string;
 
     @Column({type: 'varchar', nullable: false})
-    mass: string;
+    designation: string;
 
     @Column({type: 'varchar', nullable: false})
-    hair_color: string;
+    average_height: string;
 
     @Column({type: 'varchar', nullable: false})
-    skin_color: string;
+    skin_colors: string;
 
     @Column({type: 'varchar', nullable: false})
-    eye_color: string;
+    hair_colors: string;
 
     @Column({type: 'varchar', nullable: false})
-    birth_year: string;
+    eye_colors: string;
 
     @Column({type: 'varchar', nullable: false})
-    gender: string;
+    average_lifespan: string;
 
-    @Column({type: 'varchar', nullable: false})
+    @Column({type: 'varchar', default: null})
     homeworld: string;
+
+    @Column({type: 'varchar', nullable: false})
+    language: string;
 
     @ManyToMany(
         () => Film,
-        (Film) => Film.characters,
+        (Film) => Film.species,
         {
             cascade: ['remove']
         })
     @JoinTable({
-        name: 'person_film',
+        name: 'species_film',
         joinColumn: {
-            name: 'person_id',
+            name: 'species_id',
             referencedColumnName: 'id',
-            foreignKeyConstraintName: 'person_film_character_id'
+            foreignKeyConstraintName: 'species_film_species_id'
         },
         inverseJoinColumn: {
             name: 'film_id',
             referencedColumnName: 'id',
-            foreignKeyConstraintName: 'person_film_film_id'
+            foreignKeyConstraintName: 'species_film_film_id'
         }
     })
     films: Film[];
 
     @ManyToMany(
-        () => Species,
-        (Species) => Species.people,
-    )
-    species: Species[];
-
-    @Column({type: 'json', default: null})
-    vehicles: string[];
-
-    @Column({type: 'json', default: null})
-    starships: string[];
-
-    @OneToMany(() => ImagePerson, (imagePerson) => imagePerson.person)
-    images: ImagePerson[];
+        () => Person,
+        (Person) => Person.species,
+        {
+            cascade: ['remove']
+        })
+    @JoinTable({
+        name: 'species_person',
+        joinColumn: {
+            name: 'species_id',
+            referencedColumnName: 'id',
+            foreignKeyConstraintName: 'species_person_species_id'
+        },
+        inverseJoinColumn: {
+            name: 'person_id',
+            referencedColumnName: 'id',
+            foreignKeyConstraintName: 'species_person_person_id'
+        }
+    })
+    people: Person[];
 
     @CreateDateColumn()
     created: Date;

@@ -6,7 +6,7 @@ let dbConfig = {
     port: 3306,
     username: 'root',
     password: 'root',
-    synchronize: false,
+    synchronize: true,
     migrations: ['migrations/*.js'],
     migrationsTableName: 'migrations'
 }

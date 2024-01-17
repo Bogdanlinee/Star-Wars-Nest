@@ -42,9 +42,6 @@ export class CreatePersonDto {
     homeworld: string;
 
     @IsArray()
-    species: string[];
-
-    @IsArray()
     vehicles: string[];
 
     @IsArray()
@@ -56,4 +53,7 @@ export class CreatePersonDto {
 
     @IsArray()
     filmIds: number[];
+
+    @IsArray()
+    speciesIds: number[];
 }
