@@ -16,54 +16,61 @@ describe('Films (e2e)', () => {
     });
 
     it('Can find one film', () => {
-        const personId = 1;
+        const filmId = 1;
         return request(app.getHttpServer())
-            .get(`/films/${personId}`)
+            .get(`/films/${filmId}`)
             .expect(200)
             .then(res => {
-                const {id, title} = res.body;
-                expect(id).toEqual(personId);
+                const {id, title, species, characters} = res.body;
+                expect(id).toEqual(filmId);
+                expect(species.length).toBeGreaterThan(0);
+                expect(characters.length).toBeGreaterThan(0);
                 expect(title).toBeDefined();
             })
     });
 
-    // it('Throws Error. Find one person in DB', () => {
-    //     const personId = 10000000;
-    //     return request(app.getHttpServer())
-    //         .get(`/people/${personId}`)
-    //         .expect(404)
-    // });
-    //
-    // it('Can find many people', () => {
-    //     return request(app.getHttpServer())
-    //         .get(`/people`)
-    //         .expect(200)
-    //         .then(res => {
-    //             const amountOfPeople = res.body.length;
-    //             expect(amountOfPeople).toBeTruthy();
-    //         })
-    // });
-    //
-    // it('Can update the person', () => {
-    //     const personUpdatedInfo = {name: 'New Test Name'};
-    //     return request(app.getHttpServer())
-    //         .patch('/people/1')
-    //         .send(personUpdatedInfo)
-    //         .expect(200)
-    //         .then(res => {
-    //             const {name} = res.body;
-    //             expect(name).toEqual(personUpdatedInfo.name);
-    //         })
-    // })
-    //
-    // it('Can delete one person', () => {
-    //     const personId = 1;
-    //     return request(app.getHttpServer())
-    //         .delete(`/people/${personId}`)
-    //         .expect(200)
-    //         .then(res => {
-    //             const {deletedAt} = res.body;
-    //             expect(deletedAt).toBeTruthy();
-    //         })
-    // })
+    it('Throws Error. Find one film in DB', () => {
+        const filmId = 10000000;
+        return request(app.getHttpServer())
+            .get(`/films/${filmId}`)
+            .expect(404)
+    });
+
+    it('Can find many films', () => {
+        return request(app.getHttpServer())
+            .get(`/films`)
+            .expect(200)
+            .then(res => {
+                const filmsList = res.body;
+                expect(filmsList.length).toBeTruthy();
+                expect(filmsList[0]['characters'].length).toBeGreaterThan(0);
+                expect(filmsList[0]['species'].length).toBeGreaterThan(0);
+            })
+    });
+
+    it('Can update the film', () => {
+        const filmId = 1;
+        const filmUpdatedInfo = {title: 'New Film Title'};
+        return request(app.getHttpServer())
+            .patch(`/films/${filmId}`)
+            .send(filmUpdatedInfo)
+            .expect(200)
+            .then(res => {
+                const {title, species, characters} = res.body;
+                expect(title).toEqual(filmUpdatedInfo.title);
+                expect(species.length).toBeGreaterThan(0);
+                expect(characters.length).toBeGreaterThan(0);
+            })
+    })
+
+    it('Can delete one film', () => {
+        const filmId = 1;
+        return request(app.getHttpServer())
+            .delete(`/films/${filmId}`)
+            .expect(200)
+            .then(res => {
+                const {deletedAt} = res.body;
+                expect(deletedAt).toBeTruthy();
+            })
+    })
 });

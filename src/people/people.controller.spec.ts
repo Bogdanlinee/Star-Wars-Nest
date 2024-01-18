@@ -5,7 +5,7 @@ import {Repository} from 'typeorm';
 import {ImagePerson} from '../images/entities/image.person.entity';
 import {getRepositoryToken} from '@nestjs/typeorm';
 import {Person} from './entities/person.entity';
-import {BadRequestException, NotFoundException} from '@nestjs/common';
+import {NotFoundException} from '@nestjs/common';
 
 describe('PeopleController', () => {
     let controller: PeopleController;

@@ -3,7 +3,7 @@ import {INestApplication} from '@nestjs/common';
 import * as request from 'supertest';
 import {AppModule} from '../src/app.module';
 
-describe('People (e2e)', () => {
+describe('Species (e2e)', () => {
     let app: INestApplication;
 
     beforeEach(async () => {
@@ -15,58 +15,58 @@ describe('People (e2e)', () => {
         await app.init();
     });
 
-    it('Can find one person', () => {
-        const personId = 2;
+    it('Can find one species', () => {
+        const speciesId = 1;
         return request(app.getHttpServer())
-            .get(`/people/${personId}`)
+            .get(`/species/${speciesId}`)
             .expect(200)
             .then(res => {
-                const {id, name, films, species} = res.body;
-                expect(id).toEqual(personId);
+                const {id, name, films, people} = res.body;
+                expect(id).toEqual(speciesId);
                 expect(films.length).toBeGreaterThan(0);
-                expect(species.length).toBeGreaterThan(0);
+                expect(people.length).toBeGreaterThan(0);
                 expect(name).toBeDefined();
             })
     });
 
-    it('Throws Error. Find one person in DB', () => {
-        const personId = 10000000;
+    it('Throws Error. Find one species in DB', () => {
+        const speciesId = 10000000;
         return request(app.getHttpServer())
-            .get(`/people/${personId}`)
+            .get(`/species/${speciesId}`)
             .expect(404)
     });
 
-    it('Can find many people', () => {
+    it('Can find many species', () => {
         return request(app.getHttpServer())
-            .get(`/people`)
+            .get(`/species`)
             .expect(200)
             .then(res => {
-                const peopleList = res.body;
-                expect(peopleList.length).toBeTruthy();
-                expect(peopleList[0]['films'].length).toBeGreaterThan(0);
-                expect(peopleList[0]['species'].length).toBeGreaterThan(0);
+                const speciesList = res.body;
+                expect(speciesList.length).toBeTruthy();
+                expect(speciesList[0]['people'].length).toBeGreaterThan(0);
+                expect(speciesList[0]['films'].length).toBeGreaterThan(0);
             })
     });
 
-    it('Can update the person', () => {
-        const personId = 2;
-        const personUpdatedInfo = {name: 'New Test Name'};
+    it('Can update the species', () => {
+        const speciesId = 1;
+        const speciesUpdatedInfo = {name: 'New Species Name'};
         return request(app.getHttpServer())
-            .patch(`/people/${personId}`)
-            .send(personUpdatedInfo)
+            .patch(`/species/${speciesId}`)
+            .send(speciesUpdatedInfo)
             .expect(200)
             .then(res => {
-                const {name, films, species} = res.body;
-                expect(name).toEqual(personUpdatedInfo.name);
+                const {name, films, people} = res.body;
+                expect(name).toEqual(speciesUpdatedInfo.name);
                 expect(films.length).toBeGreaterThan(0);
-                expect(species.length).toBeGreaterThan(0);
+                expect(people.length).toBeGreaterThan(0);
             })
     })
 
-    it('Can delete one person', () => {
-        const personId = 1;
+    it('Can delete one species', () => {
+        const speciesId = 1;
         return request(app.getHttpServer())
-            .delete(`/people/${personId}`)
+            .delete(`/species/${speciesId}`)
             .expect(200)
             .then(res => {
                 const {deletedAt} = res.body;
