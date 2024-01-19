@@ -5,11 +5,12 @@ import {
     OneToMany,
     DeleteDateColumn,
     UpdateDateColumn,
-    CreateDateColumn, ManyToMany, JoinTable
+    CreateDateColumn, ManyToMany, JoinTable, ManyToOne, JoinColumn
 } from 'typeorm';
 import {ImagePerson} from '../../images/entities/image.person.entity';
 import {Film} from '../../films/entities/film.entity';
 import {Species} from '../../species/entities/species.entity';
+import {Planet} from '../../planets/entities/planet.entity';
 
 @Entity()
 export class Person {
@@ -40,9 +41,6 @@ export class Person {
     @Column({type: 'varchar', nullable: false})
     gender: string;
 
-    @Column({type: 'varchar', nullable: false})
-    homeworld: string;
-
     @ManyToMany(
         () => Film,
         (Film) => Film.characters,
@@ -63,6 +61,10 @@ export class Person {
         }
     })
     films: Film[];
+
+    @ManyToOne(() => Planet, (Planet) => Planet.residents)
+    @JoinColumn({name: 'homeworld'})
+    homeworld: Planet;
 
     @ManyToMany(
         () => Species,
