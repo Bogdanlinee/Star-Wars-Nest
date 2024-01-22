@@ -36,7 +36,7 @@ export class PeopleService {
                 images: true,
                 films: true,
                 species: true,
-                homeworld: true
+                homeworld: true,
             },
             order: {id: 'DESC'},
             take: 10,
@@ -50,6 +50,7 @@ export class PeopleService {
                 images: true,
                 films: true,
                 species: true,
+                homeworld: true,
             }
         });
     }

@@ -1,7 +1,7 @@
 const fs = require('fs/promises');
 
-module.exports = class V21705686961789 {
-    name = 'V21705686961789';
+module.exports = class V21705906943065 {
+    name = 'V21705906943065';
 
     async up(queryRunner) {
         let films = await fs.readFile('fetchedEntitiesData/films.json');
@@ -12,9 +12,8 @@ module.exports = class V21705686961789 {
         let person_film = await fs.readFile('fetchedEntitiesData/relationsTable/person_film.json');
         let species_film = await fs.readFile('fetchedEntitiesData/relationsTable/species_film.json');
         let species_person = await fs.readFile('fetchedEntitiesData/relationsTable/species_person.json');
-
-        // let planets_films = await fs.readFile('fetchedEntitiesData/relationsTable/planets_films.json');
-        // let species_planets = await fs.readFile('fetchedEntitiesData/relationsTable/species_planets.json');
+        let planet_film = await fs.readFile('fetchedEntitiesData/relationsTable/planets_films.json');
+        let planet_species = await fs.readFile('fetchedEntitiesData/relationsTable/planets_species.json');
 
         films = JSON.parse(films);
         people = JSON.parse(people);
@@ -24,9 +23,8 @@ module.exports = class V21705686961789 {
         person_film = JSON.parse(person_film);
         species_film = JSON.parse(species_film);
         species_person = JSON.parse(species_person);
-
-        // planets_films = JSON.parse(planets_films);
-        // species_planets = JSON.parse(species_planets);
+        planet_film = JSON.parse(planet_film);
+        planet_species = JSON.parse(planet_species);
 
         await queryRunner.manager
             .createQueryBuilder()
@@ -70,18 +68,18 @@ module.exports = class V21705686961789 {
             .into('species_person')
             .values(species_person)
             .execute()
-        // await queryRunner.manager
-        //     .createQueryBuilder()
-        //     .insert()
-        //     .into('planets_films')
-        //     .values(planets_films)
-        //     .execute()
-        // await queryRunner.manager
-        //     .createQueryBuilder()
-        //     .insert()
-        //     .into('species_planets')
-        //     .values(species_planets)
-        //     .execute()
+        await queryRunner.manager
+            .createQueryBuilder()
+            .insert()
+            .into('planet_film')
+            .values(planet_film)
+            .execute()
+        await queryRunner.manager
+            .createQueryBuilder()
+            .insert()
+            .into('planet_species')
+            .values(planet_species)
+            .execute()
     }
 
     async down(queryRunner) {
@@ -92,7 +90,7 @@ module.exports = class V21705686961789 {
         await queryRunner.query('DELETE from person')
         await queryRunner.query('DELETE from species')
         await queryRunner.query('DELETE from planet')
-        // await queryRunner.query('DELETE from planets_films')
-        // await queryRunner.query('DELETE from species_planets')
+        await queryRunner.query('DELETE from planet_film')
+        await queryRunner.query('DELETE from planet_species')
     }
 }

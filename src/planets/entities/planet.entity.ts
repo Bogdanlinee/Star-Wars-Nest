@@ -10,6 +10,7 @@ import {Person} from '../../people/entities/person.entity';
 import {Species} from '../../species/entities/species.entity';
 import {Transform} from 'class-transformer';
 import {IsArray, IsNotEmpty} from 'class-validator';
+import {Film} from '../../films/entities/film.entity';
 
 @Entity()
 export class Planet {
@@ -54,6 +55,48 @@ export class Planet {
     //     (Species) => Species.films,
     // )
     // species: Species[];
+
+    @ManyToMany(
+        () => Film,
+        (Film) => Film.planets,
+        {
+            cascade: ['remove']
+        })
+    @JoinTable({
+        name: 'planet_film',
+        joinColumn: {
+            name: 'planet_id',
+            referencedColumnName: 'id',
+            foreignKeyConstraintName: 'planet_film_planet_id'
+        },
+        inverseJoinColumn: {
+            name: 'film_id',
+            referencedColumnName: 'id',
+            foreignKeyConstraintName: 'planet_film_film_id'
+        }
+    })
+    films: Film[];
+
+    @ManyToMany(
+        () => Species,
+        (Species) => Species.planets,
+        {
+            cascade: ['remove']
+        })
+    @JoinTable({
+        name: 'planet_species',
+        joinColumn: {
+            name: 'planet_id',
+            referencedColumnName: 'id',
+            foreignKeyConstraintName: 'planet_species_planet_id'
+        },
+        inverseJoinColumn: {
+            name: 'species_id',
+            referencedColumnName: 'id',
+            foreignKeyConstraintName: 'planet_species_species_id'
+        }
+    })
+    species: Species[];
 
     @OneToMany(() => Person, (Person) => Person.homeworld)
     residents: Person[];

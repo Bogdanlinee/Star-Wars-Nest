@@ -95,11 +95,13 @@ describe('UserService', () => {
         language: 'Utapese',
         people: [],
         films: [],
+        planets: [],
         url: 'https://swapi.dev/api/species/37/',
         created: new Date(),
         edited: new Date(),
         deletedAt: new Date(),
         filmIds: [],
         peopleIds: [],
+        planetsIds: []
     };
 });

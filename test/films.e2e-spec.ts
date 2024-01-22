@@ -15,16 +15,41 @@ describe('Films (e2e)', () => {
         await app.init();
     });
 
+    it('Can create one film', () => {
+        return request(app.getHttpServer())
+            .post(`/films`)
+            .send({
+                title: "Test Film",
+                episode_id: 1,
+                opening_crawl: "Test description",
+                director: "George Lucas",
+                producer: "Rick McCallum",
+                release_date: "1999-05-19",
+                url: "https://swapi.dev/api/films/4/",
+                personIds: [1],
+                speciesIds: [1],
+                planetIds: [1]
+            })
+            .expect(201)
+            .then(res => {
+                const {characters, species, planets} = res.body;
+                expect(characters.length).toBeGreaterThan(0);
+                expect(species.length).toBeGreaterThan(0);
+                expect(planets.length).toBeGreaterThan(0);
+            })
+    });
+
     it('Can find one film', () => {
         const filmId = 1;
         return request(app.getHttpServer())
             .get(`/films/${filmId}`)
             .expect(200)
             .then(res => {
-                const {id, title, species, characters} = res.body;
+                const {id, title, species, characters, planets} = res.body;
                 expect(id).toEqual(filmId);
                 expect(species.length).toBeGreaterThan(0);
                 expect(characters.length).toBeGreaterThan(0);
+                expect(planets.length).toBeGreaterThan(0);
                 expect(title).toBeDefined();
             })
     });
@@ -45,6 +70,7 @@ describe('Films (e2e)', () => {
                 expect(filmsList.length).toBeTruthy();
                 expect(filmsList[0]['characters'].length).toBeGreaterThan(0);
                 expect(filmsList[0]['species'].length).toBeGreaterThan(0);
+                expect(filmsList[0]['planets'].length).toBeGreaterThan(0);
             })
     });
 
@@ -56,10 +82,11 @@ describe('Films (e2e)', () => {
             .send(filmUpdatedInfo)
             .expect(200)
             .then(res => {
-                const {title, species, characters} = res.body;
+                const {title, species, characters, planets} = res.body;
                 expect(title).toEqual(filmUpdatedInfo.title);
                 expect(species.length).toBeGreaterThan(0);
                 expect(characters.length).toBeGreaterThan(0);
+                expect(planets.length).toBeGreaterThan(0);
             })
     })
 

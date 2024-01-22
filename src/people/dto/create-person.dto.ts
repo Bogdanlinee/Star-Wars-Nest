@@ -37,12 +37,6 @@ export class CreatePersonDto {
     @IsNotEmpty()
     gender: string;
 
-    @IsArray()
-    vehicles: string[];
-
-    @IsArray()
-    starships: string[];
-
     @Transform(({value}) => value.trim())
     @IsNotEmpty()
     url: string;

@@ -5,6 +5,8 @@ import {UpdatePlanetsDto} from './dto/update-planets.dto';
 import {Planet} from './entities/planet.entity';
 import {InjectRepository} from '@nestjs/typeorm';
 import {Person} from '../people/entities/person.entity';
+import {Film} from '../films/entities/film.entity';
+import {Species} from '../species/entities/species.entity';
 
 @Injectable()
 export class PlanetsService {
@@ -18,7 +20,8 @@ export class PlanetsService {
         const planet = this.planetsRepository.create(createPlanetsDto);
 
         planet.residents = createPlanetsDto.residentIds.map(id => ({...new Person(), id}));
-        // person.species = createPersonDto.speciesIds.map(id => ({...new Species(), id}))
+        planet.films = createPlanetsDto.filmIds.map(id => ({...new Film(), id}));
+        planet.species = createPlanetsDto.speciesIds.map(id => ({...new Species(), id}));
 
         return this.planetsRepository.save(planet);
     }
@@ -27,6 +30,8 @@ export class PlanetsService {
         return this.planetsRepository.find({
             relations: {
                 residents: true,
+                films: true,
+                species: true,
             },
             order: {id: 'DESC'},
             take: 10,
@@ -36,9 +41,11 @@ export class PlanetsService {
     async findOne(id: number) {
         return await this.planetsRepository.findOne({
             where: {id},
-                relations: {
-                    residents: true,
-                }
+            relations: {
+                residents: true,
+                films: true,
+                species: true,
+            }
         });
     }
 

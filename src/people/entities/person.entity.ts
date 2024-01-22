@@ -72,12 +72,6 @@ export class Person {
     )
     species: Species[];
 
-    @Column({type: 'json', default: null})
-    vehicles: string[];
-
-    @Column({type: 'json', default: null})
-    starships: string[];
-
     @OneToMany(() => ImagePerson, (imagePerson) => imagePerson.person)
     images: ImagePerson[];
 
