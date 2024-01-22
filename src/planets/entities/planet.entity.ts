@@ -4,14 +4,16 @@ import {
     PrimaryGeneratedColumn,
     DeleteDateColumn,
     UpdateDateColumn,
-    CreateDateColumn, ManyToMany, JoinTable
+    CreateDateColumn, ManyToMany, OneToMany, JoinTable, ManyToOne, JoinColumn
 } from 'typeorm';
-import {Film} from '../../films/entities/film.entity';
 import {Person} from '../../people/entities/person.entity';
-import {Planet} from '../../planets/entities/planet.entity';
+import {Species} from '../../species/entities/species.entity';
+import {Transform} from 'class-transformer';
+import {IsArray, IsNotEmpty} from 'class-validator';
+import {Film} from '../../films/entities/film.entity';
 
 @Entity()
-export class Species {
+export class Planet {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -19,79 +21,85 @@ export class Species {
     name: string;
 
     @Column({type: 'varchar', nullable: false})
-    classification: string;
+    rotation_period: string;
+
+    @Column({type: 'text', nullable: false})
+    orbital_period: string;
 
     @Column({type: 'varchar', nullable: false})
-    designation: string;
+    diameter: string;
 
     @Column({type: 'varchar', nullable: false})
-    average_height: string;
+    climate: string;
 
     @Column({type: 'varchar', nullable: false})
-    skin_colors: string;
+    gravity: string;
 
     @Column({type: 'varchar', nullable: false})
-    hair_colors: string;
+    terrain: string;
 
     @Column({type: 'varchar', nullable: false})
-    eye_colors: string;
+    surface_water: string;
 
     @Column({type: 'varchar', nullable: false})
-    average_lifespan: string;
+    population: string;
 
-    @Column({type: 'varchar', default: null})
-    homeworld: string;
-
-    @Column({type: 'varchar', nullable: false})
-    language: string;
+    // @ManyToMany(
+    //     () => Person,
+    //     (Person) => Person.films,
+    // )
+    // characters: Person[];
+    //
+    // @ManyToMany(
+    //     () => Species,
+    //     (Species) => Species.films,
+    // )
+    // species: Species[];
 
     @ManyToMany(
         () => Film,
-        (Film) => Film.species,
+        (Film) => Film.planets,
         {
             cascade: ['remove']
         })
     @JoinTable({
-        name: 'species_film',
+        name: 'planet_film',
         joinColumn: {
-            name: 'species_id',
+            name: 'planet_id',
             referencedColumnName: 'id',
-            foreignKeyConstraintName: 'species_film_species_id'
+            foreignKeyConstraintName: 'planet_film_planet_id'
         },
         inverseJoinColumn: {
             name: 'film_id',
             referencedColumnName: 'id',
-            foreignKeyConstraintName: 'species_film_film_id'
+            foreignKeyConstraintName: 'planet_film_film_id'
         }
     })
     films: Film[];
 
     @ManyToMany(
-        () => Person,
-        (Person) => Person.species,
+        () => Species,
+        (Species) => Species.planets,
         {
             cascade: ['remove']
         })
     @JoinTable({
-        name: 'species_person',
+        name: 'planet_species',
         joinColumn: {
-            name: 'species_id',
+            name: 'planet_id',
             referencedColumnName: 'id',
-            foreignKeyConstraintName: 'species_person_species_id'
+            foreignKeyConstraintName: 'planet_species_planet_id'
         },
         inverseJoinColumn: {
-            name: 'person_id',
+            name: 'species_id',
             referencedColumnName: 'id',
-            foreignKeyConstraintName: 'species_person_person_id'
+            foreignKeyConstraintName: 'planet_species_species_id'
         }
     })
-    people: Person[];
+    species: Species[];
 
-    @ManyToMany(
-        () => Planet,
-        (Planet) => Planet.species,
-    )
-    planets: Planet[];
+    @OneToMany(() => Person, (Person) => Person.homeworld)
+    residents: Person[];
 
     @CreateDateColumn()
     created: Date;

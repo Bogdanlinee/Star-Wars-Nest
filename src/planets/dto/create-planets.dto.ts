@@ -1,52 +1,53 @@
-import {
-    IsArray,
-    IsNotEmpty, IsNumber,
-} from 'class-validator';
+import {IsArray, IsDateString, IsNotEmpty} from 'class-validator';
 import {Transform} from 'class-transformer';
 
-export class CreatePersonDto {
+export class CreatePlanetsDto {
     @Transform(({value}) => value.trim())
     @IsNotEmpty()
     name: string;
 
     @Transform(({value}) => isNaN(parseInt(value)) ? 'unknown' : parseInt(value))
     @IsNotEmpty()
-    height: string;
+    rotation_period: string;
 
     @Transform(({value}) => isNaN(parseInt(value)) ? 'unknown' : parseInt(value))
     @IsNotEmpty()
-    mass: string;
+    orbital_period: string;
 
-    @Transform(({value}) => (value.trim() ? value.trim() : 'n/a'))
+    @Transform(({value}) => isNaN(parseInt(value)) ? 'unknown' : parseInt(value))
     @IsNotEmpty()
-    hair_color: string;
-
-    @Transform(({value}) => value.trim())
-    @IsNotEmpty()
-    skin_color: string;
+    diameter: string;
 
     @Transform(({value}) => value.trim())
     @IsNotEmpty()
-    eye_color: string;
+    climate: string;
 
     @Transform(({value}) => value.trim())
     @IsNotEmpty()
-    birth_year: string;
+    gravity: string;
 
-    @Transform(({value}) => (value.trim() ? value.trim() : 'n/a'))
+    @Transform(({value}) => value.trim())
     @IsNotEmpty()
-    gender: string;
+    terrain: string;
+
+    @Transform(({value}) => isNaN(parseInt(value)) ? 'unknown' : parseInt(value))
+    @IsNotEmpty()
+    surface_water: string;
+
+    @Transform(({value}) => isNaN(parseInt(value)) ? 'unknown' : parseInt(value))
+    @IsNotEmpty()
+    population: string;
 
     @Transform(({value}) => value.trim())
     @IsNotEmpty()
     url: string;
 
     @IsArray()
-    filmIds: number[];
+    residentIds: number[];
 
     @IsArray()
     speciesIds: number[];
 
-    @IsNumber()
-    homeworldId: number;
+    @IsArray()
+    filmIds: [];
 }

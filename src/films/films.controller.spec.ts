@@ -1,8 +1,7 @@
 import {Test, TestingModule} from '@nestjs/testing';
 import {Repository} from 'typeorm';
-import {ImagePerson} from '../images/entities/image.person.entity';
 import {getRepositoryToken} from '@nestjs/typeorm';
-import {BadRequestException, NotFoundException} from '@nestjs/common';
+import {NotFoundException} from '@nestjs/common';
 import {FilmsController} from './films.controller';
 import {Film} from './entities/film.entity';
 import {FilmsService} from './films.service';
@@ -68,8 +67,10 @@ describe('PeopleController', () => {
         release_date: "1999-05-19",
         characters: [],
         personIds: [],
+        planets: [],
         species: [],
         speciesIds: [],
+        planetIds: [],
         url: "https://swapi.dev/api/films/4/",
         created: new Date(),
         edited: new Date(),

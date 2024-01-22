@@ -35,4 +35,7 @@ export class CreateFilmDto {
 
     @IsArray()
     speciesIds: number[];
+
+    @IsArray()
+    planetIds: number[];
 }

@@ -6,6 +6,7 @@ import {ImagesModule} from './images/images.module';
 import {ConfigModule, ConfigService} from '@nestjs/config';
 import { FilmsModule } from './films/films.module';
 import { SpeciesModule } from './species/species.module';
+import { PlanetsModule } from './planets/planets.module';
 
 @Module({
     imports: [
@@ -13,11 +14,12 @@ import { SpeciesModule } from './species/species.module';
             isGlobal: true,
             envFilePath: `.env.${process.env.NODE_ENV}`
         }),
+        TypeOrmModule.forRoot(dbConfig as TypeOrmModuleOptions),
         PeopleModule,
         ImagesModule,
-        TypeOrmModule.forRoot(dbConfig as TypeOrmModuleOptions),
         FilmsModule,
         SpeciesModule,
+        PlanetsModule,
     ],
 })
 export class AppModule {

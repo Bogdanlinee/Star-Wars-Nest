@@ -51,4 +51,7 @@ export class CreateSpeciesDto {
 
     @IsArray()
     peopleIds: number[];
+
+    @IsArray()
+    planetsIds: number[];
 }

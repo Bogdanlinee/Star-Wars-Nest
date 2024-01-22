@@ -5,7 +5,8 @@ import {Repository} from 'typeorm';
 import {ImagePerson} from '../images/entities/image.person.entity';
 import {getRepositoryToken} from '@nestjs/typeorm';
 import {Person} from './entities/person.entity';
-import {BadRequestException, NotFoundException} from '@nestjs/common';
+import {NotFoundException} from '@nestjs/common';
+import {Planet} from '../planets/entities/planet.entity';
 
 describe('PeopleController', () => {
     let controller: PeopleController;
@@ -75,19 +76,12 @@ describe('PeopleController', () => {
         eye_color: "blue",
         birth_year: "19BBY",
         gender: "male",
-        homeworld: "https://swapi.dev/api/planets/1/",
+        homeworld: new Planet(),
+        homeworldId: 1,
         films: [],
         filmIds: [],
         species: [],
         speciesIds: [],
-        vehicles: [
-            "https://swapi.dev/api/vehicles/14/",
-            "https://swapi.dev/api/vehicles/30/"
-        ],
-        starships: [
-            "https://swapi.dev/api/starships/12/",
-            "https://swapi.dev/api/starships/22/"
-        ],
         created: new Date(),
         edited: new Date(),
         url: "https://swapi.dev/api/people/1/",

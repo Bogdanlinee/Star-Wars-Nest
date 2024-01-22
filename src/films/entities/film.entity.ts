@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 import {Person} from '../../people/entities/person.entity';
 import {Species} from '../../species/entities/species.entity';
+import {Planet} from '../../planets/entities/planet.entity';
 
 @Entity()
 export class Film {
@@ -43,6 +44,12 @@ export class Film {
         (Species) => Species.films,
     )
     species: Species[];
+
+    @ManyToMany(
+        () => Planet,
+        (Planet) => Planet.films,
+    )
+    planets: Planet[];
 
     @CreateDateColumn()
     created: Date;
