@@ -44,18 +44,6 @@ export class Planet {
     @Column({type: 'varchar', nullable: false})
     population: string;
 
-    // @ManyToMany(
-    //     () => Person,
-    //     (Person) => Person.films,
-    // )
-    // characters: Person[];
-    //
-    // @ManyToMany(
-    //     () => Species,
-    //     (Species) => Species.films,
-    // )
-    // species: Species[];
-
     @ManyToMany(
         () => Film,
         (Film) => Film.planets,

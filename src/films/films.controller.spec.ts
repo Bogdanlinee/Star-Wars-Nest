@@ -39,22 +39,22 @@ describe('PeopleController', () => {
     });
 
     it('Can find one film in DB.', async () => {
-        const personId = 1;
+        const filmId = 1;
         jest.spyOn(controller['filmsService'], 'findOne').mockImplementation(async () => {
-            const person = films.find(item => item.id === personId)
-            return person ? person : null;
+            const film = films.find(item => item.id === filmId)
+            return film ? film : null;
         });
-        const result = await controller.findOne(personId);
+        const result = await controller.findOne(filmId);
         expect(result).toEqual(testFilmEntity);
     });
 
     it('Throws Error. Find film in DB.', async () => {
-        const personId = 0;
+        const filmId = 0;
         jest.spyOn(controller['filmsService'], 'findOne').mockImplementation(async () => {
-            const person = films.find(item => item.id === personId)
-            return person ? person : null;
+            const film = films.find(item => item.id === filmId)
+            return film ? film : null;
         });
-        await expect(controller.findOne(personId)).rejects.toThrow(NotFoundException);
+        await expect(controller.findOne(filmId)).rejects.toThrow(NotFoundException);
     });
 
     const testFilmEntity = {
@@ -66,11 +66,11 @@ describe('PeopleController', () => {
         producer: "Rick McCallum",
         release_date: "1999-05-19",
         characters: [],
-        personIds: [],
-        planets: [],
         species: [],
-        speciesIds: [],
+        planets: [],
         planetIds: [],
+        personIds: [],
+        speciesIds: [],
         url: "https://swapi.dev/api/films/4/",
         created: new Date(),
         edited: new Date(),

@@ -49,5 +49,5 @@ export class CreatePlanetsDto {
     speciesIds: number[];
 
     @IsArray()
-    filmIds: [];
+    filmIds: number[];
 }

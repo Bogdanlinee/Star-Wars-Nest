@@ -36,46 +36,46 @@ describe('FilmsService', () => {
         expect(result).toEqual(testFilmEntity);
     });
 
-    it('Can find film person in DB', async () => {
-        const personId = 1;
+    it('Can find film in DB', async () => {
+        const filmId = 1;
 
         jest.spyOn(filmsRepository, 'findOne').mockImplementation(async () => {
-            const person = films.find(item => item.id === personId)
+            const person = films.find(item => item.id === filmId)
             return person ? person : null;
         });
 
-        const result = await filmsService.findOne(personId);
+        const result = await filmsService.findOne(filmId);
 
         expect(result).toEqual(films[0]);
     });
 
     it('Throws Error. Find film in DB to remove it', async () => {
-        const personId = 10;
+        const filmId = 10;
 
         jest.spyOn(filmsRepository, 'findOne').mockImplementation(async () => {
-            const person = films.find(item => item.id === personId)
+            const person = films.find(item => item.id === filmId)
             return person ? person : null;
         });
         jest.spyOn(filmsRepository, 'save').mockResolvedValue(testFilmEntity);
 
-        await expect(filmsService.remove(personId)).rejects.toThrow(NotFoundException);
+        await expect(filmsService.remove(filmId)).rejects.toThrow(NotFoundException);
     });
 
-    it('Can find person in DB to remove it', async () => {
-        const personId = 1;
-        const personToDelete = {
+    it('Can find film in DB to remove it', async () => {
+        const filmId = 1;
+        const filmToDelete = {
             ...testFilmEntity,
             deletedAt: new Date(),
         };
 
-        jest.spyOn(filmsRepository, 'save').mockResolvedValue(personToDelete);
-        jest.spyOn(filmsRepository, 'create').mockReturnValue(personToDelete);
+        jest.spyOn(filmsRepository, 'save').mockResolvedValue(filmToDelete);
+        jest.spyOn(filmsRepository, 'create').mockReturnValue(filmToDelete);
         jest.spyOn(filmsRepository, 'findOne').mockImplementation(async () => {
-            const person = films.find(item => item.id === personId)
+            const person = films.find(item => item.id === filmId)
             return person ? person : null;
         });
 
-        const result = await filmsService.remove(personId);
+        const result = await filmsService.remove(filmId);
 
         expect(result).toBeDefined();
     });
@@ -89,11 +89,11 @@ describe('FilmsService', () => {
         producer: "Rick McCallum",
         release_date: "1999-05-19",
         characters: [],
-        personIds: [],
-        planetIds: [],
         species: [],
-        speciesIds: [],
         planets: [],
+        planetIds: [],
+        personIds: [],
+        speciesIds: [],
         url: "https://swapi.dev/api/films/4/",
         created: new Date(),
         edited: new Date(),
