@@ -9,6 +9,7 @@ import {ImagePerson} from '../images/entities/image.person.entity';
 import {Film} from '../films/entities/film.entity';
 import {Species} from '../species/entities/species.entity';
 import {Planet} from '../planets/entities/planet.entity';
+import {Starship} from '../starships/entities/starship.entity';
 
 @Injectable()
 export class PeopleService {
@@ -25,6 +26,7 @@ export class PeopleService {
 
         person.films = createPersonDto.filmIds.map(id => ({...new Film(), id}));
         person.species = createPersonDto.speciesIds.map(id => ({...new Species(), id}))
+        person.starships = createPersonDto.starshipIds.map(id => ({...new Starship(), id}))
         person.homeworld = {...new Planet(), id: createPersonDto.homeworldId};
 
         return this.personRepository.save(person);
@@ -36,6 +38,7 @@ export class PeopleService {
                 images: true,
                 films: true,
                 species: true,
+                starships: true,
                 homeworld: true,
             },
             order: {id: 'DESC'},
@@ -50,6 +53,7 @@ export class PeopleService {
                 images: true,
                 films: true,
                 species: true,
+                starships: true,
                 homeworld: true,
             }
         });

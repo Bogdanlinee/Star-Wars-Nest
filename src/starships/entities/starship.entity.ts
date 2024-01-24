@@ -4,16 +4,13 @@ import {
     PrimaryGeneratedColumn,
     DeleteDateColumn,
     UpdateDateColumn,
-    CreateDateColumn, ManyToMany, OneToMany, JoinTable, ManyToOne, JoinColumn
+    CreateDateColumn, ManyToMany, JoinTable
 } from 'typeorm';
-import {Person} from '../../people/entities/person.entity';
-import {Species} from '../../species/entities/species.entity';
-import {Transform} from 'class-transformer';
-import {IsArray, IsNotEmpty} from 'class-validator';
 import {Film} from '../../films/entities/film.entity';
+import {Person} from '../../people/entities/person.entity';
 
 @Entity()
-export class Planet {
+export class Starship {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -21,73 +18,82 @@ export class Planet {
     name: string;
 
     @Column({type: 'varchar', nullable: false})
-    rotation_period: string;
-
-    @Column({type: 'text', nullable: false})
-    orbital_period: string;
+    model: string;
 
     @Column({type: 'varchar', nullable: false})
-    diameter: string;
+    manufacturer: string;
 
     @Column({type: 'varchar', nullable: false})
-    climate: string;
+    cost_in_credits: string;
 
     @Column({type: 'varchar', nullable: false})
-    gravity: string;
+    length: string;
 
     @Column({type: 'varchar', nullable: false})
-    terrain: string;
+    max_atmosphering_speed: string;
 
     @Column({type: 'varchar', nullable: false})
-    surface_water: string;
+    crew: string;
 
     @Column({type: 'varchar', nullable: false})
-    population: string;
+    passengers: string;
+
+    @Column({type: 'varchar', nullable: false})
+    cargo_capacity: string;
+
+    @Column({type: 'varchar', nullable: false})
+    consumables: string;
+
+    @Column({type: 'varchar', nullable: false})
+    hyperdrive_rating: string;
+
+    @Column({type: 'varchar', nullable: false})
+    MGLT: string;
+
+    @Column({type: 'varchar', nullable: false})
+    starship_class: string;
 
     @ManyToMany(
-        () => Film,
-        (Film) => Film.planets,
+        () => Person,
+        (Person) => Person.starships,
         {
             cascade: ['remove']
         })
     @JoinTable({
-        name: 'planet_film',
+        name: 'starships_person',
         joinColumn: {
-            name: 'planet_id',
+            name: 'starship_id',
             referencedColumnName: 'id',
-            foreignKeyConstraintName: 'planet_film_planet_id'
+            foreignKeyConstraintName: 'starship_person_starship_id'
+        },
+        inverseJoinColumn: {
+            name: 'person_id',
+            referencedColumnName: 'id',
+            foreignKeyConstraintName: 'starship_person_person_id'
+        }
+    })
+    pilots: Person[];
+
+    @ManyToMany(
+        () => Film,
+        (Film) => Film.starships,
+        {
+            cascade: ['remove']
+        })
+    @JoinTable({
+        name: 'starships_film',
+        joinColumn: {
+            name: 'starship_id',
+            referencedColumnName: 'id',
+            foreignKeyConstraintName: 'starship_film_starship_id'
         },
         inverseJoinColumn: {
             name: 'film_id',
             referencedColumnName: 'id',
-            foreignKeyConstraintName: 'planet_film_film_id'
+            foreignKeyConstraintName: 'starship_film_film_id'
         }
     })
     films: Film[];
-
-    @ManyToMany(
-        () => Species,
-        (Species) => Species.planets,
-        {
-            cascade: ['remove']
-        })
-    @JoinTable({
-        name: 'planet_species',
-        joinColumn: {
-            name: 'planet_id',
-            referencedColumnName: 'id',
-            foreignKeyConstraintName: 'planet_species_planet_id'
-        },
-        inverseJoinColumn: {
-            name: 'species_id',
-            referencedColumnName: 'id',
-            foreignKeyConstraintName: 'planet_species_species_id'
-        }
-    })
-    species: Species[];
-
-    @OneToMany(() => Person, (Person) => Person.homeworld)
-    residents: Person[];
 
     @CreateDateColumn()
     created: Date;

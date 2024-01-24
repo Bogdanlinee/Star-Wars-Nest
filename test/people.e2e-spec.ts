@@ -13,7 +13,7 @@ describe('People (e2e)', () => {
 
         app = moduleFixture.createNestApplication();
         await app.init();
-    });
+    }, 20000);
 
     it('Can create one person', () => {
         return request(app.getHttpServer())
@@ -31,39 +31,42 @@ describe('People (e2e)', () => {
                 images: [],
                 filmIds: [1],
                 speciesIds: [1],
+                starshipIds: [2],
                 homeworldId: 1
             })
             .expect(201)
             .then(res => {
-                const {name, films, species, homeworld} = res.body;
+                const {name, films, species, homeworld, starships} = res.body;
                 expect(films.length).toBeGreaterThan(0);
                 expect(species.length).toBeGreaterThan(0);
+                expect(starships.length).toBeGreaterThan(0);
                 expect(homeworld.id).toBeDefined();
                 expect(name).toBeDefined();
             })
-    });
+    }, 20000);
 
     it('Can find one person', () => {
-        const personId = 2;
+        const personId = 13;
         return request(app.getHttpServer())
             .get(`/people/${personId}`)
             .expect(200)
             .then(res => {
-                const {id, name, films, species, homeworld} = res.body;
+                const {id, name, films, species, homeworld, starships} = res.body;
                 expect(id).toEqual(personId);
                 expect(films.length).toBeGreaterThan(0);
                 expect(species.length).toBeGreaterThan(0);
+                expect(starships.length).toBeGreaterThan(0);
                 expect(name).toBeDefined();
                 expect(homeworld.url).toBeDefined();
             })
-    });
+    }, 20000);
 
     it('Throws Error. Find one person in DB', () => {
         const personId = 10000000;
         return request(app.getHttpServer())
             .get(`/people/${personId}`)
             .expect(404)
-    });
+    }, 20000);
 
     it('Can find many people', () => {
         return request(app.getHttpServer())
@@ -74,25 +77,27 @@ describe('People (e2e)', () => {
                 expect(peopleList.length).toBeTruthy();
                 expect(peopleList[0]['films'].length).toBeGreaterThan(0);
                 expect(peopleList[0]['species'].length).toBeGreaterThan(0);
+                expect(peopleList[0]['starships'].length).toBeGreaterThan(0);
                 expect(peopleList[0]['homeworld']['url']).toBeDefined();
             })
-    });
+    }, 20000);
 
     it('Can update the person', () => {
-        const personId = 2;
+        const personId = 13;
         const personUpdatedInfo = {name: 'New Test Name'};
         return request(app.getHttpServer())
             .patch(`/people/${personId}`)
             .send(personUpdatedInfo)
             .expect(200)
             .then(res => {
-                const {name, films, species, homeworld} = res.body;
+                const {name, films, species, homeworld, starships} = res.body;
                 expect(name).toEqual(personUpdatedInfo.name);
                 expect(films.length).toBeGreaterThan(0);
                 expect(species.length).toBeGreaterThan(0);
+                expect(starships.length).toBeGreaterThan(0);
                 expect(homeworld.url).toBeDefined();
             })
-    })
+    }, 20000)
 
     it('Can delete one person', () => {
         const personId = 1;
@@ -103,5 +108,5 @@ describe('People (e2e)', () => {
                 const {deletedAt} = res.body;
                 expect(deletedAt).toBeTruthy();
             })
-    })
+    }, 20000)
 });

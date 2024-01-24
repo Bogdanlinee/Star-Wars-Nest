@@ -7,6 +7,7 @@ import {ConfigModule, ConfigService} from '@nestjs/config';
 import { FilmsModule } from './films/films.module';
 import { SpeciesModule } from './species/species.module';
 import { PlanetsModule } from './planets/planets.module';
+import { StarshipsModule } from './starships/starships.module';
 
 @Module({
     imports: [
@@ -20,6 +21,7 @@ import { PlanetsModule } from './planets/planets.module';
         FilmsModule,
         SpeciesModule,
         PlanetsModule,
+        StarshipsModule,
     ],
 })
 export class AppModule {

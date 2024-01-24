@@ -1,0 +1,122 @@
+[
+  {
+    "starship_id": 10,
+    "person_id": 13
+  },
+  {
+    "starship_id": 10,
+    "person_id": 14
+  },
+  {
+    "starship_id": 10,
+    "person_id": 25
+  },
+  {
+    "starship_id": 10,
+    "person_id": 31
+  },
+  {
+    "starship_id": 12,
+    "person_id": 1
+  },
+  {
+    "starship_id": 12,
+    "person_id": 9
+  },
+  {
+    "starship_id": 12,
+    "person_id": 18
+  },
+  {
+    "starship_id": 12,
+    "person_id": 19
+  },
+  {
+    "starship_id": 13,
+    "person_id": 4
+  },
+  {
+    "starship_id": 21,
+    "person_id": 22
+  },
+  {
+    "starship_id": 22,
+    "person_id": 1
+  },
+  {
+    "starship_id": 22,
+    "person_id": 13
+  },
+  {
+    "starship_id": 22,
+    "person_id": 14
+  },
+  {
+    "starship_id": 28,
+    "person_id": 29
+  },
+  {
+    "starship_id": 39,
+    "person_id": 11
+  },
+  {
+    "starship_id": 39,
+    "person_id": 35
+  },
+  {
+    "starship_id": 39,
+    "person_id": 60
+  },
+  {
+    "starship_id": 40,
+    "person_id": 39
+  },
+  {
+    "starship_id": 41,
+    "person_id": 44
+  },
+  {
+    "starship_id": 48,
+    "person_id": 10
+  },
+  {
+    "starship_id": 48,
+    "person_id": 58
+  },
+  {
+    "starship_id": 49,
+    "person_id": 35
+  },
+  {
+    "starship_id": 59,
+    "person_id": 10
+  },
+  {
+    "starship_id": 59,
+    "person_id": 11
+  },
+  {
+    "starship_id": 64,
+    "person_id": 10
+  },
+  {
+    "starship_id": 64,
+    "person_id": 35
+  },
+  {
+    "starship_id": 65,
+    "person_id": 10
+  },
+  {
+    "starship_id": 65,
+    "person_id": 11
+  },
+  {
+    "starship_id": 74,
+    "person_id": 10
+  },
+  {
+    "starship_id": 74,
+    "person_id": 79
+  }
+]
