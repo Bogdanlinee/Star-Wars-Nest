@@ -47,6 +47,9 @@ export class CreatePersonDto {
     @IsArray()
     speciesIds: number[];
 
+    @IsArray()
+    starshipIds: number[];
+
     @IsNumber()
     homeworldId: number;
 }

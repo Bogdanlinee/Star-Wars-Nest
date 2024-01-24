@@ -11,6 +11,7 @@ import {ImagePerson} from '../../images/entities/image.person.entity';
 import {Film} from '../../films/entities/film.entity';
 import {Species} from '../../species/entities/species.entity';
 import {Planet} from '../../planets/entities/planet.entity';
+import {Starship} from '../../starships/entities/starship.entity';
 
 @Entity()
 export class Person {
@@ -71,6 +72,12 @@ export class Person {
         (Species) => Species.people,
     )
     species: Species[];
+
+    @ManyToMany(
+        () => Starship,
+        (Starship) => Starship.pilots,
+    )
+    starships: Starship[];
 
     @OneToMany(() => ImagePerson, (imagePerson) => imagePerson.person)
     images: ImagePerson[];

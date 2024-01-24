@@ -38,4 +38,7 @@ export class CreateFilmDto {
 
     @IsArray()
     planetIds: number[];
+
+    @IsArray()
+    starshipIds: number[];
 }

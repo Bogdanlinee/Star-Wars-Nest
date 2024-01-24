@@ -9,6 +9,7 @@ import {
 import {Person} from '../../people/entities/person.entity';
 import {Species} from '../../species/entities/species.entity';
 import {Planet} from '../../planets/entities/planet.entity';
+import {Starship} from '../../starships/entities/starship.entity';
 
 @Entity()
 export class Film {
@@ -50,6 +51,12 @@ export class Film {
         (Planet) => Planet.films,
     )
     planets: Planet[];
+
+    @ManyToMany(
+        () => Starship,
+        (Starship) => Starship.films,
+    )
+    starships: Starship[];
 
     @CreateDateColumn()
     created: Date;
