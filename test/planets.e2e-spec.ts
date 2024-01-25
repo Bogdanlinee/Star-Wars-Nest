@@ -2,6 +2,7 @@ import {Test, TestingModule} from '@nestjs/testing';
 import {INestApplication} from '@nestjs/common';
 import * as request from 'supertest';
 import {AppModule} from '../src/app.module';
+import {IsArray} from 'class-validator';
 
 describe('Planets (e2e)', () => {
     let app: INestApplication;
@@ -79,7 +80,12 @@ describe('Planets (e2e)', () => {
 
     it('Can update the planet', () => {
         const planetId = 7;
-        const planetUpdatedInfo = {name: 'New planet Title'};
+        const planetUpdatedInfo = {
+            name: 'New planet Title',
+            residentIds: [1, 2, 3],
+            speciesIds: [1, 2, 3],
+            filmIds: [1, 2, 3],
+        };
         return request(app.getHttpServer())
             .patch(`/planets/${planetId}`)
             .send(planetUpdatedInfo)
@@ -87,9 +93,9 @@ describe('Planets (e2e)', () => {
             .then(res => {
                 const {name, residents, species, films} = res.body;
                 expect(name).toEqual(planetUpdatedInfo.name);
-                expect(residents.length).toBeGreaterThan(0);
-                expect(species.length).toBeGreaterThan(0);
-                expect(films.length).toBeGreaterThan(0);
+                expect(residents.length).toEqual(planetUpdatedInfo.residentIds.length);
+                expect(species.length).toEqual(planetUpdatedInfo.speciesIds.length);
+                expect(films.length).toEqual(planetUpdatedInfo.filmIds.length);
             })
     })
 

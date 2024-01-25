@@ -4,7 +4,6 @@ import {Repository} from 'typeorm';
 import {Starship} from './entities/starship.entity';
 import {Film} from '../films/entities/film.entity';
 import {Person} from '../people/entities/person.entity';
-import {Planet} from '../planets/entities/planet.entity';
 import {CreateStarshipsDto} from './dto/create-starships.dto';
 import {UpdateStarshipsDto} from './dto/update-starships.dto';
 
@@ -19,18 +18,18 @@ export class StarshipsService {
     async create(createStarshipsDto: CreateStarshipsDto) {
         const starship = this.starshipsRepository.create(createStarshipsDto);
 
-        // starships.films = createStarshipsDto.filmIds.map(id => ({...new Film(), id}));
+        starship.films = createStarshipsDto.filmsIds.map(id => ({...new Film(), id}));
+        starship.pilots = createStarshipsDto.pilotsIds.map(id => ({...new Person(), id}));
 
         return this.starshipsRepository.save(starship);
     }
 
     async findAll() {
         return this.starshipsRepository.find({
-            // relations: {
-            //     films: true,
-            //     people: true,
-            //     planets: true,
-            // },
+            relations: {
+                films: true,
+                pilots: true,
+            },
             order: {id: 'DESC'},
             take: 10,
         });
@@ -39,11 +38,10 @@ export class StarshipsService {
     async findOne(id: number) {
         return await this.starshipsRepository.findOne({
             where: {id},
-            // relations: {
-            //     films: true,
-            //     people: true,
-            //     planets: true,
-            // }
+            relations: {
+                films: true,
+                pilots: true,
+            }
         });
     }
 
@@ -52,9 +50,17 @@ export class StarshipsService {
 
         if (!starship) throw new NotFoundException('No such starship!');
 
-        const updatedSpecies = {...starship, ...updateStarshipsDto};
+        const updatedStarship = {...starship, ...updateStarshipsDto};
 
-        return await this.starshipsRepository.save(updatedSpecies);
+        if (updateStarshipsDto.filmsIds) {
+            updatedStarship.films = updateStarshipsDto.filmsIds.map(id => ({...new Film(), id}));
+        }
+
+        if (updateStarshipsDto.pilotsIds) {
+            updatedStarship.pilots = updateStarshipsDto.pilotsIds.map(id => ({...new Person(), id}));
+        }
+
+        return await this.starshipsRepository.save(updatedStarship);
     }
 
     async remove(id: number) {

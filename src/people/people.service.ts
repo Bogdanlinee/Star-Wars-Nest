@@ -66,6 +66,19 @@ export class PeopleService {
 
         const updatedPerson = {...person, ...updatePersonDto};
 
+        if (updatePersonDto.filmIds) {
+            updatedPerson.films = updatePersonDto.filmIds.map(id => ({...new Film(), id}))
+        }
+        if (updatePersonDto.speciesIds) {
+            updatedPerson.species = updatePersonDto.speciesIds.map(id => ({...new Species(), id}))
+        }
+        if (updatePersonDto.starshipIds) {
+            updatedPerson.starships = updatePersonDto.starshipIds.map(id => ({...new Starship(), id}))
+        }
+        if (updatePersonDto.homeworldId) {
+            updatedPerson.homeworld = {...new Planet(), id: updatePersonDto.homeworldId};
+        }
+
         return await this.personRepository.save(updatedPerson);
     }
 
