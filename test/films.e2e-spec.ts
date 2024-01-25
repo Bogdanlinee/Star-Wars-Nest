@@ -2,6 +2,7 @@ import {Test, TestingModule} from '@nestjs/testing';
 import {INestApplication} from '@nestjs/common';
 import * as request from 'supertest';
 import {AppModule} from '../src/app.module';
+import {IsArray} from 'class-validator';
 
 describe('Films (e2e)', () => {
     let app: INestApplication;
@@ -80,7 +81,13 @@ describe('Films (e2e)', () => {
 
     it('Can update the film', () => {
         const filmId = 1;
-        const filmUpdatedInfo = {title: 'New Film Title'};
+        const filmUpdatedInfo = {
+            title: 'New Film Title',
+            speciesIds: [1, 2, 3],
+            personIds: [1, 2, 3],
+            planetIds: [1, 2, 3],
+            starshipIds: [2, 3, 5],
+        };
         return request(app.getHttpServer())
             .patch(`/films/${filmId}`)
             .send(filmUpdatedInfo)
@@ -88,10 +95,10 @@ describe('Films (e2e)', () => {
             .then(res => {
                 const {title, species, characters, planets, starships} = res.body;
                 expect(title).toEqual(filmUpdatedInfo.title);
-                expect(species.length).toBeGreaterThan(0);
-                expect(characters.length).toBeGreaterThan(0);
-                expect(planets.length).toBeGreaterThan(0);
-                expect(starships.length).toBeGreaterThan(0);
+                expect(species.length).toEqual(filmUpdatedInfo.speciesIds.length);
+                expect(characters.length).toEqual(filmUpdatedInfo.personIds.length);
+                expect(planets.length).toEqual(filmUpdatedInfo.planetIds.length);
+                expect(starships.length).toEqual(filmUpdatedInfo.starshipIds.length);
             })
     }, 20000);
 

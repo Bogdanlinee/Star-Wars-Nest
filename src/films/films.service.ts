@@ -58,6 +58,22 @@ export class FilmsService {
 
         const updatedFilm = {...film, ...updateFilmDto};
 
+        if (updateFilmDto.personIds) {
+            updatedFilm.characters = updateFilmDto.personIds.map(id => ({...new Person(), id}))
+        }
+
+        if (updateFilmDto.speciesIds) {
+            updatedFilm.species = updateFilmDto.speciesIds.map(id => ({...new Species(), id}));
+        }
+
+        if (updateFilmDto.planetIds) {
+            updatedFilm.planets = updateFilmDto.planetIds.map(id => ({...new Planet(), id}));
+        }
+
+        if (updateFilmDto.starshipIds) {
+            updatedFilm.starships = updateFilmDto.starshipIds.map(id => ({...new Starship(), id}));
+        }
+
         return await this.filmsRepository.save(updatedFilm);
     }
 

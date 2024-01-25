@@ -56,6 +56,18 @@ export class SpeciesService {
 
         const updatedSpecies = {...species, ...updateSpeciesDto};
 
+        if (updateSpeciesDto.filmIds) {
+            updatedSpecies.films = updateSpeciesDto.filmIds.map(id => ({...new Film(), id}));
+        }
+
+        if (updateSpeciesDto.peopleIds) {
+            updatedSpecies.people = updateSpeciesDto.peopleIds.map(id => ({...new Person(), id}));
+        }
+
+        if (updateSpeciesDto.planetsIds) {
+            updatedSpecies.planets = updateSpeciesDto.planetsIds.map(id => ({...new Planet(), id}));
+        }
+
         return await this.speciesRepository.save(updatedSpecies);
     }
 

@@ -56,6 +56,18 @@ export class PlanetsService {
 
         const updatedPlanet = {...planet, ...updatePlanetsDto};
 
+        if (updatePlanetsDto.residentIds) {
+            updatedPlanet.residents = updatePlanetsDto.residentIds.map(id => ({...new Person(), id}));
+        }
+
+        if (updatePlanetsDto.filmIds) {
+            updatedPlanet.films = updatePlanetsDto.filmIds.map(id => ({...new Film(), id}));
+        }
+
+        if (updatePlanetsDto.speciesIds) {
+            updatedPlanet.species = updatePlanetsDto.speciesIds.map(id => ({...new Species(), id}));
+        }
+
         return await this.planetsRepository.save(updatedPlanet);
     }
 

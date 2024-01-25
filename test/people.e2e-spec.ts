@@ -2,6 +2,7 @@ import {Test, TestingModule} from '@nestjs/testing';
 import {INestApplication} from '@nestjs/common';
 import * as request from 'supertest';
 import {AppModule} from '../src/app.module';
+import {IsArray, IsNumber} from 'class-validator';
 
 describe('People (e2e)', () => {
     let app: INestApplication;
@@ -13,7 +14,7 @@ describe('People (e2e)', () => {
 
         app = moduleFixture.createNestApplication();
         await app.init();
-    }, 20000);
+    },);
 
     it('Can create one person', () => {
         return request(app.getHttpServer())
@@ -84,7 +85,13 @@ describe('People (e2e)', () => {
 
     it('Can update the person', () => {
         const personId = 13;
-        const personUpdatedInfo = {name: 'New Test Name'};
+        const personUpdatedInfo = {
+            name: 'New Test Name',
+            filmIds: [1, 2, 3],
+            speciesIds: [1, 2, 3],
+            starshipIds: [2, 3, 5],
+            homeworldId: 2
+        }
         return request(app.getHttpServer())
             .patch(`/people/${personId}`)
             .send(personUpdatedInfo)
@@ -92,10 +99,10 @@ describe('People (e2e)', () => {
             .then(res => {
                 const {name, films, species, homeworld, starships} = res.body;
                 expect(name).toEqual(personUpdatedInfo.name);
-                expect(films.length).toBeGreaterThan(0);
-                expect(species.length).toBeGreaterThan(0);
-                expect(starships.length).toBeGreaterThan(0);
-                expect(homeworld.url).toBeDefined();
+                expect(films.length).toEqual(personUpdatedInfo.filmIds.length);
+                expect(species.length).toEqual(personUpdatedInfo.speciesIds.length);
+                expect(starships.length).toEqual(personUpdatedInfo.starshipIds.length);
+                expect(homeworld.id).toEqual(personUpdatedInfo.homeworldId);
             })
     }, 20000)
 
