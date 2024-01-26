@@ -8,6 +8,7 @@ import {Person} from '../people/entities/person.entity';
 import {Species} from '../species/entities/species.entity';
 import {Planet} from '../planets/entities/planet.entity';
 import {Starship} from '../starships/entities/starship.entity';
+import {Vehicle} from '../vehicles/entities/vehicle.entity';
 
 @Injectable()
 export class FilmsService {
@@ -23,6 +24,7 @@ export class FilmsService {
         film.species = createFilmDto.speciesIds.map(id => ({...new Species(), id}));
         film.planets = createFilmDto.planetIds.map(id => ({...new Planet(), id}));
         film.starships = createFilmDto.starshipIds.map(id => ({...new Starship(), id}));
+        film.vehicles = createFilmDto.vehicleIds.map(id => ({...new Vehicle(), id}));
 
         return this.filmsRepository.save(film);
     }
@@ -35,6 +37,7 @@ export class FilmsService {
                 species: true,
                 planets: true,
                 starships: true,
+                vehicles: true,
             }
         });
     }
@@ -46,6 +49,7 @@ export class FilmsService {
                 species: true,
                 planets: true,
                 starships: true,
+                vehicles: true,
             },
             take: 10
         });
@@ -72,6 +76,10 @@ export class FilmsService {
 
         if (updateFilmDto.starshipIds) {
             updatedFilm.starships = updateFilmDto.starshipIds.map(id => ({...new Starship(), id}));
+        }
+
+        if (updateFilmDto.vehicleIds) {
+            updatedFilm.vehicles = updateFilmDto.vehicleIds.map(id => ({...new Vehicle(), id}));
         }
 
         return await this.filmsRepository.save(updatedFilm);

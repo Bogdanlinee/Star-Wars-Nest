@@ -31,11 +31,11 @@ export class StarshipsController {
 
     @Get('/:id')
     async findOne(@Param('id', ParseIntPipe) id: number) {
-        const species = await this.starshipsService.findOne(id)
+        const starship = await this.starshipsService.findOne(id)
 
-        if (!species) throw new NotFoundException('No such starship!');
+        if (!starship) throw new NotFoundException('No such starship!');
 
-        return species;
+        return starship;
     }
 
     @Patch('/:id')

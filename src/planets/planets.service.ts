@@ -45,6 +45,7 @@ export class PlanetsService {
                 residents: true,
                 films: true,
                 species: true,
+
             }
         });
     }

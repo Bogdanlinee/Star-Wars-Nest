@@ -1,7 +1,7 @@
 import {IsArray, IsNotEmpty} from 'class-validator';
 import {Transform} from 'class-transformer';
 
-export class CreateStarshipsDto {
+export class CreateVehiclesDto {
     @Transform(({value}) => value.trim())
     @IsNotEmpty()
     name: string;
@@ -18,7 +18,7 @@ export class CreateStarshipsDto {
     @IsNotEmpty()
     cost_in_credits: string;
 
-    @Transform(({value}) => isNaN(parseInt(value)) ? 'unknown' : parseInt(value))
+    @Transform(({value}) => isNaN(parseFloat(value)) ? 'unknown' : parseFloat(value))
     @IsNotEmpty()
     length: string;
 
@@ -26,7 +26,7 @@ export class CreateStarshipsDto {
     @IsNotEmpty()
     max_atmosphering_speed: string;
 
-    @Transform(({value}) => value.trim())
+    @Transform(({value}) => isNaN(parseInt(value)) ? 'unknown' : parseInt(value))
     @IsNotEmpty()
     crew: string;
 
@@ -42,17 +42,9 @@ export class CreateStarshipsDto {
     @IsNotEmpty()
     consumables: string;
 
-    @Transform(({value}) => isNaN(parseFloat(value)) ? 'unknown' : parseFloat(value))
-    @IsNotEmpty()
-    hyperdrive_rating: string;
-
-    @Transform(({value}) => isNaN(parseInt(value)) ? 'unknown' : parseInt(value))
-    @IsNotEmpty()
-    MGLT: string;
-
     @Transform(({value}) => value.trim())
     @IsNotEmpty()
-    starship_class: string;
+    vehicle_class: string;
 
 
     @Transform(({value}) => value.trim())
