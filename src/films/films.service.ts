@@ -38,7 +38,8 @@ export class FilmsService {
                 planets: true,
                 starships: true,
                 vehicles: true,
-            }
+            },
+            relationLoadStrategy: 'query',
         });
     }
 
@@ -51,6 +52,8 @@ export class FilmsService {
                 starships: true,
                 vehicles: true,
             },
+            relationLoadStrategy: 'query',
+            order: {id: 'DESC'},
             take: 10
         });
     }

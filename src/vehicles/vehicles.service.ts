@@ -30,6 +30,7 @@ export class VehiclesService {
                 films: true,
                 pilots: true,
             },
+            relationLoadStrategy: 'query',
             order: {id: 'DESC'},
             take: 10,
         });
@@ -41,7 +42,8 @@ export class VehiclesService {
             relations: {
                 films: true,
                 pilots: true,
-            }
+            },
+            relationLoadStrategy: 'query',
         });
     }
 
@@ -57,7 +59,11 @@ export class VehiclesService {
         }
 
         if (updateVehicleDto.pilotsIds) {
-            updatedVehicle.pilots = updateVehicleDto.pilotsIds.map(id => ({...new Person(), id}));
+            updatedVehicle.pilots = updateVehicleDto.pilotsIds.reduce((acc, id) => {
+
+                return acc;
+            }, [])
+
         }
 
         return await this.vehicleRepository.save(updatedVehicle);

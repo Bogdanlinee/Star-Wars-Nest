@@ -34,21 +34,6 @@ export class PeopleService {
         return this.personRepository.save(person);
     }
 
-    async findAll() {
-        return this.personRepository.find({
-            relations: {
-                images: true,
-                films: true,
-                species: true,
-                starships: true,
-                homeworld: true,
-                vehicles: true,
-            },
-            order: {id: 'DESC'},
-            take: 10,
-        });
-    }
-
     async findOne(id: number) {
         return await this.personRepository.findOne({
             where: {id},
@@ -59,7 +44,24 @@ export class PeopleService {
                 starships: true,
                 homeworld: true,
                 vehicles: true,
-            }
+            },
+            relationLoadStrategy: 'query',
+        });
+    }
+
+    async findAll() {
+        return this.personRepository.find({
+            relations: {
+                images: true,
+                films: true,
+                species: true,
+                starships: true,
+                homeworld: true,
+                vehicles: true,
+            },
+            relationLoadStrategy: 'query',
+            order: {id: 'DESC'},
+            take: 10,
         });
     }
 

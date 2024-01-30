@@ -26,18 +26,6 @@ export class SpeciesService {
         return this.speciesRepository.save(species);
     }
 
-    async findAll() {
-        return this.speciesRepository.find({
-            relations: {
-                films: true,
-                people: true,
-                planets: true,
-            },
-            order: {id: 'DESC'},
-            take: 10,
-        });
-    }
-
     async findOne(id: number) {
         return await this.speciesRepository.findOne({
             where: {id},
@@ -45,7 +33,21 @@ export class SpeciesService {
                 films: true,
                 people: true,
                 planets: true,
-            }
+            },
+            relationLoadStrategy: 'query',
+        });
+    }
+
+    async findAll() {
+        return this.speciesRepository.find({
+            relations: {
+                films: true,
+                people: true,
+                planets: true,
+            },
+            relationLoadStrategy: 'query',
+            order: {id: 'DESC'},
+            take: 10,
         });
     }
 

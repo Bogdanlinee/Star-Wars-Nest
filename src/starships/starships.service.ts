@@ -24,24 +24,26 @@ export class StarshipsService {
         return this.starshipsRepository.save(starship);
     }
 
-    async findAll() {
-        return this.starshipsRepository.find({
-            relations: {
-                films: true,
-                pilots: true,
-            },
-            order: {id: 'DESC'},
-            take: 10,
-        });
-    }
-
     async findOne(id: number) {
         return await this.starshipsRepository.findOne({
             where: {id},
             relations: {
                 films: true,
                 pilots: true,
-            }
+            },
+            relationLoadStrategy: 'query',
+        });
+    }
+
+    async findAll() {
+        return this.starshipsRepository.find({
+            relations: {
+                films: true,
+                pilots: true,
+            },
+            relationLoadStrategy: 'query',
+            order: {id: 'DESC'},
+            take: 10,
         });
     }
 

@@ -36,7 +36,8 @@ export class ImagesService {
     async deleteImage(id: number, image: string) {
         const searchedImage = await this.imagePersonRepository.findOne({
             where: {image},
-            relations: ['person']
+            relations: ['person'],
+            relationLoadStrategy: 'query',
         });
         const relatedPersonId = searchedImage?.person.id;
 

@@ -30,7 +30,7 @@ describe('Films (e2e)', () => {
                 speciesIds: [1],
                 planetIds: [1],
                 starshipIds: [2],
-                vehicleIds: [],
+                vehicleIds: [4, 6, 7],
             })
             .expect(201)
             .then(res => {
@@ -39,33 +39,33 @@ describe('Films (e2e)', () => {
                 expect(species.length).toBeGreaterThan(0);
                 expect(planets.length).toBeGreaterThan(0);
                 expect(starships.length).toBeGreaterThan(0);
-                // expect(vehicles.length).toBeGreaterThan(0);
+                expect(vehicles.length).toBeGreaterThan(0);
             })
-    }, 80000);
+    });
 
-    // it('Can find one film', () => {
-    //     const filmId = 1;
-    //     return request(app.getHttpServer())
-    //         .get(`/films/${filmId}`)
-    //         .expect(200)
-    //         .then(res => {
-    //             const {id, title, species, characters, planets, starships, vehicles} = res.body;
-    //             expect(id).toEqual(filmId);
-    //             expect(species.length).toBeGreaterThan(0);
-    //             expect(characters.length).toBeGreaterThan(0);
-    //             expect(planets.length).toBeGreaterThan(0);
-    //             expect(starships.length).toBeGreaterThan(0);
-    //             // expect(vehicles.length).toBeGreaterThan(0);
-    //             expect(title).toBeDefined();
-    //         })
-    // }, 80000);
+    it('Can find one film', () => {
+        const filmId = 1;
+        return request(app.getHttpServer())
+            .get(`/films/${filmId}`)
+            .expect(200)
+            .then(res => {
+                const {id, title, species, characters, planets, starships, vehicles} = res.body;
+                expect(id).toEqual(filmId);
+                expect(species.length).toBeGreaterThan(0);
+                expect(characters.length).toBeGreaterThan(0);
+                expect(planets.length).toBeGreaterThan(0);
+                expect(starships.length).toBeGreaterThan(0);
+                expect(vehicles.length).toBeGreaterThan(0);
+                expect(title).toBeDefined();
+            })
+    });
 
     it('Throws Error. Find one film in DB', () => {
         const filmId = 10000000;
         return request(app.getHttpServer())
             .get(`/films/${filmId}`)
             .expect(404)
-    }, 80000);
+    });
 
     it('Can find many films', () => {
         return request(app.getHttpServer())
@@ -78,9 +78,9 @@ describe('Films (e2e)', () => {
                 expect(filmsList[0]['species'].length).toBeGreaterThan(0);
                 expect(filmsList[0]['planets'].length).toBeGreaterThan(0);
                 expect(filmsList[0]['starships'].length).toBeGreaterThan(0);
-                // expect(filmsList[0]['vehicles'].length).toBeGreaterThan(0);
+                expect(filmsList[0]['vehicles'].length).toBeGreaterThan(0);
             })
-    }, 80000);
+    });
 
     it('Can update the film', () => {
         const filmId = 1;
@@ -90,7 +90,7 @@ describe('Films (e2e)', () => {
             personIds: [1, 2, 3],
             planetIds: [1, 2, 3],
             starshipIds: [2, 3, 5],
-            // vehicleIds: [4, 6, 7],
+            vehicleIds: [4, 6, 7],
         };
         return request(app.getHttpServer())
             .patch(`/films/${filmId}`)
@@ -103,9 +103,9 @@ describe('Films (e2e)', () => {
                 expect(characters.length).toEqual(filmUpdatedInfo.personIds.length);
                 expect(planets.length).toEqual(filmUpdatedInfo.planetIds.length);
                 expect(starships.length).toEqual(filmUpdatedInfo.starshipIds.length);
-                // expect(vehicles.length).toEqual(filmUpdatedInfo.vehicleIds.length);
+                expect(vehicles.length).toEqual(filmUpdatedInfo.vehicleIds.length);
             })
-    }, 80000);
+    });
 
     it('Can delete one film', () => {
         const filmId = 1;
@@ -116,5 +116,5 @@ describe('Films (e2e)', () => {
                 const {deletedAt} = res.body;
                 expect(deletedAt).toBeTruthy();
             })
-    }, 80000);
+    });
 });

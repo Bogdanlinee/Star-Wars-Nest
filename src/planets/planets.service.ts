@@ -26,18 +26,6 @@ export class PlanetsService {
         return this.planetsRepository.save(planet);
     }
 
-    async findAll() {
-        return this.planetsRepository.find({
-            relations: {
-                residents: true,
-                films: true,
-                species: true,
-            },
-            order: {id: 'DESC'},
-            take: 10,
-        });
-    }
-
     async findOne(id: number) {
         return await this.planetsRepository.findOne({
             where: {id},
@@ -45,8 +33,21 @@ export class PlanetsService {
                 residents: true,
                 films: true,
                 species: true,
+            },
+            relationLoadStrategy: 'query',
+        });
+    }
 
-            }
+    async findAll() {
+        return this.planetsRepository.find({
+            relations: {
+                residents: true,
+                films: true,
+                species: true,
+            },
+            relationLoadStrategy: 'query',
+            order: {id: 'DESC'},
+            take: 10,
         });
     }
 
