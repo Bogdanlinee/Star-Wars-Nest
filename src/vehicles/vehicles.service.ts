@@ -6,20 +6,26 @@ import {CreateVehiclesDto} from './dto/create-vehicle.dto';
 import {UpdateVehicleDto} from './dto/update-vehicle.dto';
 import {Person} from '../people/entities/person.entity';
 import {Film} from '../films/entities/film.entity';
+import {appendEntities} from '../utils/appendRelationEntities';
 
 @Injectable()
 export class VehiclesService {
     constructor(
         @InjectRepository(Vehicle)
         private vehicleRepository: Repository<Vehicle>,
+        @InjectRepository(Person)
+        private peopleRepository: Repository<Person>,
+        @InjectRepository(Film)
+        private filmsRepository: Repository<Film>,
     ) {
     }
 
     async create(createVehiclesDto: CreateVehiclesDto) {
         const vehicle = this.vehicleRepository.create(createVehiclesDto);
 
-        vehicle.pilots = createVehiclesDto.pilotsIds.map(id => ({...new Person(), id}));
-        vehicle.films = createVehiclesDto.filmsIds.map(id => ({...new Film(), id}));
+        await appendEntities(vehicle, createVehiclesDto, 'pilotsIds', 'pilots', this.peopleRepository);
+        await appendEntities(vehicle, createVehiclesDto, 'filmsIds', 'films', this.filmsRepository);
+
 
         return this.vehicleRepository.save(vehicle);
     }
@@ -54,17 +60,8 @@ export class VehiclesService {
 
         const updatedVehicle = {...vehicle, ...updateVehicleDto};
 
-        if (updateVehicleDto.filmsIds) {
-            updatedVehicle.films = updateVehicleDto.filmsIds.map(id => ({...new Film(), id}));
-        }
-
-        if (updateVehicleDto.pilotsIds) {
-            updatedVehicle.pilots = updateVehicleDto.pilotsIds.reduce((acc, id) => {
-
-                return acc;
-            }, [])
-
-        }
+        await appendEntities(updatedVehicle, updateVehicleDto, 'filmsIds', 'films', this.filmsRepository);
+        await appendEntities(updatedVehicle, updateVehicleDto, 'pilotsIds', 'pilots', this.filmsRepository);
 
         return await this.vehicleRepository.save(updatedVehicle);
     }

@@ -11,6 +11,7 @@ import {Species} from '../species/entities/species.entity';
 import {Planet} from '../planets/entities/planet.entity';
 import {Starship} from '../starships/entities/starship.entity';
 import {Vehicle} from '../vehicles/entities/vehicle.entity';
+import {appendEntities} from '../utils/appendRelationEntities';
 
 @Injectable()
 export class PeopleService {
@@ -18,18 +19,34 @@ export class PeopleService {
         @InjectRepository(Person)
         private personRepository: Repository<Person>,
         @InjectRepository(ImagePerson)
-        private imagePersonRepository: Repository<ImagePerson>
+        private imagePersonRepository: Repository<ImagePerson>,
+        @InjectRepository(Film)
+        private filmsRepository: Repository<Film>,
+        @InjectRepository(Species)
+        private speciesRepository: Repository<Species>,
+        @InjectRepository(Planet)
+        private planetsRepository: Repository<Planet>,
+        @InjectRepository(Starship)
+        private starshipsRepository: Repository<Starship>,
+        @InjectRepository(Vehicle)
+        private vehiclesRepository: Repository<Vehicle>
     ) {
     }
 
     async create(createPersonDto: CreatePersonDto) {
         const person = this.personRepository.create(createPersonDto);
 
-        person.films = createPersonDto.filmIds.map(id => ({...new Film(), id}));
-        person.species = createPersonDto.speciesIds.map(id => ({...new Species(), id}))
-        person.starships = createPersonDto.starshipIds.map(id => ({...new Starship(), id}))
-        person.vehicles = createPersonDto.vehicleIds.map(id => ({...new Vehicle(), id}))
-        person.homeworld = {...new Planet(), id: createPersonDto.homeworldId};
+        await appendEntities(person, createPersonDto, 'filmIds', 'films', this.filmsRepository);
+        await appendEntities(person, createPersonDto, 'speciesIds', 'species', this.speciesRepository);
+        await appendEntities(person, createPersonDto, 'starshipIds', 'starships', this.starshipsRepository);
+        await appendEntities(person, createPersonDto, 'vehicleIds', 'vehicles', this.vehiclesRepository);
+
+        const planetId = createPersonDto.homeworldId;
+        const planetEntity = await this.planetsRepository.findOne({where: {id: planetId}});
+
+        if (planetEntity) {
+            person.homeworld = planetEntity;
+        }
 
         return this.personRepository.save(person);
     }
@@ -72,20 +89,17 @@ export class PeopleService {
 
         const updatedPerson = {...person, ...updatePersonDto};
 
-        if (updatePersonDto.filmIds) {
-            updatedPerson.films = updatePersonDto.filmIds.map(id => ({...new Film(), id}))
-        }
-        if (updatePersonDto.speciesIds) {
-            updatedPerson.species = updatePersonDto.speciesIds.map(id => ({...new Species(), id}))
-        }
-        if (updatePersonDto.starshipIds) {
-            updatedPerson.starships = updatePersonDto.starshipIds.map(id => ({...new Starship(), id}))
-        }
-        if (updatePersonDto.vehicleIds) {
-            updatedPerson.vehicles = updatePersonDto.vehicleIds.map(id => ({...new Vehicle(), id}))
-        }
-        if (updatePersonDto.homeworldId) {
-            updatedPerson.homeworld = {...new Planet(), id: updatePersonDto.homeworldId};
+        await appendEntities(updatedPerson, updatePersonDto, 'filmIds', 'films', this.filmsRepository);
+        await appendEntities(updatedPerson, updatePersonDto, 'speciesIds', 'species', this.speciesRepository);
+        await appendEntities(updatedPerson, updatePersonDto, 'starshipIds', 'starships', this.starshipsRepository);
+        await appendEntities(updatedPerson, updatePersonDto, 'vehicleIds', 'vehicles', this.vehiclesRepository);
+
+        const planetId = updatePersonDto.homeworldId;
+
+        const planetEntity = await this.planetsRepository.findOne({where: {id: planetId}});
+
+        if (planetEntity) {
+            updatedPerson.homeworld = planetEntity;
         }
 
         return await this.personRepository.save(updatedPerson);

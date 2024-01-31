@@ -7,21 +7,28 @@ import {UpdateSpeciesDto} from './dto/update-species.dto';
 import {Film} from '../films/entities/film.entity';
 import {Person} from '../people/entities/person.entity';
 import {Planet} from '../planets/entities/planet.entity';
+import {appendEntities} from '../utils/appendRelationEntities';
 
 @Injectable()
 export class SpeciesService {
     constructor(
         @InjectRepository(Species)
         private speciesRepository: Repository<Species>,
+        @InjectRepository(Film)
+        private filmsRepository: Repository<Film>,
+        @InjectRepository(Person)
+        private peopleRepository: Repository<Person>,
+        @InjectRepository(Planet)
+        private planetsRepository: Repository<Planet>,
     ) {
     }
 
     async create(createSpeciesDto: CreateSpeciesDto) {
         const species = this.speciesRepository.create(createSpeciesDto);
 
-        species.films = createSpeciesDto.filmIds.map(id => ({...new Film(), id}));
-        species.people = createSpeciesDto.peopleIds.map(id => ({...new Person(), id}));
-        species.planets = createSpeciesDto.planetsIds.map(id => ({...new Planet(), id}));
+        await appendEntities(species, createSpeciesDto, 'filmIds', 'films', this.filmsRepository);
+        await appendEntities(species, createSpeciesDto, 'peopleIds', 'people', this.peopleRepository);
+        await appendEntities(species, createSpeciesDto, 'planetsIds', 'planets', this.planetsRepository);
 
         return this.speciesRepository.save(species);
     }
@@ -58,17 +65,9 @@ export class SpeciesService {
 
         const updatedSpecies = {...species, ...updateSpeciesDto};
 
-        if (updateSpeciesDto.filmIds) {
-            updatedSpecies.films = updateSpeciesDto.filmIds.map(id => ({...new Film(), id}));
-        }
-
-        if (updateSpeciesDto.peopleIds) {
-            updatedSpecies.people = updateSpeciesDto.peopleIds.map(id => ({...new Person(), id}));
-        }
-
-        if (updateSpeciesDto.planetsIds) {
-            updatedSpecies.planets = updateSpeciesDto.planetsIds.map(id => ({...new Planet(), id}));
-        }
+        await appendEntities(updatedSpecies, updateSpeciesDto, 'filmIds', 'films', this.filmsRepository);
+        await appendEntities(updatedSpecies, updateSpeciesDto, 'peopleIds', 'people', this.peopleRepository);
+        await appendEntities(updatedSpecies, updateSpeciesDto, 'planetsIds', 'planets', this.planetsRepository);
 
         return await this.speciesRepository.save(updatedSpecies);
     }

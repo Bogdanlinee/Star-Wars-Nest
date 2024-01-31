@@ -81,7 +81,7 @@ describe('Vehicles (e2e)', () => {
         const vehicleUpdatedInfo = {
             name: 'New Test Name',
             filmsIds: [1, 2, 3],
-            pilotsIds: [1, 2, 31],
+            pilotsIds: [1, 2, 3],
         }
         return request(app.getHttpServer())
             .patch(`/vehicles/${vehicleId}`)
