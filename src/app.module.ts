@@ -8,6 +8,7 @@ import { FilmsModule } from './films/films.module';
 import { SpeciesModule } from './species/species.module';
 import { PlanetsModule } from './planets/planets.module';
 import { StarshipsModule } from './starships/starships.module';
+import { VehiclesModule } from './vehicles/vehicles.module';
 
 @Module({
     imports: [
@@ -22,6 +23,7 @@ import { StarshipsModule } from './starships/starships.module';
         SpeciesModule,
         PlanetsModule,
         StarshipsModule,
+        VehiclesModule,
     ],
 })
 export class AppModule {

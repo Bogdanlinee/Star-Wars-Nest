@@ -1,0 +1,198 @@
+[
+  {
+    "vehicle_id": 4,
+    "film_id": 1
+  },
+  {
+    "vehicle_id": 4,
+    "film_id": 5
+  },
+  {
+    "vehicle_id": 6,
+    "film_id": 1
+  },
+  {
+    "vehicle_id": 7,
+    "film_id": 1
+  },
+  {
+    "vehicle_id": 8,
+    "film_id": 1
+  },
+  {
+    "vehicle_id": 8,
+    "film_id": 2
+  },
+  {
+    "vehicle_id": 8,
+    "film_id": 3
+  },
+  {
+    "vehicle_id": 14,
+    "film_id": 2
+  },
+  {
+    "vehicle_id": 16,
+    "film_id": 2
+  },
+  {
+    "vehicle_id": 16,
+    "film_id": 3
+  },
+  {
+    "vehicle_id": 18,
+    "film_id": 2
+  },
+  {
+    "vehicle_id": 18,
+    "film_id": 3
+  },
+  {
+    "vehicle_id": 19,
+    "film_id": 2
+  },
+  {
+    "vehicle_id": 19,
+    "film_id": 3
+  },
+  {
+    "vehicle_id": 20,
+    "film_id": 2
+  },
+  {
+    "vehicle_id": 24,
+    "film_id": 3
+  },
+  {
+    "vehicle_id": 25,
+    "film_id": 3
+  },
+  {
+    "vehicle_id": 26,
+    "film_id": 3
+  },
+  {
+    "vehicle_id": 30,
+    "film_id": 3
+  },
+  {
+    "vehicle_id": 33,
+    "film_id": 4
+  },
+  {
+    "vehicle_id": 33,
+    "film_id": 6
+  },
+  {
+    "vehicle_id": 34,
+    "film_id": 4
+  },
+  {
+    "vehicle_id": 35,
+    "film_id": 4
+  },
+  {
+    "vehicle_id": 36,
+    "film_id": 4
+  },
+  {
+    "vehicle_id": 37,
+    "film_id": 4
+  },
+  {
+    "vehicle_id": 38,
+    "film_id": 4
+  },
+  {
+    "vehicle_id": 42,
+    "film_id": 4
+  },
+  {
+    "vehicle_id": 44,
+    "film_id": 5
+  },
+  {
+    "vehicle_id": 45,
+    "film_id": 5
+  },
+  {
+    "vehicle_id": 46,
+    "film_id": 5
+  },
+  {
+    "vehicle_id": 50,
+    "film_id": 5
+  },
+  {
+    "vehicle_id": 50,
+    "film_id": 6
+  },
+  {
+    "vehicle_id": 51,
+    "film_id": 5
+  },
+  {
+    "vehicle_id": 53,
+    "film_id": 5
+  },
+  {
+    "vehicle_id": 53,
+    "film_id": 6
+  },
+  {
+    "vehicle_id": 54,
+    "film_id": 5
+  },
+  {
+    "vehicle_id": 55,
+    "film_id": 5
+  },
+  {
+    "vehicle_id": 56,
+    "film_id": 5
+  },
+  {
+    "vehicle_id": 56,
+    "film_id": 6
+  },
+  {
+    "vehicle_id": 57,
+    "film_id": 5
+  },
+  {
+    "vehicle_id": 60,
+    "film_id": 6
+  },
+  {
+    "vehicle_id": 62,
+    "film_id": 6
+  },
+  {
+    "vehicle_id": 67,
+    "film_id": 6
+  },
+  {
+    "vehicle_id": 69,
+    "film_id": 6
+  },
+  {
+    "vehicle_id": 70,
+    "film_id": 6
+  },
+  {
+    "vehicle_id": 71,
+    "film_id": 6
+  },
+  {
+    "vehicle_id": 72,
+    "film_id": 6
+  },
+  {
+    "vehicle_id": 73,
+    "film_id": 6
+  },
+  {
+    "vehicle_id": 76,
+    "film_id": 6
+  }
+]

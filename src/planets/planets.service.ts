@@ -7,35 +7,30 @@ import {InjectRepository} from '@nestjs/typeorm';
 import {Person} from '../people/entities/person.entity';
 import {Film} from '../films/entities/film.entity';
 import {Species} from '../species/entities/species.entity';
+import {appendEntities} from '../utils/appendRelationEntities';
 
 @Injectable()
 export class PlanetsService {
     constructor(
         @InjectRepository(Planet)
-        private planetsRepository: Repository<Planet>
+        private planetsRepository: Repository<Planet>,
+        @InjectRepository(Person)
+        private peopleRepository: Repository<Person>,
+        @InjectRepository(Film)
+        private filmsRepository: Repository<Film>,
+        @InjectRepository(Species)
+        private speciesRepository: Repository<Species>,
     ) {
     }
 
     async create(createPlanetsDto: CreatePlanetsDto) {
         const planet = this.planetsRepository.create(createPlanetsDto);
 
-        planet.residents = createPlanetsDto.residentIds.map(id => ({...new Person(), id}));
-        planet.films = createPlanetsDto.filmIds.map(id => ({...new Film(), id}));
-        planet.species = createPlanetsDto.speciesIds.map(id => ({...new Species(), id}));
+        await appendEntities(planet, createPlanetsDto, 'residentIds', 'residents', this.peopleRepository);
+        await appendEntities(planet, createPlanetsDto, 'filmIds', 'films', this.filmsRepository);
+        await appendEntities(planet, createPlanetsDto, 'speciesIds', 'species', this.speciesRepository);
 
         return this.planetsRepository.save(planet);
-    }
-
-    async findAll() {
-        return this.planetsRepository.find({
-            relations: {
-                residents: true,
-                films: true,
-                species: true,
-            },
-            order: {id: 'DESC'},
-            take: 10,
-        });
     }
 
     async findOne(id: number) {
@@ -45,7 +40,21 @@ export class PlanetsService {
                 residents: true,
                 films: true,
                 species: true,
-            }
+            },
+            relationLoadStrategy: 'query',
+        });
+    }
+
+    async findAll() {
+        return this.planetsRepository.find({
+            relations: {
+                residents: true,
+                films: true,
+                species: true,
+            },
+            relationLoadStrategy: 'query',
+            order: {id: 'DESC'},
+            take: 10,
         });
     }
 
@@ -56,17 +65,9 @@ export class PlanetsService {
 
         const updatedPlanet = {...planet, ...updatePlanetsDto};
 
-        if (updatePlanetsDto.residentIds) {
-            updatedPlanet.residents = updatePlanetsDto.residentIds.map(id => ({...new Person(), id}));
-        }
-
-        if (updatePlanetsDto.filmIds) {
-            updatedPlanet.films = updatePlanetsDto.filmIds.map(id => ({...new Film(), id}));
-        }
-
-        if (updatePlanetsDto.speciesIds) {
-            updatedPlanet.species = updatePlanetsDto.speciesIds.map(id => ({...new Species(), id}));
-        }
+        await appendEntities(updatedPlanet, updatePlanetsDto, 'residentIds', 'residents', this.peopleRepository);
+        await appendEntities(updatedPlanet, updatePlanetsDto, 'filmIds', 'films', this.filmsRepository);
+        await appendEntities(updatedPlanet, updatePlanetsDto, 'speciesIds', 'species', this.speciesRepository);
 
         return await this.planetsRepository.save(updatedPlanet);
     }

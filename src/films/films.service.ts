@@ -8,21 +8,29 @@ import {Person} from '../people/entities/person.entity';
 import {Species} from '../species/entities/species.entity';
 import {Planet} from '../planets/entities/planet.entity';
 import {Starship} from '../starships/entities/starship.entity';
+import {Vehicle} from '../vehicles/entities/vehicle.entity';
+import {appendEntities} from '../utils/appendRelationEntities';
 
 @Injectable()
 export class FilmsService {
     constructor(
         @InjectRepository(Film) private filmsRepository: Repository<Film>,
+        @InjectRepository(Person) private charactersRepository: Repository<Person>,
+        @InjectRepository(Species) private speciesRepository: Repository<Species>,
+        @InjectRepository(Planet) private planetsRepository: Repository<Planet>,
+        @InjectRepository(Starship) private starshipsRepository: Repository<Starship>,
+        @InjectRepository(Vehicle) private vehiclesRepository: Repository<Vehicle>,
     ) {
     }
 
     async create(createFilmDto: CreateFilmDto) {
         const film = this.filmsRepository.create(createFilmDto);
 
-        film.characters = createFilmDto.personIds.map(id => ({...new Person(), id}));
-        film.species = createFilmDto.speciesIds.map(id => ({...new Species(), id}));
-        film.planets = createFilmDto.planetIds.map(id => ({...new Planet(), id}));
-        film.starships = createFilmDto.starshipIds.map(id => ({...new Starship(), id}));
+        await appendEntities(film, createFilmDto, 'personIds', 'characters', this.charactersRepository);
+        await appendEntities(film, createFilmDto, 'planetIds', 'planets', this.planetsRepository);
+        await appendEntities(film, createFilmDto, 'speciesIds', 'species', this.speciesRepository);
+        await appendEntities(film, createFilmDto, 'starshipIds', 'starships', this.starshipsRepository);
+        await appendEntities(film, createFilmDto, 'vehicleIds', 'vehicles', this.vehiclesRepository);
 
         return this.filmsRepository.save(film);
     }
@@ -35,7 +43,9 @@ export class FilmsService {
                 species: true,
                 planets: true,
                 starships: true,
-            }
+                vehicles: true,
+            },
+            relationLoadStrategy: 'query',
         });
     }
 
@@ -46,7 +56,10 @@ export class FilmsService {
                 species: true,
                 planets: true,
                 starships: true,
+                vehicles: true,
             },
+            relationLoadStrategy: 'query',
+            order: {id: 'DESC'},
             take: 10
         });
     }
@@ -58,21 +71,11 @@ export class FilmsService {
 
         const updatedFilm = {...film, ...updateFilmDto};
 
-        if (updateFilmDto.personIds) {
-            updatedFilm.characters = updateFilmDto.personIds.map(id => ({...new Person(), id}))
-        }
-
-        if (updateFilmDto.speciesIds) {
-            updatedFilm.species = updateFilmDto.speciesIds.map(id => ({...new Species(), id}));
-        }
-
-        if (updateFilmDto.planetIds) {
-            updatedFilm.planets = updateFilmDto.planetIds.map(id => ({...new Planet(), id}));
-        }
-
-        if (updateFilmDto.starshipIds) {
-            updatedFilm.starships = updateFilmDto.starshipIds.map(id => ({...new Starship(), id}));
-        }
+        await appendEntities(updatedFilm, updateFilmDto, 'personIds', 'characters', this.charactersRepository);
+        await appendEntities(updatedFilm, updateFilmDto, 'planetIds', 'planets', this.planetsRepository);
+        await appendEntities(updatedFilm, updateFilmDto, 'speciesIds', 'species', this.speciesRepository);
+        await appendEntities(updatedFilm, updateFilmDto, 'starshipIds', 'starships', this.starshipsRepository);
+        await appendEntities(updatedFilm, updateFilmDto, 'vehicleIds', 'vehicles', this.vehiclesRepository);
 
         return await this.filmsRepository.save(updatedFilm);
     }

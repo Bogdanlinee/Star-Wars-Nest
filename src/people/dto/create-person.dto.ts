@@ -50,6 +50,9 @@ export class CreatePersonDto {
     @IsArray()
     starshipIds: number[];
 
+    @IsArray()
+    vehicleIds: number[];
+
     @IsNumber()
     homeworldId: number;
 }

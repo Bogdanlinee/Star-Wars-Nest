@@ -1,7 +1,7 @@
 const fs = require('fs/promises');
 
-module.exports = class V21706111656547 {
-    name = 'V21706111656547';
+module.exports = class V21706248611029 {
+    name = 'V21706248611029';
     directPath = 'fetchedEntitiesData/';
     relationsPath = 'fetchedEntitiesData/relationsTable/';
     entities = {
@@ -9,7 +9,8 @@ module.exports = class V21706111656547 {
         Species: 'species.json',
         Planet: 'planets.json',
         Person: 'person.json',
-        Starship: 'starships.json'
+        Starship: 'starships.json',
+        Vehicle: 'vehicles.json'
     }
     relations = {
         person_film: 'person_film.json',
@@ -18,7 +19,9 @@ module.exports = class V21706111656547 {
         planet_film: 'planets_films.json',
         planet_species: 'planets_species.json',
         starships_film: 'starships_film.json',
-        starships_person: 'starships_person.json'
+        starships_person: 'starships_person.json',
+        vehicles_person: 'vehicles_person.json',
+        vehicles_film: 'vehicles_film.json'
     }
 
     async up(queryRunner) {
@@ -53,10 +56,13 @@ module.exports = class V21706111656547 {
         await queryRunner.query('DELETE from planet_species');
         await queryRunner.query('DELETE from starships_film');
         await queryRunner.query('DELETE from starships_person');
+        await queryRunner.query('DELETE from vehicles_person');
+        await queryRunner.query('DELETE from vehicles_film');
         await queryRunner.query('DELETE from film');
         await queryRunner.query('DELETE from person');
         await queryRunner.query('DELETE from species');
         await queryRunner.query('DELETE from planet');
         await queryRunner.query('DELETE from starship');
+        await queryRunner.query('DELETE from vehicle');
     }
 }
