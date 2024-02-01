@@ -4,6 +4,8 @@ import {getRepositoryToken} from '@nestjs/typeorm';
 import {NotFoundException} from '@nestjs/common';
 import {StarshipsService} from './starships.service';
 import {Starship} from './entities/starship.entity';
+import {Film} from '../films/entities/film.entity';
+import {Person} from '../people/entities/person.entity';
 
 describe('starshipsService', () => {
     let starshipsService: StarshipsService;
@@ -17,7 +19,15 @@ describe('starshipsService', () => {
                 {
                     provide: getRepositoryToken(Starship),
                     useClass: Repository,
-                }
+                },
+                {
+                    provide: getRepositoryToken(Film),
+                    useClass: Repository,
+                },
+                {
+                    provide: getRepositoryToken(Person),
+                    useClass: Repository,
+                },
             ],
         }).compile();
 

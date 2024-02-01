@@ -5,6 +5,8 @@ import {NotFoundException} from '@nestjs/common';
 import {StarshipsController} from './starships.controller';
 import {StarshipsService} from './starships.service';
 import {Starship} from './entities/starship.entity';
+import {Film} from '../films/entities/film.entity';
+import {Person} from '../people/entities/person.entity';
 
 describe('StarshipController', () => {
     let controller: StarshipsController;
@@ -21,6 +23,16 @@ describe('StarshipController', () => {
                 },
                 {
                     provide: getRepositoryToken(Starship),
+                    useValue: () => {
+                    },
+                },
+                {
+                    provide: getRepositoryToken(Film),
+                    useValue: () => {
+                    },
+                },
+                {
+                    provide: getRepositoryToken(Person),
                     useValue: () => {
                     },
                 },

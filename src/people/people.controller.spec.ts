@@ -7,6 +7,10 @@ import {getRepositoryToken} from '@nestjs/typeorm';
 import {Person} from './entities/person.entity';
 import {NotFoundException} from '@nestjs/common';
 import {Planet} from '../planets/entities/planet.entity';
+import {Species} from '../species/entities/species.entity';
+import {Starship} from '../starships/entities/starship.entity';
+import {Vehicle} from '../vehicles/entities/vehicle.entity';
+import {Film} from '../films/entities/film.entity';
 
 describe('PeopleController', () => {
     let controller: PeopleController;
@@ -30,6 +34,30 @@ describe('PeopleController', () => {
                 },
                 {
                     provide: getRepositoryToken(Person),
+                    useValue: () => {
+                    },
+                },
+                {
+                    provide: getRepositoryToken(Species),
+                    useValue: () => {
+                    },
+                },
+                {
+                    provide: getRepositoryToken(Planet),
+                    useClass: Repository,
+                },
+                {
+                    provide: getRepositoryToken(Starship),
+                    useValue: () => {
+                    },
+                },
+                {
+                    provide: getRepositoryToken(Vehicle),
+                    useValue: () => {
+                    },
+                },
+                {
+                    provide: getRepositoryToken(Film),
                     useValue: () => {
                     },
                 },

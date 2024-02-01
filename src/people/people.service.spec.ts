@@ -6,11 +6,16 @@ import {getRepositoryToken} from '@nestjs/typeorm';
 import {ImagePerson} from '../images/entities/image.person.entity';
 import {NotFoundException} from '@nestjs/common';
 import {Planet} from '../planets/entities/planet.entity';
+import {Species} from '../species/entities/species.entity';
+import {Starship} from '../starships/entities/starship.entity';
+import {Vehicle} from '../vehicles/entities/vehicle.entity';
+import {Film} from '../films/entities/film.entity';
 
 describe('UserService', () => {
     let peopleService: PeopleService;
     let personRepository: Repository<Person>;
     let imageRepository: Repository<ImagePerson>;
+    let planetsRepository: Repository<Planet>;
     const people: Person[] = [];
 
     beforeEach(async () => {
@@ -27,17 +32,43 @@ describe('UserService', () => {
                     useValue: () => {
                     },
                 },
+                {
+                    provide: getRepositoryToken(Species),
+                    useValue: () => {
+                    },
+                },
+                {
+                    provide: getRepositoryToken(Planet),
+                    useClass: Repository,
+                },
+                {
+                    provide: getRepositoryToken(Starship),
+                    useValue: () => {
+                    },
+                },
+                {
+                    provide: getRepositoryToken(Vehicle),
+                    useValue: () => {
+                    },
+                },
+                {
+                    provide: getRepositoryToken(Film),
+                    useValue: () => {
+                    },
+                },
             ],
         }).compile();
 
         peopleService = module.get<PeopleService>(PeopleService);
         personRepository = module.get<Repository<Person>>(getRepositoryToken(Person));
         imageRepository = module.get<Repository<ImagePerson>>(getRepositoryToken(ImagePerson));
+        planetsRepository = module.get<Repository<Planet>>(getRepositoryToken(Planet));
     });
 
     it('Can add a new person to DB', async () => {
         jest.spyOn(personRepository, 'save').mockResolvedValue(testPersonEntity);
         jest.spyOn(personRepository, 'create').mockReturnValue(testPersonEntity);
+        jest.spyOn(planetsRepository, 'findOne').mockReturnValue(Promise.resolve(null));
 
         const result = await peopleService.create(testPersonEntity);
 
@@ -103,7 +134,7 @@ describe('UserService', () => {
         homeworldId: 1,
         films: [],
         starships: [],
-        vehicles:[],
+        vehicles: [],
         filmIds: [],
         species: [],
         speciesIds: [],

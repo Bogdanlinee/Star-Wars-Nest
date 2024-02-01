@@ -5,15 +5,17 @@ import {
     NotFoundException,
     Param,
     ParseIntPipe, Patch,
-    Post,
+    Post, UseInterceptors,
     UsePipes,
     ValidationPipe
 } from '@nestjs/common';
 import {FilmsService} from './films.service';
 import {CreateFilmDto} from './dto/create-film.dto';
 import {UpdateFilmDto} from './dto/update-film.dto';
+import {TestInterceptor} from './interceptors/films.interceptor';
 
 @Controller('films')
+@UseInterceptors(TestInterceptor)
 export class FilmsController {
     constructor(private readonly filmsService: FilmsService) {
     }

@@ -26,9 +26,6 @@ export class StarshipsService {
         await appendEntities(starship, createStarshipsDto, 'filmsIds', 'films', this.filmsRepository);
         await appendEntities(starship, createStarshipsDto, 'pilotsIds', 'pilots', this.peopleRepository);
 
-        // starship.films = createStarshipsDto.filmsIds.map(id => ({...new Film(), id}));
-        // starship.pilots = createStarshipsDto.pilotsIds.map(id => ({...new Person(), id}));
-
         return this.starshipsRepository.save(starship);
     }
 
@@ -64,15 +61,6 @@ export class StarshipsService {
 
         await appendEntities(updatedStarship, updateStarshipsDto, 'filmsIds', 'films', this.filmsRepository);
         await appendEntities(updatedStarship, updateStarshipsDto, 'pilotsIds', 'pilots', this.peopleRepository);
-
-
-        // if (updateStarshipsDto.filmsIds) {
-        //     updatedStarship.films = updateStarshipsDto.filmsIds.map(id => ({...new Film(), id}));
-        // }
-        //
-        // if (updateStarshipsDto.pilotsIds) {
-        //     updatedStarship.pilots = updateStarshipsDto.pilotsIds.map(id => ({...new Person(), id}));
-        // }
 
         return await this.starshipsRepository.save(updatedStarship);
     }

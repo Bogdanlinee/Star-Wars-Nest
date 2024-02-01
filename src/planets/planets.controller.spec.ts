@@ -5,6 +5,9 @@ import {NotFoundException} from '@nestjs/common';
 import {PlanetsController} from './planets.controller';
 import {Planet} from './entities/planet.entity';
 import {PlanetsService} from './planets.service';
+import {Person} from '../people/entities/person.entity';
+import {Film} from '../films/entities/film.entity';
+import {Species} from '../species/entities/species.entity';
 
 describe('PeopleController', () => {
     let controller: PlanetsController;
@@ -21,6 +24,21 @@ describe('PeopleController', () => {
                 },
                 {
                     provide: getRepositoryToken(Planet),
+                    useValue: () => {
+                    },
+                },
+                {
+                    provide: getRepositoryToken(Person),
+                    useValue: () => {
+                    },
+                },
+                {
+                    provide: getRepositoryToken(Film),
+                    useValue: () => {
+                    },
+                },
+                {
+                    provide: getRepositoryToken(Species),
                     useValue: () => {
                     },
                 },
