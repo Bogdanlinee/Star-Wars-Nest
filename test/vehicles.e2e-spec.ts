@@ -36,7 +36,7 @@ describe('Vehicles (e2e)', () => {
             })
             .expect(201)
             .then(res => {
-                const {name, films, pilots} = res.body;
+                const {name, films, pilots} =  res.body.data;
                 expect(films.length).toBeGreaterThan(0);
                 expect(pilots.length).toBeGreaterThan(0);
                 expect(name).toBeDefined();
@@ -49,7 +49,7 @@ describe('Vehicles (e2e)', () => {
             .get(`/vehicles/${vehicleId}`)
             .expect(200)
             .then(res => {
-                const {id, name, films, pilots} = res.body;
+                const {id, name, films, pilots} =  res.body.data;
                 expect(id).toEqual(vehicleId);
                 expect(films.length).toBeGreaterThan(0);
                 expect(pilots.length).toBeGreaterThan(0);
@@ -69,7 +69,7 @@ describe('Vehicles (e2e)', () => {
             .get(`/vehicles`)
             .expect(200)
             .then(res => {
-                const vehiclesList = res.body;
+                const vehiclesList =  res.body.data;
                 expect(vehiclesList.length).toBeTruthy();
                 expect(vehiclesList[0]['pilots'].length).toBeGreaterThan(0);
                 expect(vehiclesList[0]['films'].length).toBeGreaterThan(0);
@@ -88,7 +88,7 @@ describe('Vehicles (e2e)', () => {
             .send(vehicleUpdatedInfo)
             .expect(200)
             .then(res => {
-                const {name, films, pilots} = res.body;
+                const {name, films, pilots} =  res.body.data;
                 expect(name).toEqual(vehicleUpdatedInfo.name);
                 expect(films.length).toEqual(vehicleUpdatedInfo.filmsIds.length);
                 expect(pilots.length).toEqual(vehicleUpdatedInfo.pilotsIds.length);
@@ -101,7 +101,7 @@ describe('Vehicles (e2e)', () => {
             .delete(`/vehicles/${vehicleId}`)
             .expect(200)
             .then(res => {
-                const {deletedAt} = res.body;
+                const {deletedAt} =  res.body.data;
                 expect(deletedAt).toBeTruthy();
             })
     })

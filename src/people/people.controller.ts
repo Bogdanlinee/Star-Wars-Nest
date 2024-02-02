@@ -9,13 +9,15 @@ import {
     ParseIntPipe,
     ValidationPipe,
     UsePipes,
-    NotFoundException,
+    NotFoundException, UseInterceptors,
 } from '@nestjs/common';
 import {PeopleService} from './people.service';
 import {CreatePersonDto} from './dto/create-person.dto';
 import {UpdatePersonDto} from './dto/update-person.dto';
+import {PeopleSerializeInterceptor} from './interceptors/people.serialize.interceptor';
 
 @Controller('people')
+@UseInterceptors(PeopleSerializeInterceptor)
 export class PeopleController {
     constructor(private readonly peopleService: PeopleService) {
     }

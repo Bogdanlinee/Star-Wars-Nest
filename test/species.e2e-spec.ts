@@ -36,7 +36,7 @@ describe('Species (e2e)', () => {
             })
             .expect(201)
             .then(res => {
-                const {id, name, films, people, planets} = res.body;
+                const {id, name, films, people, planets} =  res.body.data;
                 expect(films.length).toBeGreaterThan(0);
                 expect(people.length).toBeGreaterThan(0);
                 expect(planets.length).toBeGreaterThan(0);
@@ -50,7 +50,7 @@ describe('Species (e2e)', () => {
             .get(`/species/${speciesId}`)
             .expect(200)
             .then(res => {
-                const {id, name, films, people, planets} = res.body;
+                const {id, name, films, people, planets} =  res.body.data;
                 expect(id).toEqual(speciesId);
                 expect(films.length).toBeGreaterThan(0);
                 expect(people.length).toBeGreaterThan(0);
@@ -71,7 +71,7 @@ describe('Species (e2e)', () => {
             .get(`/species`)
             .expect(200)
             .then(res => {
-                const speciesList = res.body;
+                const speciesList =  res.body.data;
                 expect(speciesList.length).toBeTruthy();
                 expect(speciesList[0]['people'].length).toBeGreaterThan(0);
                 expect(speciesList[0]['films'].length).toBeGreaterThan(0);
@@ -87,7 +87,7 @@ describe('Species (e2e)', () => {
             .send(speciesUpdatedInfo)
             .expect(200)
             .then(res => {
-                const {name, films, people, planets} = res.body;
+                const {name, films, people, planets} =  res.body.data;
                 expect(name).toEqual(speciesUpdatedInfo.name);
                 expect(films.length).toBeGreaterThan(0);
                 expect(people.length).toBeGreaterThan(0);
@@ -101,7 +101,7 @@ describe('Species (e2e)', () => {
             .delete(`/species/${speciesId}`)
             .expect(200)
             .then(res => {
-                const {deletedAt} = res.body;
+                const {deletedAt} =  res.body.data;
                 expect(deletedAt).toBeTruthy();
             })
     })

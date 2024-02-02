@@ -39,7 +39,7 @@ describe('Starships (e2e)', () => {
             })
             .expect(201)
             .then(res => {
-                const {id, pilots, films} = res.body;
+                const {id, pilots, films} =  res.body.data;
                 expect(pilots.length).toBeGreaterThan(0);
                 expect(films.length).toBeGreaterThan(0);
                 expect(id).toBeDefined();
@@ -52,7 +52,7 @@ describe('Starships (e2e)', () => {
             .get(`/starships/${starshipId}`)
             .expect(200)
             .then(res => {
-                const {id, pilots, films} = res.body;
+                const {id, pilots, films} =  res.body.data;
                 expect(id).toEqual(starshipId);
                 expect(pilots.length).toBeGreaterThan(0);
                 expect(films.length).toBeGreaterThan(0);
@@ -71,7 +71,7 @@ describe('Starships (e2e)', () => {
             .get(`/starships`)
             .expect(200)
             .then(res => {
-                const starshipsList = res.body;
+                const starshipsList =  res.body.data;
                 expect(starshipsList.length).toBeTruthy();
                 expect(starshipsList[0]['pilots'].length).toBeGreaterThan(0);
                 expect(starshipsList[0]['films'].length).toBeGreaterThan(0);
@@ -90,7 +90,7 @@ describe('Starships (e2e)', () => {
             .send(starshipUpdatedInfo)
             .expect(200)
             .then(res => {
-                const {name, pilots, films} = res.body;
+                const {name, pilots, films} =  res.body.data;
                 expect(name).toEqual(starshipUpdatedInfo.name);
                 expect(pilots.length).toEqual(starshipUpdatedInfo.pilotsIds.length);
                 expect(films.length).toEqual(starshipUpdatedInfo.filmsIds.length);
@@ -103,7 +103,7 @@ describe('Starships (e2e)', () => {
             .delete(`/starships/${starshipId}`)
             .expect(200)
             .then(res => {
-                const {deletedAt} = res.body;
+                const {deletedAt} =  res.body.data;
                 expect(deletedAt).toBeTruthy();
             })
     })

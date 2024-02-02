@@ -5,15 +5,17 @@ import {
     NotFoundException,
     Param,
     ParseIntPipe, Patch,
-    Post,
+    Post, UseInterceptors,
     UsePipes,
     ValidationPipe
 } from '@nestjs/common';
 import {UpdateSpeciesDto} from './dto/update-species.dto';
 import {CreateSpeciesDto} from './dto/create-species.dto';
 import {SpeciesService} from './species.service';
+import {SpeciesSerializeInterceptor} from './interceptors/species.serialize.interceptor';
 
 @Controller('species')
+@UseInterceptors(SpeciesSerializeInterceptor)
 export class SpeciesController {
     constructor(private readonly speciesService: SpeciesService) {
     }

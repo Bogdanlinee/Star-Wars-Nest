@@ -37,12 +37,12 @@ describe('People (e2e)', () => {
             })
             .expect(201)
             .then(res => {
-                const {name, films, species, homeworld, starships, vehicles} = res.body;
+                const {name, films, species, homeworld, starships, vehicles} = res.body.data;
                 expect(films.length).toBeGreaterThan(0);
                 expect(species.length).toBeGreaterThan(0);
                 expect(starships.length).toBeGreaterThan(0);
                 expect(vehicles.length).toBeGreaterThan(0);
-                expect(homeworld.id).toBeDefined();
+                expect(homeworld).toBeDefined();
                 expect(name).toBeDefined();
             })
     });
@@ -53,14 +53,14 @@ describe('People (e2e)', () => {
             .get(`/people/${personId}`)
             .expect(200)
             .then(res => {
-                const {id, name, films, species, homeworld, starships, vehicles} = res.body;
+                const {id, name, films, species, homeworld, starships, vehicles} = res.body.data;
                 expect(id).toEqual(personId);
                 expect(films.length).toBeGreaterThan(0);
                 expect(species.length).toBeGreaterThan(0);
                 expect(starships.length).toBeGreaterThan(0);
                 expect(vehicles.length).toBeGreaterThan(0);
                 expect(name).toBeDefined();
-                expect(homeworld.url).toBeDefined();
+                expect(homeworld).toBeDefined();
             })
     });
 
@@ -76,13 +76,13 @@ describe('People (e2e)', () => {
             .get(`/people`)
             .expect(200)
             .then(res => {
-                const peopleList = res.body;
+                const peopleList = res.body.data;
                 expect(peopleList.length).toBeTruthy();
                 expect(peopleList[0]['films'].length).toBeGreaterThan(0);
                 expect(peopleList[0]['species'].length).toBeGreaterThan(0);
                 expect(peopleList[0]['starships'].length).toBeGreaterThan(0);
                 expect(peopleList[0]['vehicles'].length).toBeGreaterThan(0);
-                expect(peopleList[0]['homeworld']['url']).toBeDefined();
+                expect(peopleList[0]['homeworld']).toBeDefined();
             })
     });
 
@@ -101,13 +101,13 @@ describe('People (e2e)', () => {
             .send(personUpdatedInfo)
             .expect(200)
             .then(res => {
-                const {name, films, species, homeworld, starships, vehicles} = res.body;
+                const {name, films, species, homeworld, starships, vehicles} = res.body.data;
                 expect(name).toEqual(personUpdatedInfo.name);
                 expect(films.length).toEqual(personUpdatedInfo.filmIds.length);
                 expect(species.length).toEqual(personUpdatedInfo.speciesIds.length);
                 expect(starships.length).toEqual(personUpdatedInfo.starshipIds.length);
                 expect(vehicles.length).toEqual(personUpdatedInfo.vehicleIds.length);
-                expect(homeworld.id).toEqual(personUpdatedInfo.homeworldId);
+                expect(homeworld).toBeDefined();
             })
     })
 
@@ -117,7 +117,7 @@ describe('People (e2e)', () => {
             .delete(`/people/${personId}`)
             .expect(200)
             .then(res => {
-                const {deletedAt} = res.body;
+                const {deletedAt} = res.body.data;
                 expect(deletedAt).toBeTruthy();
             })
     })

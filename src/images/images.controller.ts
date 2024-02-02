@@ -19,7 +19,6 @@ import {ImageDto} from './dto/image.dto';
 export class ImagesController {
     constructor(
         private readonly imagesService: ImagesService,
-        private readonly peopleService: PeopleService
     ) {
     }
 
@@ -31,11 +30,7 @@ export class ImagesController {
     ) {
         if (!file) throw new BadRequestException('No file!');
 
-        const person = await this.peopleService.findOne(1);
-
-        if (!person) throw new NotFoundException('No such user!');
-
-        return await this.imagesService.addImage(file, person);
+        return await this.imagesService.addImage(file, id);
     }
 
     @Delete('/delete/:id')
@@ -45,10 +40,6 @@ export class ImagesController {
         @Body() body: ImageDto
     ) {
         const {image} = body;
-        const person = await this.peopleService.findOne(id);
-
-        if (!person) throw new NotFoundException('No such user!');
-
         return await this.imagesService.deleteImage(id, image);
     }
 }

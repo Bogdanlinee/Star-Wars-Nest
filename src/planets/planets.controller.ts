@@ -5,15 +5,17 @@ import {
     NotFoundException,
     Param,
     ParseIntPipe, Patch,
-    Post,
+    Post, UseInterceptors,
     UsePipes,
     ValidationPipe
 } from '@nestjs/common';
 import {PlanetsService} from './planets.service';
 import {CreatePlanetsDto} from './dto/create-planets.dto';
 import {UpdatePlanetsDto} from './dto/update-planets.dto';
+import {PlanetsSerializeInterceptor} from './interceptors/planets.serialize.interceptor';
 
 @Controller('planets')
+@UseInterceptors(PlanetsSerializeInterceptor)
 export class PlanetsController {
     constructor(private readonly planetsService: PlanetsService) {
     }

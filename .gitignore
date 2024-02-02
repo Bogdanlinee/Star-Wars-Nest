@@ -2,6 +2,7 @@
 .env.test
 originFetchedData
 testScripts
+uploads
 
 # compiled output
 node_modules/

@@ -5,15 +5,17 @@ import {
     NotFoundException,
     Param,
     ParseIntPipe, Patch,
-    Post,
+    Post, UseInterceptors,
     UsePipes,
     ValidationPipe
 } from '@nestjs/common';
 import {VehiclesService} from './vehicles.service';
 import {UpdateVehicleDto} from './dto/update-vehicle.dto';
 import {CreateVehiclesDto} from './dto/create-vehicle.dto';
+import {VehiclesSerializeInterceptor} from './interceptors/vehicles.serialize.interceptor';
 
 @Controller('vehicles')
+@UseInterceptors(VehiclesSerializeInterceptor)
 export class VehiclesController {
     constructor(private readonly vehiclesService: VehiclesService) {
     }

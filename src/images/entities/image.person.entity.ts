@@ -19,5 +19,5 @@ export class ImagePerson {
     deletedAt: Date;
 
     @CreateDateColumn()
-    createdDate: Date
+    createdDate: Date;
 }

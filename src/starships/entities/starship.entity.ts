@@ -95,13 +95,13 @@ export class Starship {
     })
     films: Film[];
 
-    @CreateDateColumn()
+    @CreateDateColumn({select: false})
     created: Date;
 
-    @UpdateDateColumn({name: 'edited', type: 'timestamp', default: null})
+    @UpdateDateColumn({name: 'edited', type: 'timestamp', default: null, select: false})
     edited: Date;
 
-    @DeleteDateColumn({name: 'deleted_at', type: 'timestamp', default: null})
+    @DeleteDateColumn({name: 'deleted_at', type: 'timestamp', default: null, select: false})
     deletedAt: Date;
 
     @Column({type: 'varchar', nullable: false})

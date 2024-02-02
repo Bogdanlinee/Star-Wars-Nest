@@ -4,12 +4,12 @@ import {getRepositoryToken} from '@nestjs/typeorm';
 import {ImagePerson} from './entities/image.person.entity';
 import {Repository} from 'typeorm';
 import {uploadFileCloudinary} from '../utils/cloudinaryFileUpload';
-import {BadRequestException, NotFoundException} from '@nestjs/common';
+import {NotFoundException} from '@nestjs/common';
 import {Person} from '../people/entities/person.entity';
 import {Planet} from '../planets/entities/planet.entity';
 
 jest.mock('../utils/cloudinaryFileUpload', () => ({
-        uploadFileCloudinary: jest.fn(),
+        uploadFileCloudinary: () => 'lol',
     })
 );
 
@@ -21,6 +21,7 @@ jest.mock('fs/promises', () => ({
 describe('TestUploadImageService', () => {
     let service: ImagesService;
     let imageRepository: Repository<ImagePerson>;
+    let peopleRepository: Repository<Person>;
     const images: ImagePerson[] = [];
 
     beforeEach(async () => {
@@ -30,19 +31,29 @@ describe('TestUploadImageService', () => {
                 {
                     provide: getRepositoryToken(ImagePerson),
                     useClass: Repository,
+                },
+                {
+                    provide: getRepositoryToken(Person),
+                    useClass: Repository,
                 }
             ],
         }).compile();
 
         service = module.get<ImagesService>(ImagesService);
         imageRepository = module.get<Repository<ImagePerson>>(getRepositoryToken(ImagePerson));
+        peopleRepository = module.get<Repository<Person>>(getRepositoryToken(Person));
     });
 
     it('Throws Error. Trying to upload the file.', () => {
         const file = {path: 'mocked-path', filename: 'mocked-filename'} as Express.Multer.File;
 
-        (uploadFileCloudinary as jest.Mock).mockResolvedValueOnce(null);
-        expect(service.addImage(file, testPersonEntity)).rejects.toThrow(BadRequestException);
+        jest.spyOn(peopleRepository, 'findOne').mockResolvedValue(null);
+        jest.mock('../utils/cloudinaryFileUpload', () => ({
+                uploadFileCloudinary: () => null,
+            })
+        );
+
+        expect(service.addImage(file, 900)).rejects.toThrow(NotFoundException);
     });
 
     it('Can upload a new image.', async () => {
@@ -50,9 +61,13 @@ describe('TestUploadImageService', () => {
 
         jest.spyOn(imageRepository, 'create').mockReturnValue(testImageEntity);
         jest.spyOn(imageRepository, 'save').mockResolvedValue(testImageEntity);
-        (uploadFileCloudinary as jest.Mock).mockResolvedValueOnce({url: 'mocked-url', public_id: 'mocked-id'});
+        jest.spyOn(peopleRepository, 'findOne').mockResolvedValue(testPersonEntity);
+        jest.mock('../utils/cloudinaryFileUpload', () => ({
+                uploadFileCloudinary: () => ({url: 'mocked-url', public_id: 'mocked-id'}),
+            })
+        );
 
-        const result = await service.addImage(file, testPersonEntity);
+        const result = await service.addImage(file, 1);
 
         expect(result).toEqual(testImageEntity);
         images.push({...testImageEntity, person: testPersonEntity});
@@ -62,6 +77,7 @@ describe('TestUploadImageService', () => {
         const imageUrl = 'imageUrl';
         const personId = 10;
 
+        jest.spyOn(peopleRepository, 'findOne').mockResolvedValue(testPersonEntity);
         jest.spyOn(imageRepository, 'findOne').mockImplementation(async () => {
             const image = images.find(item => item.image === imageUrl);
             return image ? image : null;
@@ -74,6 +90,7 @@ describe('TestUploadImageService', () => {
         const imageUrl = 'imageUrl';
         const personId = 1;
 
+        jest.spyOn(peopleRepository, 'findOne').mockResolvedValue(testPersonEntity);
         jest.spyOn(imageRepository, 'save').mockResolvedValue(images[0]);
         jest.spyOn(imageRepository, 'findOne').mockImplementation(async () => {
             const image = images.find(item => item.image === imageUrl);
@@ -83,10 +100,11 @@ describe('TestUploadImageService', () => {
         const result = await service.deleteImage(personId, imageUrl);
 
         expect(result).toEqual(images[0]);
+
         images.shift();
     });
 
-    const testPersonEntity = {
+    const testPersonEntity: Person = {
         name: "Dan Test1",
         height: "199",
         mass: "85",
@@ -96,15 +114,10 @@ describe('TestUploadImageService', () => {
         birth_year: "19BBY",
         gender: "male",
         homeworld: new Planet(),
-        homeworldId: 1,
         films: [],
         starships: [],
         vehicles: [],
-        filmIds: [],
         species: [],
-        speciesIds: [],
-        starshipIds: [],
-        vehicleIds: [],
         created: new Date(),
         edited: new Date(),
         url: "https://swapi.dev/api/people/1/",

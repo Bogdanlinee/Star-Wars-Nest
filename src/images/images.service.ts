@@ -12,19 +12,29 @@ import {Person} from '../people/entities/person.entity';
 export class ImagesService {
     constructor(
         @InjectRepository(ImagePerson)
-        private imagePersonRepository: Repository<ImagePerson>) {
+        private imagePersonRepository: Repository<ImagePerson>,
+        @InjectRepository(Person)
+        private peopleRepository: Repository<Person>
+    ) {
     }
 
-    async addImage(file: Express.Multer.File, person: Person) {
+    async addImage(file: Express.Multer.File, id: number) {
+        const person = await this.peopleRepository.findOne({where: {id}});
         const filePath = path.join(process.cwd(), file.path);
+
+        if (!person) {
+            await unlink(filePath);
+            throw new NotFoundException('No such user!')
+        }
+
         const fileName = file.filename;
         const uploadedFile = await uploadFileCloudinary(filePath, fileName) as UploadApiResponse | null;
+
+        await unlink(filePath);
 
         if (!uploadedFile) throw new BadRequestException('Something went wrong, please upload file again!');
 
         const {url: imageUrl, public_id: imagePublicId} = uploadedFile;
-
-        await unlink(filePath);
 
         const image = this.imagePersonRepository.create({image: imageUrl, publicId: imagePublicId});
 
@@ -34,22 +44,22 @@ export class ImagesService {
     }
 
     async deleteImage(id: number, image: string) {
+        const person = await this.peopleRepository.findOne({where: {id}});
+
+        if (!person) throw new NotFoundException('No such user!');
+
         const searchedImage = await this.imagePersonRepository.findOne({
             where: {image},
             relations: ['person'],
             relationLoadStrategy: 'query',
         });
+
         const relatedPersonId = searchedImage?.person.id;
 
-        if (!searchedImage || relatedPersonId !== id) {
-            throw new NotFoundException('No such image');
-        }
+        if (!searchedImage || relatedPersonId !== id) throw new NotFoundException('No such image');
 
         searchedImage.deletedAt = new Date();
 
         return await this.imagePersonRepository.save(searchedImage);
-
-        // delete it in corn
-        // await deleteFileCloudinary(searchedImage.publicId);
     }
 }

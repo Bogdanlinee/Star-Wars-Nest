@@ -12,10 +12,10 @@ import {
 import {FilmsService} from './films.service';
 import {CreateFilmDto} from './dto/create-film.dto';
 import {UpdateFilmDto} from './dto/update-film.dto';
-import {TestInterceptor} from './interceptors/films.interceptor';
+import {FilmsSerializeInterceptor} from './interceptors/films.serialize.interceptor';
 
 @Controller('films')
-@UseInterceptors(TestInterceptor)
+@UseInterceptors(FilmsSerializeInterceptor)
 export class FilmsController {
     constructor(private readonly filmsService: FilmsService) {
     }

@@ -34,7 +34,7 @@ describe('Films (e2e)', () => {
             })
             .expect(201)
             .then(res => {
-                const {characters, species, planets, starships, vehicles} = res.body;
+                const {characters, species, planets, starships, vehicles} = res.body.data;
                 expect(characters.length).toBeGreaterThan(0);
                 expect(species.length).toBeGreaterThan(0);
                 expect(planets.length).toBeGreaterThan(0);
@@ -49,7 +49,7 @@ describe('Films (e2e)', () => {
             .get(`/films/${filmId}`)
             .expect(200)
             .then(res => {
-                const {id, title, species, characters, planets, starships, vehicles} = res.body;
+                const {id, title, species, characters, planets, starships, vehicles} = res.body.data;
                 expect(id).toEqual(filmId);
                 expect(species.length).toBeGreaterThan(0);
                 expect(characters.length).toBeGreaterThan(0);
@@ -72,7 +72,7 @@ describe('Films (e2e)', () => {
             .get(`/films`)
             .expect(200)
             .then(res => {
-                const filmsList = res.body;
+                const filmsList = res.body.data;
                 expect(filmsList.length).toBeTruthy();
                 expect(filmsList[0]['characters'].length).toBeGreaterThan(0);
                 expect(filmsList[0]['species'].length).toBeGreaterThan(0);
@@ -97,7 +97,7 @@ describe('Films (e2e)', () => {
             .send(filmUpdatedInfo)
             .expect(200)
             .then(res => {
-                const {title, species, characters, planets, starships, vehicles} = res.body;
+                const {title, species, characters, planets, starships, vehicles} = res.body.data;
                 expect(title).toEqual(filmUpdatedInfo.title);
                 expect(species.length).toEqual(filmUpdatedInfo.speciesIds.length);
                 expect(characters.length).toEqual(filmUpdatedInfo.personIds.length);
@@ -113,7 +113,7 @@ describe('Films (e2e)', () => {
             .delete(`/films/${filmId}`)
             .expect(200)
             .then(res => {
-                const {deletedAt} = res.body;
+                const {deletedAt} = res.body.data;
                 expect(deletedAt).toBeTruthy();
             })
     });
