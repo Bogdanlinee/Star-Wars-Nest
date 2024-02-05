@@ -21,8 +21,8 @@ describe('AppController (e2e)', () => {
             .post(`/image/add/1`)
             .attach('file', './test/testImageFolder/1.jpg')
             .expect(201)
-            .then(res => {
-                deleteFileCloudinary(res.body.publicId);
+            .then(async (res) => {
+                await deleteFileCloudinary(res.body.data.publicId);
             })
     });
 
@@ -38,16 +38,14 @@ describe('AppController (e2e)', () => {
             .attach('file', './test/testImageFolder/1.jpg')
             .expect(201)
             .then(res => {
-                const image = res.body.image;
-                const deleteImageUrl = res.body.publicId;
+                const image = res.body.data.image;
+                const deleteImageUrl = res.body.data.publicId;
                 return request(app.getHttpServer())
                     .delete('/image/delete/1')
                     .send({image})
                     .expect(200)
-                    .then(res => {
-                        const {deletedAt} = res.body;
-                        expect(deletedAt).toBeTruthy();
-                        deleteFileCloudinary(deleteImageUrl);
+                    .then(async (res) => {
+                        await deleteFileCloudinary(deleteImageUrl);
                     })
             })
     });

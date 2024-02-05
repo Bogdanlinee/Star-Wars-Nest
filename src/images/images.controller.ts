@@ -2,7 +2,6 @@ import {
     BadRequestException,
     Body,
     Controller, Delete,
-    NotFoundException,
     Param,
     ParseIntPipe,
     Post,
@@ -10,12 +9,13 @@ import {
     UseInterceptors, UsePipes, ValidationPipe
 } from '@nestjs/common';
 import {ImagesService} from './images.service';
-import {PeopleService} from '../people/people.service';
 import {FileInterceptor} from '@nestjs/platform-express';
 import * as multerSetting from '../utils/multerFileUpload';
 import {ImageDto} from './dto/image.dto';
+import {ImagesSerializeInterceptor} from './interceptors/images.serialize.interceptor';
 
 @Controller('image')
+@UseInterceptors(ImagesSerializeInterceptor)
 export class ImagesController {
     constructor(
         private readonly imagesService: ImagesService,

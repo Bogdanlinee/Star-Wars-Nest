@@ -1,5 +1,10 @@
 import {Injectable, NestInterceptor, ExecutionContext, CallHandler} from '@nestjs/common';
 import {map, Observable} from 'rxjs';
+import {Film} from '../../films/entities/film.entity';
+import {Person} from '../../people/entities/person.entity';
+import {Starship} from '../entities/starship.entity';
+
+type SerezlizedEntity = Film | Person | string;
 
 @Injectable()
 export class StarshipsSerializeInterceptor implements NestInterceptor {
@@ -7,7 +12,7 @@ export class StarshipsSerializeInterceptor implements NestInterceptor {
         return next
             .handle()
             .pipe(
-                map((data: any) => {
+                map((data: Starship | Starship[]) => {
                     if (Array.isArray(data)) {
                         for (const item in data) {
                             entitySerializer(data[item]);
@@ -21,18 +26,19 @@ export class StarshipsSerializeInterceptor implements NestInterceptor {
     }
 }
 
-function entitySerializer(entity: any) {
+function entitySerializer(entity: Starship) {
     for (const item in entity) {
-        if (Array.isArray(entity[item])) {
-            serialize(entity[item]);
+        if (Array.isArray(entity[item as keyof Starship])) {
+            serialize(entity[item as keyof SerezlizedEntity]);
         }
     }
 }
 
-function serialize(data: any) {
+function serialize(data: SerezlizedEntity[]) {
     if (!data.length) return
     for (const item in data) {
         let entity = data[item];
-        if (entity) data[item] = entity.url;
+        if (!entity) continue;
+        if (typeof entity !== 'string') data[item] = entity.url;
     }
 }
