@@ -4,17 +4,23 @@ import {getRepositoryToken} from '@nestjs/typeorm';
 import {ImagePerson} from './entities/image.person.entity';
 import {Repository} from 'typeorm';
 import {uploadFileCloudinary} from '../utils/cloudinaryFileUpload';
-import {NotFoundException} from '@nestjs/common';
+import {Module, NotFoundException} from '@nestjs/common';
 import {Person} from '../people/entities/person.entity';
 import {Planet} from '../planets/entities/planet.entity';
 
-jest.mock('../utils/cloudinaryFileUpload', () => ({
-        uploadFileCloudinary: () => 'lol',
-    })
-);
+jest.mock('@aws-sdk/lib-storage', () => {
+    return {
+        Upload: jest.fn().mockImplementation(() => {
+            return {
+                done: () => ({Location: 'imageUrl'})
+            }
+        })
+    }
+});
 
 jest.mock('fs/promises', () => ({
         unlink: jest.fn(),
+        readFile: jest.fn(),
     })
 );
 
@@ -48,10 +54,6 @@ describe('TestUploadImageService', () => {
         const file = {path: 'mocked-path', filename: 'mocked-filename'} as Express.Multer.File;
 
         jest.spyOn(peopleRepository, 'findOne').mockResolvedValue(null);
-        jest.mock('../utils/cloudinaryFileUpload', () => ({
-                uploadFileCloudinary: () => null,
-            })
-        );
 
         expect(service.addImage(file, 900)).rejects.toThrow(NotFoundException);
     });
@@ -62,10 +64,6 @@ describe('TestUploadImageService', () => {
         jest.spyOn(imageRepository, 'create').mockReturnValue(testImageEntity);
         jest.spyOn(imageRepository, 'save').mockResolvedValue(testImageEntity);
         jest.spyOn(peopleRepository, 'findOne').mockResolvedValue(testPersonEntity);
-        jest.mock('../utils/cloudinaryFileUpload', () => ({
-                uploadFileCloudinary: () => ({url: 'mocked-url', public_id: 'mocked-id'}),
-            })
-        );
 
         const result = await service.addImage(file, 1);
 
