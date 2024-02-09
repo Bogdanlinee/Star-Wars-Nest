@@ -22,7 +22,7 @@ describe('AppController (e2e)', () => {
             .attach('file', './test/testImageFolder/1.jpg')
             .expect(201)
             .then(async (res) => {
-                await deleteFileCloudinary(res.body.data.publicId);
+                await deleteFileCloudinary(res.body.data.image);
             })
     });
 

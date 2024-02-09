@@ -12,9 +12,6 @@ export class ImagePerson {
     @Column()
     image: string;
 
-    @Column()
-    publicId: string;
-
     @DeleteDateColumn({name: 'deleted_at', type: 'timestamp', default: null})
     deletedAt: Date;
 
