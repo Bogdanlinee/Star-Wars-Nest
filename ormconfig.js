@@ -6,18 +6,18 @@ let dbConfig = {
     port: 3306,
     username: 'root',
     password: 'root',
-    synchronize: true,
+    synchronize: false,
     migrations: ['migrations/*.js'],
     migrationsTableName: 'migrations'
 }
 
 switch (process.env.NODE_ENV) {
     case 'development':
-        dbConfig.database = 'Test1';
+        dbConfig.database = 'Star_Wars';
         dbConfig.entities = ['**/*.entity.js'];
         break;
     case 'test':
-        dbConfig.database = 'Test2';
+        dbConfig.database = 'Test_Star_Wars';
         dbConfig.entities = ['**/*.entity.ts'];
         break;
     default :

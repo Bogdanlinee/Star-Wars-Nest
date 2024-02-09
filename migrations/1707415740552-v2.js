@@ -1,7 +1,7 @@
 const fs = require('fs/promises');
 
-module.exports = class V21706248611029 {
-    name = 'V21706248611029';
+module.exports = class V21707415740552 {
+    name = 'V21707415740552';
     directPath = 'fetchedEntitiesData/';
     relationsPath = 'fetchedEntitiesData/relationsTable/';
     entities = {

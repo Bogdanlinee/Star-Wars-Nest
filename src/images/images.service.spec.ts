@@ -3,8 +3,7 @@ import {ImagesService} from './images.service';
 import {getRepositoryToken} from '@nestjs/typeorm';
 import {ImagePerson} from './entities/image.person.entity';
 import {Repository} from 'typeorm';
-import {uploadFileCloudinary} from '../utils/cloudinaryFileUpload';
-import {Module, NotFoundException} from '@nestjs/common';
+import {NotFoundException} from '@nestjs/common';
 import {Person} from '../people/entities/person.entity';
 import {Planet} from '../planets/entities/planet.entity';
 

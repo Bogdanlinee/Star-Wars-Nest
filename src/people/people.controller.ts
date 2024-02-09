@@ -9,7 +9,7 @@ import {
     ParseIntPipe,
     ValidationPipe,
     UsePipes,
-    NotFoundException, UseInterceptors,
+    NotFoundException, UseInterceptors, UseFilters, ForbiddenException,
 } from '@nestjs/common';
 import {PeopleService} from './people.service';
 import {CreatePersonDto} from './dto/create-person.dto';
