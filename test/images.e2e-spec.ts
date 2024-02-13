@@ -2,7 +2,6 @@ import {Test, TestingModule} from '@nestjs/testing';
 import {INestApplication} from '@nestjs/common';
 import * as request from 'supertest';
 import {AppModule} from '../src/app.module';
-import {deleteFileCloudinary} from '../src/utils/cloudinaryFileUpload';
 
 describe('AppController (e2e)', () => {
     let app: INestApplication;
@@ -21,9 +20,6 @@ describe('AppController (e2e)', () => {
             .post(`/image/add/1`)
             .attach('file', './test/testImageFolder/1.jpg')
             .expect(201)
-            .then(async (res) => {
-                await deleteFileCloudinary(res.body.data.image);
-            })
     });
 
     it('Throws Error. Add one image', async () => {
@@ -39,14 +35,10 @@ describe('AppController (e2e)', () => {
             .expect(201)
             .then(res => {
                 const image = res.body.data.image;
-                const deleteImageUrl = res.body.data.publicId;
                 return request(app.getHttpServer())
                     .delete('/image/delete/1')
                     .send({image})
                     .expect(200)
-                    .then(async (res) => {
-                        await deleteFileCloudinary(deleteImageUrl);
-                    })
             })
     });
 });

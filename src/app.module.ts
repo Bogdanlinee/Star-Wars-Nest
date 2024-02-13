@@ -4,11 +4,15 @@ import {TypeOrmModule, TypeOrmModuleOptions} from '@nestjs/typeorm';
 import {dbConfig} from '../ormconfig.js';
 import {ImagesModule} from './images/images.module';
 import {ConfigModule, ConfigService} from '@nestjs/config';
-import { FilmsModule } from './films/films.module';
-import { SpeciesModule } from './species/species.module';
-import { PlanetsModule } from './planets/planets.module';
-import { StarshipsModule } from './starships/starships.module';
-import { VehiclesModule } from './vehicles/vehicles.module';
+import {FilmsModule} from './films/films.module';
+import {SpeciesModule} from './species/species.module';
+import {PlanetsModule} from './planets/planets.module';
+import {StarshipsModule} from './starships/starships.module';
+import {VehiclesModule} from './vehicles/vehicles.module';
+import {APP_FILTER} from '@nestjs/core';
+import {AllExceptionsFilter} from './exceptions/http-exception.filter';
+import {AuthModule} from './auth/auth.module';
+import {UsersModule} from './users/users.module';
 
 @Module({
     imports: [
@@ -24,6 +28,14 @@ import { VehiclesModule } from './vehicles/vehicles.module';
         PlanetsModule,
         StarshipsModule,
         VehiclesModule,
+        AuthModule,
+        UsersModule,
+    ],
+    providers: [
+        {
+            provide: APP_FILTER,
+            useClass: AllExceptionsFilter,
+        },
     ],
 })
 export class AppModule {
