@@ -1,4 +1,4 @@
-import {Body, Controller, Post, UseGuards, Request} from '@nestjs/common';
+import {Controller, Post, UseGuards, Req, Body} from '@nestjs/common';
 import {UsersService} from './users.service';
 import {LocalAuthGuard} from '../auth/guards/local-auth.guard';
 
@@ -7,15 +7,14 @@ export class UsersController {
     constructor(private readonly usersService: UsersService) {
     }
 
-    @UseGuards(LocalAuthGuard)
     @Post('signup')
-    signup(@Request() req: Request) {
-        // @ts-ignore
+    signup(@Req() req: any) {
         return req.user;
     }
 
+    @UseGuards(LocalAuthGuard)
     @Post('signin')
     signin(@Body() body: any) {
-        return 'This is signin route';
+        return this.usersService.create(body.username, body.password);
     }
 }
