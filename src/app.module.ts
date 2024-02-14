@@ -13,12 +13,16 @@ import {APP_FILTER} from '@nestjs/core';
 import {AllExceptionsFilter} from './exceptions/http-exception.filter';
 import {AuthModule} from './auth/auth.module';
 import {UsersModule} from './users/users.module';
+import {PassportModule} from '@nestjs/passport';
 
 @Module({
     imports: [
         ConfigModule.forRoot({
             isGlobal: true,
             envFilePath: `.env.${process.env.NODE_ENV}`
+        }),
+        PassportModule.register({
+            session: true
         }),
         TypeOrmModule.forRoot(dbConfig as TypeOrmModuleOptions),
         PeopleModule,

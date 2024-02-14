@@ -13,7 +13,7 @@ import {StarshipsService} from './starships.service';
 import {CreateStarshipsDto} from './dto/create-starships.dto';
 import {UpdateStarshipsDto} from './dto/update-starships.dto';
 import {StarshipsSerializeInterceptor} from './interceptors/starships.serialize.interceptor';
-import {LocalAuthGuard} from '../auth/guards/local-auth.guard';
+import {AuthenticatedGuard} from '../auth/guards/local-auth.guard';
 
 @Controller('starships')
 @UseInterceptors(StarshipsSerializeInterceptor)
@@ -27,7 +27,7 @@ export class StarshipsController {
         return this.starshipsService.create(createStarshipsDto);
     }
 
-    @UseGuards(LocalAuthGuard)
+    @UseGuards(AuthenticatedGuard)
     @Get()
     findAll() {
         return this.starshipsService.findAll();
