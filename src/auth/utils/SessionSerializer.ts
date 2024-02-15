@@ -1,6 +1,7 @@
 import {PassportSerializer} from '@nestjs/passport';
-import {User, UsersService} from '../../users/users.service';
+import {UsersService} from '../../users/users.service';
 import {Inject} from '@nestjs/common';
+import {User} from '../../users/entities/user.entity';
 
 export class SessionSerializer extends PassportSerializer {
     constructor(@Inject('USER_SERVICE') private userService: UsersService) {
@@ -11,7 +12,7 @@ export class SessionSerializer extends PassportSerializer {
         done(null, user);
     }
 
-    async deserializeUser(user: User, done: (err: Error | null, user: User) => void) {
+    async deserializeUser(user: User, done: (err: Error | null, user: User | null) => void) {
         const userDB = await this.userService.findOne(user.username);
         return userDB ? done(null, userDB) : done(null, null);
     }

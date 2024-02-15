@@ -1,6 +1,7 @@
-import {Controller, Post, UseGuards, Req, Body} from '@nestjs/common';
+import {Controller, Post, UseGuards, Req, Body, UsePipes, ValidationPipe} from '@nestjs/common';
 import {UsersService} from './users.service';
 import {LocalAuthGuard} from '../auth/guards/local-auth.guard';
+import {CreateUserDto} from './dto/user.dto';
 
 @Controller('users')
 export class UsersController {
@@ -8,13 +9,14 @@ export class UsersController {
     }
 
     @Post('signup')
-    signup(@Req() req: any) {
-        return req.user;
+    @UsePipes(new ValidationPipe({transform: true, whitelist: true}))
+    signup(@Body() createUserDto: CreateUserDto) {
+        return this.usersService.create(createUserDto.username, createUserDto.password);
     }
 
     @UseGuards(LocalAuthGuard)
     @Post('signin')
-    signin(@Body() body: any) {
-        return this.usersService.create(body.username, body.password);
+    signin(@Req() req: any) {
+        return req.user;
     }
 }
