@@ -4,9 +4,11 @@ import {UsersModule} from '../users/users.module';
 import {LocalStrategy} from './utils/local.strategy';
 import {SessionSerializer} from './utils/SessionSerializer';
 import {UsersService} from '../users/users.service';
+import {TypeOrmModule} from '@nestjs/typeorm';
+import {User} from '../users/entities/user.entity';
 
 @Module({
-    imports: [UsersModule],
+    imports: [UsersModule, TypeOrmModule.forFeature([User])],
     providers: [
         AuthService,
         LocalStrategy,

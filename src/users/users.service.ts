@@ -1,34 +1,36 @@
-import {Injectable} from '@nestjs/common';
+import {BadRequestException, Injectable} from '@nestjs/common';
+import {randomBytes, scrypt as _scrypt} from 'crypto';
+import {promisify} from 'util';
+import {Repository} from 'typeorm';
+import {InjectRepository} from '@nestjs/typeorm';
+import {User} from './entities/user.entity';
 
-// This should be a real class/interface representing a user entity
-export type User = any;
+const scrypt = promisify(_scrypt);
 
 @Injectable()
 export class UsersService {
-    private readonly users = [
-        {
-            userId: 1,
-            username: 'john',
-            password: 'changeme',
-        },
-        {
-            userId: 2,
-            username: 'maria',
-            password: 'guess',
-        },
-    ];
-
-    async findOne(username: string): Promise<User | undefined> {
-        return this.users.find(user => user.username === username);
+    constructor(
+        @InjectRepository(User)
+        private usersRepository: Repository<User>) {
     }
 
-    async create(username: string, password: string): Promise<User | undefined> {
-        const newUser = {
-            userId: this.users.length + 1,
-            username,
-            password,
-        }
+    async findOne(username: string) {
+        return await this.usersRepository.findOne({
+            where: {username}
+        });
+    }
 
-        return this.users.push(newUser);
+    async create(username: string, pass: string) {
+        const userExist = await this.findOne(username);
+
+        if (userExist) throw new BadRequestException('Email already in use');
+
+        const salt = randomBytes(8).toString('hex');
+        const hash = (await scrypt(pass, salt, 32)) as Buffer;
+        const hashedPassword = `${salt}.${hash.toString('hex')}`;
+        const newUser = await this.usersRepository.save({username, password: hashedPassword});
+        const {password, ...result} = newUser;
+
+        return result;
     }
 }
