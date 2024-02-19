@@ -28,9 +28,7 @@ export class UsersService {
         const salt = randomBytes(8).toString('hex');
         const hash = (await scrypt(pass, salt, 32)) as Buffer;
         const hashedPassword = `${salt}.${hash.toString('hex')}`;
-        const newUser = await this.usersRepository.save({username, password: hashedPassword});
-        const {password, ...result} = newUser;
 
-        return result;
+        return await this.usersRepository.save({username, password: hashedPassword});
     }
 }

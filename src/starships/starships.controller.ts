@@ -27,7 +27,6 @@ export class StarshipsController {
         return this.starshipsService.create(createStarshipsDto);
     }
 
-    @UseGuards(AuthenticatedGuard)
     @Get()
     findAll() {
         return this.starshipsService.findAll();

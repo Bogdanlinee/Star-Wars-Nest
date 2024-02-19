@@ -2,13 +2,12 @@ import {Injectable, NotFoundException} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
 import {Repository} from 'typeorm';
 import {ImagePerson} from './entities/image.person.entity';
-import * as path from 'path';
-import {unlink} from 'fs/promises';
 import {Person} from '../people/entities/person.entity';
-import * as process from 'process';
 import {S3Client} from '@aws-sdk/client-s3';
-import * as fs from 'fs/promises';
 import {Upload} from '@aws-sdk/lib-storage';
+import * as path from 'path';
+import * as process from 'process';
+import {unlink, readFile} from 'fs/promises';
 
 @Injectable()
 export class ImagesService {
@@ -34,7 +33,7 @@ export class ImagesService {
             throw new NotFoundException('No such user!')
         }
 
-        const fileBuffer = await fs.readFile(filePath);
+        const fileBuffer = await readFile(filePath);
 
         await unlink(filePath);
 
