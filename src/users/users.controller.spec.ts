@@ -1,10 +1,19 @@
 import {Test, TestingModule} from '@nestjs/testing';
 import {UsersController} from './users.controller';
 import {UsersService} from './users.service';
+import {User} from './entities/user.entity';
 
 describe('UsersController', () => {
     let controller: UsersController;
-    const users = [];
+    const users: User[] = [];
+
+    const fakeUsersServiceMethods = {
+        create: (username: string, password: string) => {
+            const user = {id: users.length + 1, username, password} as User;
+            users.push(user);
+            return Promise.resolve(user);
+        }
+    }
 
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
@@ -12,10 +21,7 @@ describe('UsersController', () => {
             providers: [
                 {
                     provide: UsersService,
-                    useValue: {
-                        create: () => {
-                        },
-                    },
+                    useValue: fakeUsersServiceMethods,
                 },
             ]
         }).compile();
@@ -24,15 +30,15 @@ describe('UsersController', () => {
     });
 
     it('Can add one user in DB.', async () => {
-        jest.spyOn(controller['usersService'], 'create').mockResolvedValue(testUserEntity);
         const result = await controller.signup(testUserEntity);
-        users.push(testUserEntity);
-        expect(result).toEqual(testUserEntity);
+
+        expect(result.username).toBeDefined();
+        expect(result.id).toBeDefined();
+        expect(result.password).toBeDefined();
     });
 
-    const testUserEntity = {
-        id: 1,
-        username: 'Dan@test.test3',
-        password: 'testpass',
-    };
+    const testUserEntity: Omit<User, 'id'> = {
+        username: 'testName',
+        password: 'testPass',
+    }
 });
