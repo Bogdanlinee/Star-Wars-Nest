@@ -16,6 +16,7 @@ import {StarshipsSerializeInterceptor} from './interceptors/starships.serialize.
 import {AuthenticatedGuard} from '../auth/guards/local-auth.guard';
 
 @Controller('starships')
+@UseGuards(AuthenticatedGuard)
 @UseInterceptors(StarshipsSerializeInterceptor)
 export class StarshipsController {
     constructor(private readonly starshipsService: StarshipsService) {

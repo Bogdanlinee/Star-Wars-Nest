@@ -46,8 +46,6 @@ describe('UsersService', () => {
         const result = await service.create(testUserEntity.username, testUserEntity.password);
         const [salt, hash] = result.password.split('.');
 
-        console.log(result);
-
         expect(result).toHaveProperty('username');
         expect(result).toHaveProperty('password');
         expect(result).toHaveProperty('id');
