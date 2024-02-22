@@ -57,7 +57,7 @@ export class AppModule {
                 resave: false,
                 saveUninitialized: false,
                 cookie: {
-                    maxAge: 60000,
+                    maxAge: 600000,
                 }
             }),
             passport.initialize(),

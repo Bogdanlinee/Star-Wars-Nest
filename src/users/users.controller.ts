@@ -4,6 +4,7 @@ import {LocalAuthGuard} from '../auth/guards/local-auth.guard';
 import {CreateUserDto} from './dto/user.dto';
 import {Request} from 'express';
 import {UsersSerializeInterceptor} from './interceptors/users.serialize.interceptor';
+import {ChangeRoleDto} from './dto/change-role-user.dto';
 
 @Controller('users')
 export class UsersController {
@@ -21,5 +22,10 @@ export class UsersController {
     @Post('signin')
     signin(@Req() req: Request) {
         return req.user;
+    }
+
+    @Post('role')
+    chageRole(@Body() changeRoleDto: ChangeRoleDto) {
+        return this.usersService.changeRole(changeRoleDto);
     }
 }

@@ -6,8 +6,8 @@ import {AppModule} from '../src/app.module';
 describe('Starships (e2e)', () => {
     let app: INestApplication;
     let mockUserCredentials = {
-        "username": "test@test.test",
-        "password": "test"
+        'username': 'test@test.test',
+        'password': 'test'
     }
 
     beforeAll(async () => {
