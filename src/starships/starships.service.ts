@@ -26,7 +26,7 @@ export class StarshipsService {
         await appendEntities(starship, createStarshipsDto, 'filmsIds', 'films', this.filmsRepository);
         await appendEntities(starship, createStarshipsDto, 'pilotsIds', 'pilots', this.peopleRepository);
 
-        return this.starshipsRepository.save(starship);
+        return await this.starshipsRepository.save(starship);
     }
 
     async findOne(id: number) {
@@ -41,7 +41,7 @@ export class StarshipsService {
     }
 
     async findAll() {
-        return this.starshipsRepository.find({
+        return await this.starshipsRepository.find({
             relations: {
                 films: true,
                 pilots: true,

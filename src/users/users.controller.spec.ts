@@ -1,18 +1,44 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { UsersController } from './users.controller';
+import {Test, TestingModule} from '@nestjs/testing';
+import {UsersController} from './users.controller';
+import {UsersService} from './users.service';
+import {User} from './entities/user.entity';
 
 describe('UsersController', () => {
-  let controller: UsersController;
+    let controller: UsersController;
+    const users: User[] = [];
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [UsersController],
-    }).compile();
+    const fakeUsersServiceMethods = {
+        create: (username: string, password: string) => {
+            const user = {id: users.length + 1, username, password} as User;
+            users.push(user);
+            return Promise.resolve(user);
+        }
+    }
 
-    controller = module.get<UsersController>(UsersController);
-  });
+    beforeEach(async () => {
+        const module: TestingModule = await Test.createTestingModule({
+            controllers: [UsersController],
+            providers: [
+                {
+                    provide: UsersService,
+                    useValue: fakeUsersServiceMethods,
+                },
+            ]
+        }).compile();
 
-  it('should be defined', () => {
-    expect(controller).toBeDefined();
-  });
+        controller = module.get<UsersController>(UsersController);
+    });
+
+    it('Can add one user in DB.', async () => {
+        const result = await controller.signup(testUserEntity);
+
+        expect(result.username).toBeDefined();
+        expect(result.id).toBeDefined();
+        expect(result.password).toBeDefined();
+    });
+
+    const testUserEntity: Omit<User, 'id'> = {
+        username: 'testName',
+        password: 'testPass',
+    }
 });

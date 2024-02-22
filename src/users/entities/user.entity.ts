@@ -10,4 +10,7 @@ export class User {
 
     @Column({type: 'varchar', nullable: false})
     password: string;
+
+    @Column({type: 'varchar', nullable: false, enum: ['admin', 'user'], default: 'user'})
+    role: string;
 }

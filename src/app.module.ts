@@ -1,4 +1,4 @@
-import {Module} from '@nestjs/common';
+import {MiddlewareConsumer, Module} from '@nestjs/common';
 import {PeopleModule} from './people/people.module';
 import {TypeOrmModule, TypeOrmModuleOptions} from '@nestjs/typeorm';
 import {dbConfig} from '../ormconfig.js';
@@ -14,6 +14,8 @@ import {AllExceptionsFilter} from './exceptions/http-exception.filter';
 import {AuthModule} from './auth/auth.module';
 import {UsersModule} from './users/users.module';
 import {PassportModule} from '@nestjs/passport';
+import * as session from 'express-session';
+import * as passport from 'passport';
 
 @Module({
     imports: [
@@ -46,5 +48,20 @@ import {PassportModule} from '@nestjs/passport';
 
 export class AppModule {
     constructor(private configService: ConfigService) {
+    }
+
+    configure(consumer: MiddlewareConsumer) {
+        consumer.apply(
+            session({
+                secret: `${process.env.COOKIE_KEY}`,
+                resave: false,
+                saveUninitialized: false,
+                cookie: {
+                    maxAge: 600000,
+                }
+            }),
+            passport.initialize(),
+            passport.session(),
+        ).forRoutes('*')
     }
 }
