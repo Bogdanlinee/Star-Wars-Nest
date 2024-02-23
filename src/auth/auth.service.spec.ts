@@ -3,14 +3,17 @@ import {AuthService} from './auth.service';
 import {User} from '../users/entities/user.entity';
 import {UsersService} from '../users/users.service';
 import {BadRequestException} from '@nestjs/common';
+import mockUser from '../mocks/user/mockUser';
 
 describe('AuthService', () => {
     let service: AuthService;
+    const mockUserEntity = mockUser.userRole;
     const users: User[] = [
         {
             id: 1,
-            username: 'testName',
-            password: '1374feb17851c1aa.8bda91878b548f0ff27249183fc5b8837e57fed4bd2c9b0a4830156d347ae904'
+            username: mockUserEntity.username,
+            password: mockUserEntity.password,
+            role: mockUserEntity.role,
         }
     ];
     const fakeUserServiceMethods = {
@@ -38,7 +41,7 @@ describe('AuthService', () => {
     });
 
     it('Can authorize user with a valid password.', async () => {
-        const result = await service.validateUser(testUserEntity.username, testUserEntity.password);
+        const result = await service.validateUser(mockUserEntity.username, mockUserEntity.originPass);
 
         expect(result).toBeDefined();
         expect(result.id).toBeDefined();
@@ -46,17 +49,12 @@ describe('AuthService', () => {
     });
 
     it('Can not find user in DB.', async () => {
-        const result = await service.validateUser('No such user', testUserEntity.password);
+        const result = await service.validateUser('No such user', mockUserEntity.originPass);
         expect(result).toBeNull();
     });
 
     it('Throws Error. User provided invalid password', async () => {
-        await expect(service.validateUser(testUserEntity.username, 'Invalid Password'))
+        await expect(service.validateUser(mockUserEntity.username, 'Invalid Password'))
             .rejects.toThrow(BadRequestException);
     });
-
-    const testUserEntity: Omit<User, 'id'> = {
-        username: 'testName',
-        password: 'testPass',
-    }
 });

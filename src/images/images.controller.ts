@@ -5,7 +5,7 @@ import {
     Param,
     ParseIntPipe,
     Post,
-    UploadedFile,
+    UploadedFile, UseGuards,
     UseInterceptors, UsePipes, ValidationPipe
 } from '@nestjs/common';
 import {ImagesService} from './images.service';
@@ -13,8 +13,12 @@ import {FileInterceptor} from '@nestjs/platform-express';
 import * as multerSetting from '../utils/multerFileUpload';
 import {ImageDto} from './dto/image.dto';
 import {ImagesSerializeInterceptor} from './interceptors/images.serialize.interceptor';
+import {AuthenticatedGuard} from '../auth/guards/local-auth.guard';
+import {RolesGuard} from '../guards/roles.guard';
+import {Roles} from '../decorators/roles.decorator';
 
 @Controller('image')
+@UseGuards(AuthenticatedGuard, RolesGuard)
 @UseInterceptors(ImagesSerializeInterceptor)
 export class ImagesController {
     constructor(
@@ -23,6 +27,7 @@ export class ImagesController {
     }
 
     @Post('/add/:id')
+    @Roles(['admin', 'user'])
     @UseInterceptors(FileInterceptor('file', multerSetting))
     async addImage(
         @Param('id', ParseIntPipe) id: number,
@@ -34,6 +39,7 @@ export class ImagesController {
     }
 
     @Delete('/delete/:id')
+    @Roles(['admin', 'user'])
     @UsePipes(new ValidationPipe({transform: true, whitelist: true}))
     async deleteImage(
         @Param('id', ParseIntPipe) id: number,

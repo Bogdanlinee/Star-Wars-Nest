@@ -2,8 +2,24 @@ import {Test, TestingModule} from '@nestjs/testing';
 import {INestApplication} from '@nestjs/common';
 import * as request from 'supertest';
 import {AppModule} from '../src/app.module';
+import mockUsers from '../src/mocks/user/mockUser';
+import mockSpeciesDTO from '../src/mocks/species/mockSpeciesDTO';
 
 describe('Species (e2e)', () => {
+    const userRoleUser = {
+        username: mockUsers.userRole.username,
+        password: mockUsers.userRole.originPass,
+    }
+    const adminRoleUser = {
+        username: mockUsers.adminRole.username,
+        password: mockUsers.adminRole.originPass,
+    }
+    const getUserCookie = async (userCredentials: { username: string, password: string }) => {
+        const loginRequest = await request(app.getHttpServer())
+            .post('/users/signin')
+            .send(userCredentials)
+        return loginRequest.get('Set-Cookie');
+    }
     let app: INestApplication;
 
     beforeEach(async () => {
@@ -15,28 +31,15 @@ describe('Species (e2e)', () => {
         await app.init();
     });
 
-    it('Can create one species', () => {
+    it('Can create one species', async () => {
+        const loginCookie = await getUserCookie(adminRoleUser);
         return request(app.getHttpServer())
             .post(`/species`)
-            .send({
-                name: "Test species",
-                classification: "mammal",
-                designation: "sentient",
-                average_height: "180;l'",
-                skin_colors: "caucasian, black, asian, hispanic",
-                hair_colors: "blonde, brown, black, red",
-                eye_colors: "brown, blue, green, hazel, grey, amber",
-                average_lifespan: "120",
-                homeworld: "https://swapi.dev/api/planets/9/",
-                language: "Galactic Basic",
-                url: "https://swapi.dev/api/species/1/",
-                filmIds: [1],
-                peopleIds: [1],
-                planetsIds: [1]
-            })
+            .set('Cookie', loginCookie)
+            .send(mockSpeciesDTO)
             .expect(201)
             .then(res => {
-                const {id, name, films, people, planets} =  res.body.data;
+                const {id, name, films, people, planets} = res.body.data;
                 expect(films.length).toBeGreaterThan(0);
                 expect(people.length).toBeGreaterThan(0);
                 expect(planets.length).toBeGreaterThan(0);
@@ -44,13 +47,16 @@ describe('Species (e2e)', () => {
             })
     });
 
-    it('Can find one species', () => {
+    it('Can find one species', async () => {
+        const loginCookie = await getUserCookie(userRoleUser);
         const speciesId = 1;
+
         return request(app.getHttpServer())
             .get(`/species/${speciesId}`)
+            .set('Cookie', loginCookie)
             .expect(200)
             .then(res => {
-                const {id, name, films, people, planets} =  res.body.data;
+                const {id, name, films, people, planets} = res.body.data;
                 expect(id).toEqual(speciesId);
                 expect(films.length).toBeGreaterThan(0);
                 expect(people.length).toBeGreaterThan(0);
@@ -59,19 +65,25 @@ describe('Species (e2e)', () => {
             })
     });
 
-    it('Throws Error. Find one species in DB', () => {
+    it('Throws Error. Find one species in DB', async () => {
+        const loginCookie = await getUserCookie(userRoleUser);
         const speciesId = 10000000;
+
         return request(app.getHttpServer())
             .get(`/species/${speciesId}`)
+            .set('Cookie', loginCookie)
             .expect(404)
     });
 
-    it('Can find many species', () => {
+    it('Can find many species', async () => {
+        const loginCookie = await getUserCookie(userRoleUser);
+
         return request(app.getHttpServer())
             .get(`/species`)
+            .set('Cookie', loginCookie)
             .expect(200)
             .then(res => {
-                const speciesList =  res.body.data;
+                const speciesList = res.body.data;
                 expect(speciesList.length).toBeTruthy();
                 expect(speciesList[0]['people'].length).toBeGreaterThan(0);
                 expect(speciesList[0]['films'].length).toBeGreaterThan(0);
@@ -79,15 +91,18 @@ describe('Species (e2e)', () => {
             })
     });
 
-    it('Can update the species', () => {
+    it('Can update the species', async () => {
+        const loginCookie = await getUserCookie(adminRoleUser);
         const speciesId = 1;
         const speciesUpdatedInfo = {name: 'New Species Name'};
+
         return request(app.getHttpServer())
             .patch(`/species/${speciesId}`)
+            .set('Cookie', loginCookie)
             .send(speciesUpdatedInfo)
             .expect(200)
             .then(res => {
-                const {name, films, people, planets} =  res.body.data;
+                const {name, films, people, planets} = res.body.data;
                 expect(name).toEqual(speciesUpdatedInfo.name);
                 expect(films.length).toBeGreaterThan(0);
                 expect(people.length).toBeGreaterThan(0);
@@ -95,13 +110,16 @@ describe('Species (e2e)', () => {
             })
     })
 
-    it('Can delete one species', () => {
+    it('Can delete one species', async () => {
+        const loginCookie = await getUserCookie(adminRoleUser);
         const speciesId = 1;
+
         return request(app.getHttpServer())
             .delete(`/species/${speciesId}`)
+            .set('Cookie', loginCookie)
             .expect(200)
             .then(res => {
-                const {deletedAt} =  res.body.data;
+                const {deletedAt} = res.body.data;
                 expect(deletedAt).toBeTruthy();
             })
     })

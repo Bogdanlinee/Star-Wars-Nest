@@ -11,6 +11,7 @@ import {Species} from '../species/entities/species.entity';
 import {Starship} from '../starships/entities/starship.entity';
 import {Vehicle} from '../vehicles/entities/vehicle.entity';
 import {Film} from '../films/entities/film.entity';
+import mockPersonEntity from '../mocks/people/mockPersonEntity';
 
 describe('PeopleController', () => {
     let controller: PeopleController;
@@ -70,10 +71,10 @@ describe('PeopleController', () => {
     });
 
     it('Can add one person in DB.', async () => {
-        jest.spyOn(controller['peopleService'], 'create').mockResolvedValue(testPersonEntity);
-        const result = await controller.create(testPersonEntity);
-        people.push(testPersonEntity);
-        expect(result).toEqual(testPersonEntity);
+        jest.spyOn(controller['peopleService'], 'create').mockResolvedValue(mockPersonEntity);
+        const result = await controller.create(mockPersonEntity);
+        people.push(mockPersonEntity);
+        expect(result).toEqual(mockPersonEntity);
     });
 
     it('Can find one person in DB.', async () => {
@@ -83,7 +84,7 @@ describe('PeopleController', () => {
             return person ? person : null;
         });
         const result = await controller.findOne(personId);
-        expect(result).toEqual(testPersonEntity);
+        expect(result).toEqual(mockPersonEntity);
     });
 
     it('Throws Error. Find person in DB.', async () => {
@@ -94,31 +95,4 @@ describe('PeopleController', () => {
         });
         await expect(controller.findOne(personId)).rejects.toThrow(NotFoundException);
     });
-
-    const testPersonEntity = {
-        name: "Dan Test1",
-        height: "199",
-        mass: "85",
-        hair_color: "blond",
-        skin_color: "fair",
-        eye_color: "blue",
-        birth_year: "19BBY",
-        gender: "male",
-        homeworld: new Planet(),
-        homeworldId: 1,
-        films: [],
-        starships: [],
-        vehicles: [],
-        filmIds: [],
-        species: [],
-        speciesIds: [],
-        starshipIds: [],
-        vehicleIds: [],
-        created: new Date(),
-        edited: new Date(),
-        url: "https://swapi.dev/api/people/1/",
-        images: [],
-        id: 1,
-        deletedAt: new Date(),
-    };
 });

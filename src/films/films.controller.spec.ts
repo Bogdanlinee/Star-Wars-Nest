@@ -10,6 +10,7 @@ import {Planet} from '../planets/entities/planet.entity';
 import {Starship} from '../starships/entities/starship.entity';
 import {Vehicle} from '../vehicles/entities/vehicle.entity';
 import {Person} from '../people/entities/person.entity';
+import mockFilmsEntity from '../mocks/films/mockFilmsEntity';
 
 describe('PeopleController', () => {
     let controller: FilmsController;
@@ -62,10 +63,10 @@ describe('PeopleController', () => {
     });
 
     it('Can add one film in DB.', async () => {
-        jest.spyOn(controller['filmsService'], 'create').mockResolvedValue(testFilmEntity);
-        const result = await controller.create(testFilmEntity);
-        films.push(testFilmEntity);
-        expect(result).toEqual(testFilmEntity);
+        jest.spyOn(controller['filmsService'], 'create').mockResolvedValue(mockFilmsEntity);
+        const result = await controller.create(mockFilmsEntity);
+        films.push(mockFilmsEntity);
+        expect(result).toEqual(mockFilmsEntity);
     });
 
     it('Can find one film in DB.', async () => {
@@ -75,7 +76,7 @@ describe('PeopleController', () => {
             return film ? film : null;
         });
         const result = await controller.findOne(filmId);
-        expect(result).toEqual(testFilmEntity);
+        expect(result).toEqual(mockFilmsEntity);
     });
 
     it('Throws Error. Find film in DB.', async () => {
@@ -86,28 +87,4 @@ describe('PeopleController', () => {
         });
         await expect(controller.findOne(filmId)).rejects.toThrow(NotFoundException);
     });
-
-    const testFilmEntity = {
-        id: 1,
-        title: "The Phantom Menace 1",
-        episode_id: 1,
-        opening_crawl: "Test Value",
-        director: "George Lucas",
-        producer: "Rick McCallum",
-        release_date: "1999-05-19",
-        characters: [],
-        species: [],
-        planets: [],
-        vehicles: [],
-        starships: [],
-        planetIds: [],
-        personIds: [],
-        speciesIds: [],
-        starshipIds: [],
-        vehicleIds: [],
-        url: "https://swapi.dev/api/films/4/",
-        created: new Date(),
-        edited: new Date(),
-        deletedAt: new Date(),
-    };
 });

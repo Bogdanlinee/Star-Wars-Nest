@@ -2,8 +2,24 @@ import {Test, TestingModule} from '@nestjs/testing';
 import {INestApplication} from '@nestjs/common';
 import * as request from 'supertest';
 import {AppModule} from '../src/app.module';
+import mockUsers from '../src/mocks/user/mockUser';
+import mockVehiclesDTO from '../src/mocks/vehicles/mockVehiclesDTO';
 
 describe('Vehicles (e2e)', () => {
+    const userRoleUser = {
+        username: mockUsers.userRole.username,
+        password: mockUsers.userRole.originPass,
+    }
+    const adminRoleUser = {
+        username: mockUsers.adminRole.username,
+        password: mockUsers.adminRole.originPass,
+    }
+    const getUserCookie = async (userCredentials: { username: string, password: string }) => {
+        const loginRequest = await request(app.getHttpServer())
+            .post('/users/signin')
+            .send(userCredentials)
+        return loginRequest.get('Set-Cookie');
+    }
     let app: INestApplication;
 
     beforeEach(async () => {
@@ -15,41 +31,32 @@ describe('Vehicles (e2e)', () => {
         await app.init();
     },);
 
-    it('Can create one vehicle', () => {
+    it('Can create one vehicle', async () => {
+        const loginCookie = await getUserCookie(adminRoleUser);
+
         return request(app.getHttpServer())
             .post(`/vehicles`)
-            .send({
-                name: "Sand Crawler",
-                model: "Digger Crawler",
-                manufacturer: "Corellia Mining Corporation",
-                cost_in_credits: "150000",
-                length: "36.8 ",
-                max_atmosphering_speed: "30",
-                crew: "46",
-                passengers: "30",
-                cargo_capacity: "50000",
-                consumables: "2 months",
-                vehicle_class: "wheeled",
-                pilotsIds: [1],
-                filmsIds: [1],
-                url: "https://swapi.dev/api/vehicles/4/"
-            })
+            .set('Cookie', loginCookie)
+            .send(mockVehiclesDTO)
             .expect(201)
             .then(res => {
-                const {name, films, pilots} =  res.body.data;
+                const {name, films, pilots} = res.body.data;
                 expect(films.length).toBeGreaterThan(0);
                 expect(pilots.length).toBeGreaterThan(0);
                 expect(name).toBeDefined();
             })
     });
 
-    it('Can find one vehicle', () => {
+    it('Can find one vehicle', async () => {
+        const loginCookie = await getUserCookie(userRoleUser);
         const vehicleId = 14;
+
         return request(app.getHttpServer())
             .get(`/vehicles/${vehicleId}`)
+            .set('Cookie', loginCookie)
             .expect(200)
             .then(res => {
-                const {id, name, films, pilots} =  res.body.data;
+                const {id, name, films, pilots} = res.body.data;
                 expect(id).toEqual(vehicleId);
                 expect(films.length).toBeGreaterThan(0);
                 expect(pilots.length).toBeGreaterThan(0);
@@ -57,51 +64,63 @@ describe('Vehicles (e2e)', () => {
             })
     });
 
-    it('Throws Error. Find one vehicle in DB', () => {
+    it('Throws Error. Find one vehicle in DB', async () => {
+        const loginCookie = await getUserCookie(userRoleUser);
         const vehicleId = 10000000;
+
         return request(app.getHttpServer())
             .get(`/vehicles/${vehicleId}`)
+            .set('Cookie', loginCookie)
             .expect(404)
     });
 
-    it('Can find many vehicles', () => {
+    it('Can find many vehicles', async () => {
+        const loginCookie = await getUserCookie(userRoleUser);
+
         return request(app.getHttpServer())
             .get(`/vehicles`)
+            .set('Cookie', loginCookie)
             .expect(200)
             .then(res => {
-                const vehiclesList =  res.body.data;
+                const vehiclesList = res.body.data;
                 expect(vehiclesList.length).toBeTruthy();
                 expect(vehiclesList[0]['pilots'].length).toBeGreaterThan(0);
                 expect(vehiclesList[0]['films'].length).toBeGreaterThan(0);
             })
     });
 
-    it('Can update the vehicle', () => {
+    it('Can update the vehicle', async () => {
+        const loginCookie = await getUserCookie(adminRoleUser);
         const vehicleId = 4;
         const vehicleUpdatedInfo = {
             name: 'New Test Name',
             filmsIds: [1, 2, 3],
             pilotsIds: [1, 2, 3],
         }
+
         return request(app.getHttpServer())
             .patch(`/vehicles/${vehicleId}`)
+            .set('Cookie', loginCookie)
             .send(vehicleUpdatedInfo)
             .expect(200)
             .then(res => {
-                const {name, films, pilots} =  res.body.data;
+                const {name, films, pilots} = res.body.data;
                 expect(name).toEqual(vehicleUpdatedInfo.name);
                 expect(films.length).toEqual(vehicleUpdatedInfo.filmsIds.length);
                 expect(pilots.length).toEqual(vehicleUpdatedInfo.pilotsIds.length);
             })
     })
 
-    it('Can delete one vehicle', () => {
+    it('Can delete one vehicle', async () => {
+        const loginCookie = await getUserCookie(adminRoleUser);
         const vehicleId = 4;
+
         return request(app.getHttpServer())
             .delete(`/vehicles/${vehicleId}`)
+            .set('Cookie', loginCookie)
             .expect(200)
             .then(res => {
-                const {deletedAt} =  res.body.data;
+                const {deletedAt} = res.body.data;
                 expect(deletedAt).toBeTruthy();
             })
     })

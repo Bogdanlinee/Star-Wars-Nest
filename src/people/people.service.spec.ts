@@ -10,6 +10,8 @@ import {Species} from '../species/entities/species.entity';
 import {Starship} from '../starships/entities/starship.entity';
 import {Vehicle} from '../vehicles/entities/vehicle.entity';
 import {Film} from '../films/entities/film.entity';
+import mockPersonEntity from '../mocks/people/mockPersonEntity';
+import mockPeopleDTO from '../mocks/people/mockPeopleDTO';
 
 describe('UserService', () => {
     let peopleService: PeopleService;
@@ -66,15 +68,15 @@ describe('UserService', () => {
     });
 
     it('Can add a new person to DB', async () => {
-        jest.spyOn(personRepository, 'save').mockResolvedValue(testPersonEntity);
-        jest.spyOn(personRepository, 'create').mockReturnValue(testPersonEntity);
+        jest.spyOn(personRepository, 'save').mockResolvedValue(mockPersonEntity);
+        jest.spyOn(personRepository, 'create').mockReturnValue(mockPersonEntity);
         jest.spyOn(planetsRepository, 'findOne').mockReturnValue(Promise.resolve(null));
 
-        const result = await peopleService.create(testPersonEntity);
+        const result = await peopleService.create(mockPersonEntity);
 
         people.push(result);
 
-        expect(result).toEqual(testPersonEntity);
+        expect(result).toEqual(mockPersonEntity);
     });
 
     it('Can find one person in DB', async () => {
@@ -97,7 +99,7 @@ describe('UserService', () => {
             const person = people.find(item => item.id === personId)
             return person ? person : null;
         });
-        jest.spyOn(personRepository, 'save').mockResolvedValue(testPersonEntity);
+        jest.spyOn(personRepository, 'save').mockResolvedValue(mockPersonEntity);
 
         await expect(peopleService.remove(personId)).rejects.toThrow(NotFoundException);
     });
@@ -105,7 +107,7 @@ describe('UserService', () => {
     it('Can find person in DB to remove it', async () => {
         const personId = 1;
         const personToDelete = {
-            ...testPersonEntity,
+            ...mockPersonEntity,
             deletedAt: new Date(),
         };
 
@@ -120,31 +122,4 @@ describe('UserService', () => {
 
         expect(result).toBeDefined();
     });
-
-    const testPersonEntity = {
-        name: "Dan Test1",
-        height: "199",
-        mass: "85",
-        hair_color: "blond",
-        skin_color: "fair",
-        eye_color: "blue",
-        birth_year: "19BBY",
-        gender: "male",
-        homeworld: new Planet(),
-        homeworldId: 1,
-        films: [],
-        starships: [],
-        vehicles: [],
-        filmIds: [],
-        species: [],
-        speciesIds: [],
-        starshipIds: [],
-        vehicleIds: [],
-        created: new Date(),
-        edited: new Date(),
-        url: "https://swapi.dev/api/people/1/",
-        images: [],
-        id: 1,
-        deletedAt: new Date(),
-    };
 });

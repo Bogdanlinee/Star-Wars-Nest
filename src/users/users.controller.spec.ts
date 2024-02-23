@@ -2,6 +2,7 @@ import {Test, TestingModule} from '@nestjs/testing';
 import {UsersController} from './users.controller';
 import {UsersService} from './users.service';
 import {User} from './entities/user.entity';
+import mockUser from '../mocks/user/mockUser';
 
 describe('UsersController', () => {
     let controller: UsersController;
@@ -30,15 +31,13 @@ describe('UsersController', () => {
     });
 
     it('Can add one user in DB.', async () => {
-        const result = await controller.signup(testUserEntity);
+        const result = await controller.signup({
+            username: mockUser.adminRole.username,
+            password: mockUser.adminRole.password
+        });
 
         expect(result.username).toBeDefined();
         expect(result.id).toBeDefined();
         expect(result.password).toBeDefined();
     });
-
-    const testUserEntity: Omit<User, 'id'> = {
-        username: 'testName',
-        password: 'testPass',
-    }
 });

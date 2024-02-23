@@ -8,6 +8,7 @@ import {PlanetsService} from './planets.service';
 import {Person} from '../people/entities/person.entity';
 import {Film} from '../films/entities/film.entity';
 import {Species} from '../species/entities/species.entity';
+import mockPlanetsEntity from '../mocks/planetes/mockPlanetsEntity';
 
 describe('PeopleController', () => {
     let controller: PlanetsController;
@@ -50,10 +51,10 @@ describe('PeopleController', () => {
     });
 
     it('Can add one planet in DB.', async () => {
-        jest.spyOn(controller['planetsService'], 'create').mockResolvedValue(testPlanetEntity);
-        const result = await controller.create(testPlanetEntity);
-        planets.push(testPlanetEntity);
-        expect(result).toEqual(testPlanetEntity);
+        jest.spyOn(controller['planetsService'], 'create').mockResolvedValue(mockPlanetsEntity);
+        const result = await controller.create(mockPlanetsEntity);
+        planets.push(mockPlanetsEntity);
+        expect(result).toEqual(mockPlanetsEntity);
     });
 
     it('Can find one planet in DB.', async () => {
@@ -63,7 +64,7 @@ describe('PeopleController', () => {
             return planet ? planet : null;
         });
         const result = await controller.findOne(planetId);
-        expect(result).toEqual(testPlanetEntity);
+        expect(result).toEqual(mockPlanetsEntity);
     });
 
     it('Throws Error. Find planet in DB.', async () => {
@@ -74,28 +75,4 @@ describe('PeopleController', () => {
         });
         await expect(controller.findOne(planetId)).rejects.toThrow(NotFoundException);
     });
-
-    const testPlanetEntity = {
-        id: 1,
-        name: "Corellia",
-        rotation_period: "25",
-        orbital_period: "329",
-        diameter: "11000",
-        climate: "temperate",
-        gravity: "1 standard",
-        terrain: "plains, urban, hills, forests",
-        surface_water: "70",
-        population: "3000000000",
-        url: "https://swapi.dev/api/planets/22/",
-        residentIds: [],
-        speciesIds: [],
-        filmIds: [],
-        planets: [],
-        species: [],
-        residents: [],
-        films: [],
-        created: new Date(),
-        edited: new Date(),
-        deletedAt: new Date(),
-    };
 });

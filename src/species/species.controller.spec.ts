@@ -8,6 +8,7 @@ import {Species} from './entities/species.entity';
 import {Film} from '../films/entities/film.entity';
 import {Person} from '../people/entities/person.entity';
 import {Planet} from '../planets/entities/planet.entity';
+import mockSpeciesEntity from '../mocks/species/mockSpeciesEntity';
 
 describe('PeopleController', () => {
     let controller: SpeciesController;
@@ -51,10 +52,10 @@ describe('PeopleController', () => {
     });
 
     it('Can add one species in DB.', async () => {
-        jest.spyOn(controller['speciesService'], 'create').mockResolvedValue(testSpeciesEntity);
-        const result = await controller.create(testSpeciesEntity);
-        species.push(testSpeciesEntity);
-        expect(result).toEqual(testSpeciesEntity);
+        jest.spyOn(controller['speciesService'], 'create').mockResolvedValue(mockSpeciesEntity);
+        const result = await controller.create(mockSpeciesEntity);
+        species.push(mockSpeciesEntity);
+        expect(result).toEqual(mockSpeciesEntity);
     });
 
     it('Can find one species in DB.', async () => {
@@ -64,7 +65,7 @@ describe('PeopleController', () => {
             return oneSpecies ? oneSpecies : null;
         });
         const result = await controller.findOne(speciesId);
-        expect(result).toEqual(testSpeciesEntity);
+        expect(result).toEqual(mockSpeciesEntity);
     });
 
     it('Throws Error. Find species in DB.', async () => {
@@ -75,28 +76,4 @@ describe('PeopleController', () => {
         });
         await expect(controller.findOne(speciesId)).rejects.toThrow(NotFoundException);
     });
-
-    const testSpeciesEntity = {
-        id: 1,
-        name: 'Pau\'an',
-        classification: 'mammal',
-        designation: 'sentient',
-        average_height: '190',
-        skin_colors: 'grey',
-        hair_colors: 'none',
-        eye_colors: 'black',
-        average_lifespan: '700',
-        homeworld: 'https://swapi.dev/api/planets/12/',
-        language: 'Utapese',
-        people: [],
-        films: [],
-        planets: [],
-        url: 'https://swapi.dev/api/species/37/',
-        created: new Date(),
-        edited: new Date(),
-        deletedAt: new Date(),
-        filmIds: [],
-        peopleIds: [],
-        planetsIds: []
-    };
 });

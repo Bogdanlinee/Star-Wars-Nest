@@ -7,6 +7,7 @@ import {VehiclesService} from './vehicles.service';
 import {Vehicle} from './entities/vehicle.entity';
 import {Person} from '../people/entities/person.entity';
 import {Film} from '../films/entities/film.entity';
+import mockVehiclesEntity from '../mocks/vehicles/mockVehiclesEntity';
 
 describe('VehiclesController', () => {
     let controller: VehiclesController;
@@ -45,10 +46,10 @@ describe('VehiclesController', () => {
     });
 
     it('Can add one vehicle in DB.', async () => {
-        jest.spyOn(controller['vehiclesService'], 'create').mockResolvedValue(testVehicleEntity);
-        const result = await controller.create(testVehicleEntity);
-        vehicles.push(testVehicleEntity);
-        expect(result).toEqual(testVehicleEntity);
+        jest.spyOn(controller['vehiclesService'], 'create').mockResolvedValue(mockVehiclesEntity);
+        const result = await controller.create(mockVehiclesEntity);
+        vehicles.push(mockVehiclesEntity);
+        expect(result).toEqual(mockVehiclesEntity);
     });
 
     it('Can find one vehicle in DB.', async () => {
@@ -58,7 +59,7 @@ describe('VehiclesController', () => {
             return vehicle ? vehicle : null;
         });
         const result = await controller.findOne(vehicleId);
-        expect(result).toEqual(testVehicleEntity);
+        expect(result).toEqual(mockVehiclesEntity);
     });
 
     it('Throws Error. Find vehicle in DB.', async () => {
@@ -69,27 +70,4 @@ describe('VehiclesController', () => {
         });
         await expect(controller.findOne(vehicleId)).rejects.toThrow(NotFoundException);
     });
-
-    const testVehicleEntity = {
-        name: "Sand Crawler",
-        model: "Digger Crawler",
-        manufacturer: "Corellia Mining Corporation",
-        cost_in_credits: "150000",
-        length: "36.8 ",
-        max_atmosphering_speed: "30",
-        crew: "46",
-        passengers: "30",
-        cargo_capacity: "50000",
-        consumables: "2 months",
-        vehicle_class: "wheeled",
-        pilots: [],
-        films: [],
-        pilotsIds: [],
-        filmsIds: [],
-        url: "https://swapi.dev/api/vehicles/4/",
-        created: new Date(),
-        edited: new Date(),
-        deletedAt: new Date(),
-        id: 1,
-    };
 });

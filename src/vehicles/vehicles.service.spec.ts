@@ -6,6 +6,7 @@ import {VehiclesService} from './vehicles.service';
 import {Vehicle} from './entities/vehicle.entity';
 import {Person} from '../people/entities/person.entity';
 import {Film} from '../films/entities/film.entity';
+import mockVehiclesEntity from '../mocks/vehicles/mockVehiclesEntity';
 
 describe('VehiclesService', () => {
     let vehiclesService: VehiclesService;
@@ -36,14 +37,14 @@ describe('VehiclesService', () => {
     });
 
     it('Can add a new vehicle to DB', async () => {
-        jest.spyOn(vehiclesRepository, 'save').mockResolvedValue(testVehicleEntity);
-        jest.spyOn(vehiclesRepository, 'create').mockReturnValue(testVehicleEntity);
+        jest.spyOn(vehiclesRepository, 'save').mockResolvedValue(mockVehiclesEntity);
+        jest.spyOn(vehiclesRepository, 'create').mockReturnValue(mockVehiclesEntity);
 
-        const result = await vehiclesService.create(testVehicleEntity);
+        const result = await vehiclesService.create(mockVehiclesEntity);
 
         vehicles.push(result);
 
-        expect(result).toEqual(testVehicleEntity);
+        expect(result).toEqual(mockVehiclesEntity);
     });
 
     it('Can find a vehicle in DB', async () => {
@@ -66,7 +67,7 @@ describe('VehiclesService', () => {
             const vehicle = vehicles.find(item => item.id === vehicleId)
             return vehicle ? vehicle : null;
         });
-        jest.spyOn(vehiclesRepository, 'save').mockResolvedValue(testVehicleEntity);
+        jest.spyOn(vehiclesRepository, 'save').mockResolvedValue(mockVehiclesEntity);
 
         await expect(vehiclesService.remove(vehicleId)).rejects.toThrow(NotFoundException);
     });
@@ -74,7 +75,7 @@ describe('VehiclesService', () => {
     it('Can find vehicle in DB to remove it', async () => {
         const vehicleId = 1;
         const vehicleToDelete = {
-            ...testVehicleEntity,
+            ...mockVehiclesEntity,
             deletedAt: new Date(),
         };
 
@@ -89,27 +90,4 @@ describe('VehiclesService', () => {
 
         expect(result).toBeDefined();
     });
-
-    const testVehicleEntity = {
-        name: "Sand Crawler",
-        model: "Digger Crawler",
-        manufacturer: "Corellia Mining Corporation",
-        cost_in_credits: "150000",
-        length: "36.8 ",
-        max_atmosphering_speed: "30",
-        crew: "46",
-        passengers: "30",
-        cargo_capacity: "50000",
-        consumables: "2 months",
-        vehicle_class: "wheeled",
-        pilots: [],
-        films: [],
-        pilotsIds: [],
-        filmsIds: [],
-        url: "https://swapi.dev/api/vehicles/4/",
-        created: new Date(),
-        edited: new Date(),
-        deletedAt: new Date(),
-        id: 1,
-    };
 });

@@ -7,6 +7,7 @@ import {Species} from './entities/species.entity';
 import {Film} from '../films/entities/film.entity';
 import {Person} from '../people/entities/person.entity';
 import {Planet} from '../planets/entities/planet.entity';
+import mockSpeciesEntity from '../mocks/species/mockSpeciesEntity';
 
 describe('UserService', () => {
     let speciesService: SpeciesService;
@@ -41,14 +42,14 @@ describe('UserService', () => {
     });
 
     it('Can add a new species to DB', async () => {
-        jest.spyOn(speciesRepository, 'save').mockResolvedValue(testSpeciesEntity);
-        jest.spyOn(speciesRepository, 'create').mockReturnValue(testSpeciesEntity);
+        jest.spyOn(speciesRepository, 'save').mockResolvedValue(mockSpeciesEntity);
+        jest.spyOn(speciesRepository, 'create').mockReturnValue(mockSpeciesEntity);
 
-        const result = await speciesService.create(testSpeciesEntity);
+        const result = await speciesService.create(mockSpeciesEntity);
 
         species.push(result);
 
-        expect(result).toEqual(testSpeciesEntity);
+        expect(result).toEqual(mockSpeciesEntity);
     });
 
 
@@ -72,7 +73,7 @@ describe('UserService', () => {
             const oneSpecies = species.find(item => item.id === speciesId)
             return oneSpecies ? oneSpecies : null;
         });
-        jest.spyOn(speciesRepository, 'save').mockResolvedValue(testSpeciesEntity);
+        jest.spyOn(speciesRepository, 'save').mockResolvedValue(mockSpeciesEntity);
 
         await expect(speciesService.remove(speciesId)).rejects.toThrow(NotFoundException);
     });
@@ -80,7 +81,7 @@ describe('UserService', () => {
     it('Can find species in DB to remove it', async () => {
         const speciesId = 1;
         const speciesToDelete = {
-            ...testSpeciesEntity,
+            ...mockSpeciesEntity,
             deletedAt: new Date(),
         };
 
@@ -95,28 +96,4 @@ describe('UserService', () => {
 
         expect(result).toBeDefined();
     });
-
-    const testSpeciesEntity = {
-        id: 1,
-        name: 'Pau\'an',
-        classification: 'mammal',
-        designation: 'sentient',
-        average_height: '190',
-        skin_colors: 'grey',
-        hair_colors: 'none',
-        eye_colors: 'black',
-        average_lifespan: '700',
-        homeworld: 'https://swapi.dev/api/planets/12/',
-        language: 'Utapese',
-        people: [],
-        films: [],
-        planets: [],
-        url: 'https://swapi.dev/api/species/37/',
-        created: new Date(),
-        edited: new Date(),
-        deletedAt: new Date(),
-        filmIds: [],
-        peopleIds: [],
-        planetsIds: []
-    };
 });
