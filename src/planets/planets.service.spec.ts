@@ -7,6 +7,7 @@ import {PlanetsService} from './planets.service';
 import {Person} from '../people/entities/person.entity';
 import {Film} from '../films/entities/film.entity';
 import {Species} from '../species/entities/species.entity';
+import mockPlanetsEntity from '../mocks/planetes/mockPlanetsEntity';
 
 describe('planetsService', () => {
     let planetsService: PlanetsService;
@@ -41,14 +42,14 @@ describe('planetsService', () => {
     });
 
     it('Can add a new planet to DB', async () => {
-        jest.spyOn(planetsRepository, 'save').mockResolvedValue(testPlanetEntity);
-        jest.spyOn(planetsRepository, 'create').mockReturnValue(testPlanetEntity);
+        jest.spyOn(planetsRepository, 'save').mockResolvedValue(mockPlanetsEntity);
+        jest.spyOn(planetsRepository, 'create').mockReturnValue(mockPlanetsEntity);
 
-        const result = await planetsService.create(testPlanetEntity);
+        const result = await planetsService.create(mockPlanetsEntity);
 
         planets.push(result);
 
-        expect(result).toEqual(testPlanetEntity);
+        expect(result).toEqual(mockPlanetsEntity);
     });
 
     it('Can find a planet in DB', async () => {
@@ -71,7 +72,7 @@ describe('planetsService', () => {
             const planet = planets.find(item => item.id === planetId)
             return planet ? planet : null;
         });
-        jest.spyOn(planetsRepository, 'save').mockResolvedValue(testPlanetEntity);
+        jest.spyOn(planetsRepository, 'save').mockResolvedValue(mockPlanetsEntity);
 
         await expect(planetsService.remove(planetId)).rejects.toThrow(NotFoundException);
     });
@@ -79,7 +80,7 @@ describe('planetsService', () => {
     it('Can find planet in DB to remove it', async () => {
         const planetId = 1;
         const planetToDelete = {
-            ...testPlanetEntity,
+            ...mockPlanetsEntity,
             deletedAt: new Date(),
         };
 
@@ -94,28 +95,4 @@ describe('planetsService', () => {
 
         expect(result).toBeDefined();
     });
-
-    const testPlanetEntity = {
-        id: 1,
-        name: "Corellia",
-        rotation_period: "25",
-        orbital_period: "329",
-        diameter: "11000",
-        climate: "temperate",
-        gravity: "1 standard",
-        terrain: "plains, urban, hills, forests",
-        surface_water: "70",
-        population: "3000000000",
-        url: "https://swapi.dev/api/planets/22/",
-        residentIds: [],
-        speciesIds: [],
-        filmIds: [],
-        planets: [],
-        species: [],
-        residents: [],
-        films: [],
-        created: new Date(),
-        edited: new Date(),
-        deletedAt: new Date(),
-    };
 });

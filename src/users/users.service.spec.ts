@@ -3,6 +3,7 @@ import {UsersService} from './users.service';
 import {getRepositoryToken} from '@nestjs/typeorm';
 import {User} from './entities/user.entity';
 import {BadRequestException} from '@nestjs/common';
+import mockUser from '../mocks/user/mockUser';
 
 describe('UsersService', () => {
     let service: UsersService;
@@ -22,7 +23,6 @@ describe('UsersService', () => {
             users.push(user);
             return Promise.resolve(user);
         },
-
     };
 
     beforeEach(async () => {
@@ -43,24 +43,19 @@ describe('UsersService', () => {
     });
 
     it('Can create one user', async () => {
-        const result = await service.create(testUserEntity.username, testUserEntity.password);
+        const result = await service.create(mockUser.adminRole.username, mockUser.adminRole.password);
         const [salt, hash] = result.password.split('.');
 
         expect(result).toHaveProperty('username');
         expect(result).toHaveProperty('password');
         expect(result).toHaveProperty('id');
-        expect(result.password).not.toEqual(testUserEntity.password);
+        expect(result.password).not.toEqual(mockUser.adminRole.password);
         expect(salt).toBeDefined();
         expect(hash).toBeDefined();
     });
 
     it('Throws Error. Can add one user to DB.', async () => {
-        await expect(service.create(testUserEntity.username, testUserEntity.password))
+        await expect(service.create(mockUser.adminRole.username, mockUser.adminRole.password))
             .rejects.toThrow(BadRequestException);
     });
-
-    const testUserEntity: Omit<User, 'id'> = {
-        username: 'testName',
-        password: 'testPass',
-    }
 });

@@ -6,6 +6,7 @@ import {StarshipsService} from './starships.service';
 import {Starship} from './entities/starship.entity';
 import {Film} from '../films/entities/film.entity';
 import {Person} from '../people/entities/person.entity';
+import mockStarshipsEntity from '../mocks/starships/mockStarshipsEntity';
 
 describe('starshipsService', () => {
     let starshipsService: StarshipsService;
@@ -36,14 +37,14 @@ describe('starshipsService', () => {
     });
 
     it('Can add a new starship to DB', async () => {
-        jest.spyOn(starshipsRepository, 'save').mockResolvedValue(testStarshipEntity);
-        jest.spyOn(starshipsRepository, 'create').mockReturnValue(testStarshipEntity);
+        jest.spyOn(starshipsRepository, 'save').mockResolvedValue(mockStarshipsEntity);
+        jest.spyOn(starshipsRepository, 'create').mockReturnValue(mockStarshipsEntity);
 
-        const result = await starshipsService.create(testStarshipEntity);
+        const result = await starshipsService.create(mockStarshipsEntity);
 
         starships.push(result);
 
-        expect(result).toEqual(testStarshipEntity);
+        expect(result).toEqual(mockStarshipsEntity);
     });
 
     it('Can find a starship in DB', async () => {
@@ -66,7 +67,7 @@ describe('starshipsService', () => {
             const starship = starships.find(item => item.id === starshipId)
             return starship ? starship : null;
         });
-        jest.spyOn(starshipsRepository, 'save').mockResolvedValue(testStarshipEntity);
+        jest.spyOn(starshipsRepository, 'save').mockResolvedValue(mockStarshipsEntity);
 
         await expect(starshipsService.remove(starshipId)).rejects.toThrow(NotFoundException);
     });
@@ -74,7 +75,7 @@ describe('starshipsService', () => {
     it('Can find starship in DB to remove it', async () => {
         const starshipId = 1;
         const starshipToDelete = {
-            ...testStarshipEntity,
+            ...mockStarshipsEntity,
             deletedAt: new Date(),
         };
 
@@ -89,29 +90,4 @@ describe('starshipsService', () => {
 
         expect(result).toBeDefined();
     });
-
-    const testStarshipEntity = {
-        id: 1,
-        name: "CR90 corvette",
-        model: "CR90 corvette",
-        manufacturer: "Corellian Engineering Corporation",
-        cost_in_credits: "3500000",
-        length: "150",
-        max_atmosphering_speed: "950",
-        crew: "30-165",
-        passengers: "600",
-        cargo_capacity: "3000000",
-        consumables: "1 year",
-        hyperdrive_rating: "2.0",
-        MGLT: "60",
-        starship_class: "corvette",
-        pilotsIds: [],
-        filmsIds: [],
-        films: [],
-        pilots: [],
-        url: "https://swapi.dev/api/starships/1/",
-        created: new Date(),
-        edited: new Date(),
-        deletedAt: new Date(),
-    };
 });

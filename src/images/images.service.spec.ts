@@ -5,7 +5,8 @@ import {ImagePerson} from './entities/image.person.entity';
 import {Repository} from 'typeorm';
 import {NotFoundException} from '@nestjs/common';
 import {Person} from '../people/entities/person.entity';
-import {Planet} from '../planets/entities/planet.entity';
+import mockPersonEntity from '../mocks/people/mockPersonEntity';
+import mockImagesEntity from '../mocks/images/mockImagesEntity';
 
 jest.mock('@aws-sdk/lib-storage', () => {
     return {
@@ -60,21 +61,21 @@ describe('TestUploadImageService', () => {
     it('Can upload a new image.', async () => {
         const file = {path: 'mocked-path', filename: 'mocked-filename'} as Express.Multer.File;
 
-        jest.spyOn(imageRepository, 'create').mockReturnValue(testImageEntity);
-        jest.spyOn(imageRepository, 'save').mockResolvedValue(testImageEntity);
-        jest.spyOn(peopleRepository, 'findOne').mockResolvedValue(testPersonEntity);
+        jest.spyOn(imageRepository, 'create').mockReturnValue(mockImagesEntity);
+        jest.spyOn(imageRepository, 'save').mockResolvedValue(mockImagesEntity);
+        jest.spyOn(peopleRepository, 'findOne').mockResolvedValue(mockPersonEntity);
 
         const result = await service.addImage(file, 1);
 
-        expect(result).toEqual(testImageEntity);
-        images.push({...testImageEntity, person: testPersonEntity});
+        expect(result).toEqual(mockImagesEntity);
+        images.push({...mockImagesEntity, person: mockPersonEntity});
     });
 
     it('Throws Error. Trying to delete one image', async () => {
         const imageUrl = 'imageUrl';
         const personId = 10;
 
-        jest.spyOn(peopleRepository, 'findOne').mockResolvedValue(testPersonEntity);
+        jest.spyOn(peopleRepository, 'findOne').mockResolvedValue(mockPersonEntity);
         jest.spyOn(imageRepository, 'findOne').mockImplementation(async () => {
             const image = images.find(item => item.image === imageUrl);
             return image ? image : null;
@@ -87,7 +88,7 @@ describe('TestUploadImageService', () => {
         const imageUrl = 'imageUrl';
         const personId = 1;
 
-        jest.spyOn(peopleRepository, 'findOne').mockResolvedValue(testPersonEntity);
+        jest.spyOn(peopleRepository, 'findOne').mockResolvedValue(mockPersonEntity);
         jest.spyOn(imageRepository, 'save').mockResolvedValue(images[0]);
         jest.spyOn(imageRepository, 'findOne').mockImplementation(async () => {
             const image = images.find(item => item.image === imageUrl);
@@ -100,35 +101,4 @@ describe('TestUploadImageService', () => {
 
         images.shift();
     });
-
-    const testPersonEntity: Person = {
-        name: "Dan Test1",
-        height: "199",
-        mass: "85",
-        hair_color: "blond",
-        skin_color: "fair",
-        eye_color: "blue",
-        birth_year: "19BBY",
-        gender: "male",
-        homeworld: new Planet(),
-        films: [],
-        starships: [],
-        vehicles: [],
-        species: [],
-        created: new Date(),
-        edited: new Date(),
-        url: "https://swapi.dev/api/people/1/",
-        images: [],
-        id: 1,
-        deletedAt: new Date(),
-    };
-
-    const testImageEntity = {
-        id: 1,
-        person: {} as Person,
-        image: 'imageUrl',
-        publicId: 'string',
-        deletedAt: new Date(),
-        createdDate: new Date(),
-    };
 });

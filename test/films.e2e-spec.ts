@@ -2,11 +2,27 @@ import {Test, TestingModule} from '@nestjs/testing';
 import {INestApplication} from '@nestjs/common';
 import * as request from 'supertest';
 import {AppModule} from '../src/app.module';
+import mockUsers from '../src/mocks/user/mockUser';
+import mockFilmsDTO from '../src/mocks/films/mockFilmsDTO';
 
 describe('Films (e2e)', () => {
+    const userRoleUser = {
+        username: mockUsers.userRole.username,
+        password: mockUsers.userRole.originPass,
+    }
+    const adminRoleUser = {
+        username: mockUsers.adminRole.username,
+        password: mockUsers.adminRole.originPass,
+    }
+    const getUserCookie = async (userCredentials: { username: string, password: string }) => {
+        const loginRequest = await request(app.getHttpServer())
+            .post('/users/signin')
+            .send(userCredentials)
+        return loginRequest.get('Set-Cookie');
+    }
     let app: INestApplication;
 
-    beforeAll(async () => {
+    beforeEach(async () => {
         const moduleFixture: TestingModule = await Test.createTestingModule({
             imports: [AppModule],
         }).compile();
@@ -15,23 +31,13 @@ describe('Films (e2e)', () => {
         await app.init();
     });
 
-    it('Can create one film', () => {
+    it('Can create one film', async () => {
+        const loginCookie = await getUserCookie(adminRoleUser);
+
         return request(app.getHttpServer())
             .post(`/films`)
-            .send({
-                title: "Test Film",
-                episode_id: 1,
-                opening_crawl: "Test description",
-                director: "George Lucas",
-                producer: "Rick McCallum",
-                release_date: "1999-05-19",
-                url: "https://swapi.dev/api/films/4/",
-                personIds: [1],
-                speciesIds: [1],
-                planetIds: [1],
-                starshipIds: [2],
-                vehicleIds: [4, 6, 7],
-            })
+            .send(mockFilmsDTO)
+            .set('Cookie', loginCookie)
             .expect(201)
             .then(res => {
                 const {characters, species, planets, starships, vehicles} = res.body.data;
@@ -43,11 +49,14 @@ describe('Films (e2e)', () => {
             })
     });
 
-    it('Can find one film', () => {
+    it('Can find one film', async () => {
+        const loginCookie = await getUserCookie(userRoleUser);
         const filmId = 1;
+
         return request(app.getHttpServer())
             .get(`/films/${filmId}`)
             .expect(200)
+            .set('Cookie', loginCookie)
             .then(res => {
                 const {id, title, species, characters, planets, starships, vehicles} = res.body.data;
                 expect(id).toEqual(filmId);
@@ -60,16 +69,22 @@ describe('Films (e2e)', () => {
             })
     });
 
-    it('Throws Error. Find one film in DB', () => {
+    it('Throws Error. Find one film in DB', async () => {
+        const loginCookie = await getUserCookie(userRoleUser);
         const filmId = 10000000;
+
         return request(app.getHttpServer())
             .get(`/films/${filmId}`)
+            .set('Cookie', loginCookie)
             .expect(404)
     });
 
-    it('Can find many films', () => {
+    it('Can find many films', async () => {
+        const loginCookie = await getUserCookie(userRoleUser);
+
         return request(app.getHttpServer())
             .get(`/films`)
+            .set('Cookie', loginCookie)
             .expect(200)
             .then(res => {
                 const filmsList = res.body.data;
@@ -82,7 +97,8 @@ describe('Films (e2e)', () => {
             })
     });
 
-    it('Can update the film', () => {
+    it('Can update the film', async () => {
+        const loginCookie = await getUserCookie(adminRoleUser);
         const filmId = 1;
         const filmUpdatedInfo = {
             title: 'New Film Title',
@@ -92,9 +108,11 @@ describe('Films (e2e)', () => {
             starshipIds: [2, 3, 5],
             vehicleIds: [4, 6, 7],
         };
+
         return request(app.getHttpServer())
             .patch(`/films/${filmId}`)
             .send(filmUpdatedInfo)
+            .set('Cookie', loginCookie)
             .expect(200)
             .then(res => {
                 const {title, species, characters, planets, starships, vehicles} = res.body.data;
@@ -107,10 +125,13 @@ describe('Films (e2e)', () => {
             })
     });
 
-    it('Can delete one film', () => {
+    it('Can delete one film', async () => {
+        const loginCookie = await getUserCookie(adminRoleUser);
         const filmId = 1;
+
         return request(app.getHttpServer())
             .delete(`/films/${filmId}`)
+            .set('Cookie', loginCookie)
             .expect(200)
             .then(res => {
                 const {deletedAt} = res.body.data;

@@ -4,7 +4,6 @@ import {promisify} from 'util';
 import {Repository} from 'typeorm';
 import {InjectRepository} from '@nestjs/typeorm';
 import {User} from './entities/user.entity';
-import {ChangeRoleDto} from './dto/change-role-user.dto';
 
 const scrypt = promisify(_scrypt);
 
@@ -31,17 +30,5 @@ export class UsersService {
         const hashedPassword = `${salt}.${hash.toString('hex')}`;
 
         return await this.usersRepository.save({username, password: hashedPassword});
-    }
-
-    async changeRole(changeRoleDto: ChangeRoleDto) {
-        const user = this.usersRepository.findOne({
-            where: {username: changeRoleDto.username}
-        });
-
-        if (!user) throw new BadRequestException('No such user!');
-
-        await this.usersRepository.save({...user, role: changeRoleDto.role});
-
-        return;
     }
 }

@@ -7,6 +7,7 @@ import {StarshipsService} from './starships.service';
 import {Starship} from './entities/starship.entity';
 import {Film} from '../films/entities/film.entity';
 import {Person} from '../people/entities/person.entity';
+import mockStarshipsEntity from '../mocks/starships/mockStarshipsEntity';
 
 describe('StarshipController', () => {
     let controller: StarshipsController;
@@ -44,10 +45,10 @@ describe('StarshipController', () => {
     });
 
     it('Can add one starship in DB.', async () => {
-        jest.spyOn(controller['starshipsService'], 'create').mockResolvedValue(testStarshipEntity);
-        const result = await controller.create(testStarshipEntity);
-        starships.push(testStarshipEntity);
-        expect(result).toEqual(testStarshipEntity);
+        jest.spyOn(controller['starshipsService'], 'create').mockResolvedValue(mockStarshipsEntity);
+        const result = await controller.create(mockStarshipsEntity);
+        starships.push(mockStarshipsEntity);
+        expect(result).toEqual(mockStarshipsEntity);
     });
 
     it('Can find one starship in DB.', async () => {
@@ -57,7 +58,7 @@ describe('StarshipController', () => {
             return starship ? starship : null;
         });
         const result = await controller.findOne(starshipId);
-        expect(result).toEqual(testStarshipEntity);
+        expect(result).toEqual(mockStarshipsEntity);
     });
 
     it('Throws Error. Find starship in DB.', async () => {
@@ -68,29 +69,4 @@ describe('StarshipController', () => {
         });
         await expect(controller.findOne(starshipId)).rejects.toThrow(NotFoundException);
     });
-
-    const testStarshipEntity = {
-        id: 1,
-        name: "CR90 corvette",
-        model: "CR90 corvette",
-        manufacturer: "Corellian Engineering Corporation",
-        cost_in_credits: "3500000",
-        length: "150",
-        max_atmosphering_speed: "950",
-        crew: "30-165",
-        passengers: "600",
-        cargo_capacity: "3000000",
-        consumables: "1 year",
-        hyperdrive_rating: "2.0",
-        MGLT: "60",
-        starship_class: "corvette",
-        pilotsIds: [],
-        filmsIds: [],
-        films: [],
-        pilots: [],
-        url: "https://swapi.dev/api/starships/1/",
-        created: new Date(),
-        edited: new Date(),
-        deletedAt: new Date(),
-    };
 });

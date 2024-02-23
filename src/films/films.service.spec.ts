@@ -9,6 +9,7 @@ import {Planet} from '../planets/entities/planet.entity';
 import {Starship} from '../starships/entities/starship.entity';
 import {Vehicle} from '../vehicles/entities/vehicle.entity';
 import {Person} from '../people/entities/person.entity';
+import mockFilmsEntity from '../mocks/films/mockFilmsEntity';
 
 describe('FilmsService', () => {
     let filmsService: FilmsService;
@@ -51,14 +52,14 @@ describe('FilmsService', () => {
     });
 
     it('Can add a new film to DB', async () => {
-        jest.spyOn(filmsRepository, 'save').mockResolvedValue(testFilmEntity);
-        jest.spyOn(filmsRepository, 'create').mockReturnValue(testFilmEntity);
+        jest.spyOn(filmsRepository, 'save').mockResolvedValue(mockFilmsEntity);
+        jest.spyOn(filmsRepository, 'create').mockReturnValue(mockFilmsEntity);
 
-        const result = await filmsService.create(testFilmEntity);
+        const result = await filmsService.create(mockFilmsEntity);
 
         films.push(result);
 
-        expect(result).toEqual(testFilmEntity);
+        expect(result).toEqual(mockFilmsEntity);
     });
 
     it('Can find film in DB', async () => {
@@ -81,7 +82,7 @@ describe('FilmsService', () => {
             const person = films.find(item => item.id === filmId)
             return person ? person : null;
         });
-        jest.spyOn(filmsRepository, 'save').mockResolvedValue(testFilmEntity);
+        jest.spyOn(filmsRepository, 'save').mockResolvedValue(mockFilmsEntity);
 
         await expect(filmsService.remove(filmId)).rejects.toThrow(NotFoundException);
     });
@@ -89,7 +90,7 @@ describe('FilmsService', () => {
     it('Can find film in DB to remove it', async () => {
         const filmId = 1;
         const filmToDelete = {
-            ...testFilmEntity,
+            ...mockFilmsEntity,
             deletedAt: new Date(),
         };
 
@@ -104,28 +105,4 @@ describe('FilmsService', () => {
 
         expect(result).toBeDefined();
     });
-
-    const testFilmEntity = {
-        id: 1,
-        title: "The Phantom Menace 1",
-        episode_id: 1,
-        opening_crawl: "Test Value",
-        director: "George Lucas",
-        producer: "Rick McCallum",
-        release_date: "1999-05-19",
-        characters: [],
-        species: [],
-        planets: [],
-        vehicles: [],
-        starships: [],
-        planetIds: [],
-        personIds: [],
-        speciesIds: [],
-        starshipIds: [],
-        vehicleIds: [],
-        url: "https://swapi.dev/api/films/4/",
-        created: new Date(),
-        edited: new Date(),
-        deletedAt: new Date(),
-    };
 });
