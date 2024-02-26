@@ -5,7 +5,7 @@ import {
     OneToMany,
     DeleteDateColumn,
     UpdateDateColumn,
-    CreateDateColumn, ManyToMany, JoinTable, ManyToOne, JoinColumn
+    CreateDateColumn, ManyToMany, JoinTable, ManyToOne, JoinColumn, AfterInsert
 } from 'typeorm';
 import {ImagePerson} from '../../images/entities/image.person.entity';
 import {Film} from '../../films/entities/film.entity';
@@ -98,6 +98,11 @@ export class Person {
     @DeleteDateColumn({name: 'deleted_at', type: 'timestamp', default: null, select: false})
     deletedAt: Date;
 
-    @Column({type: 'varchar', nullable: false})
+    @Column({type: 'varchar', nullable: true})
     url: string;
+
+    @AfterInsert()
+    updateUrl() {
+        this.url = `localhost:3000/films/${this.id}`;
+    }
 }

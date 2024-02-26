@@ -19,4 +19,6 @@ export default {
     edited: new Date(),
     deletedAt: new Date(),
     id: 1,
+    updateUrl: () => {
+    }
 };

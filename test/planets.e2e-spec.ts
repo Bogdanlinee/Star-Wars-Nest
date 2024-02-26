@@ -2,7 +2,7 @@ import {Test, TestingModule} from '@nestjs/testing';
 import {INestApplication} from '@nestjs/common';
 import * as request from 'supertest';
 import {AppModule} from '../src/app.module';
-import mockPlanetsDTO from '../src/mocks/planetes/mockPlanetsDTO';
+import mockPlanetsDTO from '../src/mocks/planets/mockPlanetsDTO';
 import mockUsers from '../src/mocks/user/mockUser';
 
 describe('Planets (e2e)', () => {

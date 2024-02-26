@@ -25,4 +25,6 @@ export default {
     images: [],
     id: 1,
     deletedAt: new Date(),
+    updateUrl: () => {
+    }
 };

@@ -1,4 +1,4 @@
-import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
+import {AfterInsert, Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity()
 export class User {
@@ -13,4 +13,12 @@ export class User {
 
     @Column({type: 'varchar', nullable: false, enum: ['admin', 'user'], default: 'user'})
     role: string;
+
+    @Column({type: 'varchar', nullable: true})
+    url: string;
+
+    @AfterInsert()
+    updateUrl() {
+        this.url = `localhost:3000/films/${this.id}`;
+    }
 }

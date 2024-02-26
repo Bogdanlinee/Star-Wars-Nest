@@ -19,5 +19,7 @@ export default {
     deletedAt: new Date(),
     filmIds: [],
     peopleIds: [],
-    planetsIds: []
+    planetsIds: [],
+    updateUrl: () => {
+    }
 };

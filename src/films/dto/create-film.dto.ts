@@ -26,10 +26,6 @@ export class CreateFilmDto {
     @IsDateString()
     release_date: string;
 
-    @Transform(({value}) => value.trim())
-    @IsNotEmpty()
-    url: string;
-
     @IsArray()
     personIds: number[];
 

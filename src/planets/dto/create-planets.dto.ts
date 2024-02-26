@@ -38,10 +38,6 @@ export class CreatePlanetsDto {
     @IsNotEmpty()
     population: string;
 
-    @Transform(({value}) => value.trim())
-    @IsNotEmpty()
-    url: string;
-
     @IsArray()
     residentIds: number[];
 
