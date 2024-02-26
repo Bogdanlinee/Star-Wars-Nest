@@ -37,10 +37,6 @@ export class CreatePersonDto {
     @IsNotEmpty()
     gender: string;
 
-    @Transform(({value}) => value.trim())
-    @IsNotEmpty()
-    url: string;
-
     @IsArray()
     filmIds: number[];
 

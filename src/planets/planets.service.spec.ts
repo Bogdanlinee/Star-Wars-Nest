@@ -7,7 +7,7 @@ import {PlanetsService} from './planets.service';
 import {Person} from '../people/entities/person.entity';
 import {Film} from '../films/entities/film.entity';
 import {Species} from '../species/entities/species.entity';
-import mockPlanetsEntity from '../mocks/planetes/mockPlanetsEntity';
+import mockPlanetsEntity from '../mocks/planets/mockPlanetsEntity';
 
 describe('planetsService', () => {
     let planetsService: PlanetsService;

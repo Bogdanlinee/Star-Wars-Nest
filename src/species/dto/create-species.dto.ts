@@ -42,10 +42,6 @@ export class CreateSpeciesDto {
     @IsNotEmpty()
     language: string;
 
-    @Transform(({value}) => value.trim())
-    @IsNotEmpty()
-    url: string;
-
     @IsArray()
     filmIds: number[];
 

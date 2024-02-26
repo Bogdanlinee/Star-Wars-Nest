@@ -4,7 +4,7 @@ import {
     PrimaryGeneratedColumn,
     DeleteDateColumn,
     UpdateDateColumn,
-    CreateDateColumn, ManyToMany, OneToMany, JoinTable, ManyToOne, JoinColumn
+    CreateDateColumn, ManyToMany, OneToMany, JoinTable, ManyToOne, JoinColumn, AfterInsert
 } from 'typeorm';
 import {Person} from '../../people/entities/person.entity';
 import {Species} from '../../species/entities/species.entity';
@@ -98,6 +98,11 @@ export class Planet {
     @DeleteDateColumn({name: 'deleted_at', type: 'timestamp', default: null, select: false})
     deletedAt: Date;
 
-    @Column({type: 'varchar', nullable: false})
+    @Column({type: 'varchar', nullable: true})
     url: string;
+
+    @AfterInsert()
+    updateUrl() {
+        this.url = `localhost:3000/films/${this.id}`;
+    }
 }

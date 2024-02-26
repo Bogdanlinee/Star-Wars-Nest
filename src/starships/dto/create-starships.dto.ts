@@ -54,11 +54,6 @@ export class CreateStarshipsDto {
     @IsNotEmpty()
     starship_class: string;
 
-
-    @Transform(({value}) => value.trim())
-    @IsNotEmpty()
-    url: string;
-
     @IsArray()
     pilotsIds: number[];
 

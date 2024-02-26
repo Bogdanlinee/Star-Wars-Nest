@@ -46,11 +46,6 @@ export class CreateVehiclesDto {
     @IsNotEmpty()
     vehicle_class: string;
 
-
-    @Transform(({value}) => value.trim())
-    @IsNotEmpty()
-    url: string;
-
     @IsArray()
     pilotsIds: number[];
 
