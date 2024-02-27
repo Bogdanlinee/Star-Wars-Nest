@@ -16,8 +16,10 @@ import {ImagesSerializeInterceptor} from './interceptors/images.serialize.interc
 import {AuthenticatedGuard} from '../auth/guards/local-auth.guard';
 import {RolesGuard} from '../guards/roles.guard';
 import {Roles} from '../decorators/roles.decorator';
+import {ApiTags} from '@nestjs/swagger';
 
 @Controller('image')
+@ApiTags('Images')
 @UseGuards(AuthenticatedGuard, RolesGuard)
 @UseInterceptors(ImagesSerializeInterceptor)
 export class ImagesController {

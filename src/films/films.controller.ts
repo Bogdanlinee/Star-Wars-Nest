@@ -16,8 +16,10 @@ import {FilmsSerializeInterceptor} from './interceptors/films.serialize.intercep
 import {AuthenticatedGuard} from '../auth/guards/local-auth.guard';
 import {RolesGuard} from '../guards/roles.guard';
 import {Roles} from '../decorators/roles.decorator';
+import {ApiTags} from '@nestjs/swagger';
 
 @Controller('films')
+@ApiTags('Films')
 @UseGuards(AuthenticatedGuard, RolesGuard)
 @UseInterceptors(FilmsSerializeInterceptor)
 export class FilmsController {

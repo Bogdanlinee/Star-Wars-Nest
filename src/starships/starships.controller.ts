@@ -16,8 +16,10 @@ import {StarshipsSerializeInterceptor} from './interceptors/starships.serialize.
 import {AuthenticatedGuard} from '../auth/guards/local-auth.guard';
 import {Roles} from '../decorators/roles.decorator';
 import {RolesGuard} from '../guards/roles.guard';
+import {ApiTags} from '@nestjs/swagger';
 
 @Controller('starships')
+@ApiTags('Starships')
 @UseGuards(AuthenticatedGuard, RolesGuard)
 @UseInterceptors(StarshipsSerializeInterceptor)
 export class StarshipsController {

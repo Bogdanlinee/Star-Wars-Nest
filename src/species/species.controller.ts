@@ -16,8 +16,10 @@ import {SpeciesSerializeInterceptor} from './interceptors/species.serialize.inte
 import {AuthenticatedGuard} from '../auth/guards/local-auth.guard';
 import {RolesGuard} from '../guards/roles.guard';
 import {Roles} from '../decorators/roles.decorator';
+import {ApiTags} from '@nestjs/swagger';
 
 @Controller('species')
+@ApiTags('Species')
 @UseGuards(AuthenticatedGuard, RolesGuard)
 @UseInterceptors(SpeciesSerializeInterceptor)
 export class SpeciesController {

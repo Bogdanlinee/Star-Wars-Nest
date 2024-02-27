@@ -39,11 +39,12 @@ describe('Species (e2e)', () => {
             .send(mockSpeciesDTO)
             .expect(201)
             .then(res => {
-                const {id, name, films, people, planets} = res.body.data;
+                const {id, name, films, people, planets, url} = res.body.data;
                 expect(films.length).toBeGreaterThan(0);
                 expect(people.length).toBeGreaterThan(0);
                 expect(planets.length).toBeGreaterThan(0);
                 expect(name).toBeDefined();
+                expect(url).toEqual(`localhost:3000/species/${id}`);
             })
     });
 

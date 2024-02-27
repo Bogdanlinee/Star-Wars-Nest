@@ -41,10 +41,11 @@ describe('Starships (e2e)', () => {
             .set('Cookie', loginCookie)
             .expect(201)
             .then(res => {
-                const {id, pilots, films} = res.body.data;
+                const {id, pilots, films, url} = res.body.data;
                 expect(pilots.length).toBeGreaterThan(0);
                 expect(films.length).toBeGreaterThan(0);
                 expect(id).toBeDefined();
+                expect(url).toEqual(`localhost:3000/starships/${id}`);
             })
     });
 

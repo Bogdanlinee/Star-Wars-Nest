@@ -16,8 +16,10 @@ import {VehiclesSerializeInterceptor} from './interceptors/vehicles.serialize.in
 import {AuthenticatedGuard} from '../auth/guards/local-auth.guard';
 import {RolesGuard} from '../guards/roles.guard';
 import {Roles} from '../decorators/roles.decorator';
+import {ApiTags} from '@nestjs/swagger';
 
 @Controller('vehicles')
+@ApiTags('Vehicles')
 @UseGuards(AuthenticatedGuard, RolesGuard)
 @UseInterceptors(VehiclesSerializeInterceptor)
 export class VehiclesController {

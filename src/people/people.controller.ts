@@ -9,7 +9,7 @@ import {
     ParseIntPipe,
     ValidationPipe,
     UsePipes,
-    NotFoundException, UseInterceptors, UseFilters, ForbiddenException, UseGuards,
+    NotFoundException, UseInterceptors, UseGuards,
 } from '@nestjs/common';
 import {PeopleService} from './people.service';
 import {CreatePersonDto} from './dto/create-person.dto';
@@ -18,8 +18,10 @@ import {PeopleSerializeInterceptor} from './interceptors/people.serialize.interc
 import {Roles} from '../decorators/roles.decorator';
 import {AuthenticatedGuard} from '../auth/guards/local-auth.guard';
 import {RolesGuard} from '../guards/roles.guard';
+import {ApiTags} from '@nestjs/swagger';
 
 @Controller('people')
+@ApiTags('People')
 @UseGuards(AuthenticatedGuard, RolesGuard)
 @UseInterceptors(PeopleSerializeInterceptor)
 export class PeopleController {

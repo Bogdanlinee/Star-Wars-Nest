@@ -16,8 +16,10 @@ import {PlanetsSerializeInterceptor} from './interceptors/planets.serialize.inte
 import {AuthenticatedGuard} from '../auth/guards/local-auth.guard';
 import {RolesGuard} from '../guards/roles.guard';
 import {Roles} from '../decorators/roles.decorator';
+import {ApiTags} from '@nestjs/swagger';
 
 @Controller('planets')
+@ApiTags('Planets')
 @UseGuards(AuthenticatedGuard, RolesGuard)
 @UseInterceptors(PlanetsSerializeInterceptor)
 export class PlanetsController {

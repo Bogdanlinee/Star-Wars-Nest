@@ -21,14 +21,17 @@ export class UsersService {
     }
 
     async create(username: string, pass: string) {
-        const user = await this.findOne(username);
+        const userExist = await this.findOne(username);
 
-        if (user) throw new BadRequestException('Email already in use');
+        if (userExist) throw new BadRequestException('Email already in use');
 
         const salt = randomBytes(8).toString('hex');
         const hash = (await scrypt(pass, salt, 32)) as Buffer;
         const hashedPassword = `${salt}.${hash.toString('hex')}`;
+        const user = await this.usersRepository.save({username, password: hashedPassword});
 
-        return await this.usersRepository.save({username, password: hashedPassword});
+        user.url = `localhost:3000/users/${user.id}`;
+
+        return await this.usersRepository.save(user);
     }
 }

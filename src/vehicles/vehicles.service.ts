@@ -21,11 +21,13 @@ export class VehiclesService {
     }
 
     async create(createVehiclesDto: CreateVehiclesDto) {
-        const vehicle = this.vehicleRepository.create(createVehiclesDto);
+        let vehicle = this.vehicleRepository.create(createVehiclesDto);
 
         await appendEntities(vehicle, createVehiclesDto, 'pilotsIds', 'pilots', this.peopleRepository);
         await appendEntities(vehicle, createVehiclesDto, 'filmsIds', 'films', this.filmsRepository);
 
+        vehicle = await this.vehicleRepository.save(vehicle);
+        vehicle.url = `localhost:3000/vehicles/${vehicle.id}`;
 
         return this.vehicleRepository.save(vehicle);
     }

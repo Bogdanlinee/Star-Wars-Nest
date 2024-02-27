@@ -4,8 +4,10 @@ import {LocalAuthGuard} from '../auth/guards/local-auth.guard';
 import {CreateUserDto} from './dto/user.dto';
 import {Request} from 'express';
 import {UsersSerializeInterceptor} from './interceptors/users.serialize.interceptor';
+import {ApiTags} from '@nestjs/swagger';
 
 @Controller('users')
+@ApiTags('Users')
 export class UsersController {
     constructor(private readonly usersService: UsersService) {
     }
@@ -19,7 +21,7 @@ export class UsersController {
 
     @UseGuards(LocalAuthGuard)
     @Post('signin')
-    signin(@Req() req: Request) {
+    signin(@Body() createUserDto: CreateUserDto, @Req() req: Request) {
         return req.user;
     }
 }

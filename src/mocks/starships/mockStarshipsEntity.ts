@@ -21,6 +21,4 @@ export default {
     created: new Date(),
     edited: new Date(),
     deletedAt: new Date(),
-    updateUrl: () => {
-    }
 };

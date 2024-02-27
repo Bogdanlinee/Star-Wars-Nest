@@ -24,11 +24,14 @@ export class SpeciesService {
     }
 
     async create(createSpeciesDto: CreateSpeciesDto) {
-        const species = this.speciesRepository.create(createSpeciesDto);
+        let species = this.speciesRepository.create(createSpeciesDto);
 
         await appendEntities(species, createSpeciesDto, 'filmIds', 'films', this.filmsRepository);
         await appendEntities(species, createSpeciesDto, 'peopleIds', 'people', this.peopleRepository);
         await appendEntities(species, createSpeciesDto, 'planetsIds', 'planets', this.planetsRepository);
+
+        species = await this.speciesRepository.save(species);
+        species.url = `localhost:3000/species/${species.id}`;
 
         return this.speciesRepository.save(species);
     }
