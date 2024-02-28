@@ -16,7 +16,7 @@ import {ImagesSerializeInterceptor} from './interceptors/images.serialize.interc
 import {AuthenticatedGuard} from '../auth/guards/local-auth.guard';
 import {RolesGuard} from '../guards/roles.guard';
 import {Roles} from '../decorators/roles.decorator';
-import {ApiTags} from '@nestjs/swagger';
+import {ApiBody,ApiConsumes, ApiTags} from '@nestjs/swagger';
 
 @Controller('image')
 @ApiTags('Images')
@@ -31,6 +31,20 @@ export class ImagesController {
     @Post('/add/:id')
     @Roles(['admin', 'user'])
     @UseInterceptors(FileInterceptor('file', multerSetting))
+    @ApiConsumes('multipart/form-data')
+    @ApiBody({
+        schema: {
+            type: 'object',
+            properties: {
+                // comment: { type: 'string' },
+                // outletId: { type: 'integer' },
+                file: {
+                    type: 'string',
+                    format: 'binary',
+                },
+            },
+        },
+    })
     async addImage(
         @Param('id', ParseIntPipe) id: number,
         @UploadedFile() file: Express.Multer.File

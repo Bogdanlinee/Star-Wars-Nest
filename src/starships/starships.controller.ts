@@ -16,7 +16,8 @@ import {StarshipsSerializeInterceptor} from './interceptors/starships.serialize.
 import {AuthenticatedGuard} from '../auth/guards/local-auth.guard';
 import {Roles} from '../decorators/roles.decorator';
 import {RolesGuard} from '../guards/roles.guard';
-import {ApiTags} from '@nestjs/swagger';
+import {ApiBody, ApiTags} from '@nestjs/swagger';
+import mockStarshipsDTO from '../mocks/starships/mockStarshipsDTO';
 
 @Controller('starships')
 @ApiTags('Starships')
@@ -29,6 +30,16 @@ export class StarshipsController {
     @Post()
     @Roles(['admin'])
     @UsePipes(new ValidationPipe({transform: true, whitelist: true}))
+    @ApiBody({
+        type: CreateStarshipsDto,
+        description: 'Admin role required.',
+        examples: {
+            a: {
+                value: mockStarshipsDTO,
+                summary: 'Starship Entity',
+            },
+        }
+    })
     create(@Body() createStarshipsDto: CreateStarshipsDto) {
         return this.starshipsService.create(createStarshipsDto);
     }
@@ -52,6 +63,18 @@ export class StarshipsController {
     @Patch('/:id')
     @Roles(['admin'])
     @UsePipes(new ValidationPipe({transform: true, whitelist: true}))
+    @ApiBody({
+        type: UpdateStarshipsDto,
+        description: 'Admin role required.',
+        examples: {
+            a: {
+                value: {
+                    name: 'New starship name'
+                },
+                summary: 'Update Starship',
+            },
+        }
+    })
     update(@Param('id', ParseIntPipe) id: number, @Body() updateStarshipsDto: UpdateStarshipsDto) {
         return this.starshipsService.update(id, updateStarshipsDto);
     }

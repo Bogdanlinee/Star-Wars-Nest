@@ -16,7 +16,8 @@ import {VehiclesSerializeInterceptor} from './interceptors/vehicles.serialize.in
 import {AuthenticatedGuard} from '../auth/guards/local-auth.guard';
 import {RolesGuard} from '../guards/roles.guard';
 import {Roles} from '../decorators/roles.decorator';
-import {ApiTags} from '@nestjs/swagger';
+import {ApiBody, ApiTags} from '@nestjs/swagger';
+import mockVehiclesDTO from '../mocks/vehicles/mockVehiclesDTO';
 
 @Controller('vehicles')
 @ApiTags('Vehicles')
@@ -29,6 +30,16 @@ export class VehiclesController {
     @Post()
     @Roles(['admin'])
     @UsePipes(new ValidationPipe({transform: true, whitelist: true}))
+    @ApiBody({
+        type: CreateVehiclesDto,
+        description: 'Admin role required.',
+        examples: {
+            a: {
+                value: mockVehiclesDTO,
+                summary: 'Vehicle Entity',
+            },
+        }
+    })
     create(@Body() createVehiclesDto: CreateVehiclesDto) {
         return this.vehiclesService.create(createVehiclesDto);
     }
@@ -52,6 +63,18 @@ export class VehiclesController {
     @Patch('/:id')
     @Roles(['admin'])
     @UsePipes(new ValidationPipe({transform: true, whitelist: true}))
+    @ApiBody({
+        type: UpdateVehicleDto,
+        description: 'Admin role required.',
+        examples: {
+            a: {
+                value: {
+                    name: 'New vehicle name'
+                },
+                summary: 'Update Vehicle',
+            },
+        }
+    })
     update(@Param('id', ParseIntPipe) id: number, @Body() updateVehicleDto: UpdateVehicleDto) {
         return this.vehiclesService.update(id, updateVehicleDto);
     }
