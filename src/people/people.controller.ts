@@ -9,7 +9,7 @@ import {
     ParseIntPipe,
     ValidationPipe,
     UsePipes,
-    NotFoundException, UseInterceptors, UseFilters, ForbiddenException, UseGuards,
+    NotFoundException, UseInterceptors, UseGuards,
 } from '@nestjs/common';
 import {PeopleService} from './people.service';
 import {CreatePersonDto} from './dto/create-person.dto';
@@ -18,8 +18,11 @@ import {PeopleSerializeInterceptor} from './interceptors/people.serialize.interc
 import {Roles} from '../decorators/roles.decorator';
 import {AuthenticatedGuard} from '../auth/guards/local-auth.guard';
 import {RolesGuard} from '../guards/roles.guard';
+import {ApiBody, ApiTags} from '@nestjs/swagger';
+import mockPeopleDTO from '../mocks/people/mockPeopleDTO';
 
 @Controller('people')
+@ApiTags('People')
 @UseGuards(AuthenticatedGuard, RolesGuard)
 @UseInterceptors(PeopleSerializeInterceptor)
 export class PeopleController {
@@ -29,6 +32,16 @@ export class PeopleController {
     @Post()
     @Roles(['admin'])
     @UsePipes(new ValidationPipe({transform: true, whitelist: true}))
+    @ApiBody({
+        type: CreatePersonDto,
+        description: 'Admin role required.',
+        examples: {
+            a: {
+                value: mockPeopleDTO,
+                summary: 'Person Entity',
+            },
+        }
+    })
     create(@Body() createPersonDto: CreatePersonDto) {
         return this.peopleService.create(createPersonDto);
     }
@@ -52,6 +65,18 @@ export class PeopleController {
     @Patch('/:id')
     @Roles(['admin'])
     @UsePipes(new ValidationPipe({transform: true, whitelist: true}))
+    @ApiBody({
+        type: UpdatePersonDto,
+        description: 'Admin role required.',
+        examples: {
+            a: {
+                summary: 'Update Person',
+                value: {
+                    name: 'New person name'
+                }
+            },
+        }
+    })
     update(@Param('id', ParseIntPipe) id: number, @Body() updatePersonDto: UpdatePersonDto) {
         return this.peopleService.update(id, updatePersonDto);
     }

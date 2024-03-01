@@ -16,8 +16,11 @@ import {SpeciesSerializeInterceptor} from './interceptors/species.serialize.inte
 import {AuthenticatedGuard} from '../auth/guards/local-auth.guard';
 import {RolesGuard} from '../guards/roles.guard';
 import {Roles} from '../decorators/roles.decorator';
+import {ApiBody, ApiTags} from '@nestjs/swagger';
+import mockSpeciesDTO from '../mocks/species/mockSpeciesDTO';
 
 @Controller('species')
+@ApiTags('Species')
 @UseGuards(AuthenticatedGuard, RolesGuard)
 @UseInterceptors(SpeciesSerializeInterceptor)
 export class SpeciesController {
@@ -27,6 +30,16 @@ export class SpeciesController {
     @Post()
     @Roles(['admin'])
     @UsePipes(new ValidationPipe({transform: true, whitelist: true}))
+    @ApiBody({
+        type: CreateSpeciesDto,
+        description: 'Admin role required.',
+        examples: {
+            a: {
+                value: mockSpeciesDTO,
+                summary: 'Species Entity',
+            },
+        }
+    })
     create(@Body() createSpeciesDto: CreateSpeciesDto) {
         return this.speciesService.create(createSpeciesDto);
     }
@@ -50,6 +63,18 @@ export class SpeciesController {
     @Patch('/:id')
     @Roles(['admin'])
     @UsePipes(new ValidationPipe({transform: true, whitelist: true}))
+    @ApiBody({
+        type: UpdateSpeciesDto,
+        description: 'Admin role required.',
+        examples: {
+            a: {
+                value: {
+                    name: 'New Species name'
+                },
+                summary: 'Update Species',
+            },
+        }
+    })
     update(@Param('id', ParseIntPipe) id: number, @Body() updateSpeciesDto: UpdateSpeciesDto) {
         return this.speciesService.update(id, updateSpeciesDto);
     }

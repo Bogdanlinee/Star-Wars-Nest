@@ -104,9 +104,4 @@ export class Species {
 
     @Column({type: 'varchar', nullable: true})
     url: string;
-
-    @AfterInsert()
-    updateUrl() {
-        this.url = `localhost:3000/films/${this.id}`;
-    }
 }

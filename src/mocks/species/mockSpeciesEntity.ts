@@ -20,6 +20,4 @@ export default {
     filmIds: [],
     peopleIds: [],
     planetsIds: [],
-    updateUrl: () => {
-    }
 };

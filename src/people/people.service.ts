@@ -34,7 +34,7 @@ export class PeopleService {
     }
 
     async create(createPersonDto: CreatePersonDto) {
-        const person = this.personRepository.create(createPersonDto);
+        let person = this.personRepository.create(createPersonDto);
 
         await appendEntities(person, createPersonDto, 'filmIds', 'films', this.filmsRepository);
         await appendEntities(person, createPersonDto, 'speciesIds', 'species', this.speciesRepository);
@@ -47,6 +47,9 @@ export class PeopleService {
         if (planetEntity) {
             person.homeworld = planetEntity;
         }
+
+        person = await this.personRepository.save(person);
+        person.url = `localhost:3000/people/${person.id}`;
 
         return this.personRepository.save(person);
     }

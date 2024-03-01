@@ -40,12 +40,13 @@ describe('Films (e2e)', () => {
             .set('Cookie', loginCookie)
             .expect(201)
             .then(res => {
-                const {characters, species, planets, starships, vehicles} = res.body.data;
+                const {characters, species, planets, starships, vehicles, url, id} = res.body.data;
                 expect(characters.length).toBeGreaterThan(0);
                 expect(species.length).toBeGreaterThan(0);
                 expect(planets.length).toBeGreaterThan(0);
                 expect(starships.length).toBeGreaterThan(0);
                 expect(vehicles.length).toBeGreaterThan(0);
+                expect(url).toEqual(`localhost:3000/films/${id}`);
             })
     });
 

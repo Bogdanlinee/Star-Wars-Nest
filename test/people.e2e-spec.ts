@@ -40,13 +40,14 @@ describe('People (e2e)', () => {
             .send(mockPeopleDTO)
             .expect(201)
             .then(res => {
-                const {name, films, species, homeworld, starships, vehicles} = res.body.data;
+                const {name, films, species, homeworld, starships, vehicles, url, id} = res.body.data;
                 expect(films.length).toBeGreaterThan(0);
                 expect(species.length).toBeGreaterThan(0);
                 expect(starships.length).toBeGreaterThan(0);
                 expect(vehicles.length).toBeGreaterThan(0);
                 expect(homeworld).toBeDefined();
                 expect(name).toBeDefined();
+                expect(url).toEqual(`localhost:3000/people/${id}`);
             })
     });
 

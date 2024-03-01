@@ -16,8 +16,11 @@ import {PlanetsSerializeInterceptor} from './interceptors/planets.serialize.inte
 import {AuthenticatedGuard} from '../auth/guards/local-auth.guard';
 import {RolesGuard} from '../guards/roles.guard';
 import {Roles} from '../decorators/roles.decorator';
+import {ApiBody, ApiTags} from '@nestjs/swagger';
+import mockPlanetsDTO from '../mocks/planets/mockPlanetsDTO';
 
 @Controller('planets')
+@ApiTags('Planets')
 @UseGuards(AuthenticatedGuard, RolesGuard)
 @UseInterceptors(PlanetsSerializeInterceptor)
 export class PlanetsController {
@@ -27,6 +30,16 @@ export class PlanetsController {
     @Post()
     @Roles(['admin'])
     @UsePipes(new ValidationPipe({transform: true, whitelist: true}))
+    @ApiBody({
+        type: CreatePlanetsDto,
+        description: 'Admin role required.',
+        examples: {
+            a: {
+                value: mockPlanetsDTO,
+                summary: 'Planet Entity',
+            },
+        }
+    })
     create(@Body() createPlanetsDto: CreatePlanetsDto) {
         return this.planetsService.create(createPlanetsDto);
     }
@@ -50,6 +63,18 @@ export class PlanetsController {
     @Patch('/:id')
     @Roles(['admin'])
     @UsePipes(new ValidationPipe({transform: true, whitelist: true}))
+    @ApiBody({
+        type: CreatePlanetsDto,
+        description: 'Admin role required.',
+        examples: {
+            a: {
+                value: {
+                    name: 'New planet name'
+                },
+                summary: 'Update Planet',
+            },
+        }
+    })
     update(@Param('id', ParseIntPipe) id: number, @Body() updatePlanetsDto: UpdatePlanetsDto) {
         return this.planetsService.update(id, updatePlanetsDto);
     }

@@ -24,13 +24,16 @@ export class FilmsService {
     }
 
     async create(createFilmDto: CreateFilmDto) {
-        const film = this.filmsRepository.create(createFilmDto);
+        let film = this.filmsRepository.create(createFilmDto);
 
         await appendEntities(film, createFilmDto, 'personIds', 'characters', this.charactersRepository);
         await appendEntities(film, createFilmDto, 'planetIds', 'planets', this.planetsRepository);
         await appendEntities(film, createFilmDto, 'speciesIds', 'species', this.speciesRepository);
         await appendEntities(film, createFilmDto, 'starshipIds', 'starships', this.starshipsRepository);
         await appendEntities(film, createFilmDto, 'vehicleIds', 'vehicles', this.vehiclesRepository);
+
+        film = await this.filmsRepository.save(film);
+        film.url = `localhost:3000/films/${film.id}`;
 
         return this.filmsRepository.save(film);
     }

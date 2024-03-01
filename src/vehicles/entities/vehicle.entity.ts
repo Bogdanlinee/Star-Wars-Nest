@@ -103,6 +103,6 @@ export class Vehicle {
 
     @AfterInsert()
     updateUrl() {
-        this.url = `localhost:3000/films/${this.id}`;
+        this.url = `localhost:3000/vehicles/${this.id}`;
     }
 }

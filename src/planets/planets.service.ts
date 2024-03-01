@@ -24,11 +24,14 @@ export class PlanetsService {
     }
 
     async create(createPlanetsDto: CreatePlanetsDto) {
-        const planet = this.planetsRepository.create(createPlanetsDto);
+        let planet = this.planetsRepository.create(createPlanetsDto);
 
         await appendEntities(planet, createPlanetsDto, 'residentIds', 'residents', this.peopleRepository);
         await appendEntities(planet, createPlanetsDto, 'filmIds', 'films', this.filmsRepository);
         await appendEntities(planet, createPlanetsDto, 'speciesIds', 'species', this.speciesRepository);
+
+        planet = await this.planetsRepository.save(planet);
+        planet.url = `localhost:3000/planets/${planet.id}`;
 
         return this.planetsRepository.save(planet);
     }

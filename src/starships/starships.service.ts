@@ -21,12 +21,15 @@ export class StarshipsService {
     }
 
     async create(createStarshipsDto: CreateStarshipsDto) {
-        const starship = this.starshipsRepository.create(createStarshipsDto);
+        let starship = this.starshipsRepository.create(createStarshipsDto);
 
         await appendEntities(starship, createStarshipsDto, 'filmsIds', 'films', this.filmsRepository);
         await appendEntities(starship, createStarshipsDto, 'pilotsIds', 'pilots', this.peopleRepository);
 
-        return await this.starshipsRepository.save(starship);
+        starship = await this.starshipsRepository.save(starship);
+        starship.url = `localhost:3000/starships/${starship.id}`;
+
+        return this.starshipsRepository.save(starship);
     }
 
     async findOne(id: number) {
