@@ -13,12 +13,12 @@
     "vehicle_class": "wheeled",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/1/",
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/1/",
+      "localhost:3000/films/5/"
     ],
     "created": "2014-12-10T15:36:25.724000Z",
     "edited": "2014-12-20T21:30:21.661000Z",
-    "url": "https://swapi.dev/api/vehicles/4/",
+    "url": "localhost:3000/vehicles/4/",
     "id": 4
   },
   {
@@ -35,11 +35,11 @@
     "vehicle_class": "repulsorcraft",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/1/"
+      "localhost:3000/films/1/"
     ],
     "created": "2014-12-10T16:01:52.434000Z",
     "edited": "2014-12-20T21:30:21.665000Z",
-    "url": "https://swapi.dev/api/vehicles/6/",
+    "url": "localhost:3000/vehicles/6/",
     "id": 6
   },
   {
@@ -56,11 +56,11 @@
     "vehicle_class": "repulsorcraft",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/1/"
+      "localhost:3000/films/1/"
     ],
     "created": "2014-12-10T16:13:52.586000Z",
     "edited": "2014-12-20T21:30:21.668000Z",
-    "url": "https://swapi.dev/api/vehicles/7/",
+    "url": "localhost:3000/vehicles/7/",
     "id": 7
   },
   {
@@ -77,13 +77,13 @@
     "vehicle_class": "starfighter",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/1/",
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/1/",
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/"
     ],
     "created": "2014-12-10T16:33:52.860000Z",
     "edited": "2014-12-20T21:30:21.670000Z",
-    "url": "https://swapi.dev/api/vehicles/8/",
+    "url": "localhost:3000/vehicles/8/",
     "id": 8
   },
   {
@@ -99,15 +99,15 @@
     "consumables": "none",
     "vehicle_class": "airspeeder",
     "pilots": [
-      "https://swapi.dev/api/people/1/",
-      "https://swapi.dev/api/people/18/"
+      "localhost:3000/people/1/",
+      "localhost:3000/people/18/"
     ],
     "films": [
-      "https://swapi.dev/api/films/2/"
+      "localhost:3000/films/2/"
     ],
     "created": "2014-12-15T12:22:12Z",
     "edited": "2014-12-20T21:30:21.672000Z",
-    "url": "https://swapi.dev/api/vehicles/14/",
+    "url": "localhost:3000/vehicles/14/",
     "id": 14
   },
   {
@@ -124,12 +124,12 @@
     "vehicle_class": "space/planetary bomber",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/"
     ],
     "created": "2014-12-15T12:33:15.838000Z",
     "edited": "2014-12-20T21:30:21.675000Z",
-    "url": "https://swapi.dev/api/vehicles/16/",
+    "url": "localhost:3000/vehicles/16/",
     "id": 16
   },
   {
@@ -146,12 +146,12 @@
     "vehicle_class": "assault walker",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/"
     ],
     "created": "2014-12-15T12:38:25.937000Z",
     "edited": "2014-12-20T21:30:21.677000Z",
-    "url": "https://swapi.dev/api/vehicles/18/",
+    "url": "localhost:3000/vehicles/18/",
     "id": 18
   },
   {
@@ -167,15 +167,15 @@
     "consumables": "none",
     "vehicle_class": "walker",
     "pilots": [
-      "https://swapi.dev/api/people/13/"
+      "localhost:3000/people/13/"
     ],
     "films": [
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/"
     ],
     "created": "2014-12-15T12:46:42.384000Z",
     "edited": "2014-12-20T21:30:21.679000Z",
-    "url": "https://swapi.dev/api/vehicles/19/",
+    "url": "localhost:3000/vehicles/19/",
     "id": 19
   },
   {
@@ -192,11 +192,11 @@
     "vehicle_class": "repulsorcraft",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/2/"
+      "localhost:3000/films/2/"
     ],
     "created": "2014-12-15T12:58:50.530000Z",
     "edited": "2014-12-20T21:30:21.681000Z",
-    "url": "https://swapi.dev/api/vehicles/20/",
+    "url": "localhost:3000/vehicles/20/",
     "id": 20
   },
   {
@@ -213,11 +213,11 @@
     "vehicle_class": "sail barge",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/3/"
     ],
     "created": "2014-12-18T10:44:14.217000Z",
     "edited": "2014-12-20T21:30:21.684000Z",
-    "url": "https://swapi.dev/api/vehicles/24/",
+    "url": "localhost:3000/vehicles/24/",
     "id": 24
   },
   {
@@ -234,11 +234,11 @@
     "vehicle_class": "repulsorcraft cargo skiff",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/3/"
     ],
     "created": "2014-12-18T10:48:03.208000Z",
     "edited": "2014-12-20T21:30:21.688000Z",
-    "url": "https://swapi.dev/api/vehicles/25/",
+    "url": "localhost:3000/vehicles/25/",
     "id": 25
   },
   {
@@ -255,11 +255,11 @@
     "vehicle_class": "starfighter",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/3/"
     ],
     "created": "2014-12-18T10:50:28.225000Z",
     "edited": "2014-12-20T21:30:21.691000Z",
-    "url": "https://swapi.dev/api/vehicles/26/",
+    "url": "localhost:3000/vehicles/26/",
     "id": 26
   },
   {
@@ -275,15 +275,15 @@
     "consumables": "1 day",
     "vehicle_class": "speeder",
     "pilots": [
-      "https://swapi.dev/api/people/1/",
-      "https://swapi.dev/api/people/5/"
+      "localhost:3000/people/1/",
+      "localhost:3000/people/5/"
     ],
     "films": [
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/3/"
     ],
     "created": "2014-12-18T11:20:04.625000Z",
     "edited": "2014-12-20T21:30:21.693000Z",
-    "url": "https://swapi.dev/api/vehicles/30/",
+    "url": "localhost:3000/vehicles/30/",
     "id": 30
   },
   {
@@ -300,12 +300,12 @@
     "vehicle_class": "starfighter",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/4/",
+      "localhost:3000/films/6/"
     ],
     "created": "2014-12-19T17:09:53.584000Z",
     "edited": "2014-12-20T21:30:21.697000Z",
-    "url": "https://swapi.dev/api/vehicles/33/",
+    "url": "localhost:3000/vehicles/33/",
     "id": 33
   },
   {
@@ -322,11 +322,11 @@
     "vehicle_class": "repulsorcraft",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "created": "2014-12-19T17:12:04.400000Z",
     "edited": "2014-12-20T21:30:21.700000Z",
-    "url": "https://swapi.dev/api/vehicles/34/",
+    "url": "localhost:3000/vehicles/34/",
     "id": 34
   },
   {
@@ -343,11 +343,11 @@
     "vehicle_class": "repulsorcraft",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "created": "2014-12-19T17:13:29.799000Z",
     "edited": "2014-12-20T21:30:21.703000Z",
-    "url": "https://swapi.dev/api/vehicles/35/",
+    "url": "localhost:3000/vehicles/35/",
     "id": 35
   },
   {
@@ -364,11 +364,11 @@
     "vehicle_class": "repulsorcraft",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "created": "2014-12-19T17:15:09.511000Z",
     "edited": "2014-12-20T21:30:21.705000Z",
-    "url": "https://swapi.dev/api/vehicles/36/",
+    "url": "localhost:3000/vehicles/36/",
     "id": 36
   },
   {
@@ -385,11 +385,11 @@
     "vehicle_class": "landing craft",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "created": "2014-12-19T17:20:36.373000Z",
     "edited": "2014-12-20T21:30:21.707000Z",
-    "url": "https://swapi.dev/api/vehicles/37/",
+    "url": "localhost:3000/vehicles/37/",
     "id": 37
   },
   {
@@ -405,15 +405,15 @@
     "consumables": "unknown",
     "vehicle_class": "submarine",
     "pilots": [
-      "https://swapi.dev/api/people/10/",
-      "https://swapi.dev/api/people/32/"
+      "localhost:3000/people/10/",
+      "localhost:3000/people/32/"
     ],
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "created": "2014-12-19T17:37:37.924000Z",
     "edited": "2014-12-20T21:30:21.710000Z",
-    "url": "https://swapi.dev/api/vehicles/38/",
+    "url": "localhost:3000/vehicles/38/",
     "id": 38
   },
   {
@@ -429,14 +429,14 @@
     "consumables": "unknown",
     "vehicle_class": "speeder",
     "pilots": [
-      "https://swapi.dev/api/people/44/"
+      "localhost:3000/people/44/"
     ],
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "created": "2014-12-20T10:09:56.095000Z",
     "edited": "2014-12-20T21:30:21.712000Z",
-    "url": "https://swapi.dev/api/vehicles/42/",
+    "url": "localhost:3000/vehicles/42/",
     "id": 42
   },
   {
@@ -452,14 +452,14 @@
     "consumables": "none",
     "vehicle_class": "repulsorcraft",
     "pilots": [
-      "https://swapi.dev/api/people/11/"
+      "localhost:3000/people/11/"
     ],
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "created": "2014-12-20T16:24:16.026000Z",
     "edited": "2014-12-20T21:30:21.714000Z",
-    "url": "https://swapi.dev/api/vehicles/44/",
+    "url": "localhost:3000/vehicles/44/",
     "id": 44
   },
   {
@@ -475,14 +475,14 @@
     "consumables": "unknown",
     "vehicle_class": "airspeeder",
     "pilots": [
-      "https://swapi.dev/api/people/70/"
+      "localhost:3000/people/70/"
     ],
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "created": "2014-12-20T17:17:33.526000Z",
     "edited": "2014-12-20T21:30:21.716000Z",
-    "url": "https://swapi.dev/api/vehicles/45/",
+    "url": "localhost:3000/vehicles/45/",
     "id": 45
   },
   {
@@ -498,14 +498,14 @@
     "consumables": "unknown",
     "vehicle_class": "airspeeder",
     "pilots": [
-      "https://swapi.dev/api/people/11/"
+      "localhost:3000/people/11/"
     ],
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "created": "2014-12-20T17:19:19.991000Z",
     "edited": "2014-12-20T21:30:21.719000Z",
-    "url": "https://swapi.dev/api/vehicles/46/",
+    "url": "localhost:3000/vehicles/46/",
     "id": 46
   },
   {
@@ -522,12 +522,12 @@
     "vehicle_class": "gunship",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "created": "2014-12-20T18:01:21.014000Z",
     "edited": "2014-12-20T21:30:21.723000Z",
-    "url": "https://swapi.dev/api/vehicles/50/",
+    "url": "localhost:3000/vehicles/50/",
     "id": 50
   },
   {
@@ -544,11 +544,11 @@
     "vehicle_class": "gunship",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "created": "2014-12-20T18:02:46.802000Z",
     "edited": "2014-12-20T21:30:21.725000Z",
-    "url": "https://swapi.dev/api/vehicles/51/",
+    "url": "localhost:3000/vehicles/51/",
     "id": 51
   },
   {
@@ -565,12 +565,12 @@
     "vehicle_class": "walker",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "created": "2014-12-20T18:10:07.560000Z",
     "edited": "2014-12-20T21:30:21.728000Z",
-    "url": "https://swapi.dev/api/vehicles/53/",
+    "url": "localhost:3000/vehicles/53/",
     "id": 53
   },
   {
@@ -587,11 +587,11 @@
     "vehicle_class": "walker",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "created": "2014-12-20T18:12:32.315000Z",
     "edited": "2014-12-20T21:30:21.731000Z",
-    "url": "https://swapi.dev/api/vehicles/54/",
+    "url": "localhost:3000/vehicles/54/",
     "id": 54
   },
   {
@@ -607,14 +607,14 @@
     "consumables": "unknown",
     "vehicle_class": "speeder",
     "pilots": [
-      "https://swapi.dev/api/people/67/"
+      "localhost:3000/people/67/"
     ],
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "created": "2014-12-20T18:15:20.312000Z",
     "edited": "2014-12-20T21:30:21.735000Z",
-    "url": "https://swapi.dev/api/vehicles/55/",
+    "url": "localhost:3000/vehicles/55/",
     "id": 55
   },
   {
@@ -631,12 +631,12 @@
     "vehicle_class": "transport",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "created": "2014-12-20T18:25:44.912000Z",
     "edited": "2014-12-20T21:30:21.739000Z",
-    "url": "https://swapi.dev/api/vehicles/56/",
+    "url": "localhost:3000/vehicles/56/",
     "id": 56
   },
   {
@@ -653,11 +653,11 @@
     "vehicle_class": "starfighter",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "created": "2014-12-20T18:34:12.541000Z",
     "edited": "2014-12-20T21:30:21.742000Z",
-    "url": "https://swapi.dev/api/vehicles/57/",
+    "url": "localhost:3000/vehicles/57/",
     "id": 57
   },
   {
@@ -673,14 +673,14 @@
     "consumables": "none",
     "vehicle_class": "wheeled walker",
     "pilots": [
-      "https://swapi.dev/api/people/79/"
+      "localhost:3000/people/79/"
     ],
     "films": [
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/6/"
     ],
     "created": "2014-12-20T19:43:54.870000Z",
     "edited": "2014-12-20T21:30:21.745000Z",
-    "url": "https://swapi.dev/api/vehicles/60/",
+    "url": "localhost:3000/vehicles/60/",
     "id": 60
   },
   {
@@ -697,11 +697,11 @@
     "vehicle_class": "fire suppression ship",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/6/"
     ],
     "created": "2014-12-20T19:50:58.559000Z",
     "edited": "2014-12-20T21:30:21.749000Z",
-    "url": "https://swapi.dev/api/vehicles/62/",
+    "url": "localhost:3000/vehicles/62/",
     "id": 62
   },
   {
@@ -718,11 +718,11 @@
     "vehicle_class": "droid starfighter",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/6/"
     ],
     "created": "2014-12-20T20:05:19.992000Z",
     "edited": "2014-12-20T21:30:21.752000Z",
-    "url": "https://swapi.dev/api/vehicles/67/",
+    "url": "localhost:3000/vehicles/67/",
     "id": 67
   },
   {
@@ -739,11 +739,11 @@
     "vehicle_class": "airspeeder",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/6/"
     ],
     "created": "2014-12-20T20:20:53.931000Z",
     "edited": "2014-12-20T21:30:21.756000Z",
-    "url": "https://swapi.dev/api/vehicles/69/",
+    "url": "localhost:3000/vehicles/69/",
     "id": 69
   },
   {
@@ -760,11 +760,11 @@
     "vehicle_class": "air speeder",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/6/"
     ],
     "created": "2014-12-20T20:21:55.648000Z",
     "edited": "2014-12-20T21:30:21.759000Z",
-    "url": "https://swapi.dev/api/vehicles/70/",
+    "url": "localhost:3000/vehicles/70/",
     "id": 70
   },
   {
@@ -781,11 +781,11 @@
     "vehicle_class": "wheeled walker",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/6/"
     ],
     "created": "2014-12-20T20:24:45.587000Z",
     "edited": "2014-12-20T21:30:21.762000Z",
-    "url": "https://swapi.dev/api/vehicles/71/",
+    "url": "localhost:3000/vehicles/71/",
     "id": 71
   },
   {
@@ -802,11 +802,11 @@
     "vehicle_class": "droid tank",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/6/"
     ],
     "created": "2014-12-20T20:26:55.522000Z",
     "edited": "2014-12-20T21:30:21.765000Z",
-    "url": "https://swapi.dev/api/vehicles/72/",
+    "url": "localhost:3000/vehicles/72/",
     "id": 72
   },
   {
@@ -823,11 +823,11 @@
     "vehicle_class": "airspeeder",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/6/"
     ],
     "created": "2014-12-20T20:32:05.687000Z",
     "edited": "2014-12-20T21:30:21.768000Z",
-    "url": "https://swapi.dev/api/vehicles/73/",
+    "url": "localhost:3000/vehicles/73/",
     "id": 73
   },
   {
@@ -844,11 +844,11 @@
     "vehicle_class": "walker",
     "pilots": [],
     "films": [
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/6/"
     ],
     "created": "2014-12-20T20:47:49.189000Z",
     "edited": "2014-12-20T21:30:21.772000Z",
-    "url": "https://swapi.dev/api/vehicles/76/",
+    "url": "localhost:3000/vehicles/76/",
     "id": 76
   }
 ]

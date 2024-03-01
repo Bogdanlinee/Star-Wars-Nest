@@ -16,6 +16,8 @@ import {UsersModule} from './users/users.module';
 import {PassportModule} from '@nestjs/passport';
 import * as session from 'express-session';
 import * as passport from 'passport';
+import {ScheduleModule} from '@nestjs/schedule';
+import {CronService} from './utils/cron';
 
 @Module({
     imports: [
@@ -26,6 +28,7 @@ import * as passport from 'passport';
         PassportModule.register({
             session: true
         }),
+        ScheduleModule.forRoot(),
         TypeOrmModule.forRoot(dbConfig as TypeOrmModuleOptions),
         PeopleModule,
         ImagesModule,
@@ -42,6 +45,10 @@ import * as passport from 'passport';
             provide: APP_FILTER,
             useClass: AllExceptionsFilter,
         },
+        {
+            provide: CronService,
+            useClass: CronService,
+        }
     ],
 })
 

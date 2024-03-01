@@ -100,9 +100,4 @@ export class Vehicle {
 
     @Column({type: 'varchar', nullable: true})
     url: string;
-
-    @AfterInsert()
-    updateUrl() {
-        this.url = `localhost:3000/vehicles/${this.id}`;
-    }
 }
