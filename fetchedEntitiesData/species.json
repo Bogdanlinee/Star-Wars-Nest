@@ -8,7 +8,7 @@
     "hair_colors": "blonde, brown, black, red",
     "eye_colors": "brown, blue, green, hazel, grey, amber",
     "average_lifespan": "120",
-    "homeworld": "localhost:3000/planets/9/",
+    "homeworld": 1,
     "language": "Galactic Basic",
     "people": [
       "localhost:3000/people/66/",
@@ -68,7 +68,7 @@
     "hair_colors": "black, brown",
     "eye_colors": "blue, green, yellow, brown, golden, red",
     "average_lifespan": "400",
-    "homeworld": "localhost:3000/planets/14/",
+    "homeworld": 14,
     "language": "Shyriiwook",
     "people": [
       "localhost:3000/people/13/",
@@ -94,7 +94,7 @@
     "hair_colors": "n/a",
     "eye_colors": "black",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/23/",
+    "homeworld": 23,
     "language": "Galatic Basic",
     "people": [
       "localhost:3000/people/15/"
@@ -116,7 +116,7 @@
     "hair_colors": "n/a",
     "eye_colors": "yellow, red",
     "average_lifespan": "1000",
-    "homeworld": "localhost:3000/planets/24/",
+    "homeworld": 24,
     "language": "Huttese",
     "people": [
       "localhost:3000/people/16/"
@@ -139,7 +139,7 @@
     "hair_colors": "brown, white",
     "eye_colors": "brown, green, yellow",
     "average_lifespan": "900",
-    "homeworld": "localhost:3000/planets/28/",
+    "homeworld": 28,
     "language": "Galactic basic",
     "people": [
       "localhost:3000/people/20/"
@@ -165,7 +165,7 @@
     "hair_colors": "none",
     "eye_colors": "yellow, orange",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/29/",
+    "homeworld": 29,
     "language": "Dosh",
     "people": [
       "localhost:3000/people/24/"
@@ -187,7 +187,7 @@
     "hair_colors": "none",
     "eye_colors": "yellow",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/31/",
+    "homeworld": 31,
     "language": "Mon Calamarian",
     "people": [
       "localhost:3000/people/27/"
@@ -209,7 +209,7 @@
     "hair_colors": "white, brown, black",
     "eye_colors": "orange, brown",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/7/",
+    "homeworld": 7,
     "language": "Ewokese",
     "people": [
       "localhost:3000/people/30/"
@@ -231,7 +231,7 @@
     "hair_colors": "none",
     "eye_colors": "black",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/33/",
+    "homeworld": 33,
     "language": "Sullutese",
     "people": [
       "localhost:3000/people/31/"
@@ -253,7 +253,7 @@
     "hair_colors": "none",
     "eye_colors": "red, pink",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/18/",
+    "homeworld": 18,
     "language": "Neimoidia",
     "people": [
       "localhost:3000/people/33/"
@@ -275,7 +275,7 @@
     "hair_colors": "none",
     "eye_colors": "orange",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/8/",
+    "homeworld": 8,
     "language": "Gungan basic",
     "people": [
       "localhost:3000/people/36/",
@@ -300,7 +300,7 @@
     "hair_colors": "none",
     "eye_colors": "yellow",
     "average_lifespan": "91",
-    "homeworld": "localhost:3000/planets/34/",
+    "homeworld": 34,
     "language": "Toydarian",
     "people": [
       "localhost:3000/people/40/"
@@ -323,7 +323,7 @@
     "hair_colors": "none",
     "eye_colors": "yellow, blue",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/35/",
+    "homeworld": 35,
     "language": "Dugese",
     "people": [
       "localhost:3000/people/41/"
@@ -345,7 +345,7 @@
     "hair_colors": "none",
     "eye_colors": "blue, brown, orange, pink",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/37/",
+    "homeworld": 37,
     "language": "Twi'leki",
     "people": [
       "localhost:3000/people/45/",
@@ -371,7 +371,7 @@
     "hair_colors": "none",
     "eye_colors": "unknown",
     "average_lifespan": "79",
-    "homeworld": "localhost:3000/planets/38/",
+    "homeworld": 38,
     "language": "Aleena",
     "people": [
       "localhost:3000/people/47/"
@@ -393,7 +393,7 @@
     "hair_colors": "none",
     "eye_colors": "yellow",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/39/",
+    "homeworld": 39,
     "language": "vulpterish",
     "people": [
       "localhost:3000/people/48/"
@@ -415,7 +415,7 @@
     "hair_colors": "none",
     "eye_colors": "black",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/40/",
+    "homeworld": 40,
     "language": "Xextese",
     "people": [
       "localhost:3000/people/49/"
@@ -437,7 +437,7 @@
     "hair_colors": "none",
     "eye_colors": "orange",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/41/",
+    "homeworld": 41,
     "language": "Tundan",
     "people": [
       "localhost:3000/people/50/"
@@ -460,7 +460,7 @@
     "hair_colors": "red, blond, black, white",
     "eye_colors": "hazel",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/43/",
+    "homeworld": 43,
     "language": "Cerean",
     "people": [
       "localhost:3000/people/52/"
@@ -483,7 +483,7 @@
     "hair_colors": "none",
     "eye_colors": "black",
     "average_lifespan": "70",
-    "homeworld": "localhost:3000/planets/44/",
+    "homeworld": 44,
     "language": "Nautila",
     "people": [
       "localhost:3000/people/53/"
@@ -505,7 +505,7 @@
     "hair_colors": "black",
     "eye_colors": "brown, orange",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/45/",
+    "homeworld": 45,
     "language": "Zabraki",
     "people": [
       "localhost:3000/people/44/",
@@ -528,7 +528,7 @@
     "hair_colors": "unknown",
     "eye_colors": "blue, indigo",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/46/",
+    "homeworld": 46,
     "language": "unknown",
     "people": [
       "localhost:3000/people/55/"
@@ -551,7 +551,7 @@
     "hair_colors": "none",
     "eye_colors": "orange",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/47/",
+    "homeworld": 47,
     "language": "Iktotchese",
     "people": [
       "localhost:3000/people/56/"
@@ -574,7 +574,7 @@
     "hair_colors": "none",
     "eye_colors": "yellow",
     "average_lifespan": "86",
-    "homeworld": "localhost:3000/planets/48/",
+    "homeworld": 48,
     "language": "Quermian",
     "people": [
       "localhost:3000/people/57/"
@@ -597,7 +597,7 @@
     "hair_colors": "none",
     "eye_colors": "black, silver",
     "average_lifespan": "70",
-    "homeworld": "localhost:3000/planets/49/",
+    "homeworld": 49,
     "language": "Kel Dor",
     "people": [
       "localhost:3000/people/58/"
@@ -620,7 +620,7 @@
     "hair_colors": "none",
     "eye_colors": "blue",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/50/",
+    "homeworld": 50,
     "language": "Chagria",
     "people": [
       "localhost:3000/people/59/"
@@ -643,7 +643,7 @@
     "hair_colors": "none",
     "eye_colors": "green, hazel",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/11/",
+    "homeworld": 11,
     "language": "Geonosian",
     "people": [
       "localhost:3000/people/63/"
@@ -666,7 +666,7 @@
     "hair_colors": "black, brown",
     "eye_colors": "blue, green, red, yellow, brown, orange",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/51/",
+    "homeworld": 51,
     "language": "Mirialan",
     "people": [
       "localhost:3000/people/64/",
@@ -690,7 +690,7 @@
     "hair_colors": "none",
     "eye_colors": "yellow",
     "average_lifespan": "70",
-    "homeworld": "localhost:3000/planets/54/",
+    "homeworld": 54,
     "language": "Clawdite",
     "people": [
       "localhost:3000/people/70/"
@@ -713,7 +713,7 @@
     "hair_colors": "none",
     "eye_colors": "yellow",
     "average_lifespan": "75",
-    "homeworld": "localhost:3000/planets/55/",
+    "homeworld": 55,
     "language": "besalisk",
     "people": [
       "localhost:3000/people/71/"
@@ -735,7 +735,7 @@
     "hair_colors": "none",
     "eye_colors": "black",
     "average_lifespan": "80",
-    "homeworld": "localhost:3000/planets/10/",
+    "homeworld": 10,
     "language": "Kaminoan",
     "people": [
       "localhost:3000/people/72/",
@@ -758,7 +758,7 @@
     "hair_colors": "none",
     "eye_colors": "unknown",
     "average_lifespan": "unknown",
-    "homeworld": "localhost:3000/planets/56/",
+    "homeworld": 56,
     "language": "Skakoan",
     "people": [
       "localhost:3000/people/76/"
@@ -781,7 +781,7 @@
     "hair_colors": "none",
     "eye_colors": "black",
     "average_lifespan": "100",
-    "homeworld": "localhost:3000/planets/57/",
+    "homeworld": 57,
     "language": "Muun",
     "people": [
       "localhost:3000/people/77/"
@@ -804,7 +804,7 @@
     "hair_colors": "none",
     "eye_colors": "red, orange, yellow, green, blue, black",
     "average_lifespan": "94",
-    "homeworld": "localhost:3000/planets/58/",
+    "homeworld": 58,
     "language": "Togruti",
     "people": [
       "localhost:3000/people/78/"
@@ -827,7 +827,7 @@
     "hair_colors": "none",
     "eye_colors": "yellow",
     "average_lifespan": "80",
-    "homeworld": "localhost:3000/planets/59/",
+    "homeworld": 59,
     "language": "Kaleesh",
     "people": [
       "localhost:3000/people/79/"
@@ -849,7 +849,7 @@
     "hair_colors": "none",
     "eye_colors": "black",
     "average_lifespan": "700",
-    "homeworld": "localhost:3000/planets/12/",
+    "homeworld": 12,
     "language": "Utapese",
     "people": [
       "localhost:3000/people/83/"

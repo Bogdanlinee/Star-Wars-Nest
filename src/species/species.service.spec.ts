@@ -32,7 +32,11 @@ describe('UserService', () => {
                 },
                 {
                     provide: getRepositoryToken(Planet),
-                    useClass: Repository,
+                    useValue: {
+                        findOne: () => {
+                            return;
+                        }
+                    }
                 },
             ],
         }).compile();
@@ -51,7 +55,6 @@ describe('UserService', () => {
 
         expect(result).toEqual(mockSpeciesEntity);
     });
-
 
     it('Can find one species in DB', async () => {
         const speciesId = 1;

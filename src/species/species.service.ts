@@ -28,7 +28,14 @@ export class SpeciesService {
 
         await appendEntities(species, createSpeciesDto, 'filmIds', 'films', this.filmsRepository);
         await appendEntities(species, createSpeciesDto, 'peopleIds', 'people', this.peopleRepository);
-        await appendEntities(species, createSpeciesDto, 'planetsIds', 'planets', this.planetsRepository);
+
+
+        const planetId = createSpeciesDto.homeworldId;
+        const planetEntity = await this.planetsRepository.findOne({where: {id: planetId}});
+
+        if (planetEntity) {
+            species.homeworld = planetEntity;
+        }
 
         species = await this.speciesRepository.save(species);
         species.url = `localhost:3000/species/${species.id}`;
@@ -42,7 +49,6 @@ export class SpeciesService {
             relations: {
                 films: true,
                 people: true,
-                planets: true,
             },
             relationLoadStrategy: 'query',
         });
@@ -53,7 +59,6 @@ export class SpeciesService {
             relations: {
                 films: true,
                 people: true,
-                planets: true,
             },
             relationLoadStrategy: 'query',
             order: {id: 'DESC'},
@@ -70,7 +75,13 @@ export class SpeciesService {
 
         await appendEntities(updatedSpecies, updateSpeciesDto, 'filmIds', 'films', this.filmsRepository);
         await appendEntities(updatedSpecies, updateSpeciesDto, 'peopleIds', 'people', this.peopleRepository);
-        await appendEntities(updatedSpecies, updateSpeciesDto, 'planetsIds', 'planets', this.planetsRepository);
+
+        const planetId = updateSpeciesDto.homeworldId;
+        const planetEntity = await this.planetsRepository.findOne({where: {id: planetId}});
+
+        if (planetEntity) {
+            updatedSpecies.homeworld = planetEntity;
+        }
 
         return await this.speciesRepository.save(updatedSpecies);
     }

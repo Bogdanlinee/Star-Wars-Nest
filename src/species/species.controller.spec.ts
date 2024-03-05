@@ -42,7 +42,7 @@ describe('PeopleController', () => {
                 {
                     provide: getRepositoryToken(Planet),
                     useValue: () => {
-                    },
+                    }
                 },
             ],
         }).compile();

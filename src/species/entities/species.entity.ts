@@ -4,7 +4,7 @@ import {
     PrimaryGeneratedColumn,
     DeleteDateColumn,
     UpdateDateColumn,
-    CreateDateColumn, ManyToMany, JoinTable, AfterInsert
+    CreateDateColumn, ManyToMany, JoinTable, AfterInsert, ManyToOne, JoinColumn
 } from 'typeorm';
 import {Film} from '../../films/entities/film.entity';
 import {Person} from '../../people/entities/person.entity';
@@ -39,8 +39,8 @@ export class Species {
     @Column({type: 'varchar', nullable: false})
     average_lifespan: string;
 
-    @Column({type: 'varchar', default: null})
-    homeworld: string;
+    // @Column({type: 'varchar', default: null})
+    // homeworld: string;
 
     @Column({type: 'varchar', nullable: false})
     language: string;
@@ -87,11 +87,9 @@ export class Species {
     })
     people: Person[];
 
-    @ManyToMany(
-        () => Planet,
-        (Planet) => Planet.species,
-    )
-    planets: Planet[];
+    @ManyToOne(() => Planet, (Planet) => Planet.species)
+    @JoinColumn({name: 'homeworld'})
+    homeworld: Planet;
 
     @CreateDateColumn({select: false})
     created: Date;

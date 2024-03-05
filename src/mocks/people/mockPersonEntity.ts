@@ -21,8 +21,8 @@ export default {
     vehicleIds: [],
     created: new Date(),
     edited: new Date(),
+    deletedAt: new Date(),
     url: "https://swapi.dev/api/people/1/",
     images: [],
     id: 1,
-    deletedAt: new Date(),
 };

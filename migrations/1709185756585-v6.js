@@ -2,7 +2,6 @@ const users = require('../fetchedEntitiesData/users.json')
 
 module.exports = class V61709185756585 {
     async up(queryRunner) {
-        console.log(users);
         await queryRunner.manager
             .createQueryBuilder()
             .insert()

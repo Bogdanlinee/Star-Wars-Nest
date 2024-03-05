@@ -23,6 +23,8 @@ export class AllExceptionsFilter implements ExceptionFilter {
                 : HttpStatus.INTERNAL_SERVER_ERROR;
 
 
+        console.log(exception);
+
         const message = exception instanceof Error
             ? exception.message || 'Sorry, something went wrong'
             : 'Sorry, something went wrong';
