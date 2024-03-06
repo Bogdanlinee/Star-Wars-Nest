@@ -11,7 +11,7 @@
     "population": "200000",
     "created": "2014-12-09T13:50:49.641000Z",
     "edited": "2014-12-20T20:58:18.411000Z",
-    "url": "https://swapi.dev/api/planets/1/",
+    "url": "localhost:3000/planets/1/",
     "id": 1
   },
   {
@@ -26,7 +26,7 @@
     "population": "2000000000",
     "created": "2014-12-10T11:35:48.479000Z",
     "edited": "2014-12-20T20:58:18.420000Z",
-    "url": "https://swapi.dev/api/planets/2/",
+    "url": "localhost:3000/planets/2/",
     "id": 2
   },
   {
@@ -41,7 +41,7 @@
     "population": "1000",
     "created": "2014-12-10T11:37:19.144000Z",
     "edited": "2014-12-20T20:58:18.421000Z",
-    "url": "https://swapi.dev/api/planets/3/",
+    "url": "localhost:3000/planets/3/",
     "id": 3
   },
   {
@@ -56,7 +56,7 @@
     "population": "unknown",
     "created": "2014-12-10T11:39:13.934000Z",
     "edited": "2014-12-20T20:58:18.423000Z",
-    "url": "https://swapi.dev/api/planets/4/",
+    "url": "localhost:3000/planets/4/",
     "id": 4
   },
   {
@@ -71,7 +71,7 @@
     "population": "unknown",
     "created": "2014-12-10T11:42:22.590000Z",
     "edited": "2014-12-20T20:58:18.425000Z",
-    "url": "https://swapi.dev/api/planets/5/",
+    "url": "localhost:3000/planets/5/",
     "id": 5
   },
   {
@@ -86,7 +86,7 @@
     "population": "6000000",
     "created": "2014-12-10T11:43:55.240000Z",
     "edited": "2014-12-20T20:58:18.427000Z",
-    "url": "https://swapi.dev/api/planets/6/",
+    "url": "localhost:3000/planets/6/",
     "id": 6
   },
   {
@@ -101,7 +101,7 @@
     "population": "30000000",
     "created": "2014-12-10T11:50:29.349000Z",
     "edited": "2014-12-20T20:58:18.429000Z",
-    "url": "https://swapi.dev/api/planets/7/",
+    "url": "localhost:3000/planets/7/",
     "id": 7
   },
   {
@@ -116,7 +116,7 @@
     "population": "4500000000",
     "created": "2014-12-10T11:52:31.066000Z",
     "edited": "2014-12-20T20:58:18.430000Z",
-    "url": "https://swapi.dev/api/planets/8/",
+    "url": "localhost:3000/planets/8/",
     "id": 8
   },
   {
@@ -131,7 +131,7 @@
     "population": "1000000000000",
     "created": "2014-12-10T11:54:13.921000Z",
     "edited": "2014-12-20T20:58:18.432000Z",
-    "url": "https://swapi.dev/api/planets/9/",
+    "url": "localhost:3000/planets/9/",
     "id": 9
   },
   {
@@ -146,7 +146,7 @@
     "population": "1000000000",
     "created": "2014-12-10T12:45:06.577000Z",
     "edited": "2014-12-20T20:58:18.434000Z",
-    "url": "https://swapi.dev/api/planets/10/",
+    "url": "localhost:3000/planets/10/",
     "id": 10
   },
   {
@@ -161,7 +161,7 @@
     "population": "100000000000",
     "created": "2014-12-10T12:47:22.350000Z",
     "edited": "2014-12-20T20:58:18.437000Z",
-    "url": "https://swapi.dev/api/planets/11/",
+    "url": "localhost:3000/planets/11/",
     "id": 11
   },
   {
@@ -176,7 +176,7 @@
     "population": "95000000",
     "created": "2014-12-10T12:49:01.491000Z",
     "edited": "2014-12-20T20:58:18.439000Z",
-    "url": "https://swapi.dev/api/planets/12/",
+    "url": "localhost:3000/planets/12/",
     "id": 12
   },
   {
@@ -191,7 +191,7 @@
     "population": "20000",
     "created": "2014-12-10T12:50:16.526000Z",
     "edited": "2014-12-20T20:58:18.440000Z",
-    "url": "https://swapi.dev/api/planets/13/",
+    "url": "localhost:3000/planets/13/",
     "id": 13
   },
   {
@@ -206,7 +206,7 @@
     "population": "45000000",
     "created": "2014-12-10T13:32:00.124000Z",
     "edited": "2014-12-20T20:58:18.442000Z",
-    "url": "https://swapi.dev/api/planets/14/",
+    "url": "localhost:3000/planets/14/",
     "id": 14
   },
   {
@@ -221,7 +221,7 @@
     "population": "1000000",
     "created": "2014-12-10T13:33:46.405000Z",
     "edited": "2014-12-20T20:58:18.444000Z",
-    "url": "https://swapi.dev/api/planets/15/",
+    "url": "localhost:3000/planets/15/",
     "id": 15
   },
   {
@@ -236,7 +236,7 @@
     "population": "19000000",
     "created": "2014-12-10T13:43:39.139000Z",
     "edited": "2014-12-20T20:58:18.446000Z",
-    "url": "https://swapi.dev/api/planets/16/",
+    "url": "localhost:3000/planets/16/",
     "id": 16
   },
   {
@@ -251,7 +251,7 @@
     "population": "8500000",
     "created": "2014-12-10T13:44:50.397000Z",
     "edited": "2014-12-20T20:58:18.447000Z",
-    "url": "https://swapi.dev/api/planets/17/",
+    "url": "localhost:3000/planets/17/",
     "id": 17
   },
   {
@@ -266,7 +266,7 @@
     "population": "10000000",
     "created": "2014-12-10T13:46:28.704000Z",
     "edited": "2014-12-20T20:58:18.449000Z",
-    "url": "https://swapi.dev/api/planets/18/",
+    "url": "localhost:3000/planets/18/",
     "id": 18
   },
   {
@@ -281,7 +281,7 @@
     "population": "1400000000",
     "created": "2014-12-10T13:47:46.874000Z",
     "edited": "2014-12-20T20:58:18.450000Z",
-    "url": "https://swapi.dev/api/planets/19/",
+    "url": "localhost:3000/planets/19/",
     "id": 19
   },
   {
@@ -296,7 +296,7 @@
     "population": "unknown",
     "created": "2014-12-10T16:16:26.566000Z",
     "edited": "2014-12-20T20:58:18.452000Z",
-    "url": "https://swapi.dev/api/planets/20/",
+    "url": "localhost:3000/planets/20/",
     "id": 20
   },
   {
@@ -311,7 +311,7 @@
     "population": "22000000000",
     "created": "2014-12-10T16:26:54.384000Z",
     "edited": "2014-12-20T20:58:18.454000Z",
-    "url": "https://swapi.dev/api/planets/21/",
+    "url": "localhost:3000/planets/21/",
     "id": 21
   },
   {
@@ -326,7 +326,7 @@
     "population": "3000000000",
     "created": "2014-12-10T16:49:12.453000Z",
     "edited": "2014-12-20T20:58:18.456000Z",
-    "url": "https://swapi.dev/api/planets/22/",
+    "url": "localhost:3000/planets/22/",
     "id": 22
   },
   {
@@ -341,7 +341,7 @@
     "population": "1300000000",
     "created": "2014-12-10T17:03:28.110000Z",
     "edited": "2014-12-20T20:58:18.458000Z",
-    "url": "https://swapi.dev/api/planets/23/",
+    "url": "localhost:3000/planets/23/",
     "id": 23
   },
   {
@@ -356,7 +356,7 @@
     "population": "7000000000",
     "created": "2014-12-10T17:11:29.452000Z",
     "edited": "2014-12-20T20:58:18.460000Z",
-    "url": "https://swapi.dev/api/planets/24/",
+    "url": "localhost:3000/planets/24/",
     "id": 24
   },
   {
@@ -371,7 +371,7 @@
     "population": "1000",
     "created": "2014-12-10T17:23:29.896000Z",
     "edited": "2014-12-20T20:58:18.461000Z",
-    "url": "https://swapi.dev/api/planets/25/",
+    "url": "localhost:3000/planets/25/",
     "id": 25
   },
   {
@@ -386,7 +386,7 @@
     "population": "62000000",
     "created": "2014-12-12T11:16:55.078000Z",
     "edited": "2014-12-20T20:58:18.463000Z",
-    "url": "https://swapi.dev/api/planets/26/",
+    "url": "localhost:3000/planets/26/",
     "id": 26
   },
   {
@@ -401,7 +401,7 @@
     "population": "4000000000",
     "created": "2014-12-15T12:23:41.661000Z",
     "edited": "2014-12-20T20:58:18.464000Z",
-    "url": "https://swapi.dev/api/planets/27/",
+    "url": "localhost:3000/planets/27/",
     "id": 27
   },
   {
@@ -416,7 +416,7 @@
     "population": "unknown",
     "created": "2014-12-15T12:25:59.569000Z",
     "edited": "2014-12-20T20:58:18.466000Z",
-    "url": "https://swapi.dev/api/planets/28/",
+    "url": "localhost:3000/planets/28/",
     "id": 28
   },
   {
@@ -431,7 +431,7 @@
     "population": "42000000",
     "created": "2014-12-15T12:53:47.695000Z",
     "edited": "2014-12-20T20:58:18.468000Z",
-    "url": "https://swapi.dev/api/planets/29/",
+    "url": "localhost:3000/planets/29/",
     "id": 29
   },
   {
@@ -446,7 +446,7 @@
     "population": "300000000",
     "created": "2014-12-15T12:56:31.121000Z",
     "edited": "2014-12-20T20:58:18.469000Z",
-    "url": "https://swapi.dev/api/planets/30/",
+    "url": "localhost:3000/planets/30/",
     "id": 30
   },
   {
@@ -461,7 +461,7 @@
     "population": "27000000000",
     "created": "2014-12-18T11:07:01.792000Z",
     "edited": "2014-12-20T20:58:18.471000Z",
-    "url": "https://swapi.dev/api/planets/31/",
+    "url": "localhost:3000/planets/31/",
     "id": 31
   },
   {
@@ -476,7 +476,7 @@
     "population": "1200000000",
     "created": "2014-12-18T11:11:51.872000Z",
     "edited": "2014-12-20T20:58:18.472000Z",
-    "url": "https://swapi.dev/api/planets/32/",
+    "url": "localhost:3000/planets/32/",
     "id": 32
   },
   {
@@ -491,7 +491,7 @@
     "population": "18500000000",
     "created": "2014-12-18T11:25:40.243000Z",
     "edited": "2014-12-20T20:58:18.474000Z",
-    "url": "https://swapi.dev/api/planets/33/",
+    "url": "localhost:3000/planets/33/",
     "id": 33
   },
   {
@@ -506,7 +506,7 @@
     "population": "11000000",
     "created": "2014-12-19T17:47:54.403000Z",
     "edited": "2014-12-20T20:58:18.476000Z",
-    "url": "https://swapi.dev/api/planets/34/",
+    "url": "localhost:3000/planets/34/",
     "id": 34
   },
   {
@@ -521,7 +521,7 @@
     "population": "2000000000",
     "created": "2014-12-19T17:52:13.106000Z",
     "edited": "2014-12-20T20:58:18.478000Z",
-    "url": "https://swapi.dev/api/planets/35/",
+    "url": "localhost:3000/planets/35/",
     "id": 35
   },
   {
@@ -536,7 +536,7 @@
     "population": "5200",
     "created": "2014-12-19T18:00:40.142000Z",
     "edited": "2014-12-20T20:58:18.480000Z",
-    "url": "https://swapi.dev/api/planets/36/",
+    "url": "localhost:3000/planets/36/",
     "id": 36
   },
   {
@@ -551,7 +551,7 @@
     "population": "1500000000",
     "created": "2014-12-20T09:46:25.740000Z",
     "edited": "2014-12-20T20:58:18.481000Z",
-    "url": "https://swapi.dev/api/planets/37/",
+    "url": "localhost:3000/planets/37/",
     "id": 37
   },
   {
@@ -566,7 +566,7 @@
     "population": "unknown",
     "created": "2014-12-20T09:52:23.452000Z",
     "edited": "2014-12-20T20:58:18.483000Z",
-    "url": "https://swapi.dev/api/planets/38/",
+    "url": "localhost:3000/planets/38/",
     "id": 38
   },
   {
@@ -581,7 +581,7 @@
     "population": "421000000",
     "created": "2014-12-20T09:56:58.874000Z",
     "edited": "2014-12-20T20:58:18.485000Z",
-    "url": "https://swapi.dev/api/planets/39/",
+    "url": "localhost:3000/planets/39/",
     "id": 39
   },
   {
@@ -596,7 +596,7 @@
     "population": "unknown",
     "created": "2014-12-20T10:01:37.395000Z",
     "edited": "2014-12-20T20:58:18.487000Z",
-    "url": "https://swapi.dev/api/planets/40/",
+    "url": "localhost:3000/planets/40/",
     "id": 40
   },
   {
@@ -611,7 +611,7 @@
     "population": "0",
     "created": "2014-12-20T10:07:29.578000Z",
     "edited": "2014-12-20T20:58:18.489000Z",
-    "url": "https://swapi.dev/api/planets/41/",
+    "url": "localhost:3000/planets/41/",
     "id": 41
   },
   {
@@ -626,7 +626,7 @@
     "population": "705300",
     "created": "2014-12-20T10:12:28.980000Z",
     "edited": "2014-12-20T20:58:18.491000Z",
-    "url": "https://swapi.dev/api/planets/42/",
+    "url": "localhost:3000/planets/42/",
     "id": 42
   },
   {
@@ -641,7 +641,7 @@
     "population": "450000000",
     "created": "2014-12-20T10:14:48.178000Z",
     "edited": "2014-12-20T20:58:18.493000Z",
-    "url": "https://swapi.dev/api/planets/43/",
+    "url": "localhost:3000/planets/43/",
     "id": 43
   },
   {
@@ -656,7 +656,7 @@
     "population": "500000000",
     "created": "2014-12-20T10:18:26.110000Z",
     "edited": "2014-12-20T20:58:18.495000Z",
-    "url": "https://swapi.dev/api/planets/44/",
+    "url": "localhost:3000/planets/44/",
     "id": 44
   },
   {
@@ -671,7 +671,7 @@
     "population": "unknown",
     "created": "2014-12-20T10:26:05.788000Z",
     "edited": "2014-12-20T20:58:18.497000Z",
-    "url": "https://swapi.dev/api/planets/45/",
+    "url": "localhost:3000/planets/45/",
     "id": 45
   },
   {
@@ -686,7 +686,7 @@
     "population": "unknown",
     "created": "2014-12-20T10:28:31.117000Z",
     "edited": "2014-12-20T20:58:18.498000Z",
-    "url": "https://swapi.dev/api/planets/46/",
+    "url": "localhost:3000/planets/46/",
     "id": 46
   },
   {
@@ -701,7 +701,7 @@
     "population": "unknown",
     "created": "2014-12-20T10:31:32.413000Z",
     "edited": "2014-12-20T20:58:18.500000Z",
-    "url": "https://swapi.dev/api/planets/47/",
+    "url": "localhost:3000/planets/47/",
     "id": 47
   },
   {
@@ -716,7 +716,7 @@
     "population": "unknown",
     "created": "2014-12-20T10:34:08.249000Z",
     "edited": "2014-12-20T20:58:18.502000Z",
-    "url": "https://swapi.dev/api/planets/48/",
+    "url": "localhost:3000/planets/48/",
     "id": 48
   },
   {
@@ -731,7 +731,7 @@
     "population": "unknown",
     "created": "2014-12-20T10:48:36.141000Z",
     "edited": "2014-12-20T20:58:18.504000Z",
-    "url": "https://swapi.dev/api/planets/49/",
+    "url": "localhost:3000/planets/49/",
     "id": 49
   },
   {
@@ -746,7 +746,7 @@
     "population": "3500000000",
     "created": "2014-12-20T10:52:51.524000Z",
     "edited": "2014-12-20T20:58:18.506000Z",
-    "url": "https://swapi.dev/api/planets/50/",
+    "url": "localhost:3000/planets/50/",
     "id": 50
   },
   {
@@ -761,7 +761,7 @@
     "population": "unknown",
     "created": "2014-12-20T16:44:46.318000Z",
     "edited": "2014-12-20T20:58:18.508000Z",
-    "url": "https://swapi.dev/api/planets/51/",
+    "url": "localhost:3000/planets/51/",
     "id": 51
   },
   {
@@ -776,7 +776,7 @@
     "population": "unknown",
     "created": "2014-12-20T16:52:13.357000Z",
     "edited": "2014-12-20T20:58:18.510000Z",
-    "url": "https://swapi.dev/api/planets/52/",
+    "url": "localhost:3000/planets/52/",
     "id": 52
   },
   {
@@ -791,7 +791,7 @@
     "population": "unknown",
     "created": "2014-12-20T16:54:39.909000Z",
     "edited": "2014-12-20T20:58:18.512000Z",
-    "url": "https://swapi.dev/api/planets/53/",
+    "url": "localhost:3000/planets/53/",
     "id": 53
   },
   {
@@ -806,7 +806,7 @@
     "population": "unknown",
     "created": "2014-12-20T16:56:37.250000Z",
     "edited": "2014-12-20T20:58:18.514000Z",
-    "url": "https://swapi.dev/api/planets/54/",
+    "url": "localhost:3000/planets/54/",
     "id": 54
   },
   {
@@ -821,7 +821,7 @@
     "population": "500000000",
     "created": "2014-12-20T17:27:41.286000Z",
     "edited": "2014-12-20T20:58:18.516000Z",
-    "url": "https://swapi.dev/api/planets/55/",
+    "url": "localhost:3000/planets/55/",
     "id": 55
   },
   {
@@ -836,7 +836,7 @@
     "population": "500000000000",
     "created": "2014-12-20T17:50:47.864000Z",
     "edited": "2014-12-20T20:58:18.517000Z",
-    "url": "https://swapi.dev/api/planets/56/",
+    "url": "localhost:3000/planets/56/",
     "id": 56
   },
   {
@@ -851,7 +851,7 @@
     "population": "5000000000",
     "created": "2014-12-20T17:57:47.420000Z",
     "edited": "2014-12-20T20:58:18.519000Z",
-    "url": "https://swapi.dev/api/planets/57/",
+    "url": "localhost:3000/planets/57/",
     "id": 57
   },
   {
@@ -866,7 +866,7 @@
     "population": "unknown",
     "created": "2014-12-20T18:43:14.049000Z",
     "edited": "2014-12-20T20:58:18.521000Z",
-    "url": "https://swapi.dev/api/planets/58/",
+    "url": "localhost:3000/planets/58/",
     "id": 58
   },
   {
@@ -881,7 +881,7 @@
     "population": "4000000000",
     "created": "2014-12-20T19:43:51.278000Z",
     "edited": "2014-12-20T20:58:18.523000Z",
-    "url": "https://swapi.dev/api/planets/59/",
+    "url": "localhost:3000/planets/59/",
     "id": 59
   },
   {
@@ -896,7 +896,7 @@
     "population": "unknown",
     "created": "2014-12-20T20:18:36.256000Z",
     "edited": "2014-12-20T20:58:18.525000Z",
-    "url": "https://swapi.dev/api/planets/60/",
+    "url": "localhost:3000/planets/60/",
     "id": 60
   }
 ]

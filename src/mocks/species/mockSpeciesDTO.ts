@@ -7,7 +7,7 @@ export default {
     hair_colors: "blonde, brown, black, red",
     eye_colors: "brown, blue, green, hazel, grey, amber",
     average_lifespan: "120",
-    homeworld: "https://swapi.dev/api/planets/9/",
+    homeworldId: 1,
     language: "Galactic Basic",
     url: "https://swapi.dev/api/species/1/",
     filmIds: [1],

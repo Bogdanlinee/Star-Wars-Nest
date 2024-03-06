@@ -1,4 +1,4 @@
-import {IsArray, IsNotEmpty} from 'class-validator';
+import {IsArray, IsNotEmpty, IsNumber} from 'class-validator';
 import {Transform} from 'class-transformer';
 import {ApiProperty} from '@nestjs/swagger';
 
@@ -43,10 +43,9 @@ export class CreateSpeciesDto {
     @ApiProperty()
     average_lifespan: string;
 
-    @Transform(({value}) => value.trim())
-    @IsNotEmpty()
+    @IsNumber()
     @ApiProperty()
-    homeworld: string;
+    homeworldId: number;
 
     @Transform(({value}) => value.trim())
     @IsNotEmpty()

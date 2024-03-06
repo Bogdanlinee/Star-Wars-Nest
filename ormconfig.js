@@ -1,6 +1,6 @@
 const {DataSource} = require('typeorm');
 
-let dbConfig = {
+const dbConfig = {
     type: 'mysql',
     host: 'localhost',
     port: 3306,

@@ -10,23 +10,23 @@
     "gender": "male",
     "homeworld": 1,
     "films": [
-      "https://swapi.dev/api/films/1/",
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/1/",
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/",
+      "localhost:3000/films/6/"
     ],
     "species": [],
     "vehicles": [
-      "https://swapi.dev/api/vehicles/14/",
-      "https://swapi.dev/api/vehicles/30/"
+      "localhost:3000/vehicles/14/",
+      "localhost:3000/vehicles/30/"
     ],
     "starships": [
-      "https://swapi.dev/api/starships/12/",
-      "https://swapi.dev/api/starships/22/"
+      "localhost:3000/starships/12/",
+      "localhost:3000/starships/22/"
     ],
     "created": "2014-12-09T13:50:51.644000Z",
     "edited": "2014-12-20T21:17:56.891000Z",
-    "url": "https://swapi.dev/api/people/1/",
+    "url": "localhost:3000/people/1/",
     "id": 1
   },
   {
@@ -40,21 +40,21 @@
     "gender": "n/a",
     "homeworld": 1,
     "films": [
-      "https://swapi.dev/api/films/1/",
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/",
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/1/",
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/",
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/2/"
+      "localhost:3000/species/2/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-10T15:10:51.357000Z",
     "edited": "2014-12-20T21:17:50.309000Z",
-    "url": "https://swapi.dev/api/people/2/",
+    "url": "localhost:3000/people/2/",
     "id": 2
   },
   {
@@ -68,21 +68,21 @@
     "gender": "n/a",
     "homeworld": 8,
     "films": [
-      "https://swapi.dev/api/films/1/",
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/",
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/1/",
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/",
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/2/"
+      "localhost:3000/species/2/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-10T15:11:50.376000Z",
     "edited": "2014-12-20T21:17:50.311000Z",
-    "url": "https://swapi.dev/api/people/3/",
+    "url": "localhost:3000/people/3/",
     "id": 3
   },
   {
@@ -96,19 +96,19 @@
     "gender": "male",
     "homeworld": 1,
     "films": [
-      "https://swapi.dev/api/films/1/",
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/1/",
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/",
+      "localhost:3000/films/6/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [
-      "https://swapi.dev/api/starships/13/"
+      "localhost:3000/starships/13/"
     ],
     "created": "2014-12-10T15:18:20.704000Z",
     "edited": "2014-12-20T21:17:50.313000Z",
-    "url": "https://swapi.dev/api/people/4/",
+    "url": "localhost:3000/people/4/",
     "id": 4
   },
   {
@@ -122,19 +122,19 @@
     "gender": "female",
     "homeworld": 2,
     "films": [
-      "https://swapi.dev/api/films/1/",
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/1/",
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/",
+      "localhost:3000/films/6/"
     ],
     "species": [],
     "vehicles": [
-      "https://swapi.dev/api/vehicles/30/"
+      "localhost:3000/vehicles/30/"
     ],
     "starships": [],
     "created": "2014-12-10T15:20:09.791000Z",
     "edited": "2014-12-20T21:17:50.315000Z",
-    "url": "https://swapi.dev/api/people/5/",
+    "url": "localhost:3000/people/5/",
     "id": 5
   },
   {
@@ -148,16 +148,16 @@
     "gender": "male",
     "homeworld": 1,
     "films": [
-      "https://swapi.dev/api/films/1/",
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/1/",
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-10T15:52:14.024000Z",
     "edited": "2014-12-20T21:17:50.317000Z",
-    "url": "https://swapi.dev/api/people/6/",
+    "url": "localhost:3000/people/6/",
     "id": 6
   },
   {
@@ -171,16 +171,16 @@
     "gender": "female",
     "homeworld": 1,
     "films": [
-      "https://swapi.dev/api/films/1/",
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/1/",
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-10T15:53:41.121000Z",
     "edited": "2014-12-20T21:17:50.319000Z",
-    "url": "https://swapi.dev/api/people/7/",
+    "url": "localhost:3000/people/7/",
     "id": 7
   },
   {
@@ -194,16 +194,16 @@
     "gender": "n/a",
     "homeworld": 1,
     "films": [
-      "https://swapi.dev/api/films/1/"
+      "localhost:3000/films/1/"
     ],
     "species": [
-      "https://swapi.dev/api/species/2/"
+      "localhost:3000/species/2/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-10T15:57:50.959000Z",
     "edited": "2014-12-20T21:17:50.321000Z",
-    "url": "https://swapi.dev/api/people/8/",
+    "url": "localhost:3000/people/8/",
     "id": 8
   },
   {
@@ -217,16 +217,16 @@
     "gender": "male",
     "homeworld": 1,
     "films": [
-      "https://swapi.dev/api/films/1/"
+      "localhost:3000/films/1/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [
-      "https://swapi.dev/api/starships/12/"
+      "localhost:3000/starships/12/"
     ],
     "created": "2014-12-10T15:59:50.509000Z",
     "edited": "2014-12-20T21:17:50.323000Z",
-    "url": "https://swapi.dev/api/people/9/",
+    "url": "localhost:3000/people/9/",
     "id": 9
   },
   {
@@ -240,27 +240,27 @@
     "gender": "male",
     "homeworld": 20,
     "films": [
-      "https://swapi.dev/api/films/1/",
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/",
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/1/",
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/",
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [],
     "vehicles": [
-      "https://swapi.dev/api/vehicles/38/"
+      "localhost:3000/vehicles/38/"
     ],
     "starships": [
-      "https://swapi.dev/api/starships/48/",
-      "https://swapi.dev/api/starships/59/",
-      "https://swapi.dev/api/starships/64/",
-      "https://swapi.dev/api/starships/65/",
-      "https://swapi.dev/api/starships/74/"
+      "localhost:3000/starships/48/",
+      "localhost:3000/starships/59/",
+      "localhost:3000/starships/64/",
+      "localhost:3000/starships/65/",
+      "localhost:3000/starships/74/"
     ],
     "created": "2014-12-10T16:16:29.192000Z",
     "edited": "2014-12-20T21:17:50.325000Z",
-    "url": "https://swapi.dev/api/people/10/",
+    "url": "localhost:3000/people/10/",
     "id": 10
   },
   {
@@ -274,23 +274,23 @@
     "gender": "male",
     "homeworld": 1,
     "films": [
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [],
     "vehicles": [
-      "https://swapi.dev/api/vehicles/44/",
-      "https://swapi.dev/api/vehicles/46/"
+      "localhost:3000/vehicles/44/",
+      "localhost:3000/vehicles/46/"
     ],
     "starships": [
-      "https://swapi.dev/api/starships/39/",
-      "https://swapi.dev/api/starships/59/",
-      "https://swapi.dev/api/starships/65/"
+      "localhost:3000/starships/39/",
+      "localhost:3000/starships/59/",
+      "localhost:3000/starships/65/"
     ],
     "created": "2014-12-10T16:20:44.310000Z",
     "edited": "2014-12-20T21:17:50.327000Z",
-    "url": "https://swapi.dev/api/people/11/",
+    "url": "localhost:3000/people/11/",
     "id": 11
   },
   {
@@ -304,15 +304,15 @@
     "gender": "male",
     "homeworld": 21,
     "films": [
-      "https://swapi.dev/api/films/1/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/1/",
+      "localhost:3000/films/6/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-10T16:26:56.138000Z",
     "edited": "2014-12-20T21:17:50.330000Z",
-    "url": "https://swapi.dev/api/people/12/",
+    "url": "localhost:3000/people/12/",
     "id": 12
   },
   {
@@ -326,24 +326,24 @@
     "gender": "male",
     "homeworld": 14,
     "films": [
-      "https://swapi.dev/api/films/1/",
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/1/",
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/3/"
+      "localhost:3000/species/3/"
     ],
     "vehicles": [
-      "https://swapi.dev/api/vehicles/19/"
+      "localhost:3000/vehicles/19/"
     ],
     "starships": [
-      "https://swapi.dev/api/starships/10/",
-      "https://swapi.dev/api/starships/22/"
+      "localhost:3000/starships/10/",
+      "localhost:3000/starships/22/"
     ],
     "created": "2014-12-10T16:42:45.066000Z",
     "edited": "2014-12-20T21:17:50.332000Z",
-    "url": "https://swapi.dev/api/people/13/",
+    "url": "localhost:3000/people/13/",
     "id": 13
   },
   {
@@ -357,19 +357,19 @@
     "gender": "male",
     "homeworld": 22,
     "films": [
-      "https://swapi.dev/api/films/1/",
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/1/",
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [
-      "https://swapi.dev/api/starships/10/",
-      "https://swapi.dev/api/starships/22/"
+      "localhost:3000/starships/10/",
+      "localhost:3000/starships/22/"
     ],
     "created": "2014-12-10T16:49:14.582000Z",
     "edited": "2014-12-20T21:17:50.334000Z",
-    "url": "https://swapi.dev/api/people/14/",
+    "url": "localhost:3000/people/14/",
     "id": 14
   },
   {
@@ -383,16 +383,16 @@
     "gender": "male",
     "homeworld": 23,
     "films": [
-      "https://swapi.dev/api/films/1/"
+      "localhost:3000/films/1/"
     ],
     "species": [
-      "https://swapi.dev/api/species/4/"
+      "localhost:3000/species/4/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-10T17:03:30.334000Z",
     "edited": "2014-12-20T21:17:50.336000Z",
-    "url": "https://swapi.dev/api/people/15/",
+    "url": "localhost:3000/people/15/",
     "id": 15
   },
   {
@@ -406,18 +406,18 @@
     "gender": "hermaphrodite",
     "homeworld": 24,
     "films": [
-      "https://swapi.dev/api/films/1/",
-      "https://swapi.dev/api/films/3/",
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/1/",
+      "localhost:3000/films/3/",
+      "localhost:3000/films/4/"
     ],
     "species": [
-      "https://swapi.dev/api/species/5/"
+      "localhost:3000/species/5/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-10T17:11:31.638000Z",
     "edited": "2014-12-20T21:17:50.338000Z",
-    "url": "https://swapi.dev/api/people/16/",
+    "url": "localhost:3000/people/16/",
     "id": 16
   },
   {
@@ -431,20 +431,20 @@
     "gender": "male",
     "homeworld": 22,
     "films": [
-      "https://swapi.dev/api/films/1/",
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/1/",
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/"
     ],
     "species": [],
     "vehicles": [
-      "https://swapi.dev/api/vehicles/14/"
+      "localhost:3000/vehicles/14/"
     ],
     "starships": [
-      "https://swapi.dev/api/starships/12/"
+      "localhost:3000/starships/12/"
     ],
     "created": "2014-12-12T11:08:06.469000Z",
     "edited": "2014-12-20T21:17:50.341000Z",
-    "url": "https://swapi.dev/api/people/18/",
+    "url": "localhost:3000/people/18/",
     "id": 18
   },
   {
@@ -458,16 +458,16 @@
     "gender": "male",
     "homeworld": 26,
     "films": [
-      "https://swapi.dev/api/films/1/"
+      "localhost:3000/films/1/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [
-      "https://swapi.dev/api/starships/12/"
+      "localhost:3000/starships/12/"
     ],
     "created": "2014-12-12T11:16:56.569000Z",
     "edited": "2014-12-20T21:17:50.343000Z",
-    "url": "https://swapi.dev/api/people/19/",
+    "url": "localhost:3000/people/19/",
     "id": 19
   },
   {
@@ -481,20 +481,20 @@
     "gender": "male",
     "homeworld": 28,
     "films": [
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/",
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/",
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/6/"
+      "localhost:3000/species/6/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-15T12:26:01.042000Z",
     "edited": "2014-12-20T21:17:50.345000Z",
-    "url": "https://swapi.dev/api/people/20/",
+    "url": "localhost:3000/people/20/",
     "id": 20
   },
   {
@@ -508,18 +508,18 @@
     "gender": "male",
     "homeworld": 8,
     "films": [
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/",
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/",
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-15T12:48:05.971000Z",
     "edited": "2014-12-20T21:17:50.347000Z",
-    "url": "https://swapi.dev/api/people/21/",
+    "url": "localhost:3000/people/21/",
     "id": 21
   },
   {
@@ -533,18 +533,18 @@
     "gender": "male",
     "homeworld": 10,
     "films": [
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/",
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/",
+      "localhost:3000/films/5/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [
-      "https://swapi.dev/api/starships/21/"
+      "localhost:3000/starships/21/"
     ],
     "created": "2014-12-15T12:49:32.457000Z",
     "edited": "2014-12-20T21:17:50.349000Z",
-    "url": "https://swapi.dev/api/people/22/",
+    "url": "localhost:3000/people/22/",
     "id": 22
   },
   {
@@ -558,16 +558,16 @@
     "gender": "none",
     "homeworld": 28,
     "films": [
-      "https://swapi.dev/api/films/2/"
+      "localhost:3000/films/2/"
     ],
     "species": [
-      "https://swapi.dev/api/species/2/"
+      "localhost:3000/species/2/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-15T12:51:10.076000Z",
     "edited": "2014-12-20T21:17:50.351000Z",
-    "url": "https://swapi.dev/api/people/23/",
+    "url": "localhost:3000/people/23/",
     "id": 23
   },
   {
@@ -581,16 +581,16 @@
     "gender": "male",
     "homeworld": 29,
     "films": [
-      "https://swapi.dev/api/films/2/"
+      "localhost:3000/films/2/"
     ],
     "species": [
-      "https://swapi.dev/api/species/7/"
+      "localhost:3000/species/7/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-15T12:53:49.297000Z",
     "edited": "2014-12-20T21:17:50.355000Z",
-    "url": "https://swapi.dev/api/people/24/",
+    "url": "localhost:3000/people/24/",
     "id": 24
   },
   {
@@ -604,17 +604,17 @@
     "gender": "male",
     "homeworld": 30,
     "films": [
-      "https://swapi.dev/api/films/2/",
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/2/",
+      "localhost:3000/films/3/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [
-      "https://swapi.dev/api/starships/10/"
+      "localhost:3000/starships/10/"
     ],
     "created": "2014-12-15T12:56:32.683000Z",
     "edited": "2014-12-20T21:17:50.357000Z",
-    "url": "https://swapi.dev/api/people/25/",
+    "url": "localhost:3000/people/25/",
     "id": 25
   },
   {
@@ -628,14 +628,14 @@
     "gender": "male",
     "homeworld": 6,
     "films": [
-      "https://swapi.dev/api/films/2/"
+      "localhost:3000/films/2/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-15T13:01:57.178000Z",
     "edited": "2014-12-20T21:17:50.359000Z",
-    "url": "https://swapi.dev/api/people/26/",
+    "url": "localhost:3000/people/26/",
     "id": 26
   },
   {
@@ -649,16 +649,16 @@
     "gender": "male",
     "homeworld": 31,
     "films": [
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/3/"
     ],
     "species": [
-      "https://swapi.dev/api/species/8/"
+      "localhost:3000/species/8/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-18T11:07:50.584000Z",
     "edited": "2014-12-20T21:17:50.362000Z",
-    "url": "https://swapi.dev/api/people/27/",
+    "url": "localhost:3000/people/27/",
     "id": 27
   },
   {
@@ -672,14 +672,14 @@
     "gender": "female",
     "homeworld": 32,
     "films": [
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/3/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-18T11:12:38.895000Z",
     "edited": "2014-12-20T21:17:50.364000Z",
-    "url": "https://swapi.dev/api/people/28/",
+    "url": "localhost:3000/people/28/",
     "id": 28
   },
   {
@@ -693,16 +693,16 @@
     "gender": "male",
     "homeworld": 28,
     "films": [
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/3/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [
-      "https://swapi.dev/api/starships/28/"
+      "localhost:3000/starships/28/"
     ],
     "created": "2014-12-18T11:16:33.020000Z",
     "edited": "2014-12-20T21:17:50.367000Z",
-    "url": "https://swapi.dev/api/people/29/",
+    "url": "localhost:3000/people/29/",
     "id": 29
   },
   {
@@ -716,16 +716,16 @@
     "gender": "male",
     "homeworld": 7,
     "films": [
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/3/"
     ],
     "species": [
-      "https://swapi.dev/api/species/9/"
+      "localhost:3000/species/9/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-18T11:21:58.954000Z",
     "edited": "2014-12-20T21:17:50.369000Z",
-    "url": "https://swapi.dev/api/people/30/",
+    "url": "localhost:3000/people/30/",
     "id": 30
   },
   {
@@ -739,18 +739,18 @@
     "gender": "male",
     "homeworld": 33,
     "films": [
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/3/"
     ],
     "species": [
-      "https://swapi.dev/api/species/10/"
+      "localhost:3000/species/10/"
     ],
     "vehicles": [],
     "starships": [
-      "https://swapi.dev/api/starships/10/"
+      "localhost:3000/starships/10/"
     ],
     "created": "2014-12-18T11:26:18.541000Z",
     "edited": "2014-12-20T21:17:50.371000Z",
-    "url": "https://swapi.dev/api/people/31/",
+    "url": "localhost:3000/people/31/",
     "id": 31
   },
   {
@@ -764,16 +764,16 @@
     "gender": "male",
     "homeworld": 28,
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "species": [],
     "vehicles": [
-      "https://swapi.dev/api/vehicles/38/"
+      "localhost:3000/vehicles/38/"
     ],
     "starships": [],
     "created": "2014-12-19T16:54:53.618000Z",
     "edited": "2014-12-20T21:17:50.375000Z",
-    "url": "https://swapi.dev/api/people/32/",
+    "url": "localhost:3000/people/32/",
     "id": 32
   },
   {
@@ -787,18 +787,18 @@
     "gender": "male",
     "homeworld": 18,
     "films": [
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/11/"
+      "localhost:3000/species/11/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-19T17:05:57.357000Z",
     "edited": "2014-12-20T21:17:50.377000Z",
-    "url": "https://swapi.dev/api/people/33/",
+    "url": "localhost:3000/people/33/",
     "id": 33
   },
   {
@@ -812,14 +812,14 @@
     "gender": "male",
     "homeworld": 9,
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-19T17:21:45.915000Z",
     "edited": "2014-12-20T21:17:50.379000Z",
-    "url": "https://swapi.dev/api/people/34/",
+    "url": "localhost:3000/people/34/",
     "id": 34
   },
   {
@@ -833,20 +833,20 @@
     "gender": "female",
     "homeworld": 8,
     "films": [
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [
-      "https://swapi.dev/api/starships/39/",
-      "https://swapi.dev/api/starships/49/",
-      "https://swapi.dev/api/starships/64/"
+      "localhost:3000/starships/39/",
+      "localhost:3000/starships/49/",
+      "localhost:3000/starships/64/"
     ],
     "created": "2014-12-19T17:28:26.926000Z",
     "edited": "2014-12-20T21:17:50.381000Z",
-    "url": "https://swapi.dev/api/people/35/",
+    "url": "localhost:3000/people/35/",
     "id": 35
   },
   {
@@ -860,17 +860,17 @@
     "gender": "male",
     "homeworld": 8,
     "films": [
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/"
     ],
     "species": [
-      "https://swapi.dev/api/species/12/"
+      "localhost:3000/species/12/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-19T17:29:32.489000Z",
     "edited": "2014-12-20T21:17:50.383000Z",
-    "url": "https://swapi.dev/api/people/36/",
+    "url": "localhost:3000/people/36/",
     "id": 36
   },
   {
@@ -884,16 +884,16 @@
     "gender": "male",
     "homeworld": 8,
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "species": [
-      "https://swapi.dev/api/species/12/"
+      "localhost:3000/species/12/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-19T17:32:56.741000Z",
     "edited": "2014-12-20T21:17:50.385000Z",
-    "url": "https://swapi.dev/api/people/37/",
+    "url": "localhost:3000/people/37/",
     "id": 37
   },
   {
@@ -907,16 +907,16 @@
     "gender": "male",
     "homeworld": 8,
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "species": [
-      "https://swapi.dev/api/species/12/"
+      "localhost:3000/species/12/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-19T17:33:38.909000Z",
     "edited": "2014-12-20T21:17:50.388000Z",
-    "url": "https://swapi.dev/api/people/38/",
+    "url": "localhost:3000/people/38/",
     "id": 38
   },
   {
@@ -930,16 +930,16 @@
     "gender": "male",
     "homeworld": 8,
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [
-      "https://swapi.dev/api/starships/40/"
+      "localhost:3000/starships/40/"
     ],
     "created": "2014-12-19T17:45:01.522000Z",
     "edited": "2014-12-20T21:17:50.392000Z",
-    "url": "https://swapi.dev/api/people/39/",
+    "url": "localhost:3000/people/39/",
     "id": 39
   },
   {
@@ -953,17 +953,17 @@
     "gender": "male",
     "homeworld": 34,
     "films": [
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/"
     ],
     "species": [
-      "https://swapi.dev/api/species/13/"
+      "localhost:3000/species/13/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-19T17:48:54.647000Z",
     "edited": "2014-12-20T21:17:50.395000Z",
-    "url": "https://swapi.dev/api/people/40/",
+    "url": "localhost:3000/people/40/",
     "id": 40
   },
   {
@@ -977,16 +977,16 @@
     "gender": "male",
     "homeworld": 35,
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "species": [
-      "https://swapi.dev/api/species/14/"
+      "localhost:3000/species/14/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-19T17:53:02.586000Z",
     "edited": "2014-12-20T21:17:50.397000Z",
-    "url": "https://swapi.dev/api/people/41/",
+    "url": "localhost:3000/people/41/",
     "id": 41
   },
   {
@@ -1000,14 +1000,14 @@
     "gender": "male",
     "homeworld": 8,
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-19T17:55:43.348000Z",
     "edited": "2014-12-20T21:17:50.399000Z",
-    "url": "https://swapi.dev/api/people/42/",
+    "url": "localhost:3000/people/42/",
     "id": 42
   },
   {
@@ -1021,15 +1021,15 @@
     "gender": "female",
     "homeworld": 1,
     "films": [
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-19T17:57:41.191000Z",
     "edited": "2014-12-20T21:17:50.401000Z",
-    "url": "https://swapi.dev/api/people/43/",
+    "url": "localhost:3000/people/43/",
     "id": 43
   },
   {
@@ -1043,20 +1043,20 @@
     "gender": "male",
     "homeworld": 36,
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "species": [
-      "https://swapi.dev/api/species/22/"
+      "localhost:3000/species/22/"
     ],
     "vehicles": [
-      "https://swapi.dev/api/vehicles/42/"
+      "localhost:3000/vehicles/42/"
     ],
     "starships": [
-      "https://swapi.dev/api/starships/41/"
+      "localhost:3000/starships/41/"
     ],
     "created": "2014-12-19T18:00:41.929000Z",
     "edited": "2014-12-20T21:17:50.403000Z",
-    "url": "https://swapi.dev/api/people/44/",
+    "url": "localhost:3000/people/44/",
     "id": 44
   },
   {
@@ -1070,16 +1070,16 @@
     "gender": "male",
     "homeworld": 37,
     "films": [
-      "https://swapi.dev/api/films/3/"
+      "localhost:3000/films/3/"
     ],
     "species": [
-      "https://swapi.dev/api/species/15/"
+      "localhost:3000/species/15/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T09:47:02.512000Z",
     "edited": "2014-12-20T21:17:50.407000Z",
-    "url": "https://swapi.dev/api/people/45/",
+    "url": "localhost:3000/people/45/",
     "id": 45
   },
   {
@@ -1093,18 +1093,18 @@
     "gender": "female",
     "homeworld": 37,
     "films": [
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/15/"
+      "localhost:3000/species/15/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T09:48:01.172000Z",
     "edited": "2014-12-20T21:17:50.409000Z",
-    "url": "https://swapi.dev/api/people/46/",
+    "url": "localhost:3000/people/46/",
     "id": 46
   },
   {
@@ -1118,16 +1118,16 @@
     "gender": "male",
     "homeworld": 38,
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "species": [
-      "https://swapi.dev/api/species/16/"
+      "localhost:3000/species/16/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T09:53:15.086000Z",
     "edited": "2014-12-20T21:17:50.410000Z",
-    "url": "https://swapi.dev/api/people/47/",
+    "url": "localhost:3000/people/47/",
     "id": 47
   },
   {
@@ -1141,16 +1141,16 @@
     "gender": "male",
     "homeworld": 39,
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "species": [
-      "https://swapi.dev/api/species/17/"
+      "localhost:3000/species/17/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T09:57:31.858000Z",
     "edited": "2014-12-20T21:17:50.414000Z",
-    "url": "https://swapi.dev/api/people/48/",
+    "url": "localhost:3000/people/48/",
     "id": 48
   },
   {
@@ -1164,16 +1164,16 @@
     "gender": "male",
     "homeworld": 40,
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "species": [
-      "https://swapi.dev/api/species/18/"
+      "localhost:3000/species/18/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T10:02:12.223000Z",
     "edited": "2014-12-20T21:17:50.416000Z",
-    "url": "https://swapi.dev/api/people/49/",
+    "url": "localhost:3000/people/49/",
     "id": 49
   },
   {
@@ -1187,16 +1187,16 @@
     "gender": "male",
     "homeworld": 41,
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "species": [
-      "https://swapi.dev/api/species/19/"
+      "localhost:3000/species/19/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T10:08:33.777000Z",
     "edited": "2014-12-20T21:17:50.417000Z",
-    "url": "https://swapi.dev/api/people/50/",
+    "url": "localhost:3000/people/50/",
     "id": 50
   },
   {
@@ -1210,16 +1210,16 @@
     "gender": "male",
     "homeworld": 42,
     "films": [
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T10:12:30.846000Z",
     "edited": "2014-12-20T21:17:50.420000Z",
-    "url": "https://swapi.dev/api/people/51/",
+    "url": "localhost:3000/people/51/",
     "id": 51
   },
   {
@@ -1233,18 +1233,18 @@
     "gender": "male",
     "homeworld": 43,
     "films": [
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/20/"
+      "localhost:3000/species/20/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T10:15:32.293000Z",
     "edited": "2014-12-20T21:17:50.422000Z",
-    "url": "https://swapi.dev/api/people/52/",
+    "url": "localhost:3000/people/52/",
     "id": 52
   },
   {
@@ -1258,18 +1258,18 @@
     "gender": "male",
     "homeworld": 44,
     "films": [
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/21/"
+      "localhost:3000/species/21/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T10:18:57.202000Z",
     "edited": "2014-12-20T21:17:50.424000Z",
-    "url": "https://swapi.dev/api/people/53/",
+    "url": "localhost:3000/people/53/",
     "id": 53
   },
   {
@@ -1283,17 +1283,17 @@
     "gender": "male",
     "homeworld": 45,
     "films": [
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/4/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/22/"
+      "localhost:3000/species/22/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T10:26:47.902000Z",
     "edited": "2014-12-20T21:17:50.427000Z",
-    "url": "https://swapi.dev/api/people/54/",
+    "url": "localhost:3000/people/54/",
     "id": 54
   },
   {
@@ -1307,17 +1307,17 @@
     "gender": "female",
     "homeworld": 9,
     "films": [
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/4/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/23/"
+      "localhost:3000/species/23/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T10:29:11.661000Z",
     "edited": "2014-12-20T21:17:50.432000Z",
-    "url": "https://swapi.dev/api/people/55/",
+    "url": "localhost:3000/people/55/",
     "id": 55
   },
   {
@@ -1331,17 +1331,17 @@
     "gender": "male",
     "homeworld": 47,
     "films": [
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/4/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/24/"
+      "localhost:3000/species/24/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T10:32:11.669000Z",
     "edited": "2014-12-20T21:17:50.434000Z",
-    "url": "https://swapi.dev/api/people/56/",
+    "url": "localhost:3000/people/56/",
     "id": 56
   },
   {
@@ -1355,16 +1355,16 @@
     "gender": "male",
     "homeworld": 48,
     "films": [
-      "https://swapi.dev/api/films/4/"
+      "localhost:3000/films/4/"
     ],
     "species": [
-      "https://swapi.dev/api/species/25/"
+      "localhost:3000/species/25/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T10:34:48.725000Z",
     "edited": "2014-12-20T21:17:50.437000Z",
-    "url": "https://swapi.dev/api/people/57/",
+    "url": "localhost:3000/people/57/",
     "id": 57
   },
   {
@@ -1378,20 +1378,20 @@
     "gender": "male",
     "homeworld": 49,
     "films": [
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/26/"
+      "localhost:3000/species/26/"
     ],
     "vehicles": [],
     "starships": [
-      "https://swapi.dev/api/starships/48/"
+      "localhost:3000/starships/48/"
     ],
     "created": "2014-12-20T10:49:19.859000Z",
     "edited": "2014-12-20T21:17:50.439000Z",
-    "url": "https://swapi.dev/api/people/58/",
+    "url": "localhost:3000/people/58/",
     "id": 58
   },
   {
@@ -1405,17 +1405,17 @@
     "gender": "male",
     "homeworld": 50,
     "films": [
-      "https://swapi.dev/api/films/4/",
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/4/",
+      "localhost:3000/films/5/"
     ],
     "species": [
-      "https://swapi.dev/api/species/27/"
+      "localhost:3000/species/27/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T10:53:26.457000Z",
     "edited": "2014-12-20T21:17:50.442000Z",
-    "url": "https://swapi.dev/api/people/59/",
+    "url": "localhost:3000/people/59/",
     "id": 59
   },
   {
@@ -1429,16 +1429,16 @@
     "gender": "male",
     "homeworld": 8,
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [
-      "https://swapi.dev/api/starships/39/"
+      "localhost:3000/starships/39/"
     ],
     "created": "2014-12-20T11:10:10.381000Z",
     "edited": "2014-12-20T21:17:50.445000Z",
-    "url": "https://swapi.dev/api/people/60/",
+    "url": "localhost:3000/people/60/",
     "id": 60
   },
   {
@@ -1452,14 +1452,14 @@
     "gender": "female",
     "homeworld": 8,
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T11:11:39.630000Z",
     "edited": "2014-12-20T21:17:50.449000Z",
-    "url": "https://swapi.dev/api/people/61/",
+    "url": "localhost:3000/people/61/",
     "id": 61
   },
   {
@@ -1473,14 +1473,14 @@
     "gender": "male",
     "homeworld": 1,
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T15:59:03.958000Z",
     "edited": "2014-12-20T21:17:50.451000Z",
-    "url": "https://swapi.dev/api/people/62/",
+    "url": "localhost:3000/people/62/",
     "id": 62
   },
   {
@@ -1494,17 +1494,17 @@
     "gender": "male",
     "homeworld": 11,
     "films": [
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/28/"
+      "localhost:3000/species/28/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T16:40:43.977000Z",
     "edited": "2014-12-20T21:17:50.453000Z",
-    "url": "https://swapi.dev/api/people/63/",
+    "url": "localhost:3000/people/63/",
     "id": 63
   },
   {
@@ -1518,17 +1518,17 @@
     "gender": "female",
     "homeworld": 51,
     "films": [
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/29/"
+      "localhost:3000/species/29/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T16:45:53.668000Z",
     "edited": "2014-12-20T21:17:50.455000Z",
-    "url": "https://swapi.dev/api/people/64/",
+    "url": "localhost:3000/people/64/",
     "id": 64
   },
   {
@@ -1542,16 +1542,16 @@
     "gender": "female",
     "homeworld": 51,
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "species": [
-      "https://swapi.dev/api/species/29/"
+      "localhost:3000/species/29/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T16:46:40.440000Z",
     "edited": "2014-12-20T21:17:50.457000Z",
-    "url": "https://swapi.dev/api/people/65/",
+    "url": "localhost:3000/people/65/",
     "id": 65
   },
   {
@@ -1565,16 +1565,16 @@
     "gender": "female",
     "homeworld": 8,
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "species": [
-      "https://swapi.dev/api/species/1/"
+      "localhost:3000/species/1/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T16:49:14.640000Z",
     "edited": "2014-12-20T21:17:50.460000Z",
-    "url": "https://swapi.dev/api/people/66/",
+    "url": "localhost:3000/people/66/",
     "id": 66
   },
   {
@@ -1588,19 +1588,19 @@
     "gender": "male",
     "homeworld": 52,
     "films": [
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/1/"
+      "localhost:3000/species/1/"
     ],
     "vehicles": [
-      "https://swapi.dev/api/vehicles/55/"
+      "localhost:3000/vehicles/55/"
     ],
     "starships": [],
     "created": "2014-12-20T16:52:14.726000Z",
     "edited": "2014-12-20T21:17:50.462000Z",
-    "url": "https://swapi.dev/api/people/67/",
+    "url": "localhost:3000/people/67/",
     "id": 67
   },
   {
@@ -1614,17 +1614,17 @@
     "gender": "male",
     "homeworld": 2,
     "films": [
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/1/"
+      "localhost:3000/species/1/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T16:53:08.575000Z",
     "edited": "2014-12-20T21:17:50.463000Z",
-    "url": "https://swapi.dev/api/people/68/",
+    "url": "localhost:3000/people/68/",
     "id": 68
   },
   {
@@ -1638,14 +1638,14 @@
     "gender": "male",
     "homeworld": 53,
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T16:54:41.620000Z",
     "edited": "2014-12-20T21:17:50.465000Z",
-    "url": "https://swapi.dev/api/people/69/",
+    "url": "localhost:3000/people/69/",
     "id": 69
   },
   {
@@ -1659,18 +1659,18 @@
     "gender": "female",
     "homeworld": 54,
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "species": [
-      "https://swapi.dev/api/species/30/"
+      "localhost:3000/species/30/"
     ],
     "vehicles": [
-      "https://swapi.dev/api/vehicles/45/"
+      "localhost:3000/vehicles/45/"
     ],
     "starships": [],
     "created": "2014-12-20T16:57:44.471000Z",
     "edited": "2014-12-20T21:17:50.468000Z",
-    "url": "https://swapi.dev/api/people/70/",
+    "url": "localhost:3000/people/70/",
     "id": 70
   },
   {
@@ -1684,16 +1684,16 @@
     "gender": "male",
     "homeworld": 55,
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "species": [
-      "https://swapi.dev/api/species/31/"
+      "localhost:3000/species/31/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T17:28:27.248000Z",
     "edited": "2014-12-20T21:17:50.470000Z",
-    "url": "https://swapi.dev/api/people/71/",
+    "url": "localhost:3000/people/71/",
     "id": 71
   },
   {
@@ -1707,16 +1707,16 @@
     "gender": "male",
     "homeworld": 10,
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "species": [
-      "https://swapi.dev/api/species/32/"
+      "localhost:3000/species/32/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T17:30:50.416000Z",
     "edited": "2014-12-20T21:17:50.473000Z",
-    "url": "https://swapi.dev/api/people/72/",
+    "url": "localhost:3000/people/72/",
     "id": 72
   },
   {
@@ -1730,16 +1730,16 @@
     "gender": "female",
     "homeworld": 10,
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "species": [
-      "https://swapi.dev/api/species/32/"
+      "localhost:3000/species/32/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T17:31:21.195000Z",
     "edited": "2014-12-20T21:17:50.474000Z",
-    "url": "https://swapi.dev/api/people/73/",
+    "url": "localhost:3000/people/73/",
     "id": 73
   },
   {
@@ -1753,16 +1753,16 @@
     "gender": "female",
     "homeworld": 9,
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "species": [
-      "https://swapi.dev/api/species/1/"
+      "localhost:3000/species/1/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T17:32:51.996000Z",
     "edited": "2014-12-20T21:17:50.476000Z",
-    "url": "https://swapi.dev/api/people/74/",
+    "url": "localhost:3000/people/74/",
     "id": 74
   },
   {
@@ -1776,15 +1776,15 @@
     "gender": "female",
     "homeworld": 28,
     "films": [
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T17:43:36.409000Z",
     "edited": "2014-12-20T21:17:50.478000Z",
-    "url": "https://swapi.dev/api/people/75/",
+    "url": "localhost:3000/people/75/",
     "id": 75
   },
   {
@@ -1798,16 +1798,16 @@
     "gender": "male",
     "homeworld": 56,
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "species": [
-      "https://swapi.dev/api/species/33/"
+      "localhost:3000/species/33/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T17:53:52.607000Z",
     "edited": "2014-12-20T21:17:50.481000Z",
-    "url": "https://swapi.dev/api/people/76/",
+    "url": "localhost:3000/people/76/",
     "id": 76
   },
   {
@@ -1821,16 +1821,16 @@
     "gender": "male",
     "homeworld": 57,
     "films": [
-      "https://swapi.dev/api/films/5/"
+      "localhost:3000/films/5/"
     ],
     "species": [
-      "https://swapi.dev/api/species/34/"
+      "localhost:3000/species/34/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T17:58:17.049000Z",
     "edited": "2014-12-20T21:17:50.484000Z",
-    "url": "https://swapi.dev/api/people/77/",
+    "url": "localhost:3000/people/77/",
     "id": 77
   },
   {
@@ -1844,17 +1844,17 @@
     "gender": "female",
     "homeworld": 58,
     "films": [
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/35/"
+      "localhost:3000/species/35/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T18:44:01.103000Z",
     "edited": "2014-12-20T21:17:50.486000Z",
-    "url": "https://swapi.dev/api/people/78/",
+    "url": "localhost:3000/people/78/",
     "id": 78
   },
   {
@@ -1868,20 +1868,20 @@
     "gender": "male",
     "homeworld": 59,
     "films": [
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/36/"
+      "localhost:3000/species/36/"
     ],
     "vehicles": [
-      "https://swapi.dev/api/vehicles/60/"
+      "localhost:3000/vehicles/60/"
     ],
     "starships": [
-      "https://swapi.dev/api/starships/74/"
+      "localhost:3000/starships/74/"
     ],
     "created": "2014-12-20T19:43:53.348000Z",
     "edited": "2014-12-20T21:17:50.488000Z",
-    "url": "https://swapi.dev/api/people/79/",
+    "url": "localhost:3000/people/79/",
     "id": 79
   },
   {
@@ -1895,16 +1895,16 @@
     "gender": "male",
     "homeworld": 14,
     "films": [
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/3/"
+      "localhost:3000/species/3/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T19:46:34.209000Z",
     "edited": "2014-12-20T21:17:50.491000Z",
-    "url": "https://swapi.dev/api/people/80/",
+    "url": "localhost:3000/people/80/",
     "id": 80
   },
   {
@@ -1918,15 +1918,15 @@
     "gender": "male",
     "homeworld": 2,
     "films": [
-      "https://swapi.dev/api/films/1/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/1/",
+      "localhost:3000/films/6/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T19:49:35.583000Z",
     "edited": "2014-12-20T21:17:50.493000Z",
-    "url": "https://swapi.dev/api/people/81/",
+    "url": "localhost:3000/people/81/",
     "id": 81
   },
   {
@@ -1940,15 +1940,15 @@
     "gender": "female",
     "homeworld": 60,
     "films": [
-      "https://swapi.dev/api/films/5/",
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/5/",
+      "localhost:3000/films/6/"
     ],
     "species": [],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T20:18:37.619000Z",
     "edited": "2014-12-20T21:17:50.496000Z",
-    "url": "https://swapi.dev/api/people/82/",
+    "url": "localhost:3000/people/82/",
     "id": 82
   },
   {
@@ -1962,16 +1962,16 @@
     "gender": "male",
     "homeworld": 12,
     "films": [
-      "https://swapi.dev/api/films/6/"
+      "localhost:3000/films/6/"
     ],
     "species": [
-      "https://swapi.dev/api/species/37/"
+      "localhost:3000/species/37/"
     ],
     "vehicles": [],
     "starships": [],
     "created": "2014-12-20T20:35:04.260000Z",
     "edited": "2014-12-20T21:17:50.498000Z",
-    "url": "https://swapi.dev/api/people/83/",
+    "url": "localhost:3000/people/83/",
     "id": 83
   }
 ]

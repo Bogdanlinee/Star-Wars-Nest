@@ -65,29 +65,32 @@ export class Planet {
     })
     films: Film[];
 
-    @ManyToMany(
-        () => Species,
-        (Species) => Species.planets,
-        {
-            cascade: ['remove']
-        })
-    @JoinTable({
-        name: 'planet_species',
-        joinColumn: {
-            name: 'planet_id',
-            referencedColumnName: 'id',
-            foreignKeyConstraintName: 'planet_species_planet_id'
-        },
-        inverseJoinColumn: {
-            name: 'species_id',
-            referencedColumnName: 'id',
-            foreignKeyConstraintName: 'planet_species_species_id'
-        }
-    })
-    species: Species[];
+    // @ManyToMany(
+    //     () => Species,
+    //     (Species) => Species.planets,
+    //     {
+    //         cascade: ['remove']
+    //     })
+    // @JoinTable({
+    //     name: 'planet_species',
+    //     joinColumn: {
+    //         name: 'planet_id',
+    //         referencedColumnName: 'id',
+    //         foreignKeyConstraintName: 'planet_species_planet_id'
+    //     },
+    //     inverseJoinColumn: {
+    //         name: 'species_id',
+    //         referencedColumnName: 'id',
+    //         foreignKeyConstraintName: 'planet_species_species_id'
+    //     }
+    // })
+    // species: Species[];
 
     @OneToMany(() => Person, (Person) => Person.homeworld)
     residents: Person[];
+
+    @OneToMany(() => Species, (Species) => Species.homeworld)
+    species: Species[];
 
     @CreateDateColumn({select: false})
     created: Date;

@@ -39,11 +39,11 @@ describe('Species (e2e)', () => {
             .send(mockSpeciesDTO)
             .expect(201)
             .then(res => {
-                const {id, name, films, people, planets, url} = res.body.data;
+                const {id, name, films, people, homeworld, url} = res.body.data;
                 expect(films.length).toBeGreaterThan(0);
                 expect(people.length).toBeGreaterThan(0);
-                expect(planets.length).toBeGreaterThan(0);
                 expect(name).toBeDefined();
+                expect(homeworld).toBeDefined();
                 expect(url).toEqual(`localhost:3000/species/${id}`);
             })
     });
@@ -57,12 +57,12 @@ describe('Species (e2e)', () => {
             .set('Cookie', loginCookie)
             .expect(200)
             .then(res => {
-                const {id, name, films, people, planets} = res.body.data;
+                const {id, name, films, people, homeworld} = res.body.data;
                 expect(id).toEqual(speciesId);
                 expect(films.length).toBeGreaterThan(0);
                 expect(people.length).toBeGreaterThan(0);
-                expect(planets.length).toBeGreaterThan(0);
                 expect(name).toBeDefined();
+                expect(homeworld).toBeDefined();
             })
     });
 
@@ -88,7 +88,7 @@ describe('Species (e2e)', () => {
                 expect(speciesList.length).toBeTruthy();
                 expect(speciesList[0]['people'].length).toBeGreaterThan(0);
                 expect(speciesList[0]['films'].length).toBeGreaterThan(0);
-                expect(speciesList[0]['planets'].length).toBeGreaterThan(0);
+                expect(speciesList[0]['homeworld']).toBeDefined();
             })
     });
 
@@ -103,11 +103,11 @@ describe('Species (e2e)', () => {
             .send(speciesUpdatedInfo)
             .expect(200)
             .then(res => {
-                const {name, films, people, planets} = res.body.data;
+                const {name, films, people, homeworld} = res.body.data;
                 expect(name).toEqual(speciesUpdatedInfo.name);
                 expect(films.length).toBeGreaterThan(0);
                 expect(people.length).toBeGreaterThan(0);
-                expect(planets.length).toBeGreaterThan(0);
+                expect(homeworld).toBeDefined();
             })
     })
 

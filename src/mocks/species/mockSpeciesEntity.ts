@@ -1,3 +1,5 @@
+import {Planet} from '../../planets/entities/planet.entity';
+
 export default {
     id: 1,
     name: 'Pau\'an',
@@ -8,7 +10,8 @@ export default {
     hair_colors: 'none',
     eye_colors: 'black',
     average_lifespan: '700',
-    homeworld: 'https://swapi.dev/api/planets/12/',
+    homeworld: new Planet(),
+    homeworldId: 1,
     language: 'Utapese',
     people: [],
     films: [],
