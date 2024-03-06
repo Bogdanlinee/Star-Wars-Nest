@@ -31,23 +31,23 @@ describe('Planets (e2e)', () => {
         await app.init();
     });
 
-    // it('Can create one planet', async () => {
-    //     const loginCookie = await getUserCookie(adminRoleUser);
-    //
-    //     return request(app.getHttpServer())
-    //         .post(`/planets`)
-    //         .set('Cookie', loginCookie)
-    //         .send(mockPlanetsDTO)
-    //         .expect(201)
-    //         .then(res => {
-    //             const {id, residents, species, films, url} = res.body.data;
-    //             expect(residents.length).toBeGreaterThan(0);
-    //             expect(species.length).toBeGreaterThan(0);
-    //             expect(films.length).toBeGreaterThan(0);
-    //             expect(id).toBeDefined();
-    //             expect(url).toEqual(`localhost:3000/planets/${id}`);
-    //         })
-    // });
+    it('Can create one planet', async () => {
+        const loginCookie = await getUserCookie(adminRoleUser);
+
+        return request(app.getHttpServer())
+            .post(`/planets`)
+            .set('Cookie', loginCookie)
+            .send(mockPlanetsDTO)
+            .expect(201)
+            .then(res => {
+                const {id, residents, species, films, url} = res.body.data;
+                expect(residents.length).toBeGreaterThan(0);
+                expect(species.length).toBeGreaterThan(0);
+                expect(films.length).toBeGreaterThan(0);
+                expect(id).toBeDefined();
+                expect(url).toEqual(`localhost:3000/planets/${id}`);
+            })
+    });
 
     it('Can find one planet', async () => {
         const loginCookie = await getUserCookie(userRoleUser);
@@ -58,7 +58,6 @@ describe('Planets (e2e)', () => {
             .set('Cookie', loginCookie)
             .expect(200)
             .then(res => {
-                console.log(res.body.data);
                 const {id, residents, species, films} = res.body.data;
                 expect(id).toEqual(planetId);
                 expect(residents.length).toBeGreaterThan(0);
@@ -67,67 +66,67 @@ describe('Planets (e2e)', () => {
             })
     });
 
-    // it('Throws Error. Find one planet in DB', async () => {
-    //     const loginCookie = await getUserCookie(userRoleUser);
-    //     const planetId = 10000000;
-    //
-    //     return request(app.getHttpServer())
-    //         .get(`/planets/${planetId}`)
-    //         .set('Cookie', loginCookie)
-    //         .expect(404)
-    // });
-    //
-    // it('Can find many planets', async () => {
-    //     const loginCookie = await getUserCookie(userRoleUser);
-    //
-    //     return request(app.getHttpServer())
-    //         .get(`/planets`)
-    //         .set('Cookie', loginCookie)
-    //         .expect(200)
-    //         .then(res => {
-    //             const planetsList = res.body.data;
-    //             expect(planetsList.length).toBeTruthy();
-    //             expect(planetsList[0]['residents'].length).toBeGreaterThan(0);
-    //             expect(planetsList[0]['species'].length).toBeGreaterThan(0);
-    //             expect(planetsList[0]['films'].length).toBeGreaterThan(0);
-    //         })
-    // });
-    //
-    // it('Can update the planet', async () => {
-    //     const loginCookie = await getUserCookie(adminRoleUser);
-    //     const planetId = 7;
-    //     const planetUpdatedInfo = {
-    //         name: 'New planet Title',
-    //         residentIds: [1, 2, 3],
-    //         speciesIds: [1, 2, 3],
-    //         filmIds: [1, 2, 3],
-    //     };
-    //
-    //     return request(app.getHttpServer())
-    //         .patch(`/planets/${planetId}`)
-    //         .set('Cookie', loginCookie)
-    //         .send(planetUpdatedInfo)
-    //         .expect(200)
-    //         .then(res => {
-    //             const {name, residents, species, films} = res.body.data;
-    //             expect(name).toEqual(planetUpdatedInfo.name);
-    //             expect(residents.length).toEqual(planetUpdatedInfo.residentIds.length);
-    //             expect(species.length).toEqual(planetUpdatedInfo.speciesIds.length);
-    //             expect(films.length).toEqual(planetUpdatedInfo.filmIds.length);
-    //         })
-    // })
-    //
-    // it('Can delete one planet', async () => {
-    //     const loginCookie = await getUserCookie(adminRoleUser);
-    //     const planetId = 1;
-    //
-    //     return request(app.getHttpServer())
-    //         .delete(`/planets/${planetId}`)
-    //         .set('Cookie', loginCookie)
-    //         .expect(200)
-    //         .then(res => {
-    //             const {deletedAt} = res.body.data;
-    //             expect(deletedAt).toBeTruthy();
-    //         })
-    // })
+    it('Throws Error. Find one planet in DB', async () => {
+        const loginCookie = await getUserCookie(userRoleUser);
+        const planetId = 10000000;
+
+        return request(app.getHttpServer())
+            .get(`/planets/${planetId}`)
+            .set('Cookie', loginCookie)
+            .expect(404)
+    });
+
+    it('Can find many planets', async () => {
+        const loginCookie = await getUserCookie(userRoleUser);
+
+        return request(app.getHttpServer())
+            .get(`/planets`)
+            .set('Cookie', loginCookie)
+            .expect(200)
+            .then(res => {
+                const planetsList = res.body.data;
+                expect(planetsList.length).toBeTruthy();
+                expect(planetsList[0]['residents'].length).toBeGreaterThan(0);
+                expect(planetsList[0]['species'].length).toBeGreaterThan(0);
+                expect(planetsList[0]['films'].length).toBeGreaterThan(0);
+            })
+    });
+
+    it('Can update the planet', async () => {
+        const loginCookie = await getUserCookie(adminRoleUser);
+        const planetId = 7;
+        const planetUpdatedInfo = {
+            name: 'New planet Title',
+            residentIds: [1, 2, 3],
+            speciesIds: [1, 2, 3],
+            filmIds: [1, 2, 3],
+        };
+
+        return request(app.getHttpServer())
+            .patch(`/planets/${planetId}`)
+            .set('Cookie', loginCookie)
+            .send(planetUpdatedInfo)
+            .expect(200)
+            .then(res => {
+                const {name, residents, species, films} = res.body.data;
+                expect(name).toEqual(planetUpdatedInfo.name);
+                expect(residents.length).toEqual(planetUpdatedInfo.residentIds.length);
+                expect(species.length).toEqual(planetUpdatedInfo.speciesIds.length);
+                expect(films.length).toEqual(planetUpdatedInfo.filmIds.length);
+            })
+    })
+
+    it('Can delete one planet', async () => {
+        const loginCookie = await getUserCookie(adminRoleUser);
+        const planetId = 1;
+
+        return request(app.getHttpServer())
+            .delete(`/planets/${planetId}`)
+            .set('Cookie', loginCookie)
+            .expect(200)
+            .then(res => {
+                const {deletedAt} = res.body.data;
+                expect(deletedAt).toBeTruthy();
+            })
+    })
 });

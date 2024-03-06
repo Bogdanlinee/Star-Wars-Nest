@@ -49,6 +49,7 @@ export class SpeciesService {
             relations: {
                 films: true,
                 people: true,
+                homeworld: true,
             },
             relationLoadStrategy: 'query',
         });
@@ -59,6 +60,7 @@ export class SpeciesService {
             relations: {
                 films: true,
                 people: true,
+                homeworld: true,
             },
             relationLoadStrategy: 'query',
             order: {id: 'DESC'},
